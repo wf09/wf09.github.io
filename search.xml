@@ -1,21 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Git常见操作</title>
-    <url>/2020/03/07/Git%E5%B8%B8%E8%A7%81%E6%93%8D%E4%BD%9C/</url>
-    <content><![CDATA[<p>不说废话，上教程。</p>
-<a id="more"></a>
-
-<h5 id="1-在本地目录下关联远程repository-："><a href="#1-在本地目录下关联远程repository-：" class="headerlink" title="1.在本地目录下关联远程repository ："></a>1.在本地目录下关联远程repository ：</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git remote add origin git@github.com:git_username/repository_name.git</span><br></pre></td></tr></table></figure>
-
-<h5 id="2-取消本地目录下关联的远程库："><a href="#2-取消本地目录下关联的远程库：" class="headerlink" title="2.取消本地目录下关联的远程库："></a>2.取消本地目录下关联的远程库：</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git remote remove origin</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <tags>
-        <tag>git</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Anacoda3 安装Pytorch小记录</title>
     <url>/2019/12/30/Anacoda3%20%E5%AE%89%E8%A3%85Pytorch%E5%B0%8F%E8%AE%B0%E5%BD%95/</url>
     <content><![CDATA[<p>话不多说，先上教程。</p>
@@ -70,40 +55,59 @@
       </tags>
   </entry>
   <entry>
-    <title>Linux服务器更换密钥</title>
-    <url>/2019/01/06/Linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%9B%B4%E6%8D%A2%E5%AF%86%E9%92%A5%E8%84%9A%E6%9C%AC/</url>
-    <content><![CDATA[<p><strong>1. 制作密钥对</strong></p>
-<p>首先在服务器上制作密钥对。首先用密码登录到你打算使用密钥登录的账户，然后执行以下命令：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[root@host ~]$ ssh-keygen  &lt;== 建立密钥对</span><br><span class="line">Generating public/private rsa key pair.</span><br><span class="line">Enter file <span class="keyword">in</span> <span class="built_in">which</span> to save the key (/root/.ssh/id_rsa): &lt;== 按 Enter</span><br><span class="line">Created directory <span class="string">'/root/.ssh'</span>.</span><br><span class="line">Enter passphrase (empty <span class="keyword">for</span> no passphrase): &lt;== 输入密钥锁码，或直接按 Enter 留空</span><br><span class="line">Enter same passphrase again: &lt;== 再输入一遍密钥锁码</span><br><span class="line">Your identification has been saved <span class="keyword">in</span> /root/.ssh/id_rsa. &lt;== 私钥</span><br><span class="line">Your public key has been saved <span class="keyword">in</span> /root/.ssh/id_rsa.pub. &lt;== 公钥</span><br><span class="line">The key fingerprint is:</span><br><span class="line">0f:d3:e7:1a:1c:bd:5c:03:f1:19:f1:22:df:9b:cc:08 root@host</span><br></pre></td></tr></table></figure>
+    <title>Git常见操作之在本地目录下关联远程仓库和如何取消本地目录下关联的远程库</title>
+    <url>/2020/03/07/Git%E5%B8%B8%E8%A7%81%E6%93%8D%E4%BD%9C/</url>
+    <content><![CDATA[<p>不说废话，上教程。</p>
+<a id="more"></a>
 
-<p>密钥锁码在使用私钥时必须输入，这样就可以保护私钥不被盗用。当然，也可以留空，实现无密码登录。</p>
-<p>现在，在 root 用户的家目录中生成了一个 <code>.ssh</code> 的隐藏目录，内含两个密钥文件。<code>id_rsa</code> 为私钥，<code>id_rsa.pub</code> 为公钥。</p>
-<p><strong>2. 在服务器上安装公钥</strong></p>
-<p>键入以下命令，在服务器上安装公钥：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[root@host ~]$ <span class="built_in">cd</span> .ssh</span><br><span class="line">[root@host .ssh]$ cat id_rsa.pub &gt;&gt; authorized_keys</span><br></pre></td></tr></table></figure>
+<h5 id="1-在本地目录下关联远程repository-："><a href="#1-在本地目录下关联远程repository-：" class="headerlink" title="1.在本地目录下关联远程repository ："></a>1.在本地目录下关联远程repository ：</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git remote add origin git@github.com:git_username/repository_name.git</span><br></pre></td></tr></table></figure>
 
-<p>如此便完成了公钥的安装。为了确保连接成功，请保证以下文件权限正确：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[root@host .ssh]$ chmod 600 authorized_keys</span><br><span class="line">[root@host .ssh]$ chmod 700 ~/.ssh</span><br></pre></td></tr></table></figure>
-
-<p><strong>3. 设置 SSH，打开密钥登录功能</strong></p>
-<p>编辑 <code>/etc/ssh/sshd_config</code> 文件，进行如下设置：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">RSAAuthentication yes</span><br><span class="line">PubkeyAuthentication yes</span><br></pre></td></tr></table></figure>
-
-<p>另外，请留意 root 用户能否通过 SSH 登录：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">PermitRootLogin yes</span><br></pre></td></tr></table></figure>
-
-<p>当你完成全部设置，并以密钥方式登录成功后，再禁用密码登录：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">PasswordAuthentication no</span><br></pre></td></tr></table></figure>
-
-<p>最后，重启 SSH 服务：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[root@host .ssh]$ service sshd restart</span><br></pre></td></tr></table></figure>
-
-<h6 id="已写好了脚本："><a href="#已写好了脚本：" class="headerlink" title="已写好了脚本："></a>已写好了脚本：</h6><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">wget -O pub.sh https://fly97.coding.net/p/shell/d/shell/git/raw/master/rsa/id_rsa.sh &amp;&amp; chmod +x pub.sh &amp;&amp; bash pub.sh</span><br></pre></td></tr></table></figure>
+<h5 id="2-取消本地目录下关联的远程库："><a href="#2-取消本地目录下关联的远程库：" class="headerlink" title="2.取消本地目录下关联的远程库："></a>2.取消本地目录下关联的远程库：</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git remote remove origin</span><br></pre></td></tr></table></figure>
 
 ]]></content>
       <tags>
-        <tag>密钥</tag>
-        <tag>Linux运维</tag>
+        <tag>git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Gost服务配置指南</title>
+    <url>/2020/03/23/Gost%E6%9C%8D%E5%8A%A1%E9%85%8D%E7%BD%AE%E6%8C%87%E5%8D%97/</url>
+    <content><![CDATA[<p>gost服务操作指南</p>
+<a id="more"></a>
+
+<h5 id="一键安装脚本"><a href="#一键安装脚本" class="headerlink" title="一键安装脚本"></a>一键安装脚本</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">wget https://fly97.coding.net/p/shell/d/shell/git/raw/master/gost/gost &amp;&amp; chmod +x &amp;&amp; mv gost /usr/<span class="built_in">local</span>/bin</span><br></pre></td></tr></table></figure>
+
+<p>具体请查看</p>
+<p><a href="https://fly97.coding.net/p/shell/d/shell/git/tree/master/gost" target="_blank" rel="noopener">https://fly97.coding.net/p/shell/d/shell/git/tree/master/gost</a></p>
+<h5 id="安装服务端"><a href="#安装服务端" class="headerlink" title="安装服务端"></a><del>安装服务端</del></h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">wget https://fly97.fun/files/git/gost/go.sh &amp;&amp; chmod +x go.sh</span><br></pre></td></tr></table></figure>
+
+<h5 id="安装客户端"><a href="#安装客户端" class="headerlink" title="安装客户端"></a><del>安装客户端</del></h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">wget https://fly97.fun/files/git/gost/gost-linux-amd64 </span><br><span class="line">mv gost-linux-amd64 /usr/<span class="built_in">local</span>/bin/gost</span><br><span class="line">chmod +x /usr/<span class="built_in">local</span>/bin/gost</span><br></pre></td></tr></table></figure>
+
+<h5 id="客户端用法示例"><a href="#客户端用法示例" class="headerlink" title="客户端用法示例"></a><del>客户端用法示例</del></h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">gost -L=user:password@:port -F=socks+tls://user:password@ip:port &gt;&gt; gost.log 2&gt;&amp;1 &amp;</span><br></pre></td></tr></table></figure>
+
+<h3 id="国外下载"><a href="#国外下载" class="headerlink" title="国外下载"></a>国外下载</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">wget https://github.com/ginuerzh/gost/releases/download/v2.10.1/gost-linux-amd64-2.10.1.gz &amp;&amp; gzip gost-linux-amd64-2.10.1.gz -d &amp;&amp; chmod +x gost-linux-amd64-2.10.1 &amp;&amp; mv gost-linux-amd64-2.10.1 gost</span><br></pre></td></tr></table></figure>
+
+<h3 id="国内下载"><a href="#国内下载" class="headerlink" title="国内下载"></a><del>国内下载</del></h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">wget https://fly97.coding.net/p/saving/d/saving/git/raw/master/gost-linux-amd64-2.10.1.gz &amp;&amp; gzip gost-linux-amd64-2.10.1.gz -d &amp;&amp; chmod +x gost-linux-amd64-2.10.1 &amp;&amp; mv gost-linux-amd64-2.10.1 gost</span><br></pre></td></tr></table></figure>
+
+<h3 id="推荐几个常用的配置"><a href="#推荐几个常用的配置" class="headerlink" title="推荐几个常用的配置"></a>推荐几个常用的配置</h3><h4 id="1-多路复用tls"><a href="#1-多路复用tls" class="headerlink" title="1.多路复用tls"></a>1.多路复用tls</h4><p>GOST内置了TLS证书，如果需要使用自定义TLS证书，有两种方法：</p>
+<ul>
+<li>在GOST运行目录放置<code>cert.pem</code>(公钥)和<code>key.pem</code>(私钥)两个文件即可，GOST会自动加载运行目录下的cert.pem和key.pem文件。</li>
+</ul>
+<h5 id="服务端"><a href="#服务端" class="headerlink" title="服务端"></a>服务端</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">gost -L mtls://:443</span><br></pre></td></tr></table></figure>
+
+<h5 id="客户端"><a href="#客户端" class="headerlink" title="客户端"></a>客户端</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">gost -L :8080 -F mtls://server_ip:443</span><br></pre></td></tr></table></figure>
+
+<h5 id="客户端证书校验"><a href="#客户端证书校验" class="headerlink" title="客户端证书校验"></a>客户端证书校验</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">gost -L=:8080 -F=<span class="string">"tls://server_domain_name:443?secure=true"</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="客户端证书锁定"><a href="#客户端证书锁定" class="headerlink" title="客户端证书锁定"></a>客户端证书锁定</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">gost -L=:8080 -F=<span class="string">"tls://:443?ca=ca.pem"</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="2-socks5-over-tls"><a href="#2-socks5-over-tls" class="headerlink" title="2.socks5 over tls"></a>2.socks5 over tls</h4><p>使用TLS加密的SOCKS5代理服务。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">gost -L socks5+tls://:1080</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-多路复用加密websocket"><a href="#3-多路复用加密websocket" class="headerlink" title="3.多路复用加密websocket"></a>3.多路复用加密websocket</h4><p>具有多路复用特性并使用TLS加密的Websocket隧道。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">gost -L mwss://:443</span><br></pre></td></tr></table></figure>]]></content>
+      <tags>
+        <tag>gost</tag>
       </tags>
   </entry>
   <entry>
@@ -151,89 +155,69 @@
       </tags>
   </entry>
   <entry>
-    <title>Gost服务配置指南</title>
-    <url>/2020/03/23/Gost%E6%9C%8D%E5%8A%A1%E9%85%8D%E7%BD%AE%E6%8C%87%E5%8D%97/</url>
-    <content><![CDATA[<p>gost服务操作指南</p>
+    <title>Linux之crontab定时任务</title>
+    <url>/2020/04/24/Linux%E4%B9%8Bcrontab%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/</url>
+    <content><![CDATA[<p>Linux中的crontab - - - -一个自定义定时器</p>
 <a id="more"></a>
 
-<h5 id="一键安装脚本"><a href="#一键安装脚本" class="headerlink" title="一键安装脚本"></a>一键安装脚本</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">wget https://fly97.coding.net/p/shell/d/shell/git/raw/master/gost/gost &amp;&amp; chmod +x &amp;&amp; mv gost /usr/<span class="built_in">local</span>/bin</span><br></pre></td></tr></table></figure>
+<h5 id="1-crontab命令"><a href="#1-crontab命令" class="headerlink" title="1.crontab命令"></a>1.crontab命令</h5><p>重新指定crobtab定时任务文件</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">crontab $filepath</span><br></pre></td></tr></table></figure>
 
-<p>具体请查看</p>
-<p><a href="https://fly97.coding.net/p/shell/d/shell/git/tree/master/gost" target="_blank" rel="noopener">https://fly97.coding.net/p/shell/d/shell/git/tree/master/gost</a></p>
-<h5 id="安装服务端"><a href="#安装服务端" class="headerlink" title="安装服务端"></a><del>安装服务端</del></h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">wget https://fly97.fun/files/git/gost/go.sh &amp;&amp; chmod +x go.sh</span><br></pre></td></tr></table></figure>
+<p>查看crontab定时任务</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">crontab -l</span><br></pre></td></tr></table></figure>
 
-<h5 id="安装客户端"><a href="#安装客户端" class="headerlink" title="安装客户端"></a><del>安装客户端</del></h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">wget https://fly97.fun/files/git/gost/gost-linux-amd64 </span><br><span class="line">mv gost-linux-amd64 /usr/<span class="built_in">local</span>/bin/gost</span><br><span class="line">chmod +x /usr/<span class="built_in">local</span>/bin/gost</span><br></pre></td></tr></table></figure>
+<p>编辑、安装定时任务</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">crontab -e</span><br></pre></td></tr></table></figure>
 
-<h5 id="客户端用法示例"><a href="#客户端用法示例" class="headerlink" title="客户端用法示例"></a><del>客户端用法示例</del></h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">gost -L=user:password@:port -F=socks+tls://user:password@ip:port &gt;&gt; gost.log 2&gt;&amp;1 &amp;</span><br></pre></td></tr></table></figure>
+<p><strong>2.crontab时间举例</strong></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 每天早上6点 </span></span><br><span class="line">0 6 * * * echo "Good morning." &gt;&gt; /tmp/test.txt //注意单纯echo，从屏幕上看不到任何输出，因为cron把任何输出都email到root的信箱了。</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 每两个小时 </span></span><br><span class="line">0 */2 * * * echo "Have a break now." &gt;&gt; /tmp/test.txt  </span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 晚上11点到早上8点之间每两个小时和早上八点 </span></span><br><span class="line">0 23-7/2，8 * * * echo "Have a good dream" &gt;&gt; /tmp/test.txt</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 每个月的4号和每个礼拜的礼拜一到礼拜三的早上11点 </span></span><br><span class="line">0 11 4 * 1-3 command line</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 1月1日早上4点 </span></span><br><span class="line">0 4 1 1 * command line SHELL=/bin/bash PATH=/sbin:/bin:/usr/sbin:/usr/bin MAILTO=root //如果出现错误，或者有数据输出，数据作为邮件发给这个帐号 HOME=/ </span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 每小时（第一分钟）执行/etc/cron.hourly内的脚本</span></span><br><span class="line">01 * * * * root run-parts /etc/cron.hourly</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 每天（凌晨4：02）执行/etc/cron.daily内的脚本</span></span><br><span class="line">02 4 * * * root run-parts /etc/cron.daily </span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 每星期（周日凌晨4：22）执行/etc/cron.weekly内的脚本</span></span><br><span class="line">22 4 * * 0 root run-parts /etc/cron.weekly </span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 每月（1号凌晨4：42）去执行/etc/cron.monthly内的脚本 </span></span><br><span class="line">42 4 1 * * root run-parts /etc/cron.monthly </span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 注意:  <span class="string">"run-parts"</span>这个参数了，如果去掉这个参数的话，后面就可以写要运行的某个脚本名，而不是文件夹名。 　 </span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 每天的下午4点、5点、6点的5 min、15 min、25 min、35 min、45 min、55 min时执行命令。 </span></span><br><span class="line">5，15，25，35，45，55 16，17，18 * * * command</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 每周一，三，五的下午3：00系统进入维护状态，重新启动系统。</span></span><br><span class="line">00 15 * *1，3，5 shutdown -r +5</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 每小时的10分，40分执行用户目录下的innd/bbslin这个指令： </span></span><br><span class="line">10，40 * * * * innd/bbslink </span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 每小时的1分执行用户目录下的bin/account这个指令： </span></span><br><span class="line">1 * * * * bin/account</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 每1分钟执行以下命令</span></span><br><span class="line">*/1 * * * * bin/python</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 每天早晨三点二十分执行用户目录下如下所示的两个指令（每个指令以;分隔）： </span></span><br><span class="line">203 * * * （/bin/rm -f expire.ls logins.bad;bin/expire$#@62;expire.1st）</span><br></pre></td></tr></table></figure>
 
-<h3 id="国外下载"><a href="#国外下载" class="headerlink" title="国外下载"></a>国外下载</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">wget https://github.com/ginuerzh/gost/releases/download/v2.10.1/gost-linux-amd64-2.10.1.gz &amp;&amp; gzip gost-linux-amd64-2.10.1.gz -d &amp;&amp; chmod +x gost-linux-amd64-2.10.1 &amp;&amp; mv gost-linux-amd64-2.10.1 gost</span><br></pre></td></tr></table></figure>
+<h5 id="3-crontab任务举例"><a href="#3-crontab任务举例" class="headerlink" title="3.crontab任务举例"></a>3.crontab任务举例</h5><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">*/5 * * * * /bin/bash /root/kaoyan/tiaoji.sh</span><br></pre></td></tr></table></figure>
 
-<h3 id="国内下载"><a href="#国内下载" class="headerlink" title="国内下载"></a><del>国内下载</del></h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">wget https://fly97.coding.net/p/saving/d/saving/git/raw/master/gost-linux-amd64-2.10.1.gz &amp;&amp; gzip gost-linux-amd64-2.10.1.gz -d &amp;&amp; chmod +x gost-linux-amd64-2.10.1 &amp;&amp; mv gost-linux-amd64-2.10.1 gost</span><br></pre></td></tr></table></figure>
+<p>sh写法举例</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/bash</span></span><br><span class="line">PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:~/bin</span><br><span class="line">export PATH</span><br><span class="line"></span><br><span class="line">cd /root/kaoyan</span><br><span class="line">/root/***/python3 *.py &gt;&gt; /root/****/*.log 2&gt;&amp;1</span><br><span class="line"><span class="meta">#</span><span class="bash">将所有输出写入日志文件</span></span><br></pre></td></tr></table></figure>
 
-<h3 id="推荐几个常用的配置"><a href="#推荐几个常用的配置" class="headerlink" title="推荐几个常用的配置"></a>推荐几个常用的配置</h3><h4 id="1-多路复用tls"><a href="#1-多路复用tls" class="headerlink" title="1.多路复用tls"></a>1.多路复用tls</h4><p>GOST内置了TLS证书，如果需要使用自定义TLS证书，有两种方法：</p>
-<ul>
-<li>在GOST运行目录放置<code>cert.pem</code>(公钥)和<code>key.pem</code>(私钥)两个文件即可，GOST会自动加载运行目录下的cert.pem和key.pem文件。</li>
-</ul>
-<h5 id="服务端"><a href="#服务端" class="headerlink" title="服务端"></a>服务端</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">gost -L mtls://:443</span><br></pre></td></tr></table></figure>
-
-<h5 id="客户端"><a href="#客户端" class="headerlink" title="客户端"></a>客户端</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">gost -L :8080 -F mtls://server_ip:443</span><br></pre></td></tr></table></figure>
-
-<h5 id="客户端证书校验"><a href="#客户端证书校验" class="headerlink" title="客户端证书校验"></a>客户端证书校验</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">gost -L=:8080 -F=<span class="string">"tls://server_domain_name:443?secure=true"</span></span><br></pre></td></tr></table></figure>
-
-<h5 id="客户端证书锁定"><a href="#客户端证书锁定" class="headerlink" title="客户端证书锁定"></a>客户端证书锁定</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">gost -L=:8080 -F=<span class="string">"tls://:443?ca=ca.pem"</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="2-socks5-over-tls"><a href="#2-socks5-over-tls" class="headerlink" title="2.socks5 over tls"></a>2.socks5 over tls</h4><p>使用TLS加密的SOCKS5代理服务。</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">gost -L socks5+tls://:1080</span><br></pre></td></tr></table></figure>
-
-<h4 id="3-多路复用加密websocket"><a href="#3-多路复用加密websocket" class="headerlink" title="3.多路复用加密websocket"></a>3.多路复用加密websocket</h4><p>具有多路复用特性并使用TLS加密的Websocket隧道。</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">gost -L mwss://:443</span><br></pre></td></tr></table></figure>]]></content>
+]]></content>
       <tags>
-        <tag>gost</tag>
+        <tag>Linux</tag>
+        <tag>crontab</tag>
       </tags>
   </entry>
   <entry>
-    <title>Python实用教程之__getattr__等标识符的用法</title>
-    <url>/2020/03/16/Python%E5%AE%9E%E7%94%A8%E6%95%99%E7%A8%8B%E4%B9%8B__getattr__%E7%AD%89%E6%A0%87%E8%AF%86%E7%AC%A6%E7%9A%84%E7%94%A8%E6%B3%95/</url>
-    <content><![CDATA[<p>在使用Python的过程中可能遇到以下几个函数：</p>
-<ul>
-<li><code>getattr</code></li>
-<li><code>__getattr__</code></li>
-<li><code>__getattribute__</code></li>
-<li><code>__get__</code></li>
-</ul>
-<p>如何区别他们，如何在编程中正确使用他们呢？</p>
-<a id="more"></a>
+    <title>Linux服务器更换密钥</title>
+    <url>/2019/01/06/Linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%9B%B4%E6%8D%A2%E5%AF%86%E9%92%A5%E8%84%9A%E6%9C%AC/</url>
+    <content><![CDATA[<p><strong>1. 制作密钥对</strong></p>
+<p>首先在服务器上制作密钥对。首先用密码登录到你打算使用密钥登录的账户，然后执行以下命令：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[root@host ~]$ ssh-keygen  &lt;== 建立密钥对</span><br><span class="line">Generating public/private rsa key pair.</span><br><span class="line">Enter file <span class="keyword">in</span> <span class="built_in">which</span> to save the key (/root/.ssh/id_rsa): &lt;== 按 Enter</span><br><span class="line">Created directory <span class="string">'/root/.ssh'</span>.</span><br><span class="line">Enter passphrase (empty <span class="keyword">for</span> no passphrase): &lt;== 输入密钥锁码，或直接按 Enter 留空</span><br><span class="line">Enter same passphrase again: &lt;== 再输入一遍密钥锁码</span><br><span class="line">Your identification has been saved <span class="keyword">in</span> /root/.ssh/id_rsa. &lt;== 私钥</span><br><span class="line">Your public key has been saved <span class="keyword">in</span> /root/.ssh/id_rsa.pub. &lt;== 公钥</span><br><span class="line">The key fingerprint is:</span><br><span class="line">0f:d3:e7:1a:1c:bd:5c:03:f1:19:f1:22:df:9b:cc:08 root@host</span><br></pre></td></tr></table></figure>
 
-<h3 id="getattr"><a href="#getattr" class="headerlink" title="getattr"></a>getattr</h3><p><code>getattr (object, name[, default])</code>是Python的内置函数之一，它的作用是获取对象的属性。</p>
-<ul>
-<li>object 对象</li>
-<li>name 属性名</li>
-<li>default 当属性不存在时，返回的默认值</li>
-</ul>
-<p><strong>示例</strong></p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="class"><span class="keyword">class</span> <span class="title">Foo</span>:</span></span><br><span class="line"><span class="meta">... </span>    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, x)</span>:</span></span><br><span class="line"><span class="meta">... </span>        self.x = x</span><br><span class="line">...</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>f = Foo(<span class="number">10</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>getattr(f, <span class="string">'x'</span>)</span><br><span class="line"><span class="number">10</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>f.x</span><br><span class="line"><span class="number">10</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>getattr(f, <span class="string">'y'</span>, <span class="string">'bar'</span>)</span><br><span class="line"><span class="string">'bar'</span></span><br></pre></td></tr></table></figure>
+<p>密钥锁码在使用私钥时必须输入，这样就可以保护私钥不被盗用。当然，也可以留空，实现无密码登录。</p>
+<p>现在，在 root 用户的家目录中生成了一个 <code>.ssh</code> 的隐藏目录，内含两个密钥文件。<code>id_rsa</code> 为私钥，<code>id_rsa.pub</code> 为公钥。</p>
+<p><strong>2. 在服务器上安装公钥</strong></p>
+<p>键入以下命令，在服务器上安装公钥：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[root@host ~]$ <span class="built_in">cd</span> .ssh</span><br><span class="line">[root@host .ssh]$ cat id_rsa.pub &gt;&gt; authorized_keys</span><br></pre></td></tr></table></figure>
 
-<h3 id="getattr-1"><a href="#getattr-1" class="headerlink" title="_ __getattr _ __"></a>_ __getattr _ __</h3><p><code>object. __getattr__(self, name)</code>是一个对象方法，如果找不到对象的属性时会调用这个方法。</p>
-<p>这个方法应该返回属性值或者抛出<code>AttributeError</code>异常。</p>
-<p>注意，如果通过正常机制能找到对象属性的话，不会调用<code>__getattr__</code>方法。</p>
-<p><strong>示例</strong></p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="class"><span class="keyword">class</span> <span class="title">Frob</span>:</span></span><br><span class="line"><span class="meta">... </span>    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, bamf)</span>:</span></span><br><span class="line"><span class="meta">... </span>        self.bamf = bamf</span><br><span class="line"><span class="meta">... </span>    <span class="function"><span class="keyword">def</span> <span class="title">__getattr__</span><span class="params">(self, name)</span>:</span></span><br><span class="line"><span class="meta">... </span>        <span class="keyword">return</span> <span class="string">'Frob does not have `&#123;&#125;` attribute.'</span>.format(str(name))</span><br><span class="line">...</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>f = Frob(<span class="string">"bamf"</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>f.bar</span><br><span class="line"><span class="string">'Frob does not have `bar` attribute.'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>f.bamf</span><br><span class="line"><span class="string">'bamf'</span></span><br></pre></td></tr></table></figure>
+<p>如此便完成了公钥的安装。为了确保连接成功，请保证以下文件权限正确：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[root@host .ssh]$ chmod 600 authorized_keys</span><br><span class="line">[root@host .ssh]$ chmod 700 ~/.ssh</span><br></pre></td></tr></table></figure>
 
-<h3 id="getattribute"><a href="#getattribute" class="headerlink" title="____  getattribute __ __"></a>____  getattribute __ __</h3><p>当访问 某个对象的属性时，会无条件的调用这个方法。这个方法只适用于新式类。<br> 新式类就是集成自object或者type的类。</p>
-<p>如果类还同时定义了<code>__getattr__()</code>方法，则不会调用<code>__getattr__()</code>方法，除非在<code>__getattribute__()</code>方法中显示调用<code>__getattr__()</code>或者抛出了<code>AttributeError</code>。</p>
-<p>该方法应该返回属性值或者抛出<code>AttributeError</code>异常。</p>
-<p>为了避免在方法中出现无限递归的情况，应该总是使用基类的方法来获取属性：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>object.__getattribute__(self, name).</span><br></pre></td></tr></table></figure>
+<p><strong>3. 设置 SSH，打开密钥登录功能</strong></p>
+<p>编辑 <code>/etc/ssh/sshd_config</code> 文件，进行如下设置：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">RSAAuthentication yes</span><br><span class="line">PubkeyAuthentication yes</span><br></pre></td></tr></table></figure>
 
-<p>语法：<code>object. __getattribute__(self, name)</code></p>
-<p><strong>示例</strong></p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="class"><span class="keyword">class</span> <span class="title">Frob</span><span class="params">(object)</span>:</span></span><br><span class="line"><span class="meta">... </span>    <span class="function"><span class="keyword">def</span> <span class="title">__getattribute__</span><span class="params">(self, name)</span>:</span></span><br><span class="line"><span class="meta">... </span>        <span class="keyword">print</span> <span class="string">"getting `&#123;&#125;`"</span>.format(str(name))</span><br><span class="line"><span class="meta">... </span>        <span class="keyword">return</span> object.__getattribute__(self, name)</span><br><span class="line">...</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>f = Frob()</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>f.bamf = <span class="number">10</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>f.bamf</span><br><span class="line">getting `bamf`</span><br><span class="line"><span class="number">10</span></span><br></pre></td></tr></table></figure>
+<p>另外，请留意 root 用户能否通过 SSH 登录：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">PermitRootLogin yes</span><br></pre></td></tr></table></figure>
 
-<h3 id="get"><a href="#get" class="headerlink" title="____ __ get __"></a>____ __ get __</h3><p><code>__get__()</code>方法是描述符方法之一。描述符用于将访问对象属性转变成调用描述符方法。</p>
-<p>示例：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Descriptor</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__get__</span><span class="params">(self, obj, objtype)</span>:</span></span><br><span class="line">        <span class="keyword">print</span> <span class="string">"get value=%s"</span> % self.val </span><br><span class="line">        <span class="keyword">return</span> self.val</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__set__</span><span class="params">(self, obj, val)</span>:</span></span><br><span class="line">        <span class="keyword">print</span> <span class="string">"set value=%s"</span> % val</span><br><span class="line">        self.val = val</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Stu</span><span class="params">(object)</span>:</span></span><br><span class="line">    age = Descriptor()</span><br><span class="line"></span><br><span class="line">stu = Stu()</span><br><span class="line">stu.age = <span class="number">12</span>    <span class="comment"># set value=12</span></span><br><span class="line"><span class="keyword">print</span> stu.age   <span class="comment"># get value=12</span></span><br><span class="line">                <span class="comment"># 12</span></span><br></pre></td></tr></table></figure>]]></content>
+<p>当你完成全部设置，并以密钥方式登录成功后，再禁用密码登录：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">PasswordAuthentication no</span><br></pre></td></tr></table></figure>
+
+<p>最后，重启 SSH 服务：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[root@host .ssh]$ service sshd restart</span><br></pre></td></tr></table></figure>
+
+<h6 id="已写好了脚本："><a href="#已写好了脚本：" class="headerlink" title="已写好了脚本："></a>已写好了脚本：</h6><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">wget -O pub.sh https://fly97.coding.net/p/shell/d/shell/git/raw/master/rsa/id_rsa.sh &amp;&amp; chmod +x pub.sh &amp;&amp; bash pub.sh</span><br></pre></td></tr></table></figure>
+
+]]></content>
       <tags>
-        <tag>Python教程</tag>
+        <tag>密钥</tag>
+        <tag>Linux运维</tag>
       </tags>
   </entry>
   <entry>
@@ -278,44 +262,46 @@
       </tags>
   </entry>
   <entry>
-    <title>Python实用教程之下划线命名模式</title>
-    <url>/2020/03/16/Python%E5%AE%9E%E7%94%A8%E6%95%99%E7%A8%8B%E4%B9%8B%E4%B8%8B%E5%88%92%E7%BA%BF%E5%91%BD%E5%90%8D%E6%A8%A1%E5%BC%8F/</url>
-    <content><![CDATA[<p>直接上表格。</p>
-<table>
-<thead>
-<tr>
-<th align="center">命名模式</th>
-<th align="center">举例</th>
-<th>含义</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">单前导下划线</td>
-<td align="center">_var</td>
-<td>命名约定，仅供内部使用。通常不会由Python解释器内部执行（通配符导入除外），只作为对程序员的提示。通配符导入时，_var代表的<strong>属性</strong>或者<strong>函数</strong>不会被导入。</td>
-</tr>
-<tr>
-<td align="center">单末尾下划线</td>
-<td align="center">var_</td>
-<td>按照约定使用避免与Python关键字的命名冲突。</td>
-</tr>
-<tr>
-<td align="center">双前导下划线</td>
-<td align="center">__var</td>
-<td>当在类上下文使用时，触发名称修饰，由Python解释器强制执行。<br /><strong>Tips：</strong>可以理解为Python对象的<strong>私有属性</strong>。仅供<strong>Python内部成员函数</strong>使用。</td>
-</tr>
-<tr>
-<td align="center">双前导和双末尾下划线</td>
-<td align="center">_<em>var_</em></td>
-<td>表示Python语言定义的特殊方法，避免在你自己的属性中使用这种特殊方法。</td>
-</tr>
-<tr>
-<td align="center">单下划线</td>
-<td align="center">_</td>
-<td>有时用作临时或者不关心的变量名称，也表示<strong>Python REPL</strong>最近的一个表达式的结果。</td>
-</tr>
-</tbody></table>
-]]></content>
+    <title>Python实用教程之__getattr__等标识符的用法</title>
+    <url>/2020/03/16/Python%E5%AE%9E%E7%94%A8%E6%95%99%E7%A8%8B%E4%B9%8B__getattr__%E7%AD%89%E6%A0%87%E8%AF%86%E7%AC%A6%E7%9A%84%E7%94%A8%E6%B3%95/</url>
+    <content><![CDATA[<p>在使用Python的过程中可能遇到以下几个函数：</p>
+<ul>
+<li><code>getattr</code></li>
+<li><code>__getattr__</code></li>
+<li><code>__getattribute__</code></li>
+<li><code>__get__</code></li>
+</ul>
+<p>如何区别他们，如何在编程中正确使用他们呢？</p>
+<a id="more"></a>
+
+<h3 id="getattr"><a href="#getattr" class="headerlink" title="getattr"></a>getattr</h3><p><code>getattr (object, name[, default])</code>是Python的内置函数之一，它的作用是获取对象的属性。</p>
+<ul>
+<li>object 对象</li>
+<li>name 属性名</li>
+<li>default 当属性不存在时，返回的默认值</li>
+</ul>
+<p><strong>示例</strong></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="class"><span class="keyword">class</span> <span class="title">Foo</span>:</span></span><br><span class="line"><span class="meta">... </span>    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, x)</span>:</span></span><br><span class="line"><span class="meta">... </span>        self.x = x</span><br><span class="line">...</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>f = Foo(<span class="number">10</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>getattr(f, <span class="string">'x'</span>)</span><br><span class="line"><span class="number">10</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>f.x</span><br><span class="line"><span class="number">10</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>getattr(f, <span class="string">'y'</span>, <span class="string">'bar'</span>)</span><br><span class="line"><span class="string">'bar'</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="getattr-1"><a href="#getattr-1" class="headerlink" title="_ __getattr _ __"></a>_ __getattr _ __</h3><p><code>object. __getattr__(self, name)</code>是一个对象方法，如果找不到对象的属性时会调用这个方法。</p>
+<p>这个方法应该返回属性值或者抛出<code>AttributeError</code>异常。</p>
+<p>注意，如果通过正常机制能找到对象属性的话，不会调用<code>__getattr__</code>方法。</p>
+<p><strong>示例</strong></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="class"><span class="keyword">class</span> <span class="title">Frob</span>:</span></span><br><span class="line"><span class="meta">... </span>    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, bamf)</span>:</span></span><br><span class="line"><span class="meta">... </span>        self.bamf = bamf</span><br><span class="line"><span class="meta">... </span>    <span class="function"><span class="keyword">def</span> <span class="title">__getattr__</span><span class="params">(self, name)</span>:</span></span><br><span class="line"><span class="meta">... </span>        <span class="keyword">return</span> <span class="string">'Frob does not have `&#123;&#125;` attribute.'</span>.format(str(name))</span><br><span class="line">...</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>f = Frob(<span class="string">"bamf"</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>f.bar</span><br><span class="line"><span class="string">'Frob does not have `bar` attribute.'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>f.bamf</span><br><span class="line"><span class="string">'bamf'</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="getattribute"><a href="#getattribute" class="headerlink" title="____  getattribute __ __"></a>____  getattribute __ __</h3><p>当访问 某个对象的属性时，会无条件的调用这个方法。这个方法只适用于新式类。<br> 新式类就是集成自object或者type的类。</p>
+<p>如果类还同时定义了<code>__getattr__()</code>方法，则不会调用<code>__getattr__()</code>方法，除非在<code>__getattribute__()</code>方法中显示调用<code>__getattr__()</code>或者抛出了<code>AttributeError</code>。</p>
+<p>该方法应该返回属性值或者抛出<code>AttributeError</code>异常。</p>
+<p>为了避免在方法中出现无限递归的情况，应该总是使用基类的方法来获取属性：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>object.__getattribute__(self, name).</span><br></pre></td></tr></table></figure>
+
+<p>语法：<code>object. __getattribute__(self, name)</code></p>
+<p><strong>示例</strong></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="class"><span class="keyword">class</span> <span class="title">Frob</span><span class="params">(object)</span>:</span></span><br><span class="line"><span class="meta">... </span>    <span class="function"><span class="keyword">def</span> <span class="title">__getattribute__</span><span class="params">(self, name)</span>:</span></span><br><span class="line"><span class="meta">... </span>        <span class="keyword">print</span> <span class="string">"getting `&#123;&#125;`"</span>.format(str(name))</span><br><span class="line"><span class="meta">... </span>        <span class="keyword">return</span> object.__getattribute__(self, name)</span><br><span class="line">...</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>f = Frob()</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>f.bamf = <span class="number">10</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>f.bamf</span><br><span class="line">getting `bamf`</span><br><span class="line"><span class="number">10</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="get"><a href="#get" class="headerlink" title="____ __ get __"></a>____ __ get __</h3><p><code>__get__()</code>方法是描述符方法之一。描述符用于将访问对象属性转变成调用描述符方法。</p>
+<p>示例：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Descriptor</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__get__</span><span class="params">(self, obj, objtype)</span>:</span></span><br><span class="line">        <span class="keyword">print</span> <span class="string">"get value=%s"</span> % self.val </span><br><span class="line">        <span class="keyword">return</span> self.val</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__set__</span><span class="params">(self, obj, val)</span>:</span></span><br><span class="line">        <span class="keyword">print</span> <span class="string">"set value=%s"</span> % val</span><br><span class="line">        self.val = val</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Stu</span><span class="params">(object)</span>:</span></span><br><span class="line">    age = Descriptor()</span><br><span class="line"></span><br><span class="line">stu = Stu()</span><br><span class="line">stu.age = <span class="number">12</span>    <span class="comment"># set value=12</span></span><br><span class="line"><span class="keyword">print</span> stu.age   <span class="comment"># get value=12</span></span><br><span class="line">                <span class="comment"># 12</span></span><br></pre></td></tr></table></figure>]]></content>
       <tags>
         <tag>Python教程</tag>
       </tags>
@@ -395,6 +381,49 @@
       </tags>
   </entry>
   <entry>
+    <title>Python实用教程之下划线命名模式</title>
+    <url>/2020/03/16/Python%E5%AE%9E%E7%94%A8%E6%95%99%E7%A8%8B%E4%B9%8B%E4%B8%8B%E5%88%92%E7%BA%BF%E5%91%BD%E5%90%8D%E6%A8%A1%E5%BC%8F/</url>
+    <content><![CDATA[<p>直接上表格。</p>
+<table>
+<thead>
+<tr>
+<th align="center">命名模式</th>
+<th align="center">举例</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">单前导下划线</td>
+<td align="center">_var</td>
+<td>命名约定，仅供内部使用。通常不会由Python解释器内部执行（通配符导入除外），只作为对程序员的提示。通配符导入时，_var代表的<strong>属性</strong>或者<strong>函数</strong>不会被导入。</td>
+</tr>
+<tr>
+<td align="center">单末尾下划线</td>
+<td align="center">var_</td>
+<td>按照约定使用避免与Python关键字的命名冲突。</td>
+</tr>
+<tr>
+<td align="center">双前导下划线</td>
+<td align="center">__var</td>
+<td>当在类上下文使用时，触发名称修饰，由Python解释器强制执行。<br /><strong>Tips：</strong>可以理解为Python对象的<strong>私有属性</strong>。仅供<strong>Python内部成员函数</strong>使用。</td>
+</tr>
+<tr>
+<td align="center">双前导和双末尾下划线</td>
+<td align="center">_<em>var_</em></td>
+<td>表示Python语言定义的特殊方法，避免在你自己的属性中使用这种特殊方法。</td>
+</tr>
+<tr>
+<td align="center">单下划线</td>
+<td align="center">_</td>
+<td>有时用作临时或者不关心的变量名称，也表示<strong>Python REPL</strong>最近的一个表达式的结果。</td>
+</tr>
+</tbody></table>
+]]></content>
+      <tags>
+        <tag>Python教程</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Python深度学习之PyTorch学习小记录</title>
     <url>/2020/03/05/Python%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E4%B9%8BPyTorch%E5%AD%A6%E4%B9%A0%E5%B0%8F%E8%AE%B0%E5%BD%95/</url>
     <content><![CDATA[<p>不说废话，直接上教程。</p>
@@ -418,35 +447,6 @@
       <tags>
         <tag>Python深度学习</tag>
         <tag>Pytorch</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>caddy一键安装管理脚本</title>
-    <url>/2019/12/31/caddy%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97/</url>
-    <content><![CDATA[<p>caddy一键安装管理脚本</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">wget https://fly97.coding.net/p/caddyserver/d/caddyserver/git/raw/master/web.sh</span><br><span class="line">chmod +x web.sh</span><br><span class="line">mv web.sh /usr/<span class="built_in">local</span>/bin/web</span><br></pre></td></tr></table></figure>
-
-<p>caddy 相关命令</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">web install         <span class="comment">#安装</span></span><br><span class="line">web <span class="built_in">help</span>            <span class="comment">#帮助</span></span><br></pre></td></tr></table></figure>
-
-<p>注意：安装之前要先安装zip用来解压软件</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">apt-get install zip</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <tags>
-        <tag>caddy</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Ubuntu安装php指南</title>
-    <url>/2019/01/07/Ubuntu%E5%AE%89%E8%A3%85php%E6%8C%87%E5%8D%97/</url>
-    <content><![CDATA[<h4 id="Ubuntu安装php指南"><a href="#Ubuntu安装php指南" class="headerlink" title="Ubuntu安装php指南"></a>Ubuntu安装php指南</h4><p>由于自带的apt源中不包含php，所以在安装php之前需要给apt添加第三方源</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt-get install software-properties-common</span><br><span class="line">sudo add-apt-repository ppa:ondrej/php</span><br><span class="line"><span class="comment">#sudo add-apt-repository -r ppa:ondrej/php              #删除</span></span><br><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install -y php7.3</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <tags>
-        <tag>Linux运维</tag>
-        <tag>PHP</tag>
       </tags>
   </entry>
   <entry>
@@ -516,23 +516,6 @@
       </tags>
   </entry>
   <entry>
-    <title>screen 会话管理器用法</title>
-    <url>/2019/01/05/linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%87%8D%E8%A3%85/</url>
-    <content><![CDATA[<h5 id="screen-会话管理器用法"><a href="#screen-会话管理器用法" class="headerlink" title="screen 会话管理器用法"></a>screen 会话管理器用法</h5><a id="more"></a>
-
-<h4 id="1-安装依赖"><a href="#1-安装依赖" class="headerlink" title="1.安装依赖"></a>1.安装依赖</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#Debian&#x2F;Ubuntu</span><br><span class="line">apt-get install -y xz-utils openssl gawk file</span><br><span class="line">#RedHat&#x2F;CentOS</span><br><span class="line">yum install -y xz openssl gawk file</span><br></pre></td></tr></table></figure>
-
-<h4 id="2-下载脚本"><a href="#2-下载脚本" class="headerlink" title="2.下载脚本"></a>2.下载脚本</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">wget -O InstallNET.sh https://fly97.fun/files/git/InstallNET/InstallNET.sh</span><br></pre></td></tr></table></figure>
-
-<h4 id="3-运行命令："><a href="#3-运行命令：" class="headerlink" title="3.运行命令："></a>3.运行命令：</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">bash InstallNET.sh -c 6.9 -v 64 -a --mirror <span class="string">'http://mirror.centos.org/centos'</span></span><br><span class="line">bash InstallNET.sh -u 16.04 -v 64 -a -mirror <span class="string">'http://mirrors.aliyun.com/ubuntu/'</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="4-用户名以及密码："><a href="#4-用户名以及密码：" class="headerlink" title="4.用户名以及密码："></a>4.用户名以及密码：</h4><p><code>root@MoeClub.org</code></p>
-]]></content>
-      <tags>
-        <tag>Linux运维</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Ubuntu安装nodejs并更改npm镜像源</title>
     <url>/2019/01/06/Ubuntu%E5%AE%89%E8%A3%85nodejs/</url>
     <content><![CDATA[<h4 id="Ubuntu安装nodejs并更改npm镜像源"><a href="#Ubuntu安装nodejs并更改npm镜像源" class="headerlink" title="Ubuntu安装nodejs并更改npm镜像源"></a>Ubuntu安装nodejs并更改npm镜像源</h4><p>由于众所周知的原因，在国内使用原有的源安装<code>nodejs</code>速度非常缓慢，故可以采用清华大学的源</p>
@@ -565,6 +548,35 @@
       </tags>
   </entry>
   <entry>
+    <title>Ubuntu安装php指南</title>
+    <url>/2019/01/07/Ubuntu%E5%AE%89%E8%A3%85php%E6%8C%87%E5%8D%97/</url>
+    <content><![CDATA[<h4 id="Ubuntu安装php指南"><a href="#Ubuntu安装php指南" class="headerlink" title="Ubuntu安装php指南"></a>Ubuntu安装php指南</h4><p>由于自带的apt源中不包含php，所以在安装php之前需要给apt添加第三方源</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt-get install software-properties-common</span><br><span class="line">sudo add-apt-repository ppa:ondrej/php</span><br><span class="line"><span class="comment">#sudo add-apt-repository -r ppa:ondrej/php              #删除</span></span><br><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install -y php7.3</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <tags>
+        <tag>Linux运维</tag>
+        <tag>PHP</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>caddy一键安装管理脚本</title>
+    <url>/2019/12/31/caddy%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97/</url>
+    <content><![CDATA[<p>caddy一键安装管理脚本</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">wget https://fly97.coding.net/p/caddyserver/d/caddyserver/git/raw/master/web.sh</span><br><span class="line">chmod +x web.sh</span><br><span class="line">mv web.sh /usr/<span class="built_in">local</span>/bin/web</span><br></pre></td></tr></table></figure>
+
+<p>caddy 相关命令</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">web install         <span class="comment">#安装</span></span><br><span class="line">web <span class="built_in">help</span>            <span class="comment">#帮助</span></span><br></pre></td></tr></table></figure>
+
+<p>注意：安装之前要先安装zip用来解压软件</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">apt-get install zip</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <tags>
+        <tag>caddy</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>gcc编译错误处理</title>
     <url>/2020/04/07/gcc%E7%BC%96%E8%AF%91%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/</url>
     <content><![CDATA[<p><strong>完整错误信息如下：</strong></p>
@@ -576,6 +588,128 @@
 ]]></content>
       <tags>
         <tag>gcc</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>screen会话管理器用法</title>
+    <url>/2019/03/06/linux%20screen%20%E5%91%BD%E4%BB%A4%E8%AF%A6%E8%A7%A3/</url>
+    <content><![CDATA[<h5 id="screen-会话管理器用法"><a href="#screen-会话管理器用法" class="headerlink" title="screen 会话管理器用法"></a>screen 会话管理器用法</h5><a id="more"></a>
+
+<p><strong>一、背景</strong></p>
+<p>系统管理员经常需要SSH 或者telent 远程登录到Linux 服务器，经常运行一些需要很长时间才能完成的任务，比如系统备份、ftp 传输等等。通常情况下我们都是为每一个这样的任务开一个远程终端窗口，因为它们执行的时间太长了。必须等待它们执行完毕，在此期间不能关掉窗口或者断开连接，否则这个任务就会被杀掉，一切半途而废了。</p>
+<p><strong>二、简介</strong></p>
+<p><strong>GNU Screen</strong>是一款由GNU计划开发的用于命令行终端切换的自由软件。用户可以通过该软件同时连接多个本地或远程的命令行会话，并在其间自由切换。</p>
+<p>GNU Screen可以看作是窗口管理器的命令行界面版本。它提供了统一的管理多个会话的界面和相应的功能。</p>
+<ul>
+<li><strong>会话恢复</strong></li>
+</ul>
+<ul>
+<li><strong>多窗口</strong></li>
+</ul>
+<ul>
+<li><strong>会话共享</strong></li>
+</ul>
+<p>GNU’s Screen 官方站点：<a href="http://www.gnu.org/software/screen/" target="_blank" rel="noopener">http://www.gnu.org/software/screen/</a></p>
+<p><strong>三、语法</strong></p>
+<p># screen [-AmRvx -ls -wipe][-d &lt;作业名称&gt;][-h &lt;行数&gt;][-r &lt;作业名称&gt;][-s ][-S &lt;作业名称&gt;]</p>
+<p><strong>参数说明</strong></p>
+<p>-A 　将所有的视窗都调整为目前终端机的大小。<br>-d &lt;作业名称&gt; 　将指定的screen作业离线。<br>-h &lt;行数&gt; 　指定视窗的缓冲区行数。<br>-m 　即使目前已在作业中的screen作业，仍强制建立新的screen作业。<br>-r &lt;作业名称&gt; 　恢复离线的screen作业。<br>-R 　先试图恢复离线的作业。若找不到离线的作业，即建立新的screen作业。<br>-s 　指定建立新视窗时，所要执行的shell。<br>-S &lt;作业名称&gt; 　指定screen作业的名称。<br>-v 　显示版本信息。<br>-x 　恢复之前离线的screen作业。<br>-ls或–list 　显示目前所有的screen作业。<br>-wipe 　检查目前所有的screen作业，并删除已经无法使用的screen作业。</p>
+<p><strong>四、常用screen参数</strong></p>
+<p>screen -S yourname -&gt; 新建一个叫yourname的session<br>screen -ls -&gt; 列出当前所有的session<br>screen -r yourname -&gt; 回到yourname这个session<br>screen -d yourname -&gt; 远程detach某个session<br>screen -d -r yourname -&gt; 结束当前session并回到yourname这个session</p>
+<p><strong>在每个screen session 下，所有命令都以 ctrl+a(C-a) 开始。</strong><br>C-a ? -&gt; 显示所有键绑定信息<br>C-a c -&gt; 创建一个新的运行shell的窗口并切换到该窗口<br>C-a n -&gt; Next，切换到下一个 window<br>C-a p -&gt; Previous，切换到前一个 window<br>C-a 0..9 -&gt; 切换到第 0..9 个 window<br>Ctrl+a [Space] -&gt; 由视窗0循序切换到视窗9<br>C-a C-a -&gt; 在两个最近使用的 window 间切换<br>C-a x -&gt; 锁住当前的 window，需用用户密码解锁<br>C-a d -&gt; detach，暂时离开当前session，将目前的 screen session (可能含有多个 windows) 丢到后台执行，并会回到还没进 screen 时的状态，此时在 screen session 里，每个 window 内运行的 process (无论是前台/后台)都在继续执行，即使 logout 也不影响。<br>C-a z -&gt; 把当前session放到后台执行，用 shell 的 fg 命令则可回去。<br>C-a w -&gt; 显示所有窗口列表<br>C-a t -&gt; Time，显示当前时间，和系统的 load<br>C-a k -&gt; kill window，强行关闭当前的 window<br>C-a [ -&gt; 进入 copy mode，在 copy mode 下可以回滚、搜索、复制就像用使用 vi 一样<br>  C-b Backward，PageUp<br>  C-f Forward，PageDown<br>  H(大写) High，将光标移至左上角<br>  L Low，将光标移至左下角<br>  0 移到行首<br>  $ 行末<br>  w forward one word，以字为单位往前移<br>  b backward one word，以字为单位往后移<br>  Space 第一次按为标记区起点，第二次按为终点<br>  Esc 结束 copy mode<br>C-a ] -&gt; Paste，把刚刚在 copy mode 选定的内容贴上</p>
+<p><strong>五、使用 screen</strong></p>
+<p><strong>5.1 安装screen</strong></p>
+<p>流行的Linux发行版（例如Red Hat Enterprise Linux）通常会自带screen实用程序，如果没有的话，可以从GNU screen的官方网站下载。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[root@TS-DEV ~]# yum install screen</span><br><span class="line">[root@TS-DEV ~]# rpm -qa|grep screen</span><br><span class="line">screen-4.0.3-4.el5</span><br><span class="line">[root@TS-DEV ~]#</span><br></pre></td></tr></table></figure>
+
+<p><strong>5.2 创建一个新的窗口</strong></p>
+<p>安装完成后，直接敲命令screen就可以启动它。但是这样启动的screen会话没有名字，实践上推荐为每个screen会话取一个名字，方便分辨：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[root@TS-DEV ~]# screen -S david</span><br></pre></td></tr></table></figure>
+
+<p>screen启动后，会创建第一个窗口，也就是窗口No. 0，并在其中打开一个系统默认的shell，一般都会是bash。所以你敲入命令screen之后，会立刻又返回到命令提示符，仿佛什么也没有发生似的，其实你已经进入Screen的世界了。当然，也可以在screen命令之后加入你喜欢的参数，使之直接打开你指定的程序，例如：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[root@TS-DEV ~]# screen vi david.txt</span><br></pre></td></tr></table></figure>
+
+<p>screen创建一个执行vi david.txt的单窗口会话，退出vi 将退出该窗口/会话。</p>
+<p><strong>5.3 查看窗口和窗口名称</strong></p>
+<p>打开多个窗口后，可以使用快捷键C-a w列出当前所有窗口。如果使用文本终端，这个列表会列在屏幕左下角，如果使用X环境下的终端模拟器，这个列表会列在标题栏里。窗口列表的样子一般是这样：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">0$ bash  1-$ bash  2*$ bash</span><br></pre></td></tr></table></figure>
+
+<p>这个例子中我开启了三个窗口，其中*号表示当前位于窗口2，-号表示上一次切换窗口时位于窗口1。</p>
+<p>Screen默认会为窗口命名为编号和窗口中运行程序名的组合，上面的例子中窗口都是默认名字。练习了上面查看窗口的方法，你可能就希望各个窗口可以有不同的名字以方便区分了。可以使用快捷键C-a A来为当前窗口重命名，按下快捷键后，Screen会允许你为当前窗口输入新的名字，回车确认。</p>
+<p><strong>5.4 会话分离与恢复</strong></p>
+<p>你可以不中断screen窗口中程序的运行而暂时断开（detach）screen会话，并在随后时间重新连接（attach）该会话，重新控制各窗口中运行的程序。例如，我们打开一个screen窗口编辑/tmp/david.txt文件：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[root@TS-DEV ~]# screen vi &#x2F;tmp&#x2F;david.txt</span><br></pre></td></tr></table></figure>
+
+<p>之后我们想暂时退出做点别的事情，比如出去散散步，那么在screen窗口键入<code>C-a d</code>，Screen会给出detached提示：</p>
+<p><strong>暂时中断会话</strong></p>
+<p><img src="https://images0.cnblogs.com/blog/370046/201301/29144351-ff7e78c079a44f51ae44d48b6942b87f.jpg" alt="img"></p>
+<p>半个小时之后回来了，找到该screen会话：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[root@TS-DEV ~]# screen -ls</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://images0.cnblogs.com/blog/370046/201301/29144759-7cea9fc3f5f4481ab21df8bd017c88ef.jpg" alt="img"></p>
+<p>重新连接会话：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[root@TS-DEV ~]# screen -r 12865</span><br></pre></td></tr></table></figure>
+
+<p>一切都在。</p>
+<p>当然，如果你在另一台机器上没有分离一个Screen会话，就无从恢复会话了。</p>
+<p>这时可以使用下面命令强制将这个会话从它所在的终端分离，转移到新的终端上来：</p>
+<p><img src="https://images0.cnblogs.com/blog/370046/201301/29215655-6d2f0c7e7f294756a4b40a40e1e76a84.jpg" alt="img"></p>
+<p><strong>5.5 清除dead 会话</strong></p>
+<p>如果由于某种原因其中一个会话死掉了（例如人为杀掉该会话），这时screen -list会显示该会话为dead状态。使用screen -wipe命令清除该会话：</p>
+<p><img src="https://images0.cnblogs.com/blog/370046/201301/29154746-51185199905542c68d3c3b46dddef648.jpg" alt="img"></p>
+<p><strong>5.6 关闭或杀死窗口</strong></p>
+<p>正常情况下，当你退出一个窗口中最后一个程序（通常是bash）后，这个窗口就关闭了。另一个关闭窗口的方法是使用C-a k，这个快捷键杀死当前的窗口，同时也将杀死这个窗口中正在运行的进程。</p>
+<p>如果一个Screen会话中最后一个窗口被关闭了，那么整个Screen会话也就退出了，screen进程会被终止。</p>
+<p>除了依次退出/杀死当前Screen会话中所有窗口这种方法之外，还可以使用快捷键C-a :，然后输入quit命令退出Screen会话。需要注意的是，这样退出会杀死所有窗口并退出其中运行的所有程序。其实C-a :这个快捷键允许用户直接输入的命令有很多，包括分屏可以输入split等，这也是实现Screen功能的一个途径，不过个人认为还是快捷键比较方便些。</p>
+<p><strong>六、screen 高级应用</strong> </p>
+<p><strong>6.1 会话共享</strong></p>
+<p>还有一种比较好玩的会话恢复，可以实现会话共享。假设你在和朋友在不同地点以相同用户登录一台机器，然后你创建一个screen会话，你朋友可以在他的终端上命令：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[root@TS-DEV ~]# screen -x</span><br></pre></td></tr></table></figure>
+
+<p>这个命令会将你朋友的终端Attach到你的Screen会话上，并且你的终端不会被Detach。这样你就可以和朋友共享同一个会话了，如果你们当前又处于同一个窗口，那就相当于坐在同一个显示器前面，你的操作会同步演示给你朋友，你朋友的操作也会同步演示给你。当然，如果你们切换到这个会话的不同窗口中去，那还是可以分别进行不同的操作的。</p>
+<p><strong>6.2 会话锁定与解锁</strong></p>
+<p>Screen允许使用快捷键C-a s锁定会话。锁定以后，再进行任何输入屏幕都不会再有反应了。但是要注意虽然屏幕上看不到反应，但你的输入都会被Screen中的进程接收到。快捷键C-a q可以解锁一个会话。</p>
+<p>也可以使用C-a x锁定会话，不同的是这样锁定之后，会话会被Screen所属用户的密码保护，需要输入密码才能继续访问这个会话。</p>
+<p><strong>6.3 发送命令到screen会话</strong></p>
+<p>在Screen会话之外，可以通过screen命令操作一个Screen会话，这也为使用Screen作为脚本程序增加了便利。关于Screen在脚本中的应用超出了入门的范围，这里只看一个例子，体会一下在会话之外对Screen的操作：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[root@TS-DEV ~]# screen -S sandy -X screen ping www.baidu.com</span><br></pre></td></tr></table></figure>
+
+<p>这个命令在一个叫做sandy的screen会话中创建一个新窗口，并在其中运行ping命令。</p>
+<p><strong>6.4 屏幕分割</strong></p>
+<p>现在显示器那么大，将一个屏幕分割成不同区域显示不同的Screen窗口显然是个很酷的事情。可以使用快捷键C-a S将显示器水平分割，Screen 4.00.03版本以后，也支持垂直分屏，快捷键是C-a |。分屏以后，可以使用C-a <tab>在各个区块间切换，每一区块上都可以创建窗口并在其中运行进程。</p>
+<p>可以用C-a X快捷键关闭当前焦点所在的屏幕区块，也可以用C-a Q关闭除当前区块之外其他的所有区块。关闭的区块中的窗口并不会关闭，还可以通过窗口切换找到它。</p>
+<p><img src="https://images0.cnblogs.com/blog/370046/201301/29205553-38cdde403beb45f4814ca9a180987a9e.jpg" alt="img"></p>
+<p><strong>6.5 C/P模式和操作</strong></p>
+<p>screen的另一个很强大的功能就是可以在不同窗口之间进行复制粘贴了。使用快捷键C-a <Esc>或者C-a [可以进入copy/paste模式，这个模式下可以像在vi中一样移动光标，并可以使用空格键设置标记。其实在这个模式下有很多类似vi的操作，譬如使用/进行搜索，使用y快速标记一行，使用w快速标记一个单词等。关于C/P模式下的高级操作，其文档的这一部分有比较详细的说明。</p>
+<p>一般情况下，可以移动光标到指定位置，按下空格设置一个开头标记，然后移动光标到结尾位置，按下空格设置第二个标记，同时会将两个标记之间的部分储存在copy/paste buffer中，并退出copy/paste模式。在正常模式下，可以使用快捷键C-a ]将储存在buffer中的内容粘贴到当前窗口。</p>
+<p><img src="https://images0.cnblogs.com/blog/370046/201301/29210355-9026652834d446d2bbafa18fd7bca276.jpg" alt="img"></p>
+<p><strong>6.6 更多screen功能</strong></p>
+<p>同大多数UNIX程序一样，GNU Screen提供了丰富强大的定制功能。你可以在Screen的默认两级配置文件/etc/screenrc和$HOME/.screenrc中指定更多，例如设定screen选项，定制绑定键，设定screen会话自启动窗口，启用多用户模式，定制用户访问权限控制等等。如果你愿意的话，也可以自己指定screen配置文件。</p>
+<p>以多用户功能为例，screen默认是以单用户模式运行的，你需要在配置文件中指定multiuser on 来打开多用户模式，通过acl*（acladd,acldel,aclchg…）命令，你可以灵活配置其他用户访问你的screen会话。更多配置文件内容请参考screen的man页。</p>
+<p><strong>6.7 解决screen状态为Attached连上不的问题</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">screen -ls</span><br><span class="line">screen -D -r ＜session-id&gt;</span><br></pre></td></tr></table></figure>
+
+<p>解释：-D -r 先踢掉前一用户，再登陆。</p>
+]]></content>
+      <tags>
+        <tag>Linux运维</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>screen 会话管理器用法</title>
+    <url>/2019/01/05/linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%87%8D%E8%A3%85/</url>
+    <content><![CDATA[<h5 id="screen-会话管理器用法"><a href="#screen-会话管理器用法" class="headerlink" title="screen 会话管理器用法"></a>screen 会话管理器用法</h5><a id="more"></a>
+
+<h4 id="1-安装依赖"><a href="#1-安装依赖" class="headerlink" title="1.安装依赖"></a>1.安装依赖</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#Debian&#x2F;Ubuntu</span><br><span class="line">apt-get install -y xz-utils openssl gawk file</span><br><span class="line">#RedHat&#x2F;CentOS</span><br><span class="line">yum install -y xz openssl gawk file</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-下载脚本"><a href="#2-下载脚本" class="headerlink" title="2.下载脚本"></a>2.下载脚本</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">wget -O InstallNET.sh https://fly97.fun/files/git/InstallNET/InstallNET.sh</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-运行命令："><a href="#3-运行命令：" class="headerlink" title="3.运行命令："></a>3.运行命令：</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">bash InstallNET.sh -c 6.9 -v 64 -a --mirror <span class="string">'http://mirror.centos.org/centos'</span></span><br><span class="line">bash InstallNET.sh -u 16.04 -v 64 -a -mirror <span class="string">'http://mirrors.aliyun.com/ubuntu/'</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="4-用户名以及密码："><a href="#4-用户名以及密码：" class="headerlink" title="4.用户名以及密码："></a>4.用户名以及密码：</h4><p><code>root@MoeClub.org</code></p>
+]]></content>
+      <tags>
+        <tag>Linux运维</tag>
       </tags>
   </entry>
   <entry>
@@ -792,145 +926,6 @@
       </tags>
   </entry>
   <entry>
-    <title>screen会话管理器用法</title>
-    <url>/2019/03/06/linux%20screen%20%E5%91%BD%E4%BB%A4%E8%AF%A6%E8%A7%A3/</url>
-    <content><![CDATA[<h5 id="screen-会话管理器用法"><a href="#screen-会话管理器用法" class="headerlink" title="screen 会话管理器用法"></a>screen 会话管理器用法</h5><a id="more"></a>
-
-<p><strong>一、背景</strong></p>
-<p>系统管理员经常需要SSH 或者telent 远程登录到Linux 服务器，经常运行一些需要很长时间才能完成的任务，比如系统备份、ftp 传输等等。通常情况下我们都是为每一个这样的任务开一个远程终端窗口，因为它们执行的时间太长了。必须等待它们执行完毕，在此期间不能关掉窗口或者断开连接，否则这个任务就会被杀掉，一切半途而废了。</p>
-<p><strong>二、简介</strong></p>
-<p><strong>GNU Screen</strong>是一款由GNU计划开发的用于命令行终端切换的自由软件。用户可以通过该软件同时连接多个本地或远程的命令行会话，并在其间自由切换。</p>
-<p>GNU Screen可以看作是窗口管理器的命令行界面版本。它提供了统一的管理多个会话的界面和相应的功能。</p>
-<ul>
-<li><strong>会话恢复</strong></li>
-</ul>
-<ul>
-<li><strong>多窗口</strong></li>
-</ul>
-<ul>
-<li><strong>会话共享</strong></li>
-</ul>
-<p>GNU’s Screen 官方站点：<a href="http://www.gnu.org/software/screen/" target="_blank" rel="noopener">http://www.gnu.org/software/screen/</a></p>
-<p><strong>三、语法</strong></p>
-<p># screen [-AmRvx -ls -wipe][-d &lt;作业名称&gt;][-h &lt;行数&gt;][-r &lt;作业名称&gt;][-s ][-S &lt;作业名称&gt;]</p>
-<p><strong>参数说明</strong></p>
-<p>-A 　将所有的视窗都调整为目前终端机的大小。<br>-d &lt;作业名称&gt; 　将指定的screen作业离线。<br>-h &lt;行数&gt; 　指定视窗的缓冲区行数。<br>-m 　即使目前已在作业中的screen作业，仍强制建立新的screen作业。<br>-r &lt;作业名称&gt; 　恢复离线的screen作业。<br>-R 　先试图恢复离线的作业。若找不到离线的作业，即建立新的screen作业。<br>-s 　指定建立新视窗时，所要执行的shell。<br>-S &lt;作业名称&gt; 　指定screen作业的名称。<br>-v 　显示版本信息。<br>-x 　恢复之前离线的screen作业。<br>-ls或–list 　显示目前所有的screen作业。<br>-wipe 　检查目前所有的screen作业，并删除已经无法使用的screen作业。</p>
-<p><strong>四、常用screen参数</strong></p>
-<p>screen -S yourname -&gt; 新建一个叫yourname的session<br>screen -ls -&gt; 列出当前所有的session<br>screen -r yourname -&gt; 回到yourname这个session<br>screen -d yourname -&gt; 远程detach某个session<br>screen -d -r yourname -&gt; 结束当前session并回到yourname这个session</p>
-<p><strong>在每个screen session 下，所有命令都以 ctrl+a(C-a) 开始。</strong><br>C-a ? -&gt; 显示所有键绑定信息<br>C-a c -&gt; 创建一个新的运行shell的窗口并切换到该窗口<br>C-a n -&gt; Next，切换到下一个 window<br>C-a p -&gt; Previous，切换到前一个 window<br>C-a 0..9 -&gt; 切换到第 0..9 个 window<br>Ctrl+a [Space] -&gt; 由视窗0循序切换到视窗9<br>C-a C-a -&gt; 在两个最近使用的 window 间切换<br>C-a x -&gt; 锁住当前的 window，需用用户密码解锁<br>C-a d -&gt; detach，暂时离开当前session，将目前的 screen session (可能含有多个 windows) 丢到后台执行，并会回到还没进 screen 时的状态，此时在 screen session 里，每个 window 内运行的 process (无论是前台/后台)都在继续执行，即使 logout 也不影响。<br>C-a z -&gt; 把当前session放到后台执行，用 shell 的 fg 命令则可回去。<br>C-a w -&gt; 显示所有窗口列表<br>C-a t -&gt; Time，显示当前时间，和系统的 load<br>C-a k -&gt; kill window，强行关闭当前的 window<br>C-a [ -&gt; 进入 copy mode，在 copy mode 下可以回滚、搜索、复制就像用使用 vi 一样<br>  C-b Backward，PageUp<br>  C-f Forward，PageDown<br>  H(大写) High，将光标移至左上角<br>  L Low，将光标移至左下角<br>  0 移到行首<br>  $ 行末<br>  w forward one word，以字为单位往前移<br>  b backward one word，以字为单位往后移<br>  Space 第一次按为标记区起点，第二次按为终点<br>  Esc 结束 copy mode<br>C-a ] -&gt; Paste，把刚刚在 copy mode 选定的内容贴上</p>
-<p><strong>五、使用 screen</strong></p>
-<p><strong>5.1 安装screen</strong></p>
-<p>流行的Linux发行版（例如Red Hat Enterprise Linux）通常会自带screen实用程序，如果没有的话，可以从GNU screen的官方网站下载。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[root@TS-DEV ~]# yum install screen</span><br><span class="line">[root@TS-DEV ~]# rpm -qa|grep screen</span><br><span class="line">screen-4.0.3-4.el5</span><br><span class="line">[root@TS-DEV ~]#</span><br></pre></td></tr></table></figure>
-
-<p><strong>5.2 创建一个新的窗口</strong></p>
-<p>安装完成后，直接敲命令screen就可以启动它。但是这样启动的screen会话没有名字，实践上推荐为每个screen会话取一个名字，方便分辨：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[root@TS-DEV ~]# screen -S david</span><br></pre></td></tr></table></figure>
-
-<p>screen启动后，会创建第一个窗口，也就是窗口No. 0，并在其中打开一个系统默认的shell，一般都会是bash。所以你敲入命令screen之后，会立刻又返回到命令提示符，仿佛什么也没有发生似的，其实你已经进入Screen的世界了。当然，也可以在screen命令之后加入你喜欢的参数，使之直接打开你指定的程序，例如：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[root@TS-DEV ~]# screen vi david.txt</span><br></pre></td></tr></table></figure>
-
-<p>screen创建一个执行vi david.txt的单窗口会话，退出vi 将退出该窗口/会话。</p>
-<p><strong>5.3 查看窗口和窗口名称</strong></p>
-<p>打开多个窗口后，可以使用快捷键C-a w列出当前所有窗口。如果使用文本终端，这个列表会列在屏幕左下角，如果使用X环境下的终端模拟器，这个列表会列在标题栏里。窗口列表的样子一般是这样：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">0$ bash  1-$ bash  2*$ bash</span><br></pre></td></tr></table></figure>
-
-<p>这个例子中我开启了三个窗口，其中*号表示当前位于窗口2，-号表示上一次切换窗口时位于窗口1。</p>
-<p>Screen默认会为窗口命名为编号和窗口中运行程序名的组合，上面的例子中窗口都是默认名字。练习了上面查看窗口的方法，你可能就希望各个窗口可以有不同的名字以方便区分了。可以使用快捷键C-a A来为当前窗口重命名，按下快捷键后，Screen会允许你为当前窗口输入新的名字，回车确认。</p>
-<p><strong>5.4 会话分离与恢复</strong></p>
-<p>你可以不中断screen窗口中程序的运行而暂时断开（detach）screen会话，并在随后时间重新连接（attach）该会话，重新控制各窗口中运行的程序。例如，我们打开一个screen窗口编辑/tmp/david.txt文件：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[root@TS-DEV ~]# screen vi &#x2F;tmp&#x2F;david.txt</span><br></pre></td></tr></table></figure>
-
-<p>之后我们想暂时退出做点别的事情，比如出去散散步，那么在screen窗口键入<code>C-a d</code>，Screen会给出detached提示：</p>
-<p><strong>暂时中断会话</strong></p>
-<p><img src="https://images0.cnblogs.com/blog/370046/201301/29144351-ff7e78c079a44f51ae44d48b6942b87f.jpg" alt="img"></p>
-<p>半个小时之后回来了，找到该screen会话：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[root@TS-DEV ~]# screen -ls</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://images0.cnblogs.com/blog/370046/201301/29144759-7cea9fc3f5f4481ab21df8bd017c88ef.jpg" alt="img"></p>
-<p>重新连接会话：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[root@TS-DEV ~]# screen -r 12865</span><br></pre></td></tr></table></figure>
-
-<p>一切都在。</p>
-<p>当然，如果你在另一台机器上没有分离一个Screen会话，就无从恢复会话了。</p>
-<p>这时可以使用下面命令强制将这个会话从它所在的终端分离，转移到新的终端上来：</p>
-<p><img src="https://images0.cnblogs.com/blog/370046/201301/29215655-6d2f0c7e7f294756a4b40a40e1e76a84.jpg" alt="img"></p>
-<p><strong>5.5 清除dead 会话</strong></p>
-<p>如果由于某种原因其中一个会话死掉了（例如人为杀掉该会话），这时screen -list会显示该会话为dead状态。使用screen -wipe命令清除该会话：</p>
-<p><img src="https://images0.cnblogs.com/blog/370046/201301/29154746-51185199905542c68d3c3b46dddef648.jpg" alt="img"></p>
-<p><strong>5.6 关闭或杀死窗口</strong></p>
-<p>正常情况下，当你退出一个窗口中最后一个程序（通常是bash）后，这个窗口就关闭了。另一个关闭窗口的方法是使用C-a k，这个快捷键杀死当前的窗口，同时也将杀死这个窗口中正在运行的进程。</p>
-<p>如果一个Screen会话中最后一个窗口被关闭了，那么整个Screen会话也就退出了，screen进程会被终止。</p>
-<p>除了依次退出/杀死当前Screen会话中所有窗口这种方法之外，还可以使用快捷键C-a :，然后输入quit命令退出Screen会话。需要注意的是，这样退出会杀死所有窗口并退出其中运行的所有程序。其实C-a :这个快捷键允许用户直接输入的命令有很多，包括分屏可以输入split等，这也是实现Screen功能的一个途径，不过个人认为还是快捷键比较方便些。</p>
-<p><strong>六、screen 高级应用</strong> </p>
-<p><strong>6.1 会话共享</strong></p>
-<p>还有一种比较好玩的会话恢复，可以实现会话共享。假设你在和朋友在不同地点以相同用户登录一台机器，然后你创建一个screen会话，你朋友可以在他的终端上命令：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[root@TS-DEV ~]# screen -x</span><br></pre></td></tr></table></figure>
-
-<p>这个命令会将你朋友的终端Attach到你的Screen会话上，并且你的终端不会被Detach。这样你就可以和朋友共享同一个会话了，如果你们当前又处于同一个窗口，那就相当于坐在同一个显示器前面，你的操作会同步演示给你朋友，你朋友的操作也会同步演示给你。当然，如果你们切换到这个会话的不同窗口中去，那还是可以分别进行不同的操作的。</p>
-<p><strong>6.2 会话锁定与解锁</strong></p>
-<p>Screen允许使用快捷键C-a s锁定会话。锁定以后，再进行任何输入屏幕都不会再有反应了。但是要注意虽然屏幕上看不到反应，但你的输入都会被Screen中的进程接收到。快捷键C-a q可以解锁一个会话。</p>
-<p>也可以使用C-a x锁定会话，不同的是这样锁定之后，会话会被Screen所属用户的密码保护，需要输入密码才能继续访问这个会话。</p>
-<p><strong>6.3 发送命令到screen会话</strong></p>
-<p>在Screen会话之外，可以通过screen命令操作一个Screen会话，这也为使用Screen作为脚本程序增加了便利。关于Screen在脚本中的应用超出了入门的范围，这里只看一个例子，体会一下在会话之外对Screen的操作：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[root@TS-DEV ~]# screen -S sandy -X screen ping www.baidu.com</span><br></pre></td></tr></table></figure>
-
-<p>这个命令在一个叫做sandy的screen会话中创建一个新窗口，并在其中运行ping命令。</p>
-<p><strong>6.4 屏幕分割</strong></p>
-<p>现在显示器那么大，将一个屏幕分割成不同区域显示不同的Screen窗口显然是个很酷的事情。可以使用快捷键C-a S将显示器水平分割，Screen 4.00.03版本以后，也支持垂直分屏，快捷键是C-a |。分屏以后，可以使用C-a <tab>在各个区块间切换，每一区块上都可以创建窗口并在其中运行进程。</p>
-<p>可以用C-a X快捷键关闭当前焦点所在的屏幕区块，也可以用C-a Q关闭除当前区块之外其他的所有区块。关闭的区块中的窗口并不会关闭，还可以通过窗口切换找到它。</p>
-<p><img src="https://images0.cnblogs.com/blog/370046/201301/29205553-38cdde403beb45f4814ca9a180987a9e.jpg" alt="img"></p>
-<p><strong>6.5 C/P模式和操作</strong></p>
-<p>screen的另一个很强大的功能就是可以在不同窗口之间进行复制粘贴了。使用快捷键C-a <Esc>或者C-a [可以进入copy/paste模式，这个模式下可以像在vi中一样移动光标，并可以使用空格键设置标记。其实在这个模式下有很多类似vi的操作，譬如使用/进行搜索，使用y快速标记一行，使用w快速标记一个单词等。关于C/P模式下的高级操作，其文档的这一部分有比较详细的说明。</p>
-<p>一般情况下，可以移动光标到指定位置，按下空格设置一个开头标记，然后移动光标到结尾位置，按下空格设置第二个标记，同时会将两个标记之间的部分储存在copy/paste buffer中，并退出copy/paste模式。在正常模式下，可以使用快捷键C-a ]将储存在buffer中的内容粘贴到当前窗口。</p>
-<p><img src="https://images0.cnblogs.com/blog/370046/201301/29210355-9026652834d446d2bbafa18fd7bca276.jpg" alt="img"></p>
-<p><strong>6.6 更多screen功能</strong></p>
-<p>同大多数UNIX程序一样，GNU Screen提供了丰富强大的定制功能。你可以在Screen的默认两级配置文件/etc/screenrc和$HOME/.screenrc中指定更多，例如设定screen选项，定制绑定键，设定screen会话自启动窗口，启用多用户模式，定制用户访问权限控制等等。如果你愿意的话，也可以自己指定screen配置文件。</p>
-<p>以多用户功能为例，screen默认是以单用户模式运行的，你需要在配置文件中指定multiuser on 来打开多用户模式，通过acl*（acladd,acldel,aclchg…）命令，你可以灵活配置其他用户访问你的screen会话。更多配置文件内容请参考screen的man页。</p>
-<p><strong>6.7 解决screen状态为Attached连上不的问题</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">screen -ls</span><br><span class="line">screen -D -r ＜session-id&gt;</span><br></pre></td></tr></table></figure>
-
-<p>解释：-D -r 先踢掉前一用户，再登陆。</p>
-]]></content>
-      <tags>
-        <tag>Linux运维</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>一键安装影梭脚本</title>
-    <url>/2019/12/31/%E4%B8%80%E9%94%AE%E5%AE%89%E8%A3%85ShadowsocksR%E8%84%9A%E6%9C%AC/</url>
-    <content><![CDATA[<h5 id="🐕头保命。"><a href="#🐕头保命。" class="headerlink" title="🐕头保命。"></a>🐕头保命。</h5><a id="more"></a>
-
-<h5 id="服务端脚本"><a href="#服务端脚本" class="headerlink" title="服务端脚本"></a><del>服务端脚本</del></h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">wget https://fly97.fun/files/git/shadowsocksr/ssr.sh &amp;&amp; chmod +x ssr.sh</span><br></pre></td></tr></table></figure>
-
-<h5 id="一键安装ShadowsocksR服务端脚本"><a href="#一键安装ShadowsocksR服务端脚本" class="headerlink" title="一键安装ShadowsocksR服务端脚本"></a>一键安装ShadowsocksR服务端脚本</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">wget https://code.aliyun.com/wf.09/shadowsocks/raw/master/ssr.sh &amp;&amp; chmod +x ssr.sh</span><br></pre></td></tr></table></figure>
-
-<h5 id="一键安装ShadowsocksR客户端脚本"><a href="#一键安装ShadowsocksR客户端脚本" class="headerlink" title="一键安装ShadowsocksR客户端脚本"></a>一键安装ShadowsocksR客户端脚本</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">wget https://code.aliyun.com/wf.09/shadowsocks/raw/master/ssr &amp;&amp; chmod +x ssr &amp;&amp; mv ssr /usr/<span class="built_in">local</span>/bin</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <tags>
-        <tag>ShadowsocksR</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Outline软件使用全记录</title>
-    <url>/2020/01/04/%E4%BD%BF%E7%94%A8Outline%20App%E8%BF%9B%E8%A1%8C%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/</url>
-    <content><![CDATA[<p>Outline软件使用全记录</p>
-<a id="more"></a>
-
-<h5 id="1-如果是苹果手机，首先需要下载一个工具"><a href="#1-如果是苹果手机，首先需要下载一个工具" class="headerlink" title="1.如果是苹果手机，首先需要下载一个工具."></a>1.如果是苹果手机，首先需要下载一个工具.</h5><p>国区现在全面下架代理工具，需要一个港区或者美区ID进行下载，大多是软件收费，少数软件免费但是有广告。楼主偶然发现了一个国区也可以用的代理工具：</p>
-<p><a href="https://apps.apple.com/cn/app/outline-app/id1356177741" target="_blank" rel="noopener">https://apps.apple.com/cn/app/outline-app/id1356177741</a></p>
-<p><img src="1.png" alt="1.png"></p>
-<h5 id="2-购买相应服务后就可以进行科学上网啦"><a href="#2-购买相应服务后就可以进行科学上网啦" class="headerlink" title="2.购买相应服务后就可以进行科学上网啦."></a>2.购买相应服务后就可以进行科学上网啦.</h5><p>楼主提供了一个免费节点，复制以下链接，点击小钥匙，选择允许添加VPN配置就可以免费科学上网啦</p>
-<img src="2.jpg" alt="2.jpg" style="zoom:33%;" />
-
-<p><del>ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpOWkVyeFN3MTh5YmQ=@47.241.3.53:20650/?outline=1</del></p>
-]]></content>
-      <tags>
-        <tag>Outline</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>v2ray快速上手全记录</title>
     <url>/2020/04/23/v2ray%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E5%85%A8%E8%AE%B0%E5%BD%95/</url>
     <content><![CDATA[<p>快速上手v2ray</p>
@@ -992,6 +987,40 @@
 ]]></content>
       <tags>
         <tag>v2ray</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>一键安装影梭脚本</title>
+    <url>/2019/12/31/%E4%B8%80%E9%94%AE%E5%AE%89%E8%A3%85ShadowsocksR%E8%84%9A%E6%9C%AC/</url>
+    <content><![CDATA[<h5 id="🐕头保命。"><a href="#🐕头保命。" class="headerlink" title="🐕头保命。"></a>🐕头保命。</h5><a id="more"></a>
+
+<h5 id="服务端脚本"><a href="#服务端脚本" class="headerlink" title="服务端脚本"></a><del>服务端脚本</del></h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">wget https://fly97.fun/files/git/shadowsocksr/ssr.sh &amp;&amp; chmod +x ssr.sh</span><br></pre></td></tr></table></figure>
+
+<h5 id="一键安装ShadowsocksR服务端脚本"><a href="#一键安装ShadowsocksR服务端脚本" class="headerlink" title="一键安装ShadowsocksR服务端脚本"></a>一键安装ShadowsocksR服务端脚本</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">wget https://code.aliyun.com/wf.09/shadowsocks/raw/master/ssr.sh &amp;&amp; chmod +x ssr.sh</span><br></pre></td></tr></table></figure>
+
+<h5 id="一键安装ShadowsocksR客户端脚本"><a href="#一键安装ShadowsocksR客户端脚本" class="headerlink" title="一键安装ShadowsocksR客户端脚本"></a>一键安装ShadowsocksR客户端脚本</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">wget https://code.aliyun.com/wf.09/shadowsocks/raw/master/ssr &amp;&amp; chmod +x ssr &amp;&amp; mv ssr /usr/<span class="built_in">local</span>/bin</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <tags>
+        <tag>ShadowsocksR</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Outline软件使用全记录</title>
+    <url>/2020/01/04/%E4%BD%BF%E7%94%A8Outline%20App%E8%BF%9B%E8%A1%8C%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/</url>
+    <content><![CDATA[<p>Outline软件使用全记录</p>
+<a id="more"></a>
+
+<h5 id="1-如果是苹果手机，首先需要下载一个工具"><a href="#1-如果是苹果手机，首先需要下载一个工具" class="headerlink" title="1.如果是苹果手机，首先需要下载一个工具."></a>1.如果是苹果手机，首先需要下载一个工具.</h5><p>国区现在全面下架代理工具，需要一个港区或者美区ID进行下载，大多是软件收费，少数软件免费但是有广告。楼主偶然发现了一个国区也可以用的代理工具：</p>
+<p><a href="https://apps.apple.com/cn/app/outline-app/id1356177741" target="_blank" rel="noopener">https://apps.apple.com/cn/app/outline-app/id1356177741</a></p>
+<p><img src="1.png" alt="1.png"></p>
+<h5 id="2-购买相应服务后就可以使用了"><a href="#2-购买相应服务后就可以使用了" class="headerlink" title="2.购买相应服务后就可以使用了."></a>2.购买相应服务后就可以使用了.</h5><p>楼主提供了一个免费节点，复制以下链接，点击小钥匙，选择允许添加VPN配置就可以免费使用啦</p>
+<img src="2.jpg" alt="2.jpg" style="zoom:33%;" />
+
+<p><del>ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpOWkVyeFN3MTh5YmQ=@47.241.3.53:20650/?outline=1</del></p>
+]]></content>
+      <tags>
+        <tag>Outline</tag>
       </tags>
   </entry>
   <entry>
@@ -1239,7 +1268,7 @@
 
 <h4 id="4-离线安装Pytorch"><a href="#4-离线安装Pytorch" class="headerlink" title="4.离线安装Pytorch"></a>4.离线安装Pytorch</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pip install --no-index --find-links=torch-1.4.0+cpu-cp36-cp36m-linux_x86_64.whl torch</span><br></pre></td></tr></table></figure>
 
-<h4 id="5-卸载Pytorch-cpu版本并安装GPU版本"><a href="#5-卸载Pytorch-cpu版本并安装GPU版本" class="headerlink" title="5.卸载Pytorch-cpu版本并安装GPU版本"></a>5.卸载Pytorch-cpu版本并安装GPU版本</h4><h5 id="5-1-卸载cpu版"><a href="#5-1-卸载cpu版" class="headerlink" title="5.1 卸载cpu版"></a>5.1 卸载cpu版</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pip uninstall torch   		<span class="comment">#卸载torch</span></span><br><span class="line">pip uninstall torchvison    <span class="comment">#卸载torchvison</span></span><br></pre></td></tr></table></figure>
+<h4 id="5-windows10卸载Pytorch-cpu版本并安装GPU版本"><a href="#5-windows10卸载Pytorch-cpu版本并安装GPU版本" class="headerlink" title="5.windows10卸载Pytorch-cpu版本并安装GPU版本"></a>5.windows10卸载Pytorch-cpu版本并安装GPU版本</h4><h5 id="5-1-卸载cpu版"><a href="#5-1-卸载cpu版" class="headerlink" title="5.1 卸载cpu版"></a>5.1 卸载cpu版</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pip uninstall torch   		<span class="comment">#卸载torch</span></span><br><span class="line">pip uninstall torchvison    <span class="comment">#卸载torchvison</span></span><br></pre></td></tr></table></figure>
 
 <h5 id="5-2-安装CUDA"><a href="#5-2-安装CUDA" class="headerlink" title="5.2 安装CUDA"></a>5.2 安装CUDA</h5><p><img src="image-20200315143756001.png" alt="image-20200315143756001"></p>
 <p><a href="https://developer.nvidia.com/cuda-toolkit-archive" target="_blank" rel="noopener">https://developer.nvidia.com/cuda-toolkit-archive</a></p>
