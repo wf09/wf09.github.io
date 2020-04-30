@@ -55,21 +55,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Git常见操作之在本地目录下关联远程仓库和如何取消本地目录下关联的远程库</title>
-    <url>/2020/03/07/Git%E5%B8%B8%E8%A7%81%E6%93%8D%E4%BD%9C/</url>
-    <content><![CDATA[<p>不说废话，上教程。</p>
-<a id="more"></a>
-
-<h5 id="1-在本地目录下关联远程repository-："><a href="#1-在本地目录下关联远程repository-：" class="headerlink" title="1.在本地目录下关联远程repository ："></a>1.在本地目录下关联远程repository ：</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git remote add origin git@github.com:git_username/repository_name.git</span><br></pre></td></tr></table></figure>
-
-<h5 id="2-取消本地目录下关联的远程库："><a href="#2-取消本地目录下关联的远程库：" class="headerlink" title="2.取消本地目录下关联的远程库："></a>2.取消本地目录下关联的远程库：</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git remote remove origin</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <tags>
-        <tag>git</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Gost服务配置指南</title>
     <url>/2020/03/23/Gost%E6%9C%8D%E5%8A%A1%E9%85%8D%E7%BD%AE%E6%8C%87%E5%8D%97/</url>
     <content><![CDATA[<p>gost服务操作指南</p>
@@ -108,6 +93,21 @@
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">gost -L mwss://:443</span><br></pre></td></tr></table></figure>]]></content>
       <tags>
         <tag>gost</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Git常见操作之在本地目录下关联远程仓库和如何取消本地目录下关联的远程库</title>
+    <url>/2020/03/07/Git%E5%B8%B8%E8%A7%81%E6%93%8D%E4%BD%9C/</url>
+    <content><![CDATA[<p>不说废话，上教程。</p>
+<a id="more"></a>
+
+<h5 id="1-在本地目录下关联远程repository-："><a href="#1-在本地目录下关联远程repository-：" class="headerlink" title="1.在本地目录下关联远程repository ："></a>1.在本地目录下关联远程repository ：</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git remote add origin git@github.com:git_username/repository_name.git</span><br></pre></td></tr></table></figure>
+
+<h5 id="2-取消本地目录下关联的远程库："><a href="#2-取消本地目录下关联的远程库：" class="headerlink" title="2.取消本地目录下关联的远程库："></a>2.取消本地目录下关联的远程库：</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git remote remove origin</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <tags>
+        <tag>git</tag>
       </tags>
   </entry>
   <entry>
@@ -307,6 +307,75 @@
       </tags>
   </entry>
   <entry>
+    <title>Python实用教程之下划线命名模式</title>
+    <url>/2020/03/16/Python%E5%AE%9E%E7%94%A8%E6%95%99%E7%A8%8B%E4%B9%8B%E4%B8%8B%E5%88%92%E7%BA%BF%E5%91%BD%E5%90%8D%E6%A8%A1%E5%BC%8F/</url>
+    <content><![CDATA[<p>直接上表格。</p>
+<table>
+<thead>
+<tr>
+<th align="center">命名模式</th>
+<th align="center">举例</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">单前导下划线</td>
+<td align="center">_var</td>
+<td>命名约定，仅供内部使用。通常不会由Python解释器内部执行（通配符导入除外），只作为对程序员的提示。通配符导入时，_var代表的<strong>属性</strong>或者<strong>函数</strong>不会被导入。</td>
+</tr>
+<tr>
+<td align="center">单末尾下划线</td>
+<td align="center">var_</td>
+<td>按照约定使用避免与Python关键字的命名冲突。</td>
+</tr>
+<tr>
+<td align="center">双前导下划线</td>
+<td align="center">__var</td>
+<td>当在类上下文使用时，触发名称修饰，由Python解释器强制执行。<br /><strong>Tips：</strong>可以理解为Python对象的<strong>私有属性</strong>。仅供<strong>Python内部成员函数</strong>使用。</td>
+</tr>
+<tr>
+<td align="center">双前导和双末尾下划线</td>
+<td align="center">_<em>var_</em></td>
+<td>表示Python语言定义的特殊方法，避免在你自己的属性中使用这种特殊方法。</td>
+</tr>
+<tr>
+<td align="center">单下划线</td>
+<td align="center">_</td>
+<td>有时用作临时或者不关心的变量名称，也表示<strong>Python REPL</strong>最近的一个表达式的结果。</td>
+</tr>
+</tbody></table>
+]]></content>
+      <tags>
+        <tag>Python教程</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Python深度学习之PyTorch学习小记录</title>
+    <url>/2020/03/05/Python%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E4%B9%8BPyTorch%E5%AD%A6%E4%B9%A0%E5%B0%8F%E8%AE%B0%E5%BD%95/</url>
+    <content><![CDATA[<p>不说废话，直接上教程。</p>
+<a id="more"></a>
+
+<h5 id="1-torch-Tensor和torch-tensor有什么区别？"><a href="#1-torch-Tensor和torch-tensor有什么区别？" class="headerlink" title="1.torch.Tensor和torch.tensor有什么区别？"></a>1.torch.Tensor和torch.tensor有什么区别？</h5><h6 id="1-1介绍"><a href="#1-1介绍" class="headerlink" title="1.1介绍"></a>1.1介绍</h6><p>​    在PyTorch 中，torch.Tensor是主要的tensor类，所有的tensor都是torch.Tensor的实例。torch.Tensor是torch.FloatTensor的别名。<br>而torch.tensor是一个函数，返回的是一个tensor，在PyTorch官方文档中，描述如下：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">torch.tensor(data, dtype=<span class="literal">None</span>, device=<span class="literal">None</span>, requires_grad=<span class="literal">False</span>) → Tensor</span><br><span class="line">Constructs a tensor <span class="keyword">with</span> data.</span><br></pre></td></tr></table></figure>
+
+<h6 id="1-2区别1"><a href="#1-2区别1" class="headerlink" title="1.2区别1"></a>1.2区别1</h6><p><code>torch.Tensor(data)</code>是将输入的data转化<code>torch.FloatTensor</code></p>
+<p><code>torch.tensor(data)</code>(当你未指定<code>dype</code>的类型时)是将data转化为<code>torch.FloatTensor、torch.LongTensor、torch.DoubleTensor</code>等类型，转化类型依据于<code>data</code>的类型或者<code>dtype</code>的值</p>
+<h5 id="1-3区别2"><a href="#1-3区别2" class="headerlink" title="1.3区别2"></a>1.3区别2</h5><p>使用如下语句：<code>tensor_without_data = torch.Tensor()</code>可以创建一个空的<code>FloatTensor</code>，而当你使用<code>tensor_without_data = torch.tensor()</code>时候则会报错：</p>
+<hr>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">TypeError Traceback (most recent call last)</span><br><span class="line">&lt;ipython-input<span class="number">-12</span>-ebc3ceaa76d2&gt; <span class="keyword">in</span> &lt;module&gt;()</span><br><span class="line">----&gt; 1 torch.tensor()</span><br><span class="line"></span><br><span class="line">TypeError: tensor() missing <span class="number">1</span> required positional arguments: <span class="string">"data"</span></span><br></pre></td></tr></table></figure>
+
+<p>当你想要创建一个空的<code>tensor</code>时候，可以使用如下的方法：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">tensor_without_data = torch.Tensor() <span class="comment"># tensor([])</span></span><br><span class="line">tensor_without_data = torch.tensor(()) <span class="comment"># tensor([])</span></span><br><span class="line">tensor_without_data = torch.empty([]) <span class="comment"># tensor(0.)</span></span><br></pre></td></tr></table></figure>
+
+
+<p>所以<code>torch.Tensor</code>应该说是同时具有<code>torch.tensor</code>和<code>torch.empty</code>的功能，但是使用<code>torch.Tensor</code>可能会使你的代码出错，所以最好还是使用<code>torch.tensor</code>和<code>torch.empty</code>，而不是<code>torch.Tensor</code>。</p>
+]]></content>
+      <tags>
+        <tag>Python深度学习</tag>
+        <tag>Pytorch</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Python数据存储之pickle模块的使用</title>
     <url>/2020/03/04/Python%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8%E4%B9%8Bpickle%E6%A8%A1%E5%9D%97%E7%9A%84%E4%BD%BF%E7%94%A8/</url>
     <content><![CDATA[<p>废话不多说，直接上代码。</p>
@@ -378,75 +447,6 @@
       <tags>
         <tag>Python教程</tag>
         <tag>pickle</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Python实用教程之下划线命名模式</title>
-    <url>/2020/03/16/Python%E5%AE%9E%E7%94%A8%E6%95%99%E7%A8%8B%E4%B9%8B%E4%B8%8B%E5%88%92%E7%BA%BF%E5%91%BD%E5%90%8D%E6%A8%A1%E5%BC%8F/</url>
-    <content><![CDATA[<p>直接上表格。</p>
-<table>
-<thead>
-<tr>
-<th align="center">命名模式</th>
-<th align="center">举例</th>
-<th>含义</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">单前导下划线</td>
-<td align="center">_var</td>
-<td>命名约定，仅供内部使用。通常不会由Python解释器内部执行（通配符导入除外），只作为对程序员的提示。通配符导入时，_var代表的<strong>属性</strong>或者<strong>函数</strong>不会被导入。</td>
-</tr>
-<tr>
-<td align="center">单末尾下划线</td>
-<td align="center">var_</td>
-<td>按照约定使用避免与Python关键字的命名冲突。</td>
-</tr>
-<tr>
-<td align="center">双前导下划线</td>
-<td align="center">__var</td>
-<td>当在类上下文使用时，触发名称修饰，由Python解释器强制执行。<br /><strong>Tips：</strong>可以理解为Python对象的<strong>私有属性</strong>。仅供<strong>Python内部成员函数</strong>使用。</td>
-</tr>
-<tr>
-<td align="center">双前导和双末尾下划线</td>
-<td align="center">_<em>var_</em></td>
-<td>表示Python语言定义的特殊方法，避免在你自己的属性中使用这种特殊方法。</td>
-</tr>
-<tr>
-<td align="center">单下划线</td>
-<td align="center">_</td>
-<td>有时用作临时或者不关心的变量名称，也表示<strong>Python REPL</strong>最近的一个表达式的结果。</td>
-</tr>
-</tbody></table>
-]]></content>
-      <tags>
-        <tag>Python教程</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Python深度学习之PyTorch学习小记录</title>
-    <url>/2020/03/05/Python%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E4%B9%8BPyTorch%E5%AD%A6%E4%B9%A0%E5%B0%8F%E8%AE%B0%E5%BD%95/</url>
-    <content><![CDATA[<p>不说废话，直接上教程。</p>
-<a id="more"></a>
-
-<h5 id="1-torch-Tensor和torch-tensor有什么区别？"><a href="#1-torch-Tensor和torch-tensor有什么区别？" class="headerlink" title="1.torch.Tensor和torch.tensor有什么区别？"></a>1.torch.Tensor和torch.tensor有什么区别？</h5><h6 id="1-1介绍"><a href="#1-1介绍" class="headerlink" title="1.1介绍"></a>1.1介绍</h6><p>​    在PyTorch 中，torch.Tensor是主要的tensor类，所有的tensor都是torch.Tensor的实例。torch.Tensor是torch.FloatTensor的别名。<br>而torch.tensor是一个函数，返回的是一个tensor，在PyTorch官方文档中，描述如下：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">torch.tensor(data, dtype=<span class="literal">None</span>, device=<span class="literal">None</span>, requires_grad=<span class="literal">False</span>) → Tensor</span><br><span class="line">Constructs a tensor <span class="keyword">with</span> data.</span><br></pre></td></tr></table></figure>
-
-<h6 id="1-2区别1"><a href="#1-2区别1" class="headerlink" title="1.2区别1"></a>1.2区别1</h6><p><code>torch.Tensor(data)</code>是将输入的data转化<code>torch.FloatTensor</code></p>
-<p><code>torch.tensor(data)</code>(当你未指定<code>dype</code>的类型时)是将data转化为<code>torch.FloatTensor、torch.LongTensor、torch.DoubleTensor</code>等类型，转化类型依据于<code>data</code>的类型或者<code>dtype</code>的值</p>
-<h5 id="1-3区别2"><a href="#1-3区别2" class="headerlink" title="1.3区别2"></a>1.3区别2</h5><p>使用如下语句：<code>tensor_without_data = torch.Tensor()</code>可以创建一个空的<code>FloatTensor</code>，而当你使用<code>tensor_without_data = torch.tensor()</code>时候则会报错：</p>
-<hr>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">TypeError Traceback (most recent call last)</span><br><span class="line">&lt;ipython-input<span class="number">-12</span>-ebc3ceaa76d2&gt; <span class="keyword">in</span> &lt;module&gt;()</span><br><span class="line">----&gt; 1 torch.tensor()</span><br><span class="line"></span><br><span class="line">TypeError: tensor() missing <span class="number">1</span> required positional arguments: <span class="string">"data"</span></span><br></pre></td></tr></table></figure>
-
-<p>当你想要创建一个空的<code>tensor</code>时候，可以使用如下的方法：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">tensor_without_data = torch.Tensor() <span class="comment"># tensor([])</span></span><br><span class="line">tensor_without_data = torch.tensor(()) <span class="comment"># tensor([])</span></span><br><span class="line">tensor_without_data = torch.empty([]) <span class="comment"># tensor(0.)</span></span><br></pre></td></tr></table></figure>
-
-
-<p>所以<code>torch.Tensor</code>应该说是同时具有<code>torch.tensor</code>和<code>torch.empty</code>的功能，但是使用<code>torch.Tensor</code>可能会使你的代码出错，所以最好还是使用<code>torch.tensor</code>和<code>torch.empty</code>，而不是<code>torch.Tensor</code>。</p>
-]]></content>
-      <tags>
-        <tag>Python深度学习</tag>
-        <tag>Pytorch</tag>
       </tags>
   </entry>
   <entry>
@@ -591,6 +591,23 @@
       </tags>
   </entry>
   <entry>
+    <title>screen 会话管理器用法</title>
+    <url>/2019/01/05/linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%87%8D%E8%A3%85/</url>
+    <content><![CDATA[<h5 id="screen-会话管理器用法"><a href="#screen-会话管理器用法" class="headerlink" title="screen 会话管理器用法"></a>screen 会话管理器用法</h5><a id="more"></a>
+
+<h4 id="1-安装依赖"><a href="#1-安装依赖" class="headerlink" title="1.安装依赖"></a>1.安装依赖</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#Debian&#x2F;Ubuntu</span><br><span class="line">apt-get install -y xz-utils openssl gawk file</span><br><span class="line">#RedHat&#x2F;CentOS</span><br><span class="line">yum install -y xz openssl gawk file</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-下载脚本"><a href="#2-下载脚本" class="headerlink" title="2.下载脚本"></a>2.下载脚本</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">wget -O InstallNET.sh https://fly97.fun/files/git/InstallNET/InstallNET.sh</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-运行命令："><a href="#3-运行命令：" class="headerlink" title="3.运行命令："></a>3.运行命令：</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">bash InstallNET.sh -c 6.9 -v 64 -a --mirror <span class="string">'http://mirror.centos.org/centos'</span></span><br><span class="line">bash InstallNET.sh -u 16.04 -v 64 -a -mirror <span class="string">'http://mirrors.aliyun.com/ubuntu/'</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="4-用户名以及密码："><a href="#4-用户名以及密码：" class="headerlink" title="4.用户名以及密码："></a>4.用户名以及密码：</h4><p><code>root@MoeClub.org</code></p>
+]]></content>
+      <tags>
+        <tag>Linux运维</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>screen会话管理器用法</title>
     <url>/2019/03/06/linux%20screen%20%E5%91%BD%E4%BB%A4%E8%AF%A6%E8%A7%A3/</url>
     <content><![CDATA[<h5 id="screen-会话管理器用法"><a href="#screen-会话管理器用法" class="headerlink" title="screen 会话管理器用法"></a>screen 会话管理器用法</h5><a id="more"></a>
@@ -696,20 +713,765 @@
       </tags>
   </entry>
   <entry>
-    <title>screen 会话管理器用法</title>
-    <url>/2019/01/05/linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%87%8D%E8%A3%85/</url>
-    <content><![CDATA[<h5 id="screen-会话管理器用法"><a href="#screen-会话管理器用法" class="headerlink" title="screen 会话管理器用法"></a>screen 会话管理器用法</h5><a id="more"></a>
+    <title>python实用教程之re正则表达式匹配</title>
+    <url>/2020/04/30/python%E5%AE%9E%E7%94%A8%E6%95%99%E7%A8%8B%E4%B9%8Bre%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%8C%B9%E9%85%8D/</url>
+    <content><![CDATA[<h4 id="1-正则表达式全集"><a href="#1-正则表达式全集" class="headerlink" title="1.正则表达式全集"></a>1.正则表达式全集</h4><a id="more"></a>
 
-<h4 id="1-安装依赖"><a href="#1-安装依赖" class="headerlink" title="1.安装依赖"></a>1.安装依赖</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#Debian&#x2F;Ubuntu</span><br><span class="line">apt-get install -y xz-utils openssl gawk file</span><br><span class="line">#RedHat&#x2F;CentOS</span><br><span class="line">yum install -y xz openssl gawk file</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>字符</th>
+<th><strong>描述</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>\</td>
+<td>将下一个字符标记为一个特殊字符、或一个原义字符、或一个向后引用、或一个八进制转义符。例如，“<code>n</code>”匹配字符“<code>n</code>”。“<code>\n</code>”匹配一个换行符。串行“<code>\\</code>”匹配“<code>\</code>”而“<code>\(</code>”则匹配“<code>(</code>”。</td>
+</tr>
+<tr>
+<td><strong>^</strong></td>
+<td>匹配输入字符串的开始位置。如果设置了RegExp对象的Multiline属性，^也匹配“<code>\n</code>”或“<code>\r</code>”之后的位置。</td>
+</tr>
+<tr>
+<td><strong>$</strong></td>
+<td>匹配输入字符串的结束位置。如果设置了RegExp对象的Multiline属性，$也匹配“<code>\n</code>”或“<code>\r</code>”之前的位置。</td>
+</tr>
+<tr>
+<td>*****</td>
+<td>匹配前面的子表达式零次或多次。例如，zo<em>能匹配“<code>z</code>”以及“<code>zoo</code>”。</em>等价于{0,}。</td>
+</tr>
+<tr>
+<td><strong>+</strong></td>
+<td>匹配前面的子表达式一次或多次。例如，“<code>zo+</code>”能匹配“<code>zo</code>”以及“<code>zoo</code>”，但不能匹配“<code>z</code>”。+等价于{1,}。</td>
+</tr>
+<tr>
+<td><strong>?</strong></td>
+<td>匹配前面的子表达式零次或一次。例如，“<code>do(es)?</code>”可以匹配“<code>does</code>”或“<code>does</code>”中的“<code>do</code>”。?等价于{0,1}。</td>
+</tr>
+<tr>
+<td><strong>{n}</strong></td>
+<td><em>n</em>是一个非负整数。匹配确定的<em>n</em>次。例如，“<code>o{2}</code>”不能匹配“<code>Bob</code>”中的“<code>o</code>”，但是能匹配“<code>food</code>”中的两个o。</td>
+</tr>
+<tr>
+<td><strong>{n,}</strong></td>
+<td><em>n</em>是一个非负整数。至少匹配<em>n</em>次。例如，“<code>o{2,}</code>”不能匹配“<code>Bob</code>”中的“<code>o</code>”，但能匹配“<code>foooood</code>”中的所有o。“<code>o{1,}</code>”等价于“<code>o+</code>”。“<code>o{0,}</code>”则等价于“<code>o*</code>”。</td>
+</tr>
+<tr>
+<td><strong>{n,m}</strong></td>
+<td><em>m</em>和<em>n</em>均为非负整数，其中<em>n</em>&lt;=<em>m</em>。最少匹配<em>n</em>次且最多匹配<em>m</em>次。例如，“<code>o{1,3}</code>”将匹配“<code>fooooood</code>”中的前三个o。“<code>o{0,1}</code>”等价于“<code>o?</code>”。请注意在逗号和两个数之间不能有空格。</td>
+</tr>
+<tr>
+<td><strong>?</strong></td>
+<td>当该字符紧跟在任何一个其他限制符（<em>,+,?，{*n</em>}，{<em>n</em>,}，{<em>n</em>,<em>m</em>}）后面时，匹配模式是非贪婪的。非贪婪模式尽可能少的匹配所搜索的字符串，而默认的贪婪模式则尽可能多的匹配所搜索的字符串。例如，对于字符串“<code>oooo</code>”，“<code>o+?</code>”将匹配单个“<code>o</code>”，而“<code>o+</code>”将匹配所有“<code>o</code>”。</td>
+</tr>
+<tr>
+<td><strong>.</strong></td>
+<td>匹配除“<code>\</code><em><code>n</code></em>”之外的任何单个字符。要匹配包括“<code>\</code><em><code>n</code></em>”在内的任何字符，请使用像“`(.</td>
+</tr>
+<tr>
+<td><strong>(pattern)</strong></td>
+<td>匹配pattern并获取这一匹配。所获取的匹配可以从产生的Matches集合得到，在VBScript中使用SubMatches集合，在JScript中则使用$0…$9属性。要匹配圆括号字符，请使用“<code>\(</code>”或“<code>\)</code>”。</td>
+</tr>
+<tr>
+<td><strong>(?:pattern)</strong></td>
+<td>匹配pattern但不获取匹配结果，也就是说这是一个非获取匹配，不进行存储供以后使用。</td>
+</tr>
+<tr>
+<td><strong>(?=pattern)</strong></td>
+<td>正向肯定预查，在任何匹配pattern的字符串开始处匹配查找字符串。这是一个非获取匹配，也就是说，该匹配不需要获取供以后使用。</td>
+</tr>
+<tr>
+<td><strong>(?!pattern)</strong></td>
+<td>正向否定预查，在任何不匹配pattern的字符串开始处匹配查找字符串。这是一个非获取匹配，也就是说，该匹配不需要获取供以后使用。</td>
+</tr>
+<tr>
+<td><strong>(?&lt;=pattern)</strong></td>
+<td>反向肯定预查，与正向肯定预查类拟，只是方向相反。</td>
+</tr>
+<tr>
+<td><strong>(?&lt;!pattern)</strong></td>
+<td>反向否定预查，与正向否定预查类拟，只是方向相反。</td>
+</tr>
+<tr>
+<td><strong>x|y</strong></td>
+<td>匹配x或y</td>
+</tr>
+<tr>
+<td><strong>[xyz]</strong></td>
+<td>字符集合。匹配所包含的任意一个字符。</td>
+</tr>
+<tr>
+<td><strong>[^xyz]</strong></td>
+<td>负值字符集合。匹配未包含的任意字符。</td>
+</tr>
+<tr>
+<td><strong>[a-z]</strong></td>
+<td>字符范围。匹配指定范围内的任意字符。</td>
+</tr>
+<tr>
+<td><strong>[^a-z]</strong></td>
+<td>负值字符范围。匹配任何不在指定范围内的任意字符。</td>
+</tr>
+<tr>
+<td><strong>\b</strong></td>
+<td>匹配一个单词边界，也就是指单词和空格间的位置。例如，“<code>er\b</code>”可以匹配“<code>never</code>”中的“<code>er</code>”，但不能匹配“<code>verb</code>”中的“<code>er</code>”。</td>
+</tr>
+<tr>
+<td><strong>\B</strong></td>
+<td>匹配非单词边界。“<code>er\B</code>”能匹配“<code>verb</code>”中的“<code>er</code>”，但不能匹配“<code>never</code>”中的“<code>er</code>”。</td>
+</tr>
+<tr>
+<td><strong>\cx</strong></td>
+<td>匹配由x指明的控制字符。例如，\cM匹配一个Control-M或回车符。x的值必须为A-Z或a-z之一。否则，将c视为一个原义的“<code>c</code>”字符。</td>
+</tr>
+<tr>
+<td><strong>\d</strong></td>
+<td>匹配一个数字字符。等价于[0-9]。</td>
+</tr>
+<tr>
+<td><strong>\D</strong></td>
+<td>匹配一个非数字字符。等价于[^0-9]。</td>
+</tr>
+<tr>
+<td><strong>\f</strong></td>
+<td>匹配一个换页符。等价于\x0c和\cL。</td>
+</tr>
+<tr>
+<td><strong>\n</strong></td>
+<td>匹配一个换行符。等价于\x0a和\cJ。</td>
+</tr>
+<tr>
+<td><strong>\r</strong></td>
+<td>匹配一个回车符。等价于\x0d和\cM。</td>
+</tr>
+<tr>
+<td><strong>\s</strong></td>
+<td>匹配任何空白字符，包括空格、制表符、换页符等等。等价于[ \f\n\r\t\v]。</td>
+</tr>
+<tr>
+<td><strong>\S</strong></td>
+<td>匹配任何非空白字符。等价于[ \f\n\r\t\v]。</td>
+</tr>
+<tr>
+<td><strong>\t</strong></td>
+<td>匹配一个制表符。等价于\x09和\cI。</td>
+</tr>
+<tr>
+<td><strong>\v</strong></td>
+<td>匹配一个垂直制表符。等价于\x0b和\cK。</td>
+</tr>
+<tr>
+<td><strong>\w</strong></td>
+<td>匹配包括下划线的任何单词字符。等价于“<code>[A-Za-z0-9_]</code>”。</td>
+</tr>
+<tr>
+<td><strong>\W</strong></td>
+<td>匹配任何非单词字符。等价于“<code>[^A-Za-z0-9_]</code>”。</td>
+</tr>
+<tr>
+<td><strong>\xn</strong></td>
+<td>匹配<em>n</em>，其中<em>n</em>为十六进制转义值。十六进制转义值必须为确定的两个数字长。例如，“<code>\x41</code>”匹配“<code>A</code>”。“<code>\x041</code>”则等价于“<code>\x04&amp;1</code>”。正则表达式中可以使用ASCII编码。.</td>
+</tr>
+<tr>
+<td><strong>\num</strong></td>
+<td>匹配<em>num</em>，其中<em>num</em>是一个正整数。对所获取的匹配的引用。例如，“<code>(.)\1</code>”匹配两个连续的相同字符。</td>
+</tr>
+<tr>
+<td><strong>\n</strong></td>
+<td>标识一个八进制转义值或一个向后引用。如果*n<em>之前至少</em>n<em>个获取的子表达式，则</em>n<em>为向后引用。否则，如果</em>n<em>为八进制数字（0-7），则</em>n为一个八进制转义值。</td>
+</tr>
+<tr>
+<td><strong>\nm</strong></td>
+<td>标识一个八进制转义值或一个向后引用。如果*nm<em>之前至少有</em>nm<em>个获得子表达式，则</em>nm<em>为向后引用。如果\</em>nm<em>之前至少有</em>n<em>个获取，则</em>n<em>为一个后跟文字</em>m<em>的向后引用。如果前面的条件都不满足，若</em>n<em>和</em>m<em>均为八进制数字（0-7），则\</em>nm<em>将匹配八进制转义值</em>nm*。</td>
+</tr>
+<tr>
+<td><strong>\nml</strong></td>
+<td>如果<em>n</em>为八进制数字（0-3），且<em>m和l</em>均为八进制数字（0-7），则匹配八进制转义值<em>nm</em>l。</td>
+</tr>
+<tr>
+<td><strong>\un</strong></td>
+<td>匹配<em>n</em>，其中<em>n</em>是一个用四个十六进制数字表示的Unicode字符。例如，\u00A9匹配版权符号（©）。</td>
+</tr>
+</tbody></table>
+<h5 id="2-常用正则表达式"><a href="#2-常用正则表达式" class="headerlink" title="2.常用正则表达式"></a>2.常用正则表达式</h5><table>
+<thead>
+<tr>
+<th align="right">用户名</th>
+<th>/^[a-z0-9_-]{3,16}$/</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="right"><strong>密码</strong></td>
+<td>/^[a-z0-9_-]{6,18}$/</td>
+</tr>
+<tr>
+<td align="right"><strong>十六进制值</strong></td>
+<td>/^#?([a-f0-9]{6}</td>
+</tr>
+<tr>
+<td align="right"><strong>电子邮箱</strong></td>
+<td>/^([a-z0-9_.-]+)@([\da-z.-]+).([a-z.]{2,6})$/<br/>/^[a-z\d]+(.[a-z\d]+)*@(<a href="-[\da-z]">\da-z</a>?)+(.{1,2}[a-z]+)+$/</td>
+</tr>
+<tr>
+<td align="right"><strong>URL</strong></td>
+<td>/^(https?://)?([\da-z.-]+).([a-z.]{2,6})([/\w .-]<em>)</em>/?$/</td>
+</tr>
+<tr>
+<td align="right"><strong>HTML 标签</strong></td>
+<td>/^&lt;([a-z]+)([^&lt;]+)<em>(?:&gt;(.</em>)&lt;/\1&gt;</td>
+</tr>
+<tr>
+<td align="right"><strong>删除代码\注释</strong></td>
+<td>(?&lt;!http:|\S)//.*$</td>
+</tr>
+<tr>
+<td align="right"><strong>Unicode编码中的汉字范围</strong></td>
+<td>/^[\u2E80-\u9FFF]+$/</td>
+</tr>
+</tbody></table>
+<h5 id="3-Python-中常用的正则表达式处理函数"><a href="#3-Python-中常用的正则表达式处理函数" class="headerlink" title="3.Python 中常用的正则表达式处理函数"></a>3.Python 中常用的正则表达式处理函数</h5><p><strong>re.match函数</strong>：re.match 尝试从字符串的起始位置匹配一个模式，如果不是起始位置匹配成功的话，match()就返回none。</p>
+<p>函数语法：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">re.match(pattern, string, flags=<span class="number">0</span>)</span><br></pre></td></tr></table></figure>
 
-<h4 id="2-下载脚本"><a href="#2-下载脚本" class="headerlink" title="2.下载脚本"></a>2.下载脚本</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">wget -O InstallNET.sh https://fly97.fun/files/git/InstallNET/InstallNET.sh</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th align="left">参数</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">pattern</td>
+<td align="left">匹配的正则表达式</td>
+</tr>
+<tr>
+<td align="left">string</td>
+<td align="left">要匹配的字符串。</td>
+</tr>
+<tr>
+<td align="left">flags</td>
+<td align="left">标志位，用于控制正则表达式的匹配方式，如：是否区分大小写，多行匹配等等。参见：<a href="https://www.runoob.com/python3/python3-reg-expressions.html#flags" target="_blank" rel="noopener">正则表达式修饰符 - 可选标志</a></td>
+</tr>
+</tbody></table>
+<p>匹配成功re.match方法返回一个匹配的对象，否则返回None。</p>
+<p>我们可以使用group(num) 或 groups() 匹配对象函数来获取匹配表达式。</p>
+<table>
+<thead>
+<tr>
+<th align="left">匹配对象方法</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">group(num=0)</td>
+<td align="left">匹配的整个表达式的字符串，group() 可以一次输入多个组号，在这种情况下它将返回一个包含那些组所对应值的元组。</td>
+</tr>
+<tr>
+<td align="left">groups()</td>
+<td align="left">返回一个包含所有小组字符串的元组，从 1 到 所含的小组号。</td>
+</tr>
+</tbody></table>
+<p>实例：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/python</span></span><br><span class="line"> </span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line">print(re.match(<span class="string">'www'</span>, <span class="string">'www.runoob.com'</span>).span())  <span class="comment"># 在起始位置匹配</span></span><br><span class="line">print(re.match(<span class="string">'com'</span>, <span class="string">'www.runoob.com'</span>))         <span class="comment"># 不在起始位置匹配</span></span><br></pre></td></tr></table></figure>
 
-<h4 id="3-运行命令："><a href="#3-运行命令：" class="headerlink" title="3.运行命令："></a>3.运行命令：</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">bash InstallNET.sh -c 6.9 -v 64 -a --mirror <span class="string">'http://mirror.centos.org/centos'</span></span><br><span class="line">bash InstallNET.sh -u 16.04 -v 64 -a -mirror <span class="string">'http://mirrors.aliyun.com/ubuntu/'</span></span><br></pre></td></tr></table></figure>
+<p>以上实例输出结果为</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">(0, 3)</span><br><span class="line">None</span><br></pre></td></tr></table></figure>
 
-<h4 id="4-用户名以及密码："><a href="#4-用户名以及密码：" class="headerlink" title="4.用户名以及密码："></a>4.用户名以及密码：</h4><p><code>root@MoeClub.org</code></p>
+<p><strong>re.search方法</strong>：re.search 扫描整个字符串并返回第一个成功的匹配。</p>
+<p>函数语法</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">re.search(pattern, string, flags=<span class="number">0</span>)</span><br></pre></td></tr></table></figure>
+
+<p>函数参数说明：</p>
+<table>
+<thead>
+<tr>
+<th align="left">参数</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">pattern</td>
+<td align="left">匹配的正则表达式</td>
+</tr>
+<tr>
+<td align="left">string</td>
+<td align="left">要匹配的字符串。</td>
+</tr>
+<tr>
+<td align="left">flags</td>
+<td align="left">标志位，用于控制正则表达式的匹配方式，如：是否区分大小写，多行匹配等等。参见：<a href="https://www.runoob.com/python3/python3-reg-expressions.html#flags" target="_blank" rel="noopener">正则表达式修饰符 - 可选标志</a></td>
+</tr>
+</tbody></table>
+<p>匹配成功re.search方法返回一个匹配的对象，否则返回None。</p>
+<p>我们可以使用group(num) 或 groups() 匹配对象函数来获取匹配表达式。</p>
+<table>
+<thead>
+<tr>
+<th align="left">匹配对象方法</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">group(num=0)</td>
+<td align="left">匹配的整个表达式的字符串，group() 可以一次输入多个组号，在这种情况下它将返回一个包含那些组所对应值的元组。</td>
+</tr>
+<tr>
+<td align="left">groups()</td>
+<td align="left">返回一个包含所有小组字符串的元组，从 1 到 所含的小组号。</td>
+</tr>
+</tbody></table>
+<p>实例：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/python3</span></span><br><span class="line"> </span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line"> </span><br><span class="line">print(re.search(<span class="string">'www'</span>, <span class="string">'www.runoob.com'</span>).span())  <span class="comment"># 在起始位置匹配</span></span><br><span class="line">print(re.search(<span class="string">'com'</span>, <span class="string">'www.runoob.com'</span>).span())         <span class="comment"># 不在起始位置匹配</span></span><br></pre></td></tr></table></figure>
+
+<p>以上实例运行输出结果为：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">(0, 3)</span><br><span class="line">(11, 14)</span><br></pre></td></tr></table></figure>
+
+<p><strong>re.match与re.search的区别</strong>：</p>
+<p>re.match 只匹配字符串的开始，如果字符串开始不符合正则表达式，则匹配失败，函数返回 None，而 re.search 匹配整个字符串，直到找到一个匹配。</p>
+<p>实例：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/python3</span></span><br><span class="line"> </span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line"> </span><br><span class="line">line = <span class="string">"Cats are smarter than dogs"</span></span><br><span class="line"> </span><br><span class="line">matchObj = re.match( <span class="string">r'dogs'</span>, line, re.M|re.I)</span><br><span class="line"><span class="keyword">if</span> matchObj:</span><br><span class="line">   <span class="keyword">print</span> (<span class="string">"match --&gt; matchObj.group() : "</span>, matchObj.group())</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">   <span class="keyword">print</span> (<span class="string">"No match!!"</span>)</span><br><span class="line"> </span><br><span class="line">matchObj = re.search( <span class="string">r'dogs'</span>, line, re.M|re.I)</span><br><span class="line"><span class="keyword">if</span> matchObj:</span><br><span class="line">   <span class="keyword">print</span> (<span class="string">"search --&gt; matchObj.group() : "</span>, matchObj.group())</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">   <span class="keyword">print</span> (<span class="string">"No match!!"</span>)</span><br></pre></td></tr></table></figure>
+
+<p>以上实例运行结果如下：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">No match!!</span><br><span class="line">search --&gt; matchObj.group() :  dogs</span><br></pre></td></tr></table></figure>
+
+<p><strong>检索和替换</strong></p>
+<p>Python 的re模块提供了re.sub用于替换字符串中的匹配项。</p>
+<p>语法：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">re.sub(pattern, repl, string, count=<span class="number">0</span>, flags=<span class="number">0</span>)</span><br></pre></td></tr></table></figure>
+
+<p>参数：</p>
+<ul>
+<li>pattern : 正则中的模式字符串。</li>
+<li>repl : 替换的字符串，也可为一个函数。</li>
+<li>string : 要被查找替换的原始字符串。</li>
+<li>count : 模式匹配后替换的最大次数，默认 0 表示替换所有的匹配。</li>
+<li>flags : 编译时用的匹配模式，数字形式。</li>
+</ul>
+<p>前三个为必选参数，后两个为可选参数。</p>
+<p>实例：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">实例</span><br><span class="line"><span class="comment">#!/usr/bin/python3</span></span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line"> </span><br><span class="line">phone = <span class="string">"2004-959-559 # 这是一个电话号码"</span></span><br><span class="line"> </span><br><span class="line"><span class="comment"># 删除注释</span></span><br><span class="line">num = re.sub(<span class="string">r'#.*$'</span>, <span class="string">""</span>, phone)</span><br><span class="line"><span class="keyword">print</span> (<span class="string">"电话号码 : "</span>, num)</span><br><span class="line"> </span><br><span class="line"><span class="comment"># 移除非数字的内容</span></span><br><span class="line">num = re.sub(<span class="string">r'\D'</span>, <span class="string">""</span>, phone)</span><br><span class="line"><span class="keyword">print</span> (<span class="string">"电话号码 : "</span>, num)</span><br></pre></td></tr></table></figure>
+
+<p>以上实例执行结果如下：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">电话号码 :  <span class="number">2004</span><span class="number">-959</span><span class="number">-559</span> </span><br><span class="line">电话号码 :  <span class="number">2004959559</span></span><br></pre></td></tr></table></figure>
+
+<p>若 repl 参数是一个函数：以下实例中将字符串中的匹配的数字乘于 2</p>
+<p>实例：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/python</span></span><br><span class="line"> </span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line"> </span><br><span class="line"><span class="comment"># 将匹配的数字乘于 2</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">double</span><span class="params">(matched)</span>:</span></span><br><span class="line">    value = int(matched.group(<span class="string">'value'</span>))</span><br><span class="line">    <span class="keyword">return</span> str(value * <span class="number">2</span>)</span><br><span class="line"> </span><br><span class="line">s = <span class="string">'A23G4HFD567'</span></span><br><span class="line">print(re.sub(<span class="string">'(?P&lt;value&gt;\d+)'</span>, double, s))</span><br></pre></td></tr></table></figure>
+
+<p>执行输出结果为：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">A46G8HFD1134</span><br></pre></td></tr></table></figure>
+
+<p><strong>compile 函数</strong></p>
+<p>compile 函数用于编译正则表达式，生成一个正则表达式（ Pattern ）对象，供 match() 和 search() 这两个函数使用。</p>
+<p>语法格式为：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">re.compile(pattern[, flags])</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>pattern : 一个字符串形式的正则表达式</p>
+</li>
+<li><p>flags 可选，表示匹配模式，比如忽略大小写，多行模式等，具体参数为：</p>
+</li>
+<li><ul>
+<li><p>re.I 忽略大小写</p>
+</li>
+<li><p>re.L 表示特殊字符集 \w, \W, \b, \B, \s, \S 依赖于当前环境</p>
+</li>
+<li><p>re.M 多行模式</p>
+</li>
+<li><p>re.S 即为’ . ‘并且包括换行符在内的任意字符（’ . ‘不包括换行符）</p>
+</li>
+<li><p>re.U 表示特殊字符集 \w, \W, \b, \B, \d, \D, \s, \S 依赖于 Unicode 字符属性数据库</p>
+</li>
+<li><p>re.X 为了增加可读性，忽略空格和’ # ‘后面的注释</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>实例</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">&gt;&gt;&gt;<span class="keyword">import</span> re</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>pattern = re.compile(<span class="string">r'\d+'</span>)                    <span class="comment"># 用于匹配至少一个数字</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>m = pattern.match(<span class="string">'one12twothree34four'</span>)        <span class="comment"># 查找头部，没有匹配</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>print( m )</span><br><span class="line"><span class="literal">None</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>m = pattern.match(<span class="string">'one12twothree34four'</span>, <span class="number">2</span>, <span class="number">10</span>) <span class="comment"># 从'e'的位置开始匹配，没有匹配</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>print( m )</span><br><span class="line"><span class="literal">None</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>m = pattern.match(<span class="string">'one12twothree34four'</span>, <span class="number">3</span>, <span class="number">10</span>) <span class="comment"># 从'1'的位置开始匹配，正好匹配</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>print( m )                                        <span class="comment"># 返回一个 Match 对象</span></span><br><span class="line">&lt;_sre.SRE_Match object at <span class="number">0x10a42aac0</span>&gt;</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>m.group(<span class="number">0</span>)   <span class="comment"># 可省略 0</span></span><br><span class="line"><span class="string">'12'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>m.start(<span class="number">0</span>)   <span class="comment"># 可省略 0</span></span><br><span class="line"><span class="number">3</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>m.end(<span class="number">0</span>)     <span class="comment"># 可省略 0</span></span><br><span class="line"><span class="number">5</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>m.span(<span class="number">0</span>)    <span class="comment"># 可省略 0</span></span><br><span class="line">(<span class="number">3</span>, <span class="number">5</span>)</span><br></pre></td></tr></table></figure>
+
+<p>在上面，当匹配成功时返回一个 Match 对象，其中：</p>
+<ul>
+<li><code>group([group1, …])</code> 方法用于获得一个或多个分组匹配的字符串，当要获得整个匹配的子串时，可直接使用 <code>group()</code> 或 <code>group(0)</code>；</li>
+<li><code>start([group])</code> 方法用于获取分组匹配的子串在整个字符串中的起始位置（子串第一个字符的索引），参数默认值为 0；</li>
+<li><code>end([group])</code> 方法用于获取分组匹配的子串在整个字符串中的结束位置（子串最后一个字符的索引+1），参数默认值为 0；</li>
+<li><code>span([group])</code> 方法返回 <code>(start(group), end(group))</code>。</li>
+</ul>
+<p><strong>findall函数</strong>：</p>
+<p>在字符串中找到正则表达式所匹配的所有子串，并返回一个列表，如果没有找到匹配的，则返回空列表。</p>
+<p><strong>注意：</strong> match 和 search 是匹配一次 findall 匹配所有。</p>
+<p>语法格式为：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">re.findall(string[, pos[, endpos]])</span><br></pre></td></tr></table></figure>
+
+<p>参数：</p>
+<ul>
+<li><strong>string</strong> 待匹配的字符串。</li>
+<li><strong>pos</strong> 可选参数，指定字符串的起始位置，默认为 0。</li>
+<li><strong>endpos</strong> 可选参数，指定字符串的结束位置，默认为字符串的长度。</li>
+</ul>
+<p>查找字符串中的所有数字：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> re</span><br><span class="line"> </span><br><span class="line">pattern = re.compile(<span class="string">r'\d+'</span>)   <span class="comment"># 查找数字</span></span><br><span class="line">result1 = pattern.findall(<span class="string">'runoob 123 google 456'</span>)</span><br><span class="line">result2 = pattern.findall(<span class="string">'run88oob123google456'</span>, <span class="number">0</span>, <span class="number">10</span>)</span><br><span class="line"> </span><br><span class="line">print(result1)</span><br><span class="line">print(result2)</span><br></pre></td></tr></table></figure>
+
+<p><strong>re.finditer</strong></p>
+<p>和 findall 类似，在字符串中找到正则表达式所匹配的所有子串，并把它们作为一个迭代器返回。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">re.finditer(pattern, string, flags=<span class="number">0</span>)</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th align="left">参数</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">pattern</td>
+<td align="left">匹配的正则表达式</td>
+</tr>
+<tr>
+<td align="left">string</td>
+<td align="left">要匹配的字符串。</td>
+</tr>
+<tr>
+<td align="left">flags</td>
+<td align="left">标志位，用于控制正则表达式的匹配方式，如：是否区分大小写，多行匹配等等。参见：<a href="https://www.runoob.com/python3/python3-reg-expressions.html#flags" target="_blank" rel="noopener">正则表达式修饰符 - 可选标志</a></td>
+</tr>
+</tbody></table>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> re</span><br><span class="line"> </span><br><span class="line">it = re.finditer(<span class="string">r"\d+"</span>,<span class="string">"12a32bc43jf3"</span>) </span><br><span class="line"><span class="keyword">for</span> match <span class="keyword">in</span> it: </span><br><span class="line">    <span class="keyword">print</span> (match.group() )</span><br></pre></td></tr></table></figure>
+
+<p>输出结果</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="number">12</span> </span><br><span class="line"><span class="number">32</span> </span><br><span class="line"><span class="number">43</span> </span><br><span class="line"><span class="number">3</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>re.split</strong></p>
+<p>split 方法按照能够匹配的子串将字符串分割后返回列表，它的使用形式如下：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">re.split(pattern, string[, maxsplit=<span class="number">0</span>, flags=<span class="number">0</span>])</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th align="left">参数</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">pattern</td>
+<td align="left">匹配的正则表达式</td>
+</tr>
+<tr>
+<td align="left">string</td>
+<td align="left">要匹配的字符串。</td>
+</tr>
+<tr>
+<td align="left">maxsplit</td>
+<td align="left">分隔次数，maxsplit=1 分隔一次，默认为 0，不限制次数。</td>
+</tr>
+<tr>
+<td align="left">flags</td>
+<td align="left">标志位，用于控制正则表达式的匹配方式，如：是否区分大小写，多行匹配等等。参见：<a href="https://www.runoob.com/python3/python3-reg-expressions.html#flags" target="_blank" rel="noopener">正则表达式修饰符 - 可选标志</a></td>
+</tr>
+</tbody></table>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">&gt;&gt;&gt;<span class="keyword">import</span> re</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>re.split(<span class="string">'\W+'</span>, <span class="string">'runoob, runoob, runoob.'</span>)</span><br><span class="line">[<span class="string">'runoob'</span>, <span class="string">'runoob'</span>, <span class="string">'runoob'</span>, <span class="string">''</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>re.split(<span class="string">'(\W+)'</span>, <span class="string">' runoob, runoob, runoob.'</span>) </span><br><span class="line">[<span class="string">''</span>, <span class="string">' '</span>, <span class="string">'runoob'</span>, <span class="string">', '</span>, <span class="string">'runoob'</span>, <span class="string">', '</span>, <span class="string">'runoob'</span>, <span class="string">'.'</span>, <span class="string">''</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>re.split(<span class="string">'\W+'</span>, <span class="string">' runoob, runoob, runoob.'</span>, <span class="number">1</span>) </span><br><span class="line">[<span class="string">''</span>, <span class="string">'runoob, runoob, runoob.'</span>]</span><br><span class="line"> </span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>re.split(<span class="string">'a*'</span>, <span class="string">'hello world'</span>)   <span class="comment"># 对于一个找不到匹配的字符串而言，split 不会对其作出分割</span></span><br><span class="line">[<span class="string">'hello world'</span>]</span><br></pre></td></tr></table></figure>
+
+<h5 id="正则表达式对象"><a href="#正则表达式对象" class="headerlink" title="正则表达式对象"></a>正则表达式对象</h5><p><strong>re.RegexObject</strong></p>
+<p>re.compile() 返回 RegexObject 对象。</p>
+<p><strong>re.MatchObject</strong></p>
+<p>group() 返回被 RE 匹配的字符串。</p>
+<ul>
+<li><strong>start()</strong> 返回匹配开始的位置</li>
+<li><strong>end()</strong> 返回匹配结束的位置</li>
+<li><strong>span()</strong> 返回一个元组包含匹配 (开始,结束) 的位置</li>
+</ul>
+<h5 id="正则表达式修饰符-可选标志"><a href="#正则表达式修饰符-可选标志" class="headerlink" title="正则表达式修饰符 - 可选标志"></a>正则表达式修饰符 - 可选标志</h5><p>正则表达式可以包含一些可选标志修饰符来控制匹配的模式。修饰符被指定为一个可选的标志。多个标志可以通过按位 OR(|) 它们来指定。如 re.I | re.M 被设置成 I 和 M 标志：</p>
+<table>
+<thead>
+<tr>
+<th align="left">修饰符</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">re.I</td>
+<td align="left">使匹配对大小写不敏感</td>
+</tr>
+<tr>
+<td align="left">re.L</td>
+<td align="left">做本地化识别（locale-aware）匹配</td>
+</tr>
+<tr>
+<td align="left">re.M</td>
+<td align="left">多行匹配，影响 ^ 和 $</td>
+</tr>
+<tr>
+<td align="left">re.S</td>
+<td align="left">使 . 匹配包括换行在内的所有字符</td>
+</tr>
+<tr>
+<td align="left">re.U</td>
+<td align="left">根据Unicode字符集解析字符。这个标志影响 \w, \W, \b, \B.</td>
+</tr>
+<tr>
+<td align="left">re.X</td>
+<td align="left">该标志通过给予你更灵活的格式以便你将正则表达式写得更易于理解。</td>
+</tr>
+</tbody></table>
+<h5 id="正则表达式模式"><a href="#正则表达式模式" class="headerlink" title="正则表达式模式"></a>正则表达式模式</h5><p>模式字符串使用特殊的语法来表示一个正则表达式：</p>
+<p>字母和数字表示他们自身。一个正则表达式模式中的字母和数字匹配同样的字符串。</p>
+<p>多数字母和数字前加一个反斜杠时会拥有不同的含义。</p>
+<p>标点符号只有被转义时才匹配自身，否则它们表示特殊的含义。</p>
+<p>反斜杠本身需要使用反斜杠转义。</p>
+<p>由于正则表达式通常都包含反斜杠，所以你最好使用原始字符串来表示它们。模式元素(如 <strong>r’\t’</strong>，等价于 <strong>\t</strong> )匹配相应的特殊字符。</p>
+<p>下表列出了正则表达式模式语法中的特殊元素。如果你使用模式的同时提供了可选的标志参数，某些模式元素的含义会改变。</p>
+<table>
+<thead>
+<tr>
+<th align="left">模式</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">^</td>
+<td align="left">匹配字符串的开头</td>
+</tr>
+<tr>
+<td align="left">$</td>
+<td align="left">匹配字符串的末尾。</td>
+</tr>
+<tr>
+<td align="left">.</td>
+<td align="left">匹配任意字符，除了换行符，当re.DOTALL标记被指定时，则可以匹配包括换行符的任意字符。</td>
+</tr>
+<tr>
+<td align="left">[…]</td>
+<td align="left">用来表示一组字符,单独列出：[amk] 匹配 ‘a’，’m’或’k’</td>
+</tr>
+<tr>
+<td align="left">[^…]</td>
+<td align="left">不在[]中的字符：[^abc] 匹配除了a,b,c之外的字符。</td>
+</tr>
+<tr>
+<td align="left">re*</td>
+<td align="left">匹配0个或多个的表达式。</td>
+</tr>
+<tr>
+<td align="left">re+</td>
+<td align="left">匹配1个或多个的表达式。</td>
+</tr>
+<tr>
+<td align="left">re?</td>
+<td align="left">匹配0个或1个由前面的正则表达式定义的片段，非贪婪方式</td>
+</tr>
+<tr>
+<td align="left">re{ n}</td>
+<td align="left">匹配n个前面表达式。例如，”o{2}”不能匹配”Bob”中的”o”，但是能匹配”food”中的两个o。</td>
+</tr>
+<tr>
+<td align="left">re{ n,}</td>
+<td align="left">精确匹配n个前面表达式。例如，”o{2,}”不能匹配”Bob”中的”o”，但能匹配”foooood”中的所有o。”o{1,}”等价于”o+”。”o{0,}”则等价于”o*”。</td>
+</tr>
+<tr>
+<td align="left">re{ n, m}</td>
+<td align="left">匹配 n 到 m 次由前面的正则表达式定义的片段，贪婪方式</td>
+</tr>
+<tr>
+<td align="left">a| b</td>
+<td align="left">匹配a或b</td>
+</tr>
+<tr>
+<td align="left">(re)</td>
+<td align="left">匹配括号内的表达式，也表示一个组</td>
+</tr>
+<tr>
+<td align="left">(?imx)</td>
+<td align="left">正则表达式包含三种可选标志：i, m, 或 x 。只影响括号中的区域。</td>
+</tr>
+<tr>
+<td align="left">(?-imx)</td>
+<td align="left">正则表达式关闭 i, m, 或 x 可选标志。只影响括号中的区域。</td>
+</tr>
+<tr>
+<td align="left">(?: re)</td>
+<td align="left">类似 (…), 但是不表示一个组</td>
+</tr>
+<tr>
+<td align="left">(?imx: re)</td>
+<td align="left">在括号中使用i, m, 或 x 可选标志</td>
+</tr>
+<tr>
+<td align="left">(?-imx: re)</td>
+<td align="left">在括号中不使用i, m, 或 x 可选标志</td>
+</tr>
+<tr>
+<td align="left">(?#…)</td>
+<td align="left">注释.</td>
+</tr>
+<tr>
+<td align="left">(?= re)</td>
+<td align="left">前向肯定界定符。如果所含正则表达式，以 … 表示，在当前位置成功匹配时成功，否则失败。但一旦所含表达式已经尝试，匹配引擎根本没有提高；模式的剩余部分还要尝试界定符的右边。</td>
+</tr>
+<tr>
+<td align="left">(?! re)</td>
+<td align="left">前向否定界定符。与肯定界定符相反；当所含表达式不能在字符串当前位置匹配时成功。</td>
+</tr>
+<tr>
+<td align="left">(?&gt; re)</td>
+<td align="left">匹配的独立模式，省去回溯。</td>
+</tr>
+<tr>
+<td align="left">\w</td>
+<td align="left">匹配数字字母下划线</td>
+</tr>
+<tr>
+<td align="left">\W</td>
+<td align="left">匹配非数字字母下划线</td>
+</tr>
+<tr>
+<td align="left">\s</td>
+<td align="left">匹配任意空白字符，等价于 [\t\n\r\f]。</td>
+</tr>
+<tr>
+<td align="left">\S</td>
+<td align="left">匹配任意非空字符</td>
+</tr>
+<tr>
+<td align="left">\d</td>
+<td align="left">匹配任意数字，等价于 [0-9]。</td>
+</tr>
+<tr>
+<td align="left">\D</td>
+<td align="left">匹配任意非数字</td>
+</tr>
+<tr>
+<td align="left">\A</td>
+<td align="left">匹配字符串开始</td>
+</tr>
+<tr>
+<td align="left">\Z</td>
+<td align="left">匹配字符串结束，如果是存在换行，只匹配到换行前的结束字符串。</td>
+</tr>
+<tr>
+<td align="left">\z</td>
+<td align="left">匹配字符串结束</td>
+</tr>
+<tr>
+<td align="left">\G</td>
+<td align="left">匹配最后匹配完成的位置。</td>
+</tr>
+<tr>
+<td align="left">\b</td>
+<td align="left">匹配一个单词边界，也就是指单词和空格间的位置。例如， ‘er\b’ 可以匹配”never” 中的 ‘er’，但不能匹配 “verb” 中的 ‘er’。</td>
+</tr>
+<tr>
+<td align="left">\B</td>
+<td align="left">匹配非单词边界。’er\B’ 能匹配 “verb” 中的 ‘er’，但不能匹配 “never” 中的 ‘er’。</td>
+</tr>
+<tr>
+<td align="left">\n, \t, 等。</td>
+<td align="left">匹配一个换行符。匹配一个制表符, 等</td>
+</tr>
+<tr>
+<td align="left">\1…\9</td>
+<td align="left">匹配第n个分组的内容。</td>
+</tr>
+<tr>
+<td align="left">\10</td>
+<td align="left">匹配第n个分组的内容，如果它经匹配。否则指的是八进制字符码的表达式。</td>
+</tr>
+</tbody></table>
+<h5 id="正则表达式实例"><a href="#正则表达式实例" class="headerlink" title="正则表达式实例"></a>正则表达式实例</h5><h6 id="字符匹配"><a href="#字符匹配" class="headerlink" title="字符匹配"></a>字符匹配</h6><table>
+<thead>
+<tr>
+<th align="left">实例</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">python</td>
+<td align="left">匹配 “python”.</td>
+</tr>
+</tbody></table>
+<h6 id="字符类"><a href="#字符类" class="headerlink" title="字符类"></a>字符类</h6><table>
+<thead>
+<tr>
+<th align="left">实例</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">[Pp]ython</td>
+<td align="left">匹配 “Python” 或 “python”</td>
+</tr>
+<tr>
+<td align="left">rub[ye]</td>
+<td align="left">匹配 “ruby” 或 “rube”</td>
+</tr>
+<tr>
+<td align="left">[aeiou]</td>
+<td align="left">匹配中括号内的任意一个字母</td>
+</tr>
+<tr>
+<td align="left">[0-9]</td>
+<td align="left">匹配任何数字。类似于 [0123456789]</td>
+</tr>
+<tr>
+<td align="left">[a-z]</td>
+<td align="left">匹配任何小写字母</td>
+</tr>
+<tr>
+<td align="left">[A-Z]</td>
+<td align="left">匹配任何大写字母</td>
+</tr>
+<tr>
+<td align="left">[a-zA-Z0-9]</td>
+<td align="left">匹配任何字母及数字</td>
+</tr>
+<tr>
+<td align="left">[^aeiou]</td>
+<td align="left">除了aeiou字母以外的所有字符</td>
+</tr>
+<tr>
+<td align="left">[^0-9]</td>
+<td align="left">匹配除了数字外的字符</td>
+</tr>
+</tbody></table>
+<h6 id="特殊字符类"><a href="#特殊字符类" class="headerlink" title="特殊字符类"></a>特殊字符类</h6><table>
+<thead>
+<tr>
+<th align="left">实例</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">.</td>
+<td align="left">匹配除 “\n” 之外的任何单个字符。要匹配包括 ‘\n’ 在内的任何字符，请使用象 ‘[.\n]’ 的模式。</td>
+</tr>
+<tr>
+<td align="left">\d</td>
+<td align="left">匹配一个数字字符。等价于 [0-9]。</td>
+</tr>
+<tr>
+<td align="left">\D</td>
+<td align="left">匹配一个非数字字符。等价于 [^0-9]。</td>
+</tr>
+<tr>
+<td align="left">\s</td>
+<td align="left">匹配任何空白字符，包括空格、制表符、换页符等等。等价于 [ \f\n\r\t\v]。</td>
+</tr>
+<tr>
+<td align="left">\S</td>
+<td align="left">匹配任何非空白字符。等价于 [^ \f\n\r\t\v]。</td>
+</tr>
+<tr>
+<td align="left">\w</td>
+<td align="left">匹配包括下划线的任何单词字符。等价于’[A-Za-z0-9_]’。</td>
+</tr>
+<tr>
+<td align="left">\W</td>
+<td align="left">匹配任何非单词字符。等价于 ‘[^A-Za-z0-9_]’。</td>
+</tr>
+</tbody></table>
 ]]></content>
       <tags>
-        <tag>Linux运维</tag>
+        <tag>Python教程</tag>
+        <tag>正则表达式</tag>
       </tags>
   </entry>
   <entry>
