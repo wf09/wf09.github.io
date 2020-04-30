@@ -55,6 +55,21 @@
       </tags>
   </entry>
   <entry>
+    <title>Git常见操作之在本地目录下关联远程仓库和如何取消本地目录下关联的远程库</title>
+    <url>/2020/03/07/Git%E5%B8%B8%E8%A7%81%E6%93%8D%E4%BD%9C/</url>
+    <content><![CDATA[<p>不说废话，上教程。</p>
+<a id="more"></a>
+
+<h5 id="1-在本地目录下关联远程repository-："><a href="#1-在本地目录下关联远程repository-：" class="headerlink" title="1.在本地目录下关联远程repository ："></a>1.在本地目录下关联远程repository ：</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git remote add origin git@github.com:git_username/repository_name.git</span><br></pre></td></tr></table></figure>
+
+<h5 id="2-取消本地目录下关联的远程库："><a href="#2-取消本地目录下关联的远程库：" class="headerlink" title="2.取消本地目录下关联的远程库："></a>2.取消本地目录下关联的远程库：</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git remote remove origin</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <tags>
+        <tag>git</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Gost服务配置指南</title>
     <url>/2020/03/23/Gost%E6%9C%8D%E5%8A%A1%E9%85%8D%E7%BD%AE%E6%8C%87%E5%8D%97/</url>
     <content><![CDATA[<p>gost服务操作指南</p>
@@ -93,21 +108,6 @@
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">gost -L mwss://:443</span><br></pre></td></tr></table></figure>]]></content>
       <tags>
         <tag>gost</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Git常见操作之在本地目录下关联远程仓库和如何取消本地目录下关联的远程库</title>
-    <url>/2020/03/07/Git%E5%B8%B8%E8%A7%81%E6%93%8D%E4%BD%9C/</url>
-    <content><![CDATA[<p>不说废话，上教程。</p>
-<a id="more"></a>
-
-<h5 id="1-在本地目录下关联远程repository-："><a href="#1-在本地目录下关联远程repository-：" class="headerlink" title="1.在本地目录下关联远程repository ："></a>1.在本地目录下关联远程repository ：</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git remote add origin git@github.com:git_username/repository_name.git</span><br></pre></td></tr></table></figure>
-
-<h5 id="2-取消本地目录下关联的远程库："><a href="#2-取消本地目录下关联的远程库：" class="headerlink" title="2.取消本地目录下关联的远程库："></a>2.取消本地目录下关联的远程库：</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git remote remove origin</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <tags>
-        <tag>git</tag>
       </tags>
   </entry>
   <entry>
@@ -155,35 +155,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Linux之crontab定时任务</title>
-    <url>/2020/04/24/Linux%E4%B9%8Bcrontab%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/</url>
-    <content><![CDATA[<p>Linux中的crontab - - - -一个自定义定时器</p>
-<a id="more"></a>
-
-<h5 id="1-crontab命令"><a href="#1-crontab命令" class="headerlink" title="1.crontab命令"></a>1.crontab命令</h5><p>重新指定crobtab定时任务文件</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">crontab $filepath</span><br></pre></td></tr></table></figure>
-
-<p>查看crontab定时任务</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">crontab -l</span><br></pre></td></tr></table></figure>
-
-<p>编辑、安装定时任务</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">crontab -e</span><br></pre></td></tr></table></figure>
-
-<p><strong>2.crontab时间举例</strong></p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 每天早上6点 </span></span><br><span class="line">0 6 * * * echo "Good morning." &gt;&gt; /tmp/test.txt //注意单纯echo，从屏幕上看不到任何输出，因为cron把任何输出都email到root的信箱了。</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 每两个小时 </span></span><br><span class="line">0 */2 * * * echo "Have a break now." &gt;&gt; /tmp/test.txt  </span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 晚上11点到早上8点之间每两个小时和早上八点 </span></span><br><span class="line">0 23-7/2，8 * * * echo "Have a good dream" &gt;&gt; /tmp/test.txt</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 每个月的4号和每个礼拜的礼拜一到礼拜三的早上11点 </span></span><br><span class="line">0 11 4 * 1-3 command line</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 1月1日早上4点 </span></span><br><span class="line">0 4 1 1 * command line SHELL=/bin/bash PATH=/sbin:/bin:/usr/sbin:/usr/bin MAILTO=root //如果出现错误，或者有数据输出，数据作为邮件发给这个帐号 HOME=/ </span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 每小时（第一分钟）执行/etc/cron.hourly内的脚本</span></span><br><span class="line">01 * * * * root run-parts /etc/cron.hourly</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 每天（凌晨4：02）执行/etc/cron.daily内的脚本</span></span><br><span class="line">02 4 * * * root run-parts /etc/cron.daily </span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 每星期（周日凌晨4：22）执行/etc/cron.weekly内的脚本</span></span><br><span class="line">22 4 * * 0 root run-parts /etc/cron.weekly </span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 每月（1号凌晨4：42）去执行/etc/cron.monthly内的脚本 </span></span><br><span class="line">42 4 1 * * root run-parts /etc/cron.monthly </span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 注意:  <span class="string">"run-parts"</span>这个参数了，如果去掉这个参数的话，后面就可以写要运行的某个脚本名，而不是文件夹名。 　 </span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 每天的下午4点、5点、6点的5 min、15 min、25 min、35 min、45 min、55 min时执行命令。 </span></span><br><span class="line">5，15，25，35，45，55 16，17，18 * * * command</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 每周一，三，五的下午3：00系统进入维护状态，重新启动系统。</span></span><br><span class="line">00 15 * *1，3，5 shutdown -r +5</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 每小时的10分，40分执行用户目录下的innd/bbslin这个指令： </span></span><br><span class="line">10，40 * * * * innd/bbslink </span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 每小时的1分执行用户目录下的bin/account这个指令： </span></span><br><span class="line">1 * * * * bin/account</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 每1分钟执行以下命令</span></span><br><span class="line">*/1 * * * * bin/python</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 每天早晨三点二十分执行用户目录下如下所示的两个指令（每个指令以;分隔）： </span></span><br><span class="line">203 * * * （/bin/rm -f expire.ls logins.bad;bin/expire$#@62;expire.1st）</span><br></pre></td></tr></table></figure>
-
-<h5 id="3-crontab任务举例"><a href="#3-crontab任务举例" class="headerlink" title="3.crontab任务举例"></a>3.crontab任务举例</h5><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">*/5 * * * * /bin/bash /root/kaoyan/tiaoji.sh</span><br></pre></td></tr></table></figure>
-
-<p>sh写法举例</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/bash</span></span><br><span class="line">PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:~/bin</span><br><span class="line">export PATH</span><br><span class="line"></span><br><span class="line">cd /root/kaoyan</span><br><span class="line">/root/***/python3 *.py &gt;&gt; /root/****/*.log 2&gt;&amp;1</span><br><span class="line"><span class="meta">#</span><span class="bash">将所有输出写入日志文件</span></span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <tags>
-        <tag>Linux</tag>
-        <tag>crontab</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Linux服务器更换密钥</title>
     <url>/2019/01/06/Linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%9B%B4%E6%8D%A2%E5%AF%86%E9%92%A5%E8%84%9A%E6%9C%AC/</url>
     <content><![CDATA[<p><strong>1. 制作密钥对</strong></p>
@@ -218,6 +189,35 @@
       <tags>
         <tag>密钥</tag>
         <tag>Linux运维</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Linux之crontab定时任务</title>
+    <url>/2020/04/24/Linux%E4%B9%8Bcrontab%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/</url>
+    <content><![CDATA[<p>Linux中的crontab - - - -一个自定义定时器</p>
+<a id="more"></a>
+
+<h5 id="1-crontab命令"><a href="#1-crontab命令" class="headerlink" title="1.crontab命令"></a>1.crontab命令</h5><p>重新指定crobtab定时任务文件</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">crontab $filepath</span><br></pre></td></tr></table></figure>
+
+<p>查看crontab定时任务</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">crontab -l</span><br></pre></td></tr></table></figure>
+
+<p>编辑、安装定时任务</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">crontab -e</span><br></pre></td></tr></table></figure>
+
+<p><strong>2.crontab时间举例</strong></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 每天早上6点 </span></span><br><span class="line">0 6 * * * echo "Good morning." &gt;&gt; /tmp/test.txt //注意单纯echo，从屏幕上看不到任何输出，因为cron把任何输出都email到root的信箱了。</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 每两个小时 </span></span><br><span class="line">0 */2 * * * echo "Have a break now." &gt;&gt; /tmp/test.txt  </span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 晚上11点到早上8点之间每两个小时和早上八点 </span></span><br><span class="line">0 23-7/2，8 * * * echo "Have a good dream" &gt;&gt; /tmp/test.txt</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 每个月的4号和每个礼拜的礼拜一到礼拜三的早上11点 </span></span><br><span class="line">0 11 4 * 1-3 command line</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 1月1日早上4点 </span></span><br><span class="line">0 4 1 1 * command line SHELL=/bin/bash PATH=/sbin:/bin:/usr/sbin:/usr/bin MAILTO=root //如果出现错误，或者有数据输出，数据作为邮件发给这个帐号 HOME=/ </span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 每小时（第一分钟）执行/etc/cron.hourly内的脚本</span></span><br><span class="line">01 * * * * root run-parts /etc/cron.hourly</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 每天（凌晨4：02）执行/etc/cron.daily内的脚本</span></span><br><span class="line">02 4 * * * root run-parts /etc/cron.daily </span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 每星期（周日凌晨4：22）执行/etc/cron.weekly内的脚本</span></span><br><span class="line">22 4 * * 0 root run-parts /etc/cron.weekly </span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 每月（1号凌晨4：42）去执行/etc/cron.monthly内的脚本 </span></span><br><span class="line">42 4 1 * * root run-parts /etc/cron.monthly </span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 注意:  <span class="string">"run-parts"</span>这个参数了，如果去掉这个参数的话，后面就可以写要运行的某个脚本名，而不是文件夹名。 　 </span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 每天的下午4点、5点、6点的5 min、15 min、25 min、35 min、45 min、55 min时执行命令。 </span></span><br><span class="line">5，15，25，35，45，55 16，17，18 * * * command</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 每周一，三，五的下午3：00系统进入维护状态，重新启动系统。</span></span><br><span class="line">00 15 * *1，3，5 shutdown -r +5</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 每小时的10分，40分执行用户目录下的innd/bbslin这个指令： </span></span><br><span class="line">10，40 * * * * innd/bbslink </span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 每小时的1分执行用户目录下的bin/account这个指令： </span></span><br><span class="line">1 * * * * bin/account</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 每1分钟执行以下命令</span></span><br><span class="line">*/1 * * * * bin/python</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 每天早晨三点二十分执行用户目录下如下所示的两个指令（每个指令以;分隔）： </span></span><br><span class="line">203 * * * （/bin/rm -f expire.ls logins.bad;bin/expire$#@62;expire.1st）</span><br></pre></td></tr></table></figure>
+
+<h5 id="3-crontab任务举例"><a href="#3-crontab任务举例" class="headerlink" title="3.crontab任务举例"></a>3.crontab任务举例</h5><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">*/5 * * * * /bin/bash /root/kaoyan/tiaoji.sh</span><br></pre></td></tr></table></figure>
+
+<p>sh写法举例</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/bash</span></span><br><span class="line">PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:~/bin</span><br><span class="line">export PATH</span><br><span class="line"></span><br><span class="line">cd /root/kaoyan</span><br><span class="line">/root/***/python3 *.py &gt;&gt; /root/****/*.log 2&gt;&amp;1</span><br><span class="line"><span class="meta">#</span><span class="bash">将所有输出写入日志文件</span></span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <tags>
+        <tag>Linux</tag>
+        <tag>crontab</tag>
       </tags>
   </entry>
   <entry>
@@ -350,32 +350,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Python深度学习之PyTorch学习小记录</title>
-    <url>/2020/03/05/Python%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E4%B9%8BPyTorch%E5%AD%A6%E4%B9%A0%E5%B0%8F%E8%AE%B0%E5%BD%95/</url>
-    <content><![CDATA[<p>不说废话，直接上教程。</p>
-<a id="more"></a>
-
-<h5 id="1-torch-Tensor和torch-tensor有什么区别？"><a href="#1-torch-Tensor和torch-tensor有什么区别？" class="headerlink" title="1.torch.Tensor和torch.tensor有什么区别？"></a>1.torch.Tensor和torch.tensor有什么区别？</h5><h6 id="1-1介绍"><a href="#1-1介绍" class="headerlink" title="1.1介绍"></a>1.1介绍</h6><p>​    在PyTorch 中，torch.Tensor是主要的tensor类，所有的tensor都是torch.Tensor的实例。torch.Tensor是torch.FloatTensor的别名。<br>而torch.tensor是一个函数，返回的是一个tensor，在PyTorch官方文档中，描述如下：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">torch.tensor(data, dtype=<span class="literal">None</span>, device=<span class="literal">None</span>, requires_grad=<span class="literal">False</span>) → Tensor</span><br><span class="line">Constructs a tensor <span class="keyword">with</span> data.</span><br></pre></td></tr></table></figure>
-
-<h6 id="1-2区别1"><a href="#1-2区别1" class="headerlink" title="1.2区别1"></a>1.2区别1</h6><p><code>torch.Tensor(data)</code>是将输入的data转化<code>torch.FloatTensor</code></p>
-<p><code>torch.tensor(data)</code>(当你未指定<code>dype</code>的类型时)是将data转化为<code>torch.FloatTensor、torch.LongTensor、torch.DoubleTensor</code>等类型，转化类型依据于<code>data</code>的类型或者<code>dtype</code>的值</p>
-<h5 id="1-3区别2"><a href="#1-3区别2" class="headerlink" title="1.3区别2"></a>1.3区别2</h5><p>使用如下语句：<code>tensor_without_data = torch.Tensor()</code>可以创建一个空的<code>FloatTensor</code>，而当你使用<code>tensor_without_data = torch.tensor()</code>时候则会报错：</p>
-<hr>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">TypeError Traceback (most recent call last)</span><br><span class="line">&lt;ipython-input<span class="number">-12</span>-ebc3ceaa76d2&gt; <span class="keyword">in</span> &lt;module&gt;()</span><br><span class="line">----&gt; 1 torch.tensor()</span><br><span class="line"></span><br><span class="line">TypeError: tensor() missing <span class="number">1</span> required positional arguments: <span class="string">"data"</span></span><br></pre></td></tr></table></figure>
-
-<p>当你想要创建一个空的<code>tensor</code>时候，可以使用如下的方法：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">tensor_without_data = torch.Tensor() <span class="comment"># tensor([])</span></span><br><span class="line">tensor_without_data = torch.tensor(()) <span class="comment"># tensor([])</span></span><br><span class="line">tensor_without_data = torch.empty([]) <span class="comment"># tensor(0.)</span></span><br></pre></td></tr></table></figure>
-
-
-<p>所以<code>torch.Tensor</code>应该说是同时具有<code>torch.tensor</code>和<code>torch.empty</code>的功能，但是使用<code>torch.Tensor</code>可能会使你的代码出错，所以最好还是使用<code>torch.tensor</code>和<code>torch.empty</code>，而不是<code>torch.Tensor</code>。</p>
-]]></content>
-      <tags>
-        <tag>Python深度学习</tag>
-        <tag>Pytorch</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Python数据存储之pickle模块的使用</title>
     <url>/2020/03/04/Python%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8%E4%B9%8Bpickle%E6%A8%A1%E5%9D%97%E7%9A%84%E4%BD%BF%E7%94%A8/</url>
     <content><![CDATA[<p>废话不多说，直接上代码。</p>
@@ -447,6 +421,32 @@
       <tags>
         <tag>Python教程</tag>
         <tag>pickle</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Python深度学习之PyTorch学习小记录</title>
+    <url>/2020/03/05/Python%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E4%B9%8BPyTorch%E5%AD%A6%E4%B9%A0%E5%B0%8F%E8%AE%B0%E5%BD%95/</url>
+    <content><![CDATA[<p>不说废话，直接上教程。</p>
+<a id="more"></a>
+
+<h5 id="1-torch-Tensor和torch-tensor有什么区别？"><a href="#1-torch-Tensor和torch-tensor有什么区别？" class="headerlink" title="1.torch.Tensor和torch.tensor有什么区别？"></a>1.torch.Tensor和torch.tensor有什么区别？</h5><h6 id="1-1介绍"><a href="#1-1介绍" class="headerlink" title="1.1介绍"></a>1.1介绍</h6><p>​    在PyTorch 中，torch.Tensor是主要的tensor类，所有的tensor都是torch.Tensor的实例。torch.Tensor是torch.FloatTensor的别名。<br>而torch.tensor是一个函数，返回的是一个tensor，在PyTorch官方文档中，描述如下：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">torch.tensor(data, dtype=<span class="literal">None</span>, device=<span class="literal">None</span>, requires_grad=<span class="literal">False</span>) → Tensor</span><br><span class="line">Constructs a tensor <span class="keyword">with</span> data.</span><br></pre></td></tr></table></figure>
+
+<h6 id="1-2区别1"><a href="#1-2区别1" class="headerlink" title="1.2区别1"></a>1.2区别1</h6><p><code>torch.Tensor(data)</code>是将输入的data转化<code>torch.FloatTensor</code></p>
+<p><code>torch.tensor(data)</code>(当你未指定<code>dype</code>的类型时)是将data转化为<code>torch.FloatTensor、torch.LongTensor、torch.DoubleTensor</code>等类型，转化类型依据于<code>data</code>的类型或者<code>dtype</code>的值</p>
+<h5 id="1-3区别2"><a href="#1-3区别2" class="headerlink" title="1.3区别2"></a>1.3区别2</h5><p>使用如下语句：<code>tensor_without_data = torch.Tensor()</code>可以创建一个空的<code>FloatTensor</code>，而当你使用<code>tensor_without_data = torch.tensor()</code>时候则会报错：</p>
+<hr>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">TypeError Traceback (most recent call last)</span><br><span class="line">&lt;ipython-input<span class="number">-12</span>-ebc3ceaa76d2&gt; <span class="keyword">in</span> &lt;module&gt;()</span><br><span class="line">----&gt; 1 torch.tensor()</span><br><span class="line"></span><br><span class="line">TypeError: tensor() missing <span class="number">1</span> required positional arguments: <span class="string">"data"</span></span><br></pre></td></tr></table></figure>
+
+<p>当你想要创建一个空的<code>tensor</code>时候，可以使用如下的方法：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">tensor_without_data = torch.Tensor() <span class="comment"># tensor([])</span></span><br><span class="line">tensor_without_data = torch.tensor(()) <span class="comment"># tensor([])</span></span><br><span class="line">tensor_without_data = torch.empty([]) <span class="comment"># tensor(0.)</span></span><br></pre></td></tr></table></figure>
+
+
+<p>所以<code>torch.Tensor</code>应该说是同时具有<code>torch.tensor</code>和<code>torch.empty</code>的功能，但是使用<code>torch.Tensor</code>可能会使你的代码出错，所以最好还是使用<code>torch.tensor</code>和<code>torch.empty</code>，而不是<code>torch.Tensor</code>。</p>
+]]></content>
+      <tags>
+        <tag>Python深度学习</tag>
+        <tag>Pytorch</tag>
       </tags>
   </entry>
   <entry>
@@ -591,23 +591,6 @@
       </tags>
   </entry>
   <entry>
-    <title>screen 会话管理器用法</title>
-    <url>/2019/01/05/linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%87%8D%E8%A3%85/</url>
-    <content><![CDATA[<h5 id="screen-会话管理器用法"><a href="#screen-会话管理器用法" class="headerlink" title="screen 会话管理器用法"></a>screen 会话管理器用法</h5><a id="more"></a>
-
-<h4 id="1-安装依赖"><a href="#1-安装依赖" class="headerlink" title="1.安装依赖"></a>1.安装依赖</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#Debian&#x2F;Ubuntu</span><br><span class="line">apt-get install -y xz-utils openssl gawk file</span><br><span class="line">#RedHat&#x2F;CentOS</span><br><span class="line">yum install -y xz openssl gawk file</span><br></pre></td></tr></table></figure>
-
-<h4 id="2-下载脚本"><a href="#2-下载脚本" class="headerlink" title="2.下载脚本"></a>2.下载脚本</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">wget -O InstallNET.sh https://fly97.fun/files/git/InstallNET/InstallNET.sh</span><br></pre></td></tr></table></figure>
-
-<h4 id="3-运行命令："><a href="#3-运行命令：" class="headerlink" title="3.运行命令："></a>3.运行命令：</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">bash InstallNET.sh -c 6.9 -v 64 -a --mirror <span class="string">'http://mirror.centos.org/centos'</span></span><br><span class="line">bash InstallNET.sh -u 16.04 -v 64 -a -mirror <span class="string">'http://mirrors.aliyun.com/ubuntu/'</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="4-用户名以及密码："><a href="#4-用户名以及密码：" class="headerlink" title="4.用户名以及密码："></a>4.用户名以及密码：</h4><p><code>root@MoeClub.org</code></p>
-]]></content>
-      <tags>
-        <tag>Linux运维</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>screen会话管理器用法</title>
     <url>/2019/03/06/linux%20screen%20%E5%91%BD%E4%BB%A4%E8%AF%A6%E8%A7%A3/</url>
     <content><![CDATA[<h5 id="screen-会话管理器用法"><a href="#screen-会话管理器用法" class="headerlink" title="screen 会话管理器用法"></a>screen 会话管理器用法</h5><a id="more"></a>
@@ -707,6 +690,23 @@
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">screen -ls</span><br><span class="line">screen -D -r ＜session-id&gt;</span><br></pre></td></tr></table></figure>
 
 <p>解释：-D -r 先踢掉前一用户，再登陆。</p>
+]]></content>
+      <tags>
+        <tag>Linux运维</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>screen 会话管理器用法</title>
+    <url>/2019/01/05/linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%87%8D%E8%A3%85/</url>
+    <content><![CDATA[<h5 id="screen-会话管理器用法"><a href="#screen-会话管理器用法" class="headerlink" title="screen 会话管理器用法"></a>screen 会话管理器用法</h5><a id="more"></a>
+
+<h4 id="1-安装依赖"><a href="#1-安装依赖" class="headerlink" title="1.安装依赖"></a>1.安装依赖</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#Debian&#x2F;Ubuntu</span><br><span class="line">apt-get install -y xz-utils openssl gawk file</span><br><span class="line">#RedHat&#x2F;CentOS</span><br><span class="line">yum install -y xz openssl gawk file</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-下载脚本"><a href="#2-下载脚本" class="headerlink" title="2.下载脚本"></a>2.下载脚本</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">wget -O InstallNET.sh https://fly97.fun/files/git/InstallNET/InstallNET.sh</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-运行命令："><a href="#3-运行命令：" class="headerlink" title="3.运行命令："></a>3.运行命令：</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">bash InstallNET.sh -c 6.9 -v 64 -a --mirror <span class="string">'http://mirror.centos.org/centos'</span></span><br><span class="line">bash InstallNET.sh -u 16.04 -v 64 -a -mirror <span class="string">'http://mirrors.aliyun.com/ubuntu/'</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="4-用户名以及密码："><a href="#4-用户名以及密码：" class="headerlink" title="4.用户名以及密码："></a>4.用户名以及密码：</h4><p><code>root@MoeClub.org</code></p>
 ]]></content>
       <tags>
         <tag>Linux运维</tag>
@@ -893,7 +893,7 @@
 <td>匹配<em>n</em>，其中<em>n</em>是一个用四个十六进制数字表示的Unicode字符。例如，\u00A9匹配版权符号（©）。</td>
 </tr>
 </tbody></table>
-<h5 id="2-常用正则表达式"><a href="#2-常用正则表达式" class="headerlink" title="2.常用正则表达式"></a>2.常用正则表达式</h5><table>
+<h4 id="2-常用正则表达式"><a href="#2-常用正则表达式" class="headerlink" title="2.常用正则表达式"></a>2.常用正则表达式</h4><table>
 <thead>
 <tr>
 <th align="right">用户名</th>
@@ -929,7 +929,7 @@
 <td>/^[\u2E80-\u9FFF]+$/</td>
 </tr>
 </tbody></table>
-<h5 id="3-Python-中常用的正则表达式处理函数"><a href="#3-Python-中常用的正则表达式处理函数" class="headerlink" title="3.Python 中常用的正则表达式处理函数"></a>3.Python 中常用的正则表达式处理函数</h5><p><strong>re.match函数</strong>：re.match 尝试从字符串的起始位置匹配一个模式，如果不是起始位置匹配成功的话，match()就返回none。</p>
+<h4 id="3-Python-中常用的正则表达式处理函数"><a href="#3-Python-中常用的正则表达式处理函数" class="headerlink" title="3.Python 中常用的正则表达式处理函数"></a>3.Python 中常用的正则表达式处理函数</h4><h5 id="re-match函数："><a href="#re-match函数：" class="headerlink" title="re.match函数："></a>re.match函数：</h5><p>re.match 尝试从字符串的起始位置匹配一个模式，如果不是起始位置匹配成功的话，match()就返回none。</p>
 <p>函数语法：</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">re.match(pattern, string, flags=<span class="number">0</span>)</span><br></pre></td></tr></table></figure>
 
@@ -977,7 +977,7 @@
 <p>以上实例输出结果为</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">(0, 3)</span><br><span class="line">None</span><br></pre></td></tr></table></figure>
 
-<p><strong>re.search方法</strong>：re.search 扫描整个字符串并返回第一个成功的匹配。</p>
+<h5 id="re-search方法："><a href="#re-search方法：" class="headerlink" title="re.search方法："></a><strong>re.search方法：</strong></h5><p>re.search 扫描整个字符串并返回第一个成功的匹配。</p>
 <p>函数语法</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">re.search(pattern, string, flags=<span class="number">0</span>)</span><br></pre></td></tr></table></figure>
 
@@ -1026,16 +1026,14 @@
 <p>以上实例运行输出结果为：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">(0, 3)</span><br><span class="line">(11, 14)</span><br></pre></td></tr></table></figure>
 
-<p><strong>re.match与re.search的区别</strong>：</p>
-<p>re.match 只匹配字符串的开始，如果字符串开始不符合正则表达式，则匹配失败，函数返回 None，而 re.search 匹配整个字符串，直到找到一个匹配。</p>
+<h5 id="re-match与re-search的区别："><a href="#re-match与re-search的区别：" class="headerlink" title="re.match与re.search的区别："></a>re.match与re.search的区别：</h5><p>re.match 只匹配字符串的开始，如果字符串开始不符合正则表达式，则匹配失败，函数返回 None，而 re.search 匹配整个字符串，直到找到一个匹配。</p>
 <p>实例：</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/python3</span></span><br><span class="line"> </span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line"> </span><br><span class="line">line = <span class="string">"Cats are smarter than dogs"</span></span><br><span class="line"> </span><br><span class="line">matchObj = re.match( <span class="string">r'dogs'</span>, line, re.M|re.I)</span><br><span class="line"><span class="keyword">if</span> matchObj:</span><br><span class="line">   <span class="keyword">print</span> (<span class="string">"match --&gt; matchObj.group() : "</span>, matchObj.group())</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">   <span class="keyword">print</span> (<span class="string">"No match!!"</span>)</span><br><span class="line"> </span><br><span class="line">matchObj = re.search( <span class="string">r'dogs'</span>, line, re.M|re.I)</span><br><span class="line"><span class="keyword">if</span> matchObj:</span><br><span class="line">   <span class="keyword">print</span> (<span class="string">"search --&gt; matchObj.group() : "</span>, matchObj.group())</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">   <span class="keyword">print</span> (<span class="string">"No match!!"</span>)</span><br></pre></td></tr></table></figure>
 
 <p>以上实例运行结果如下：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">No match!!</span><br><span class="line">search --&gt; matchObj.group() :  dogs</span><br></pre></td></tr></table></figure>
 
-<p><strong>检索和替换</strong></p>
-<p>Python 的re模块提供了re.sub用于替换字符串中的匹配项。</p>
+<h5 id="检索和替换"><a href="#检索和替换" class="headerlink" title="检索和替换"></a>检索和替换</h5><p>Python 的re模块提供了re.sub用于替换字符串中的匹配项。</p>
 <p>语法：</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">re.sub(pattern, repl, string, count=<span class="number">0</span>, flags=<span class="number">0</span>)</span><br></pre></td></tr></table></figure>
 
@@ -1061,8 +1059,7 @@
 <p>执行输出结果为：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">A46G8HFD1134</span><br></pre></td></tr></table></figure>
 
-<p><strong>compile 函数</strong></p>
-<p>compile 函数用于编译正则表达式，生成一个正则表达式（ Pattern ）对象，供 match() 和 search() 这两个函数使用。</p>
+<h5 id="compile-函数"><a href="#compile-函数" class="headerlink" title="compile 函数"></a>compile 函数</h5><p>compile 函数用于编译正则表达式，生成一个正则表达式（ Pattern ）对象，供 match() 和 search() 这两个函数使用。</p>
 <p>语法格式为：</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">re.compile(pattern[, flags])</span><br></pre></td></tr></table></figure>
 
@@ -1097,8 +1094,7 @@
 <li><code>end([group])</code> 方法用于获取分组匹配的子串在整个字符串中的结束位置（子串最后一个字符的索引+1），参数默认值为 0；</li>
 <li><code>span([group])</code> 方法返回 <code>(start(group), end(group))</code>。</li>
 </ul>
-<p><strong>findall函数</strong>：</p>
-<p>在字符串中找到正则表达式所匹配的所有子串，并返回一个列表，如果没有找到匹配的，则返回空列表。</p>
+<h5 id="findall函数："><a href="#findall函数：" class="headerlink" title="findall函数："></a><strong>findall函数</strong>：</h5><p>在字符串中找到正则表达式所匹配的所有子串，并返回一个列表，如果没有找到匹配的，则返回空列表。</p>
 <p><strong>注意：</strong> match 和 search 是匹配一次 findall 匹配所有。</p>
 <p>语法格式为：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">re.findall(string[, pos[, endpos]])</span><br></pre></td></tr></table></figure>
@@ -1112,8 +1108,7 @@
 <p>查找字符串中的所有数字：</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> re</span><br><span class="line"> </span><br><span class="line">pattern = re.compile(<span class="string">r'\d+'</span>)   <span class="comment"># 查找数字</span></span><br><span class="line">result1 = pattern.findall(<span class="string">'runoob 123 google 456'</span>)</span><br><span class="line">result2 = pattern.findall(<span class="string">'run88oob123google456'</span>, <span class="number">0</span>, <span class="number">10</span>)</span><br><span class="line"> </span><br><span class="line">print(result1)</span><br><span class="line">print(result2)</span><br></pre></td></tr></table></figure>
 
-<p><strong>re.finditer</strong></p>
-<p>和 findall 类似，在字符串中找到正则表达式所匹配的所有子串，并把它们作为一个迭代器返回。</p>
+<h5 id="re-finditer"><a href="#re-finditer" class="headerlink" title="re.finditer"></a><strong>re.finditer</strong></h5><p>和 findall 类似，在字符串中找到正则表达式所匹配的所有子串，并把它们作为一个迭代器返回。</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">re.finditer(pattern, string, flags=<span class="number">0</span>)</span><br></pre></td></tr></table></figure>
 
 <table>
@@ -1141,8 +1136,7 @@
 <p>输出结果</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="number">12</span> </span><br><span class="line"><span class="number">32</span> </span><br><span class="line"><span class="number">43</span> </span><br><span class="line"><span class="number">3</span></span><br></pre></td></tr></table></figure>
 
-<p><strong>re.split</strong></p>
-<p>split 方法按照能够匹配的子串将字符串分割后返回列表，它的使用形式如下：</p>
+<h5 id="re-split"><a href="#re-split" class="headerlink" title="re.split"></a><strong>re.split</strong></h5><p>split 方法按照能够匹配的子串将字符串分割后返回列表，它的使用形式如下：</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">re.split(pattern, string[, maxsplit=<span class="number">0</span>, flags=<span class="number">0</span>])</span><br></pre></td></tr></table></figure>
 
 <table>
