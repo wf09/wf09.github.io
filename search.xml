@@ -111,6 +111,35 @@
       </tags>
   </entry>
   <entry>
+    <title>Linux之crontab定时任务</title>
+    <url>/2020/04/24/Linux%E4%B9%8Bcrontab%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/</url>
+    <content><![CDATA[<p>Linux中的crontab - - - -一个自定义定时器</p>
+<a id="more"></a>
+
+<h5 id="1-crontab命令"><a href="#1-crontab命令" class="headerlink" title="1.crontab命令"></a>1.crontab命令</h5><p>重新指定crobtab定时任务文件</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">crontab $filepath</span><br></pre></td></tr></table></figure>
+
+<p>查看crontab定时任务</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">crontab -l</span><br></pre></td></tr></table></figure>
+
+<p>编辑、安装定时任务</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">crontab -e</span><br></pre></td></tr></table></figure>
+
+<p><strong>2.crontab时间举例</strong></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 每天早上6点 </span></span><br><span class="line">0 6 * * * echo "Good morning." &gt;&gt; /tmp/test.txt //注意单纯echo，从屏幕上看不到任何输出，因为cron把任何输出都email到root的信箱了。</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 每两个小时 </span></span><br><span class="line">0 */2 * * * echo "Have a break now." &gt;&gt; /tmp/test.txt  </span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 晚上11点到早上8点之间每两个小时和早上八点 </span></span><br><span class="line">0 23-7/2，8 * * * echo "Have a good dream" &gt;&gt; /tmp/test.txt</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 每个月的4号和每个礼拜的礼拜一到礼拜三的早上11点 </span></span><br><span class="line">0 11 4 * 1-3 command line</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 1月1日早上4点 </span></span><br><span class="line">0 4 1 1 * command line SHELL=/bin/bash PATH=/sbin:/bin:/usr/sbin:/usr/bin MAILTO=root //如果出现错误，或者有数据输出，数据作为邮件发给这个帐号 HOME=/ </span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 每小时（第一分钟）执行/etc/cron.hourly内的脚本</span></span><br><span class="line">01 * * * * root run-parts /etc/cron.hourly</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 每天（凌晨4：02）执行/etc/cron.daily内的脚本</span></span><br><span class="line">02 4 * * * root run-parts /etc/cron.daily </span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 每星期（周日凌晨4：22）执行/etc/cron.weekly内的脚本</span></span><br><span class="line">22 4 * * 0 root run-parts /etc/cron.weekly </span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 每月（1号凌晨4：42）去执行/etc/cron.monthly内的脚本 </span></span><br><span class="line">42 4 1 * * root run-parts /etc/cron.monthly </span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 注意:  <span class="string">"run-parts"</span>这个参数了，如果去掉这个参数的话，后面就可以写要运行的某个脚本名，而不是文件夹名。 　 </span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 每天的下午4点、5点、6点的5 min、15 min、25 min、35 min、45 min、55 min时执行命令。 </span></span><br><span class="line">5，15，25，35，45，55 16，17，18 * * * command</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 每周一，三，五的下午3：00系统进入维护状态，重新启动系统。</span></span><br><span class="line">00 15 * *1，3，5 shutdown -r +5</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 每小时的10分，40分执行用户目录下的innd/bbslin这个指令： </span></span><br><span class="line">10，40 * * * * innd/bbslink </span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 每小时的1分执行用户目录下的bin/account这个指令： </span></span><br><span class="line">1 * * * * bin/account</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 每1分钟执行以下命令</span></span><br><span class="line">*/1 * * * * bin/python</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 每天早晨三点二十分执行用户目录下如下所示的两个指令（每个指令以;分隔）： </span></span><br><span class="line">203 * * * （/bin/rm -f expire.ls logins.bad;bin/expire$#@62;expire.1st）</span><br></pre></td></tr></table></figure>
+
+<h5 id="3-crontab任务举例"><a href="#3-crontab任务举例" class="headerlink" title="3.crontab任务举例"></a>3.crontab任务举例</h5><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">*/5 * * * * /bin/bash /root/kaoyan/tiaoji.sh</span><br></pre></td></tr></table></figure>
+
+<p>sh写法举例</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/bash</span></span><br><span class="line">PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:~/bin</span><br><span class="line">export PATH</span><br><span class="line"></span><br><span class="line">cd /root/kaoyan</span><br><span class="line">/root/***/python3 *.py &gt;&gt; /root/****/*.log 2&gt;&amp;1</span><br><span class="line"><span class="meta">#</span><span class="bash">将所有输出写入日志文件</span></span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <tags>
+        <tag>Linux</tag>
+        <tag>crontab</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Hexo配置全记录</title>
     <url>/2020/02/16/Hexo%E9%85%8D%E7%BD%AE%E5%85%A8%E8%AE%B0%E5%BD%95/</url>
     <content><![CDATA[<p>hexo爬坑全记录</p>
@@ -189,35 +218,6 @@
       <tags>
         <tag>密钥</tag>
         <tag>Linux运维</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Linux之crontab定时任务</title>
-    <url>/2020/04/24/Linux%E4%B9%8Bcrontab%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/</url>
-    <content><![CDATA[<p>Linux中的crontab - - - -一个自定义定时器</p>
-<a id="more"></a>
-
-<h5 id="1-crontab命令"><a href="#1-crontab命令" class="headerlink" title="1.crontab命令"></a>1.crontab命令</h5><p>重新指定crobtab定时任务文件</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">crontab $filepath</span><br></pre></td></tr></table></figure>
-
-<p>查看crontab定时任务</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">crontab -l</span><br></pre></td></tr></table></figure>
-
-<p>编辑、安装定时任务</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">crontab -e</span><br></pre></td></tr></table></figure>
-
-<p><strong>2.crontab时间举例</strong></p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 每天早上6点 </span></span><br><span class="line">0 6 * * * echo "Good morning." &gt;&gt; /tmp/test.txt //注意单纯echo，从屏幕上看不到任何输出，因为cron把任何输出都email到root的信箱了。</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 每两个小时 </span></span><br><span class="line">0 */2 * * * echo "Have a break now." &gt;&gt; /tmp/test.txt  </span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 晚上11点到早上8点之间每两个小时和早上八点 </span></span><br><span class="line">0 23-7/2，8 * * * echo "Have a good dream" &gt;&gt; /tmp/test.txt</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 每个月的4号和每个礼拜的礼拜一到礼拜三的早上11点 </span></span><br><span class="line">0 11 4 * 1-3 command line</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 1月1日早上4点 </span></span><br><span class="line">0 4 1 1 * command line SHELL=/bin/bash PATH=/sbin:/bin:/usr/sbin:/usr/bin MAILTO=root //如果出现错误，或者有数据输出，数据作为邮件发给这个帐号 HOME=/ </span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 每小时（第一分钟）执行/etc/cron.hourly内的脚本</span></span><br><span class="line">01 * * * * root run-parts /etc/cron.hourly</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 每天（凌晨4：02）执行/etc/cron.daily内的脚本</span></span><br><span class="line">02 4 * * * root run-parts /etc/cron.daily </span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 每星期（周日凌晨4：22）执行/etc/cron.weekly内的脚本</span></span><br><span class="line">22 4 * * 0 root run-parts /etc/cron.weekly </span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 每月（1号凌晨4：42）去执行/etc/cron.monthly内的脚本 </span></span><br><span class="line">42 4 1 * * root run-parts /etc/cron.monthly </span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 注意:  <span class="string">"run-parts"</span>这个参数了，如果去掉这个参数的话，后面就可以写要运行的某个脚本名，而不是文件夹名。 　 </span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 每天的下午4点、5点、6点的5 min、15 min、25 min、35 min、45 min、55 min时执行命令。 </span></span><br><span class="line">5，15，25，35，45，55 16，17，18 * * * command</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 每周一，三，五的下午3：00系统进入维护状态，重新启动系统。</span></span><br><span class="line">00 15 * *1，3，5 shutdown -r +5</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 每小时的10分，40分执行用户目录下的innd/bbslin这个指令： </span></span><br><span class="line">10，40 * * * * innd/bbslink </span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 每小时的1分执行用户目录下的bin/account这个指令： </span></span><br><span class="line">1 * * * * bin/account</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 每1分钟执行以下命令</span></span><br><span class="line">*/1 * * * * bin/python</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 每天早晨三点二十分执行用户目录下如下所示的两个指令（每个指令以;分隔）： </span></span><br><span class="line">203 * * * （/bin/rm -f expire.ls logins.bad;bin/expire$#@62;expire.1st）</span><br></pre></td></tr></table></figure>
-
-<h5 id="3-crontab任务举例"><a href="#3-crontab任务举例" class="headerlink" title="3.crontab任务举例"></a>3.crontab任务举例</h5><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">*/5 * * * * /bin/bash /root/kaoyan/tiaoji.sh</span><br></pre></td></tr></table></figure>
-
-<p>sh写法举例</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/bash</span></span><br><span class="line">PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:~/bin</span><br><span class="line">export PATH</span><br><span class="line"></span><br><span class="line">cd /root/kaoyan</span><br><span class="line">/root/***/python3 *.py &gt;&gt; /root/****/*.log 2&gt;&amp;1</span><br><span class="line"><span class="meta">#</span><span class="bash">将所有输出写入日志文件</span></span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <tags>
-        <tag>Linux</tag>
-        <tag>crontab</tag>
       </tags>
   </entry>
   <entry>
@@ -450,6 +450,21 @@
       </tags>
   </entry>
   <entry>
+    <title>Ubuntu18.04更换镜像源</title>
+    <url>/2019/01/06/Ubuntu18.04%E6%9B%B4%E6%8D%A2%E4%B8%BA%E5%9B%BD%E5%86%85%E6%BA%90/</url>
+    <content><![CDATA[<h4 id="Ubuntu18-04更换镜像源"><a href="#Ubuntu18-04更换镜像源" class="headerlink" title="Ubuntu18.04更换镜像源"></a>Ubuntu18.04更换镜像源</h4><h5 id="1-备份原有镜像源"><a href="#1-备份原有镜像源" class="headerlink" title="1.备份原有镜像源"></a>1.备份原有镜像源</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo mv /etc/apt/sources.list /etc/apt/sourses.list.bak</span><br></pre></td></tr></table></figure>
+
+<h5 id="2-修改-etc-apt-sources-list文件"><a href="#2-修改-etc-apt-sources-list文件" class="headerlink" title="2.修改/etc/apt/sources.list文件"></a>2.修改/etc/apt/sources.list文件</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vim /etc/apt/sources.list</span><br><span class="line"><span class="comment">#中科大源</span></span><br><span class="line">deb https://mirrors.ustc.edu.cn/ubuntu/ bionic main restricted universe multiverse</span><br><span class="line">deb https://mirrors.ustc.edu.cn/ubuntu/ bionic-updates main restricted universe multiverse</span><br><span class="line">deb https://mirrors.ustc.edu.cn/ubuntu/ bionic-backports main restricted universe multiverse</span><br><span class="line">deb https://mirrors.ustc.edu.cn/ubuntu/ bionic-security main restricted universe multiverse</span><br><span class="line">deb https://mirrors.ustc.edu.cn/ubuntu/ bionic-proposed main restricted universe multiverse</span><br><span class="line">deb-src https://mirrors.ustc.edu.cn/ubuntu/ bionic main restricted universe multiverse</span><br><span class="line">deb-src https://mirrors.ustc.edu.cn/ubuntu/ bionic-updates main restricted universe multiverse</span><br><span class="line">deb-src https://mirrors.ustc.edu.cn/ubuntu/ bionic-backports main restricted universe multiverse</span><br><span class="line">deb-src https://mirrors.ustc.edu.cn/ubuntu/ bionic-security main restricted universe multiverse</span><br><span class="line">deb-src https://mirrors.ustc.edu.cn/ubuntu/ bionic-proposed main restricted universe multiverse</span><br><span class="line"></span><br><span class="line"><span class="comment">#阿里云源</span></span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ bionic main restricted universe multiverse</span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ bionic-security main restricted universe multiverse</span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ bionic-updates main restricted universe multiverse</span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ bionic-proposed main restricted universe multiverse</span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ bionic-backports main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ bionic main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ bionic-security main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ bionic-updates main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ bionic-proposed main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ bionic-backports main restricted universe multiverse</span><br><span class="line"></span><br><span class="line"><span class="comment">#清华源</span></span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic main restricted universe multiverse</span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-updates main restricted universe multiverse</span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-backports main restricted universe multiverse</span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-security main restricted universe multiverse</span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-proposed main restricted universe multiverse</span><br><span class="line">deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic main restricted universe multiverse</span><br><span class="line">deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-updates main restricted universe multiverse</span><br><span class="line">deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-backports main restricted universe multiverse</span><br><span class="line">deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-security main restricted universe multiverse</span><br><span class="line">deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-proposed main restricted universe multiverse</span><br><span class="line"></span><br><span class="line"><span class="comment">#香港中文科技大学源</span></span><br><span class="line">deb http://ftp.cuhk.edu.hk/pub/Linux/ubuntu/ bionic main restricted universe </span><br><span class="line">deb http://ftp.cuhk.edu.hk/pub/Linux/ubuntu/ bionic-security main restricted universe </span><br><span class="line">deb http://ftp.cuhk.edu.hk/pub/Linux/ubuntu/ bionic-updates main restricted universe </span><br><span class="line">deb http://ftp.cuhk.edu.hk/pub/Linux/ubuntu/ bionic-proposed main restricted universe </span><br><span class="line">deb http://ftp.cuhk.edu.hk/pub/Linux/ubuntu/ bionic-backports main restricted universe </span><br><span class="line">deb-src http://ftp.cuhk.edu.hk/pub/Linux/ubuntu/ bionic main restricted universe multiverse</span><br><span class="line">deb-src http://ftp.cuhk.edu.hk/pub/Linux/ubuntu/ bionic-security main restricted universe </span><br><span class="line">deb-src http://ftp.cuhk.edu.hk/pub/Linux/ubuntu/ bionic-updates main restricted universe </span><br><span class="line">deb-src http://ftp.cuhk.edu.hk/pub/Linux/ubuntu/ bionic-proposed main restricted universe </span><br><span class="line">deb-src http://ftp.cuhk.edu.hk/pub/Linux/ubuntu/ bionic-backports main restricted universe</span><br></pre></td></tr></table></figure>
+
+<h5 id="3-其他相关命令"><a href="#3-其他相关命令" class="headerlink" title="3.其他相关命令"></a>3.其他相关命令</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt-get update  更新源</span><br><span class="line">sudo apt-get install package 安装包</span><br><span class="line">sudo apt-get remove package 删除包</span><br><span class="line">sudo apt-cache search package 搜索软件包</span><br><span class="line">sudo apt-cache show package  获取包的相关信息，如说明、大小、版本等</span><br><span class="line">sudo apt-get install package --reinstall  重新安装包</span><br><span class="line">sudo apt-get -f install  修复安装</span><br><span class="line">sudo apt-get remove package --purge 删除包，包括配置文件等</span><br><span class="line">sudo apt-get build-dep package 安装相关的编译环境</span><br><span class="line">sudo apt-get upgrade 更新已安装的包</span><br><span class="line">sudo apt-get dist-upgrade 升级系统</span><br><span class="line">sudo apt-cache depends package 了解使用该包依赖那些包</span><br><span class="line">sudo apt-cache rdepends package 查看该包被哪些包依赖</span><br><span class="line">sudo apt-get <span class="built_in">source</span> package  下载该包的源代码</span><br><span class="line">sudo apt-get clean &amp;&amp; sudo apt-get autoclean 清理无用的包</span><br><span class="line">sudo apt-get check 检查是否有损坏的依赖</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <tags>
+        <tag>Ubuntu18.04</tag>
+        <tag>镜像源</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Python深度学习之深入浅出LSTM</title>
     <url>/2020/03/16/Python%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E4%B9%8B%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BALSTM/</url>
     <content><![CDATA[<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
@@ -498,21 +513,6 @@
         <tag>Python深度学习</tag>
         <tag>pytorch</tag>
         <tag>LSTM</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Ubuntu18.04更换镜像源</title>
-    <url>/2019/01/06/Ubuntu18.04%E6%9B%B4%E6%8D%A2%E4%B8%BA%E5%9B%BD%E5%86%85%E6%BA%90/</url>
-    <content><![CDATA[<h4 id="Ubuntu18-04更换镜像源"><a href="#Ubuntu18-04更换镜像源" class="headerlink" title="Ubuntu18.04更换镜像源"></a>Ubuntu18.04更换镜像源</h4><h5 id="1-备份原有镜像源"><a href="#1-备份原有镜像源" class="headerlink" title="1.备份原有镜像源"></a>1.备份原有镜像源</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo mv /etc/apt/sources.list /etc/apt/sourses.list.bak</span><br></pre></td></tr></table></figure>
-
-<h5 id="2-修改-etc-apt-sources-list文件"><a href="#2-修改-etc-apt-sources-list文件" class="headerlink" title="2.修改/etc/apt/sources.list文件"></a>2.修改/etc/apt/sources.list文件</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vim /etc/apt/sources.list</span><br><span class="line"><span class="comment">#中科大源</span></span><br><span class="line">deb https://mirrors.ustc.edu.cn/ubuntu/ bionic main restricted universe multiverse</span><br><span class="line">deb https://mirrors.ustc.edu.cn/ubuntu/ bionic-updates main restricted universe multiverse</span><br><span class="line">deb https://mirrors.ustc.edu.cn/ubuntu/ bionic-backports main restricted universe multiverse</span><br><span class="line">deb https://mirrors.ustc.edu.cn/ubuntu/ bionic-security main restricted universe multiverse</span><br><span class="line">deb https://mirrors.ustc.edu.cn/ubuntu/ bionic-proposed main restricted universe multiverse</span><br><span class="line">deb-src https://mirrors.ustc.edu.cn/ubuntu/ bionic main restricted universe multiverse</span><br><span class="line">deb-src https://mirrors.ustc.edu.cn/ubuntu/ bionic-updates main restricted universe multiverse</span><br><span class="line">deb-src https://mirrors.ustc.edu.cn/ubuntu/ bionic-backports main restricted universe multiverse</span><br><span class="line">deb-src https://mirrors.ustc.edu.cn/ubuntu/ bionic-security main restricted universe multiverse</span><br><span class="line">deb-src https://mirrors.ustc.edu.cn/ubuntu/ bionic-proposed main restricted universe multiverse</span><br><span class="line"></span><br><span class="line"><span class="comment">#阿里云源</span></span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ bionic main restricted universe multiverse</span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ bionic-security main restricted universe multiverse</span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ bionic-updates main restricted universe multiverse</span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ bionic-proposed main restricted universe multiverse</span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ bionic-backports main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ bionic main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ bionic-security main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ bionic-updates main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ bionic-proposed main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ bionic-backports main restricted universe multiverse</span><br><span class="line"></span><br><span class="line"><span class="comment">#清华源</span></span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic main restricted universe multiverse</span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-updates main restricted universe multiverse</span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-backports main restricted universe multiverse</span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-security main restricted universe multiverse</span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-proposed main restricted universe multiverse</span><br><span class="line">deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic main restricted universe multiverse</span><br><span class="line">deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-updates main restricted universe multiverse</span><br><span class="line">deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-backports main restricted universe multiverse</span><br><span class="line">deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-security main restricted universe multiverse</span><br><span class="line">deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-proposed main restricted universe multiverse</span><br><span class="line"></span><br><span class="line"><span class="comment">#香港中文科技大学源</span></span><br><span class="line">deb http://ftp.cuhk.edu.hk/pub/Linux/ubuntu/ bionic main restricted universe </span><br><span class="line">deb http://ftp.cuhk.edu.hk/pub/Linux/ubuntu/ bionic-security main restricted universe </span><br><span class="line">deb http://ftp.cuhk.edu.hk/pub/Linux/ubuntu/ bionic-updates main restricted universe </span><br><span class="line">deb http://ftp.cuhk.edu.hk/pub/Linux/ubuntu/ bionic-proposed main restricted universe </span><br><span class="line">deb http://ftp.cuhk.edu.hk/pub/Linux/ubuntu/ bionic-backports main restricted universe </span><br><span class="line">deb-src http://ftp.cuhk.edu.hk/pub/Linux/ubuntu/ bionic main restricted universe multiverse</span><br><span class="line">deb-src http://ftp.cuhk.edu.hk/pub/Linux/ubuntu/ bionic-security main restricted universe </span><br><span class="line">deb-src http://ftp.cuhk.edu.hk/pub/Linux/ubuntu/ bionic-updates main restricted universe </span><br><span class="line">deb-src http://ftp.cuhk.edu.hk/pub/Linux/ubuntu/ bionic-proposed main restricted universe </span><br><span class="line">deb-src http://ftp.cuhk.edu.hk/pub/Linux/ubuntu/ bionic-backports main restricted universe</span><br></pre></td></tr></table></figure>
-
-<h5 id="3-其他相关命令"><a href="#3-其他相关命令" class="headerlink" title="3.其他相关命令"></a>3.其他相关命令</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt-get update  更新源</span><br><span class="line">sudo apt-get install package 安装包</span><br><span class="line">sudo apt-get remove package 删除包</span><br><span class="line">sudo apt-cache search package 搜索软件包</span><br><span class="line">sudo apt-cache show package  获取包的相关信息，如说明、大小、版本等</span><br><span class="line">sudo apt-get install package --reinstall  重新安装包</span><br><span class="line">sudo apt-get -f install  修复安装</span><br><span class="line">sudo apt-get remove package --purge 删除包，包括配置文件等</span><br><span class="line">sudo apt-get build-dep package 安装相关的编译环境</span><br><span class="line">sudo apt-get upgrade 更新已安装的包</span><br><span class="line">sudo apt-get dist-upgrade 升级系统</span><br><span class="line">sudo apt-cache depends package 了解使用该包依赖那些包</span><br><span class="line">sudo apt-cache rdepends package 查看该包被哪些包依赖</span><br><span class="line">sudo apt-get <span class="built_in">source</span> package  下载该包的源代码</span><br><span class="line">sudo apt-get clean &amp;&amp; sudo apt-get autoclean 清理无用的包</span><br><span class="line">sudo apt-get check 检查是否有损坏的依赖</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <tags>
-        <tag>Ubuntu18.04</tag>
-        <tag>镜像源</tag>
       </tags>
   </entry>
   <entry>
@@ -693,6 +693,32 @@
 ]]></content>
       <tags>
         <tag>Linux运维</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Office Tool Plus使用教程</title>
+    <url>/2020/05/11/office%E6%BF%80%E6%B4%BB%E6%95%99%E7%A8%8B/</url>
+    <content><![CDATA[<p>Office Tool Plus 使用教程</p>
+<a id="more"></a>
+
+<p>软件介绍：<a href="https://otp.landian.vip/zh-cn/" target="_blank" rel="noopener">https://otp.landian.vip/zh-cn/</a></p>
+<p>软件下载地址：<a href="https://download.coolhub.top/" target="_blank" rel="noopener">https://download.coolhub.top/</a></p>
+<p>备份地址：<a href="https://ftp.fly97.cn/windows%20application/Office-Tool-v8.0.zip" target="_blank" rel="noopener">https://ftp.fly97.cn/windows%20application/Office-Tool-v8.0.zip</a></p>
+<h4 id="1-选择安装产品"><a href="#1-选择安装产品" class="headerlink" title="1.选择安装产品"></a>1.选择安装产品</h4><p><img src="image-20200511132047875.png" alt="image-20200511132047875"></p>
+<p>注意：由于国内到微软的网络不稳定，建议<strong>部署模式</strong>选择<strong>下载后安装</strong>。耐心等待安装完毕即可。</p>
+<h4 id="2-激活office"><a href="#2-激活office" class="headerlink" title="2.激活office"></a>2.激活office</h4><p>首先，根据选择的类型选择对应的许可证。</p>
+<p><img src="image-20200511132636795.png" alt="image-20200511132636795"></p>
+<p>然后，选择<strong>零售版</strong>安装的同学需要<strong>安装Office2019专业版</strong>特定的密钥：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">NMMKJ-6RK4F-KMJVX-8D9MJ-6MWKP</span><br></pre></td></tr></table></figure>
+
+<p>最后，选择对应的KMS服务器。</p>
+<p>推荐使用：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">kms.moeclub.org</span><br></pre></td></tr></table></figure>
+
+<p>完。</p>
+]]></content>
+      <tags>
+        <tag>office</tag>
       </tags>
   </entry>
   <entry>
@@ -1682,6 +1708,22 @@
       </tags>
   </entry>
   <entry>
+    <title>一键安装影梭脚本</title>
+    <url>/2019/12/31/%E4%B8%80%E9%94%AE%E5%AE%89%E8%A3%85ShadowsocksR%E8%84%9A%E6%9C%AC/</url>
+    <content><![CDATA[<h5 id="🐕头保命。"><a href="#🐕头保命。" class="headerlink" title="🐕头保命。"></a>🐕头保命。</h5><a id="more"></a>
+
+<h5 id="服务端脚本"><a href="#服务端脚本" class="headerlink" title="服务端脚本"></a><del>服务端脚本</del></h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">wget https://fly97.fun/files/git/shadowsocksr/ssr.sh &amp;&amp; chmod +x ssr.sh</span><br></pre></td></tr></table></figure>
+
+<h5 id="一键安装ShadowsocksR服务端脚本"><a href="#一键安装ShadowsocksR服务端脚本" class="headerlink" title="一键安装ShadowsocksR服务端脚本"></a>一键安装ShadowsocksR服务端脚本</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">wget https://code.aliyun.com/wf.09/shadowsocks/raw/master/ssr.sh &amp;&amp; chmod +x ssr.sh</span><br></pre></td></tr></table></figure>
+
+<h5 id="一键安装ShadowsocksR客户端脚本"><a href="#一键安装ShadowsocksR客户端脚本" class="headerlink" title="一键安装ShadowsocksR客户端脚本"></a>一键安装ShadowsocksR客户端脚本</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">wget https://code.aliyun.com/wf.09/shadowsocks/raw/master/ssr &amp;&amp; chmod +x ssr &amp;&amp; mv ssr /usr/<span class="built_in">local</span>/bin</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <tags>
+        <tag>ShadowsocksR</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>v2ray快速上手全记录</title>
     <url>/2020/04/23/v2ray%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E5%85%A8%E8%AE%B0%E5%BD%95/</url>
     <content><![CDATA[<p>快速上手v2ray</p>
@@ -1743,22 +1785,6 @@
 ]]></content>
       <tags>
         <tag>v2ray</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>一键安装影梭脚本</title>
-    <url>/2019/12/31/%E4%B8%80%E9%94%AE%E5%AE%89%E8%A3%85ShadowsocksR%E8%84%9A%E6%9C%AC/</url>
-    <content><![CDATA[<h5 id="🐕头保命。"><a href="#🐕头保命。" class="headerlink" title="🐕头保命。"></a>🐕头保命。</h5><a id="more"></a>
-
-<h5 id="服务端脚本"><a href="#服务端脚本" class="headerlink" title="服务端脚本"></a><del>服务端脚本</del></h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">wget https://fly97.fun/files/git/shadowsocksr/ssr.sh &amp;&amp; chmod +x ssr.sh</span><br></pre></td></tr></table></figure>
-
-<h5 id="一键安装ShadowsocksR服务端脚本"><a href="#一键安装ShadowsocksR服务端脚本" class="headerlink" title="一键安装ShadowsocksR服务端脚本"></a>一键安装ShadowsocksR服务端脚本</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">wget https://code.aliyun.com/wf.09/shadowsocks/raw/master/ssr.sh &amp;&amp; chmod +x ssr.sh</span><br></pre></td></tr></table></figure>
-
-<h5 id="一键安装ShadowsocksR客户端脚本"><a href="#一键安装ShadowsocksR客户端脚本" class="headerlink" title="一键安装ShadowsocksR客户端脚本"></a>一键安装ShadowsocksR客户端脚本</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">wget https://code.aliyun.com/wf.09/shadowsocks/raw/master/ssr &amp;&amp; chmod +x ssr &amp;&amp; mv ssr /usr/<span class="built_in">local</span>/bin</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <tags>
-        <tag>ShadowsocksR</tag>
       </tags>
   </entry>
   <entry>
