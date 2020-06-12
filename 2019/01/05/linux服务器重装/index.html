@@ -47,17 +47,18 @@
 </script>
 <script data-ad-client="ca-pub-2238291690005827" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 
-  <meta name="description" content="Linux服务器重装">
+  <meta name="description" content="Linux服务器重装+升级">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux服务器重装">
 <meta property="og:url" content="http://wf09.github.io/2019/01/05/linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%87%8D%E8%A3%85/index.html">
 <meta property="og:site_name" content="fly97&#39;s blogs">
-<meta property="og:description" content="Linux服务器重装">
+<meta property="og:description" content="Linux服务器重装+升级">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2019-01-05T12:46:25.000Z">
-<meta property="article:modified_time" content="2020-01-20T12:10:20.000Z">
+<meta property="article:modified_time" content="2020-06-12T09:40:00.000Z">
 <meta property="article:author" content="fly97">
-<meta property="article:tag" content="Linux">
+<meta property="article:tag" content="服务器重装">
+<meta property="article:tag" content="服务器升级">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="http://wf09.github.io/2019/01/05/linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%87%8D%E8%A3%85/">
@@ -233,7 +234,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-01-20 20:10:20" itemprop="dateModified" datetime="2020-01-20T20:10:20+08:00">2020-01-20</time>
+                <time title="修改时间：2020-06-12 17:40:00" itemprop="dateModified" datetime="2020-06-12T17:40:00+08:00">2020-06-12</time>
               </span>
 
           
@@ -247,16 +248,24 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h5 id="Linux服务器重装"><a href="#Linux服务器重装" class="headerlink" title="Linux服务器重装"></a>Linux服务器重装</h5><a id="more"></a>
+        <h5 id="Linux服务器重装-升级"><a href="#Linux服务器重装-升级" class="headerlink" title="Linux服务器重装+升级"></a>Linux服务器重装+升级</h5><a id="more"></a>
 
 <h4 id="1-安装依赖"><a href="#1-安装依赖" class="headerlink" title="1.安装依赖"></a>1.安装依赖</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#Debian&#x2F;Ubuntu</span><br><span class="line">apt-get install -y xz-utils openssl gawk file</span><br><span class="line">#RedHat&#x2F;CentOS</span><br><span class="line">yum install -y xz openssl gawk file</span><br></pre></td></tr></table></figure>
 
-<h4 id="2-下载脚本"><a href="#2-下载脚本" class="headerlink" title="2.下载脚本"></a>2.下载脚本</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget -O InstallNET.sh https://fly97.fun/files/git/InstallNET/InstallNET.sh</span><br></pre></td></tr></table></figure>
+<h4 id="2-下载脚本"><a href="#2-下载脚本" class="headerlink" title="2.下载脚本"></a>2.下载脚本</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget -O InstallNET.sh https://fly97.coding.net/p/shell/d/shell/git/raw/master/dd/InstallNET.sh</span><br></pre></td></tr></table></figure>
 
-<h4 id="3-运行命令："><a href="#3-运行命令：" class="headerlink" title="3.运行命令："></a>3.运行命令：</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">bash InstallNET.sh -c 6.9 -v 64 -a --mirror <span class="string">'http://mirror.centos.org/centos'</span></span><br><span class="line">bash InstallNET.sh -u 16.04 -v 64 -a -mirror <span class="string">'http://mirrors.aliyun.com/ubuntu/'</span></span><br></pre></td></tr></table></figure>
+<h4 id="3-运行命令："><a href="#3-运行命令：" class="headerlink" title="3.运行命令："></a>3.运行命令：</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">bash InstallNET.sh -c 6.9 -v 64 -a --mirror <span class="string">'http://mirror.centos.org/centos'</span></span><br><span class="line">bash InstallNET.sh -u 16.04 -v 64 -a -mirror <span class="string">'http://mirrors.aliyun.com/ubuntu/'</span></span><br><span class="line">bash InstallNET.sh -u 16.04 -v 64 -a -mirror <span class="string">'http://mirrors.cloud.aliyuncs.com/ubuntu'</span></span><br></pre></td></tr></table></figure>
 
 <h4 id="4-用户名以及密码："><a href="#4-用户名以及密码：" class="headerlink" title="4.用户名以及密码："></a>4.用户名以及密码：</h4><p><code>root@MoeClub.org</code></p>
+<h4 id="5-升级到-最新版ubuntu"><a href="#5-升级到-最新版ubuntu" class="headerlink" title="5.升级到 最新版ubuntu"></a>5.升级到 最新版ubuntu</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install update-manager-core</span><br><span class="line">sudo do-release-upgrade -d</span><br></pre></td></tr></table></figure>
 
+<p>这个命令将会禁用所有的第三方软件源，并且将 apt 列表指向 focal 软件源。你将会被提示几次，进行确认，是否真的需要继续升级。当你被问到服务是否在升级过程中自动重启，请输入：<code>y</code>。</p>
+<p>在升级过程中，命令将会问你各种问题，比如你是否想要保存已经存在的配置文件，或者安装软件版的维护者版本。如果你没有对配置文件做任何自定义修改，最安全的做法就是输入：<code>Y</code>。否则，我们推荐你保持当前的配置文件。在你做出选择之前，仔细阅读问题。</p>
+<p>升级过程将会在一个 GNU 屏幕会话中运行，并且在连接丢失时，自动继续。</p>
+<p>整个过程将会花费一些时间，具体依赖于你的升级的软件包数目和你的网速。</p>
+<p>一旦新的软件包都被安装了，升级工具将会询问你是否移除旧的软件。如果你不确定，输入<code>d</code>并且检查这些旧的软件包列表。通常情况下，输入<code>y</code>并且移除所有旧的软件包都是安全操作。</p>
+<p>当升级过程完成，并且假设所有操作都很顺利，你将被提示是否重启你的机器。 输入<code>y</code>继续：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">System upgrade is complete.</span><br><span class="line"></span><br><span class="line">Restart required</span><br><span class="line"></span><br><span class="line">To finish the upgrade, a restart is required.</span><br><span class="line">If you select &#39;y&#39; the system will be restarted.</span><br><span class="line"></span><br><span class="line">Continue [yN] y</span><br></pre></td></tr></table></figure>
     </div>
 
     
@@ -265,7 +274,8 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/Linux/" rel="tag"># Linux</a>
+              <a href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%87%8D%E8%A3%85/" rel="tag"># 服务器重装</a>
+              <a href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%8D%87%E7%BA%A7/" rel="tag"># 服务器升级</a>
           </div>
 
         

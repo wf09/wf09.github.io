@@ -1,6 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Git常见操作之在本地目录下关联远程仓库和如何取消本地目录下关联的远程库</title>
+    <url>/2020/03/07/Git%E5%B8%B8%E8%A7%81%E6%93%8D%E4%BD%9C/</url>
+    <content><![CDATA[<p>不说废话，上教程。</p>
+<a id="more"></a>
+
+<h5 id="1-在本地目录下关联远程repository-："><a href="#1-在本地目录下关联远程repository-：" class="headerlink" title="1.在本地目录下关联远程repository ："></a>1.在本地目录下关联远程repository ：</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git remote add origin git@github.com:git_username/repository_name.git</span><br></pre></td></tr></table></figure>
+
+<h5 id="2-取消本地目录下关联的远程库："><a href="#2-取消本地目录下关联的远程库：" class="headerlink" title="2.取消本地目录下关联的远程库："></a>2.取消本地目录下关联的远程库：</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git remote remove origin</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <tags>
+        <tag>git</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Anacoda3 安装Pytorch小记录</title>
     <url>/2019/12/30/Anacoda3%20%E5%AE%89%E8%A3%85Pytorch%E5%B0%8F%E8%AE%B0%E5%BD%95/</url>
     <content><![CDATA[<p>话不多说，先上教程。</p>
@@ -56,23 +71,17 @@
   </entry>
   <entry>
     <title>Gost服务配置指南</title>
-    <url>/2020/03/23/Gost%E6%9C%8D%E5%8A%A1%E9%85%8D%E7%BD%AE%E6%8C%87%E5%8D%97/</url>
+    <url>/2020/06/12/Gost%E6%9C%8D%E5%8A%A1%E9%85%8D%E7%BD%AE%E6%8C%87%E5%8D%97/</url>
     <content><![CDATA[<p>gost服务操作指南</p>
 <a id="more"></a>
 
-<h5 id="一键安装脚本"><a href="#一键安装脚本" class="headerlink" title="一键安装脚本"></a>一键安装脚本</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">wget https://fly97.coding.net/p/shell/d/shell/git/raw/master/gost/gost &amp;&amp; chmod +x &amp;&amp; mv gost /usr/<span class="built_in">local</span>/bin</span><br></pre></td></tr></table></figure>
+<h3 id="国外下载"><a href="#国外下载" class="headerlink" title="国外下载"></a>国外下载</h3><p>项目地址：<a href="https://github.com/ginuerzh/gost/releases" target="_blank" rel="noopener">https://github.com/ginuerzh/gost/releases</a></p>
+<p>wiki地址：<a href="https://docs.ginuerzh.xyz/gost/" target="_blank" rel="noopener">https://docs.ginuerzh.xyz/gost/</a></p>
+<h3 id="创建Gost服务"><a href="#创建Gost服务" class="headerlink" title="创建Gost服务"></a>创建Gost服务</h3><h4 id="1-创建Gost服务配置文件"><a href="#1-创建Gost服务配置文件" class="headerlink" title="1.创建Gost服务配置文件"></a>1.创建Gost服务配置文件</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">wget -O /etc/systemd/system/gost.service https://ftp.fly97.cn/configuration/gost.service</span><br></pre></td></tr></table></figure>
 
-<p>具体请查看</p>
-<p><a href="https://fly97.coding.net/p/shell/d/shell/git/tree/master/gost" target="_blank" rel="noopener">https://fly97.coding.net/p/shell/d/shell/git/tree/master/gost</a></p>
-<h5 id="安装服务端"><a href="#安装服务端" class="headerlink" title="安装服务端"></a><del>安装服务端</del></h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">wget https://fly97.fun/files/git/gost/go.sh &amp;&amp; chmod +x go.sh</span><br></pre></td></tr></table></figure>
+<h4 id="2-初始化服务"><a href="#2-初始化服务" class="headerlink" title="2.初始化服务"></a>2.初始化服务</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo systemctl enable gost.service</span><br></pre></td></tr></table></figure>
 
-<h5 id="安装客户端"><a href="#安装客户端" class="headerlink" title="安装客户端"></a><del>安装客户端</del></h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">wget https://fly97.fun/files/git/gost/gost-linux-amd64 </span><br><span class="line">mv gost-linux-amd64 /usr/<span class="built_in">local</span>/bin/gost</span><br><span class="line">chmod +x /usr/<span class="built_in">local</span>/bin/gost</span><br></pre></td></tr></table></figure>
-
-<h5 id="客户端用法示例"><a href="#客户端用法示例" class="headerlink" title="客户端用法示例"></a><del>客户端用法示例</del></h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">gost -L=user:password@:port -F=socks+tls://user:password@ip:port &gt;&gt; gost.log 2&gt;&amp;1 &amp;</span><br></pre></td></tr></table></figure>
-
-<h3 id="国外下载"><a href="#国外下载" class="headerlink" title="国外下载"></a>国外下载</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">wget https://github.com/ginuerzh/gost/releases/download/v2.10.1/gost-linux-amd64-2.10.1.gz &amp;&amp; gzip gost-linux-amd64-2.10.1.gz -d &amp;&amp; chmod +x gost-linux-amd64-2.10.1 &amp;&amp; mv gost-linux-amd64-2.10.1 gost</span><br></pre></td></tr></table></figure>
-
-<h3 id="国内下载"><a href="#国内下载" class="headerlink" title="国内下载"></a><del>国内下载</del></h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">wget https://fly97.coding.net/p/saving/d/saving/git/raw/master/gost-linux-amd64-2.10.1.gz &amp;&amp; gzip gost-linux-amd64-2.10.1.gz -d &amp;&amp; chmod +x gost-linux-amd64-2.10.1 &amp;&amp; mv gost-linux-amd64-2.10.1 gost</span><br></pre></td></tr></table></figure>
+<h4 id="3-打开服务"><a href="#3-打开服务" class="headerlink" title="3.打开服务"></a>3.打开服务</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo systemctl enable gost.service</span><br></pre></td></tr></table></figure>
 
 <h3 id="推荐几个常用的配置"><a href="#推荐几个常用的配置" class="headerlink" title="推荐几个常用的配置"></a>推荐几个常用的配置</h3><h4 id="1-多路复用tls"><a href="#1-多路复用tls" class="headerlink" title="1.多路复用tls"></a>1.多路复用tls</h4><p>GOST内置了TLS证书，如果需要使用自定义TLS证书，有两种方法：</p>
 <ul>
@@ -93,21 +102,6 @@
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">gost -L mwss://:443</span><br></pre></td></tr></table></figure>]]></content>
       <tags>
         <tag>gost</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Git常见操作之在本地目录下关联远程仓库和如何取消本地目录下关联的远程库</title>
-    <url>/2020/03/07/Git%E5%B8%B8%E8%A7%81%E6%93%8D%E4%BD%9C/</url>
-    <content><![CDATA[<p>不说废话，上教程。</p>
-<a id="more"></a>
-
-<h5 id="1-在本地目录下关联远程repository-："><a href="#1-在本地目录下关联远程repository-：" class="headerlink" title="1.在本地目录下关联远程repository ："></a>1.在本地目录下关联远程repository ：</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git remote add origin git@github.com:git_username/repository_name.git</span><br></pre></td></tr></table></figure>
-
-<h5 id="2-取消本地目录下关联的远程库："><a href="#2-取消本地目录下关联的远程库：" class="headerlink" title="2.取消本地目录下关联的远程库："></a>2.取消本地目录下关联的远程库：</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git remote remove origin</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <tags>
-        <tag>git</tag>
       </tags>
   </entry>
   <entry>
@@ -699,18 +693,27 @@
   <entry>
     <title>Linux服务器重装</title>
     <url>/2019/01/05/linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%87%8D%E8%A3%85/</url>
-    <content><![CDATA[<h5 id="Linux服务器重装"><a href="#Linux服务器重装" class="headerlink" title="Linux服务器重装"></a>Linux服务器重装</h5><a id="more"></a>
+    <content><![CDATA[<h5 id="Linux服务器重装-升级"><a href="#Linux服务器重装-升级" class="headerlink" title="Linux服务器重装+升级"></a>Linux服务器重装+升级</h5><a id="more"></a>
 
 <h4 id="1-安装依赖"><a href="#1-安装依赖" class="headerlink" title="1.安装依赖"></a>1.安装依赖</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#Debian&#x2F;Ubuntu</span><br><span class="line">apt-get install -y xz-utils openssl gawk file</span><br><span class="line">#RedHat&#x2F;CentOS</span><br><span class="line">yum install -y xz openssl gawk file</span><br></pre></td></tr></table></figure>
 
-<h4 id="2-下载脚本"><a href="#2-下载脚本" class="headerlink" title="2.下载脚本"></a>2.下载脚本</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">wget -O InstallNET.sh https://fly97.fun/files/git/InstallNET/InstallNET.sh</span><br></pre></td></tr></table></figure>
+<h4 id="2-下载脚本"><a href="#2-下载脚本" class="headerlink" title="2.下载脚本"></a>2.下载脚本</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">wget -O InstallNET.sh https://fly97.coding.net/p/shell/d/shell/git/raw/master/dd/InstallNET.sh</span><br></pre></td></tr></table></figure>
 
-<h4 id="3-运行命令："><a href="#3-运行命令：" class="headerlink" title="3.运行命令："></a>3.运行命令：</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">bash InstallNET.sh -c 6.9 -v 64 -a --mirror <span class="string">'http://mirror.centos.org/centos'</span></span><br><span class="line">bash InstallNET.sh -u 16.04 -v 64 -a -mirror <span class="string">'http://mirrors.aliyun.com/ubuntu/'</span></span><br></pre></td></tr></table></figure>
+<h4 id="3-运行命令："><a href="#3-运行命令：" class="headerlink" title="3.运行命令："></a>3.运行命令：</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">bash InstallNET.sh -c 6.9 -v 64 -a --mirror <span class="string">'http://mirror.centos.org/centos'</span></span><br><span class="line">bash InstallNET.sh -u 16.04 -v 64 -a -mirror <span class="string">'http://mirrors.aliyun.com/ubuntu/'</span></span><br><span class="line">bash InstallNET.sh -u 16.04 -v 64 -a -mirror <span class="string">'http://mirrors.cloud.aliyuncs.com/ubuntu'</span></span><br></pre></td></tr></table></figure>
 
 <h4 id="4-用户名以及密码："><a href="#4-用户名以及密码：" class="headerlink" title="4.用户名以及密码："></a>4.用户名以及密码：</h4><p><code>root@MoeClub.org</code></p>
-]]></content>
+<h4 id="5-升级到-最新版ubuntu"><a href="#5-升级到-最新版ubuntu" class="headerlink" title="5.升级到 最新版ubuntu"></a>5.升级到 最新版ubuntu</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo apt install update-manager-core</span><br><span class="line">sudo do-release-upgrade -d</span><br></pre></td></tr></table></figure>
+
+<p>这个命令将会禁用所有的第三方软件源，并且将 apt 列表指向 focal 软件源。你将会被提示几次，进行确认，是否真的需要继续升级。当你被问到服务是否在升级过程中自动重启，请输入：<code>y</code>。</p>
+<p>在升级过程中，命令将会问你各种问题，比如你是否想要保存已经存在的配置文件，或者安装软件版的维护者版本。如果你没有对配置文件做任何自定义修改，最安全的做法就是输入：<code>Y</code>。否则，我们推荐你保持当前的配置文件。在你做出选择之前，仔细阅读问题。</p>
+<p>升级过程将会在一个 GNU 屏幕会话中运行，并且在连接丢失时，自动继续。</p>
+<p>整个过程将会花费一些时间，具体依赖于你的升级的软件包数目和你的网速。</p>
+<p>一旦新的软件包都被安装了，升级工具将会询问你是否移除旧的软件。如果你不确定，输入<code>d</code>并且检查这些旧的软件包列表。通常情况下，输入<code>y</code>并且移除所有旧的软件包都是安全操作。</p>
+<p>当升级过程完成，并且假设所有操作都很顺利，你将被提示是否重启你的机器。 输入<code>y</code>继续：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">System upgrade is complete.</span><br><span class="line"></span><br><span class="line">Restart required</span><br><span class="line"></span><br><span class="line">To finish the upgrade, a restart is required.</span><br><span class="line">If you select &#39;y&#39; the system will be restarted.</span><br><span class="line"></span><br><span class="line">Continue [yN] y</span><br></pre></td></tr></table></figure>]]></content>
       <tags>
-        <tag>Linux</tag>
+        <tag>服务器重装</tag>
+        <tag>服务器升级</tag>
       </tags>
   </entry>
   <entry>
