@@ -24,7 +24,7 @@
     scheme: 'Mist',
     version: '7.7.0',
     exturl: false,
-    sidebar: {"position":"left","display":"remove","padding":18,"offset":12,"onmobile":false},
+    sidebar: {"position":"left","display":"always","padding":18,"offset":12,"onmobile":false},
     copycode: {"enable":false,"show_result":false,"style":null},
     back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
     bookmark: {"enable":false,"color":"#222","save":"auto"},
@@ -200,7 +200,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://wf09.github.io/2019/01/06/Ubuntu%E5%AE%89%E8%A3%85nodejs/">
+    <link itemprop="mainEntityOfPage" href="http://wf09.github.io/2019/01/06/Linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%9B%B4%E6%8D%A2%E5%AF%86%E9%92%A5%E8%84%9A%E6%9C%AC/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -214,7 +214,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/2019/01/06/Ubuntu%E5%AE%89%E8%A3%85nodejs/" class="post-title-link" itemprop="url">Ubuntu安装nodejs并更改npm镜像源</a>
+            <a href="/2019/01/06/Linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%9B%B4%E6%8D%A2%E5%AF%86%E9%92%A5%E8%84%9A%E6%9C%AC/" class="post-title-link" itemprop="url">Linux服务器更换密钥</a>
         </h1>
 
         <div class="post-meta">
@@ -245,28 +245,33 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h4 id="Ubuntu安装nodejs并更改npm镜像源"><a href="#Ubuntu安装nodejs并更改npm镜像源" class="headerlink" title="Ubuntu安装nodejs并更改npm镜像源"></a>Ubuntu安装nodejs并更改npm镜像源</h4><p>由于众所周知的原因，在国内使用原有的源安装<code>nodejs</code>速度非常缓慢，故可以采用清华大学的源</p>
-<h5 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -sL https://deb.nodesource.com/setup_12.x | sudo bash</span><br></pre></td></tr></table></figure>
+          <p><strong>1. 制作密钥对</strong></p>
+<p>首先在服务器上制作密钥对。首先用密码登录到你打算使用密钥登录的账户，然后执行以下命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">[root@host ~]$ ssh-keygen  &lt;== 建立密钥对</span><br><span class="line">Generating public/private rsa key pair.</span><br><span class="line">Enter file <span class="keyword">in</span> <span class="built_in">which</span> to save the key (/root/.ssh/id_rsa): &lt;== 按 Enter</span><br><span class="line">Created directory <span class="string">'/root/.ssh'</span>.</span><br><span class="line">Enter passphrase (empty <span class="keyword">for</span> no passphrase): &lt;== 输入密钥锁码，或直接按 Enter 留空</span><br><span class="line">Enter same passphrase again: &lt;== 再输入一遍密钥锁码</span><br><span class="line">Your identification has been saved <span class="keyword">in</span> /root/.ssh/id_rsa. &lt;== 私钥</span><br><span class="line">Your public key has been saved <span class="keyword">in</span> /root/.ssh/id_rsa.pub. &lt;== 公钥</span><br><span class="line">The key fingerprint is:</span><br><span class="line">0f:d3:e7:1a:1c:bd:5c:03:f1:19:f1:22:df:9b:cc:08 root@host</span><br></pre></td></tr></table></figure>
 
-<h5 id="编辑-etc-apt-sources-list-d-nodesource-list"><a href="#编辑-etc-apt-sources-list-d-nodesource-list" class="headerlink" title="编辑 /etc/apt/sources.list.d/nodesource.list"></a>编辑 /etc/apt/sources.list.d/nodesource.list</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">deb https://deb.nodesource.com/node_12.x xenial main</span><br><span class="line">deb-src https://deb.nodesource.com/node_12.x xenial main</span><br></pre></td></tr></table></figure>
+<p>密钥锁码在使用私钥时必须输入，这样就可以保护私钥不被盗用。当然，也可以留空，实现无密码登录。</p>
+<p>现在，在 root 用户的家目录中生成了一个 <code>.ssh</code> 的隐藏目录，内含两个密钥文件。<code>id_rsa</code> 为私钥，<code>id_rsa.pub</code> 为公钥。</p>
+<p><strong>2. 在服务器上安装公钥</strong></p>
+<p>键入以下命令，在服务器上安装公钥：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@host ~]$ <span class="built_in">cd</span> .ssh</span><br><span class="line">[root@host .ssh]$ cat id_rsa.pub &gt;&gt; authorized_keys</span><br></pre></td></tr></table></figure>
 
-<h5 id="更改为："><a href="#更改为：" class="headerlink" title="更改为："></a>更改为：</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/nodesource/deb_12.x xenial main</span><br><span class="line">deb-src https://mirrors.tuna.tsinghua.edu.cn/nodesource/deb_12.x xenial main</span><br></pre></td></tr></table></figure>
+<p>如此便完成了公钥的安装。为了确保连接成功，请保证以下文件权限正确：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@host .ssh]$ chmod 600 authorized_keys</span><br><span class="line">[root@host .ssh]$ chmod 700 ~/.ssh</span><br></pre></td></tr></table></figure>
 
-<h5 id="更新源"><a href="#更新源" class="headerlink" title="更新源"></a>更新源</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">apt-get clean</span><br><span class="line">apt-get update</span><br></pre></td></tr></table></figure>
+<p><strong>3. 设置 SSH，打开密钥登录功能</strong></p>
+<p>编辑 <code>/etc/ssh/sshd_config</code> 文件，进行如下设置：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">RSAAuthentication yes</span><br><span class="line">PubkeyAuthentication yes</span><br></pre></td></tr></table></figure>
 
-<h5 id="安装nodejs"><a href="#安装nodejs" class="headerlink" title="安装nodejs"></a>安装nodejs</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get install nodejs</span><br></pre></td></tr></table></figure>
+<p>另外，请留意 root 用户能否通过 SSH 登录：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">PermitRootLogin yes</span><br></pre></td></tr></table></figure>
 
-<h5 id="查看版本"><a href="#查看版本" class="headerlink" title="查看版本"></a>查看版本</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">nodejs -v</span><br><span class="line"></span><br><span class="line">npm -v</span><br></pre></td></tr></table></figure>
+<p>当你完成全部设置，并以密钥方式登录成功后，再禁用密码登录：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">PasswordAuthentication no</span><br></pre></td></tr></table></figure>
 
-<h5 id="更换npm源"><a href="#更换npm源" class="headerlink" title="更换npm源"></a>更换npm源</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm config <span class="built_in">set</span> registry https://registry.npm.taobao.org</span><br></pre></td></tr></table></figure>
+<p>最后，重启 SSH 服务：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@host .ssh]$ service sshd restart</span><br></pre></td></tr></table></figure>
 
-<h5 id="验证是否成功"><a href="#验证是否成功" class="headerlink" title="验证是否成功"></a>验证是否成功</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm config get registry</span><br></pre></td></tr></table></figure>
-
-<h5 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-cli -g</span><br></pre></td></tr></table></figure>
-
-<h5 id="初始化Hexo"><a href="#初始化Hexo" class="headerlink" title="初始化Hexo"></a>初始化Hexo</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo init</span><br></pre></td></tr></table></figure>
-
-<h5 id="生成静态网页"><a href="#生成静态网页" class="headerlink" title="生成静态网页"></a>生成静态网页</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo g</span><br></pre></td></tr></table></figure>
+<h6 id="已写好了脚本："><a href="#已写好了脚本：" class="headerlink" title="已写好了脚本："></a>已写好了脚本：</h6><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget -O pub.sh https://fly97.coding.net/p/shell/d/shell/git/raw/master/rsa/id_rsa.sh &amp;&amp; chmod +x pub.sh &amp;&amp; bash pub.sh</span><br></pre></td></tr></table></figure>
 
 
       
@@ -353,6 +358,93 @@
   
   
 
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://wf09.github.io/2019/01/06/Ubuntu%E5%AE%89%E8%A3%85nodejs/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="fly97">
+      <meta itemprop="description" content="你不是我 怎么可能做到感同身受">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="fly97's blogs">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/01/06/Ubuntu%E5%AE%89%E8%A3%85nodejs/" class="post-title-link" itemprop="url">Ubuntu安装nodejs并更改npm镜像源</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-01-06 20:46:25" itemprop="dateCreated datePublished" datetime="2019-01-06T20:46:25+08:00">2019-01-06</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-01-20 20:10:20" itemprop="dateModified" datetime="2020-01-20T20:10:20+08:00">2020-01-20</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h4 id="Ubuntu安装nodejs并更改npm镜像源"><a href="#Ubuntu安装nodejs并更改npm镜像源" class="headerlink" title="Ubuntu安装nodejs并更改npm镜像源"></a>Ubuntu安装nodejs并更改npm镜像源</h4><p>由于众所周知的原因，在国内使用原有的源安装<code>nodejs</code>速度非常缓慢，故可以采用清华大学的源</p>
+<h5 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -sL https://deb.nodesource.com/setup_12.x | sudo bash</span><br></pre></td></tr></table></figure>
+
+<h5 id="编辑-etc-apt-sources-list-d-nodesource-list"><a href="#编辑-etc-apt-sources-list-d-nodesource-list" class="headerlink" title="编辑 /etc/apt/sources.list.d/nodesource.list"></a>编辑 /etc/apt/sources.list.d/nodesource.list</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">deb https://deb.nodesource.com/node_12.x xenial main</span><br><span class="line">deb-src https://deb.nodesource.com/node_12.x xenial main</span><br></pre></td></tr></table></figure>
+
+<h5 id="更改为："><a href="#更改为：" class="headerlink" title="更改为："></a>更改为：</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/nodesource/deb_12.x xenial main</span><br><span class="line">deb-src https://mirrors.tuna.tsinghua.edu.cn/nodesource/deb_12.x xenial main</span><br></pre></td></tr></table></figure>
+
+<h5 id="更新源"><a href="#更新源" class="headerlink" title="更新源"></a>更新源</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">apt-get clean</span><br><span class="line">apt-get update</span><br></pre></td></tr></table></figure>
+
+<h5 id="安装nodejs"><a href="#安装nodejs" class="headerlink" title="安装nodejs"></a>安装nodejs</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get install nodejs</span><br></pre></td></tr></table></figure>
+
+<h5 id="查看版本"><a href="#查看版本" class="headerlink" title="查看版本"></a>查看版本</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">nodejs -v</span><br><span class="line"></span><br><span class="line">npm -v</span><br></pre></td></tr></table></figure>
+
+<h5 id="更换npm源"><a href="#更换npm源" class="headerlink" title="更换npm源"></a>更换npm源</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm config <span class="built_in">set</span> registry https://registry.npm.taobao.org</span><br></pre></td></tr></table></figure>
+
+<h5 id="验证是否成功"><a href="#验证是否成功" class="headerlink" title="验证是否成功"></a>验证是否成功</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm config get registry</span><br></pre></td></tr></table></figure>
+
+<h5 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-cli -g</span><br></pre></td></tr></table></figure>
+
+<h5 id="初始化Hexo"><a href="#初始化Hexo" class="headerlink" title="初始化Hexo"></a>初始化Hexo</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo init</span><br></pre></td></tr></table></figure>
+
+<h5 id="生成静态网页"><a href="#生成静态网页" class="headerlink" title="生成静态网页"></a>生成静态网页</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo g</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
   </div>
 
   
@@ -388,6 +480,72 @@
 </script>
 
         </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+	<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=298 height=52 src="//music.163.com/outchain/player?type=2&id=451520686&auto=1&height=32"></iframe>
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">fly97</p>
+  <div class="site-description" itemprop="description">你不是我 怎么可能做到感同身受</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">33</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">39</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/wf09" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;wf09" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:wf.09@qq.com" title="E-Mail → mailto:wf.09@qq.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
       </div>
     </main>
 
