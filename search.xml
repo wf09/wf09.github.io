@@ -133,6 +133,21 @@
       </tags>
   </entry>
   <entry>
+    <title>Git常见操作之在本地目录下关联远程仓库和如何取消本地目录下关联的远程库</title>
+    <url>/2020/03/07/Git%E5%B8%B8%E8%A7%81%E6%93%8D%E4%BD%9C/</url>
+    <content><![CDATA[<p>不说废话，上教程。</p>
+<a id="more"></a>
+
+<h5 id="1-在本地目录下关联远程repository-："><a href="#1-在本地目录下关联远程repository-：" class="headerlink" title="1.在本地目录下关联远程repository ："></a>1.在本地目录下关联远程repository ：</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git remote add origin git@github.com:git_username/repository_name.git</span><br></pre></td></tr></table></figure>
+
+<h5 id="2-取消本地目录下关联的远程库："><a href="#2-取消本地目录下关联的远程库：" class="headerlink" title="2.取消本地目录下关联的远程库："></a>2.取消本地目录下关联的远程库：</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git remote remove origin</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <tags>
+        <tag>git</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>G-core服务器测评：1CPU/700MB内存/500MB带宽俄罗斯特价服务器</title>
     <url>/2020/06/27/G-core%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%B5%8B%E8%AF%84/</url>
     <content><![CDATA[<p><code>Gcore VPS</code>是一家来自俄罗斯的VPS主机商。Gcore VPS的机房遍布世界各地，主要有俄罗斯的莫斯科、伯力，韩国首尔，日本东京，美国芝加哥、迈阿密，以及澳大利亚悉尼、荷兰阿姆斯特丹、巴西圣保罗等。</p>
@@ -221,21 +236,6 @@
       <tags>
         <tag>VPS</tag>
         <tag>G-core</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Git常见操作之在本地目录下关联远程仓库和如何取消本地目录下关联的远程库</title>
-    <url>/2020/03/07/Git%E5%B8%B8%E8%A7%81%E6%93%8D%E4%BD%9C/</url>
-    <content><![CDATA[<p>不说废话，上教程。</p>
-<a id="more"></a>
-
-<h5 id="1-在本地目录下关联远程repository-："><a href="#1-在本地目录下关联远程repository-：" class="headerlink" title="1.在本地目录下关联远程repository ："></a>1.在本地目录下关联远程repository ：</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git remote add origin git@github.com:git_username/repository_name.git</span><br></pre></td></tr></table></figure>
-
-<h5 id="2-取消本地目录下关联的远程库："><a href="#2-取消本地目录下关联的远程库：" class="headerlink" title="2.取消本地目录下关联的远程库："></a>2.取消本地目录下关联的远程库：</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git remote remove origin</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <tags>
-        <tag>git</tag>
       </tags>
   </entry>
   <entry>
@@ -384,6 +384,47 @@
       </tags>
   </entry>
   <entry>
+    <title>Onelist服务安装指南</title>
+    <url>/2020/01/01/OneList%E6%9C%8D%E5%8A%A1%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97/</url>
+    <content><![CDATA[<p>onedrive列表索引服务</p>
+<a id="more"></a>
+
+<h5 id="安装脚本"><a href="#安装脚本" class="headerlink" title="安装脚本"></a>安装脚本</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">wget https://fly97.coding.net/p/saving/d/saving/git/raw/master/shell/golist.sh &amp;&amp; chmod +x golist.sh &amp;&amp; ./golist.sh</span><br></pre></td></tr></table></figure>
+
+<h5 id="以下转载自萌咖大佬"><a href="#以下转载自萌咖大佬" class="headerlink" title="以下转载自萌咖大佬"></a>以下转载自萌咖大佬</h5><p><a href="https://github.com/MoeClub/OneList/blob/master/Rewrite/README.MD" target="_blank" rel="noopener">https://github.com/MoeClub/OneList/blob/master/Rewrite/README.MD</a></p>
+<h5 id="OneList-Written-in-GoLang"><a href="#OneList-Written-in-GoLang" class="headerlink" title="OneList - Written in GoLang"></a>OneList - Written in GoLang</h5><ul>
+<li>支持 国际版, 个人免费版(家庭版), 中国版(世纪互联).</li>
+<li>支持同时列出多个盘的目录.(同时挂载多个网盘或单个网盘挂载成多个<code>SubPath</code>,要求每个<code>SubPath</code>唯一)</li>
+<li>支持文件夹内超过 200 个项目</li>
+<li>支持后台自动刷新缓存.</li>
+<li>支持路径中含有特殊字符.</li>
+<li>支持使用不同目录使用不同账户密码加密(HTTP 401).</li>
+<li>支持隐藏目录和文件(跳过缓存).</li>
+<li>支持自定义 ClientID 和 SecretKey .</li>
+<li>数据储存在内存中,响应更加迅速.</li>
+</ul>
+<h6 id="授权"><a href="#授权" class="headerlink" title="授权"></a>授权</h6><h3 id="通过下面URL登录-右键新标签打开"><a href="#通过下面URL登录-右键新标签打开" class="headerlink" title="通过下面URL登录 (右键新标签打开)"></a>通过下面URL登录 (右键新标签打开)</h3><h4 id="国际版-个人版-家庭版"><a href="#国际版-个人版-家庭版" class="headerlink" title="国际版, 个人版(家庭版)"></a>国际版, 个人版(家庭版)</h4><p><a href="https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=78d4dc35-7e46-42c6-9023-2d39314433a5&response_type=code&redirect_uri=http://localhost/onedrive-login&response_mode=query&scope=offline_access%20User.Read%20Files.ReadWrite.All" target="_blank" rel="noopener">https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=78d4dc35-7e46-42c6-9023-2d39314433a5&amp;response_type=code&amp;redirect_uri=http://localhost/onedrive-login&amp;response_mode=query&amp;scope=offline_access%20User.Read%20Files.ReadWrite.All</a></p>
+<h4 id="中国版-世纪互联"><a href="#中国版-世纪互联" class="headerlink" title="中国版(世纪互联)"></a>中国版(世纪互联)</h4><p><a href="https://login.chinacloudapi.cn/common/oauth2/v2.0/authorize?client_id=dfe36e60-6133-48cf-869f-4d15b8354769&response_type=code&redirect_uri=http://localhost/onedrive-login&response_mode=query&scope=offline_access%20User.Read%20Files.ReadWrite.All" target="_blank" rel="noopener">https://login.chinacloudapi.cn/common/oauth2/v2.0/authorize?client_id=dfe36e60-6133-48cf-869f-4d15b8354769&amp;response_type=code&amp;redirect_uri=http://localhost/onedrive-login&amp;response_mode=query&amp;scope=offline_access%20User.Read%20Files.ReadWrite.All</a></p>
+<h2 id="添加配置文件"><a href="#添加配置文件" class="headerlink" title="添加配置文件"></a>添加配置文件</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 国际版</span><br><span class="line">OneList -a &quot;url&quot; -s &quot;&#x2F;onedrive01&quot;</span><br><span class="line"># 个人版(家庭版)</span><br><span class="line">OneList -ms -a &quot;url&quot; -s &quot;&#x2F;onedrive02&quot;</span><br><span class="line"># 中国版(世纪互联)</span><br><span class="line">OneList -cn -a &quot;url&quot; -s &quot;&#x2F;onedrive03&quot;</span><br><span class="line"></span><br><span class="line"># 在浏览器地址栏中获取以 http:&#x2F;&#x2F;loaclhost 开头的整个url内容</span><br><span class="line"># 将获取的完整url内容替换命令中的 url 三个字母</span><br><span class="line"># 每次产生的 url 只能用一次, 重试请重新获取 url</span><br><span class="line"># 可以一个盘内的多个文件夹分别映射到多个&#96;SubPath&#96;上</span><br><span class="line"># 此操作将会自动添加的配置文件</span><br><span class="line"># 提示 Success! Add config. &#39;&#x2F;path&#x2F;to&#x2F;config.json&#39; 则成功</span><br></pre></td></tr></table></figure>
+
+<h2 id="修改配置文件"><a href="#修改配置文件" class="headerlink" title="修改配置文件"></a>修改配置文件</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[</span><br><span class="line">  &#123;</span><br><span class="line">    &#x2F;&#x2F; 如果是家庭版或者个人免费版, 此项应为 true.</span><br><span class="line">    &quot;MSAccount&quot;: false,</span><br><span class="line">    &#x2F;&#x2F; 如果是中国版(世纪互联), 此项应为 true.</span><br><span class="line">    &quot;MainLand&quot;: false,</span><br><span class="line">    &#x2F;&#x2F; 授权令牌</span><br><span class="line">    &quot;RefreshToken&quot;: &quot;1234564567890ABCDEF&quot;,</span><br><span class="line">    &#x2F;&#x2F; 单配置文件中,此项要唯一.将此OneDrive中设置为&#96;RootPath&#96;目录映射在&#96;http:&#x2F;&#x2F;127.0.0.1:5288&#x2F;onedrive&#96; 下.</span><br><span class="line">    &#x2F;&#x2F; (只推荐一个盘位的时候使用根目录&quot;&#x2F;&quot;.)</span><br><span class="line">    &quot;SubPath&quot;: &quot;&#x2F;onedrive&quot;,</span><br><span class="line">    &#x2F;&#x2F; 读取OneDrive的某个目录作为根目录. (支持根目录&quot;&#x2F;&quot;)</span><br><span class="line">    &quot;RootPath&quot;: &quot;&#x2F;Test&quot;,</span><br><span class="line">    &#x2F;&#x2F; 隐藏OneDrive目录中的文件夹和文件, 条目间使用 &quot;|&quot; 分割. (跳过缓存设置的条目.)</span><br><span class="line">    &quot;HidePath&quot;: &quot;&#x2F;Test&#x2F;Obj01|&#x2F;Test&#x2F;Obj02&quot;,</span><br><span class="line">    &#x2F;&#x2F; 使用用户名和密码加密OneDrive目录. 目录和用户名密码间使用 &quot;?&quot; 分割, 用户名密码使用 &quot;:&quot; 分割, 条目间使用 &quot;|&quot; 分割. 无效条目将跳过. </span><br><span class="line">    &quot;AuthPath&quot;: &quot;&#x2F;Test&#x2F;Auth01?user01:pwd01|&#x2F;Test&#x2F;Auth02?user02:pwd02&quot;,</span><br><span class="line">    &#x2F;&#x2F; 缓存刷新间隔.(所有项目中的刷新时间取最小值为有效刷新间隔)</span><br><span class="line">    &quot;RefreshInterval&quot;: 900</span><br><span class="line">  &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Usage of OneList:</span><br><span class="line">  -a string</span><br><span class="line">        &#x2F;&#x2F; 初始化配置文件,添加新配置</span><br><span class="line">        Setup and Init auth.json.</span><br><span class="line">  -bind string</span><br><span class="line">        &#x2F;&#x2F; 绑定IP地址(公网: 0.0.0.0)</span><br><span class="line">        Bind Address (default &quot;127.0.0.1&quot;)</span><br><span class="line">  -port string</span><br><span class="line">        &#x2F;&#x2F; 绑定端口(HTTP:80)</span><br><span class="line">        Port (default &quot;5288&quot;)</span><br><span class="line">  -s string</span><br><span class="line">        &#x2F;&#x2F; 设置 SubPath 项, 需要与 -a 一起使用.</span><br><span class="line">        Set SubPath. [unique per account] (default &quot;&#x2F;&quot;)</span><br><span class="line">  -c string</span><br><span class="line">        &#x2F;&#x2F; 配置文件</span><br><span class="line">        Config file. (default &quot;config.json&quot;)</span><br><span class="line">  -t string</span><br><span class="line">        &#x2F;&#x2F; Index.html 目录样式文件</span><br><span class="line">        Index file. (default &quot;index.html&quot;)</span><br><span class="line">  -json</span><br><span class="line">        &#x2F;&#x2F; 开关</span><br><span class="line">        &#x2F;&#x2F; 数据以 json 形式输出当前目录数据</span><br><span class="line">        Output json.</span><br><span class="line">  -cn</span><br><span class="line">        &#x2F;&#x2F; 开关</span><br><span class="line">        &#x2F;&#x2F; 授权中国版(世纪互联), 需要此参数.</span><br><span class="line">        OneDrive by 21Vianet.</span><br><span class="line">  -ms</span><br><span class="line">        &#x2F;&#x2F; 开关</span><br><span class="line">        &#x2F;&#x2F; 授权个人版(家庭版), 需要此参数.</span><br><span class="line">        OneDrive by Microsoft.</span><br><span class="line">  -C string</span><br><span class="line">        &#x2F;&#x2F; 覆写所有预置的 Client ID. (不建议新手使用此参数)</span><br><span class="line">        Set  Client ID. [Overwrite all clientId]</span><br><span class="line">  -S string</span><br><span class="line">        &#x2F;&#x2F; 覆写所有预置的 Secret Key. (不建议新手使用此参数)</span><br><span class="line">        Set Secret Key. [Overwrite all secretKey]</span><br></pre></td></tr></table></figure>
+
+<h2 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 保证 config.json 和 index.html 同目录, 直接运行.</span><br><span class="line">$ OneList</span><br><span class="line"># 监听公网 80 端口</span><br><span class="line">$ OneList -bind 0.0.0.0 -port 80</span><br></pre></td></tr></table></figure>
+
+<h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h2><ul>
+<li>在初次缓存过程中或者打开空文件夹, 会提示 No Found.</li>
+<li>请使用 UTF-8 编码模式手动编辑 config.json 文件.</li>
+</ul>
+<h2 id="Nginx-反代配置"><a href="#Nginx-反代配置" class="headerlink" title="Nginx 反代配置"></a>Nginx 反代配置</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">location ^~ &#x2F;onedrive&#x2F; &#123;</span><br><span class="line">    proxy_set_header X-Real-IP $remote_addr;</span><br><span class="line">    proxy_pass http:&#x2F;&#x2F;127.0.0.1:5288;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Client-Secret-2299-12-31"><a href="#Client-Secret-2299-12-31" class="headerlink" title="Client/Secret (~ 2299/12/31)"></a>Client/Secret (~ 2299/12/31)</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 国际版: 78d4dc35-7e46-42c6-9023-2d39314433a5| ZudGl-p.m&#x3D;LMmr3VrKgAyOf-WevB3p50</span><br><span class="line"># 中国版: dfe36e60-6133-48cf-869f-4d15b8354769| H0-1:6.Sb8:WCW&#x2F;J-c]K@fddCt[i0EZ2</span><br><span class="line"># ReplyURL: http:&#x2F;&#x2F;localhost&#x2F;onedrive-login</span><br></pre></td></tr></table></figure>]]></content>
+      <tags>
+        <tag>onelist</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Python实用教程之__getattr__等标识符的用法</title>
     <url>/2020/03/16/Python%E5%AE%9E%E7%94%A8%E6%95%99%E7%A8%8B%E4%B9%8B__getattr__%E7%AD%89%E6%A0%87%E8%AF%86%E7%AC%A6%E7%9A%84%E7%94%A8%E6%B3%95/</url>
     <content><![CDATA[<p>在使用Python的过程中可能遇到以下几个函数：</p>
@@ -426,47 +467,6 @@
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Descriptor</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__get__</span><span class="params">(self, obj, objtype)</span>:</span></span><br><span class="line">        <span class="keyword">print</span> <span class="string">"get value=%s"</span> % self.val </span><br><span class="line">        <span class="keyword">return</span> self.val</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__set__</span><span class="params">(self, obj, val)</span>:</span></span><br><span class="line">        <span class="keyword">print</span> <span class="string">"set value=%s"</span> % val</span><br><span class="line">        self.val = val</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Stu</span><span class="params">(object)</span>:</span></span><br><span class="line">    age = Descriptor()</span><br><span class="line"></span><br><span class="line">stu = Stu()</span><br><span class="line">stu.age = <span class="number">12</span>    <span class="comment"># set value=12</span></span><br><span class="line"><span class="keyword">print</span> stu.age   <span class="comment"># get value=12</span></span><br><span class="line">                <span class="comment"># 12</span></span><br></pre></td></tr></table></figure>]]></content>
       <tags>
         <tag>Python教程</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Onelist服务安装指南</title>
-    <url>/2020/01/01/OneList%E6%9C%8D%E5%8A%A1%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97/</url>
-    <content><![CDATA[<p>onedrive列表索引服务</p>
-<a id="more"></a>
-
-<h5 id="安装脚本"><a href="#安装脚本" class="headerlink" title="安装脚本"></a>安装脚本</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">wget https://fly97.coding.net/p/saving/d/saving/git/raw/master/shell/golist.sh &amp;&amp; chmod +x golist.sh &amp;&amp; ./golist.sh</span><br></pre></td></tr></table></figure>
-
-<h5 id="以下转载自萌咖大佬"><a href="#以下转载自萌咖大佬" class="headerlink" title="以下转载自萌咖大佬"></a>以下转载自萌咖大佬</h5><p><a href="https://github.com/MoeClub/OneList/blob/master/Rewrite/README.MD" target="_blank" rel="noopener">https://github.com/MoeClub/OneList/blob/master/Rewrite/README.MD</a></p>
-<h5 id="OneList-Written-in-GoLang"><a href="#OneList-Written-in-GoLang" class="headerlink" title="OneList - Written in GoLang"></a>OneList - Written in GoLang</h5><ul>
-<li>支持 国际版, 个人免费版(家庭版), 中国版(世纪互联).</li>
-<li>支持同时列出多个盘的目录.(同时挂载多个网盘或单个网盘挂载成多个<code>SubPath</code>,要求每个<code>SubPath</code>唯一)</li>
-<li>支持文件夹内超过 200 个项目</li>
-<li>支持后台自动刷新缓存.</li>
-<li>支持路径中含有特殊字符.</li>
-<li>支持使用不同目录使用不同账户密码加密(HTTP 401).</li>
-<li>支持隐藏目录和文件(跳过缓存).</li>
-<li>支持自定义 ClientID 和 SecretKey .</li>
-<li>数据储存在内存中,响应更加迅速.</li>
-</ul>
-<h6 id="授权"><a href="#授权" class="headerlink" title="授权"></a>授权</h6><h3 id="通过下面URL登录-右键新标签打开"><a href="#通过下面URL登录-右键新标签打开" class="headerlink" title="通过下面URL登录 (右键新标签打开)"></a>通过下面URL登录 (右键新标签打开)</h3><h4 id="国际版-个人版-家庭版"><a href="#国际版-个人版-家庭版" class="headerlink" title="国际版, 个人版(家庭版)"></a>国际版, 个人版(家庭版)</h4><p><a href="https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=78d4dc35-7e46-42c6-9023-2d39314433a5&response_type=code&redirect_uri=http://localhost/onedrive-login&response_mode=query&scope=offline_access%20User.Read%20Files.ReadWrite.All" target="_blank" rel="noopener">https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=78d4dc35-7e46-42c6-9023-2d39314433a5&amp;response_type=code&amp;redirect_uri=http://localhost/onedrive-login&amp;response_mode=query&amp;scope=offline_access%20User.Read%20Files.ReadWrite.All</a></p>
-<h4 id="中国版-世纪互联"><a href="#中国版-世纪互联" class="headerlink" title="中国版(世纪互联)"></a>中国版(世纪互联)</h4><p><a href="https://login.chinacloudapi.cn/common/oauth2/v2.0/authorize?client_id=dfe36e60-6133-48cf-869f-4d15b8354769&response_type=code&redirect_uri=http://localhost/onedrive-login&response_mode=query&scope=offline_access%20User.Read%20Files.ReadWrite.All" target="_blank" rel="noopener">https://login.chinacloudapi.cn/common/oauth2/v2.0/authorize?client_id=dfe36e60-6133-48cf-869f-4d15b8354769&amp;response_type=code&amp;redirect_uri=http://localhost/onedrive-login&amp;response_mode=query&amp;scope=offline_access%20User.Read%20Files.ReadWrite.All</a></p>
-<h2 id="添加配置文件"><a href="#添加配置文件" class="headerlink" title="添加配置文件"></a>添加配置文件</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 国际版</span><br><span class="line">OneList -a &quot;url&quot; -s &quot;&#x2F;onedrive01&quot;</span><br><span class="line"># 个人版(家庭版)</span><br><span class="line">OneList -ms -a &quot;url&quot; -s &quot;&#x2F;onedrive02&quot;</span><br><span class="line"># 中国版(世纪互联)</span><br><span class="line">OneList -cn -a &quot;url&quot; -s &quot;&#x2F;onedrive03&quot;</span><br><span class="line"></span><br><span class="line"># 在浏览器地址栏中获取以 http:&#x2F;&#x2F;loaclhost 开头的整个url内容</span><br><span class="line"># 将获取的完整url内容替换命令中的 url 三个字母</span><br><span class="line"># 每次产生的 url 只能用一次, 重试请重新获取 url</span><br><span class="line"># 可以一个盘内的多个文件夹分别映射到多个&#96;SubPath&#96;上</span><br><span class="line"># 此操作将会自动添加的配置文件</span><br><span class="line"># 提示 Success! Add config. &#39;&#x2F;path&#x2F;to&#x2F;config.json&#39; 则成功</span><br></pre></td></tr></table></figure>
-
-<h2 id="修改配置文件"><a href="#修改配置文件" class="headerlink" title="修改配置文件"></a>修改配置文件</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[</span><br><span class="line">  &#123;</span><br><span class="line">    &#x2F;&#x2F; 如果是家庭版或者个人免费版, 此项应为 true.</span><br><span class="line">    &quot;MSAccount&quot;: false,</span><br><span class="line">    &#x2F;&#x2F; 如果是中国版(世纪互联), 此项应为 true.</span><br><span class="line">    &quot;MainLand&quot;: false,</span><br><span class="line">    &#x2F;&#x2F; 授权令牌</span><br><span class="line">    &quot;RefreshToken&quot;: &quot;1234564567890ABCDEF&quot;,</span><br><span class="line">    &#x2F;&#x2F; 单配置文件中,此项要唯一.将此OneDrive中设置为&#96;RootPath&#96;目录映射在&#96;http:&#x2F;&#x2F;127.0.0.1:5288&#x2F;onedrive&#96; 下.</span><br><span class="line">    &#x2F;&#x2F; (只推荐一个盘位的时候使用根目录&quot;&#x2F;&quot;.)</span><br><span class="line">    &quot;SubPath&quot;: &quot;&#x2F;onedrive&quot;,</span><br><span class="line">    &#x2F;&#x2F; 读取OneDrive的某个目录作为根目录. (支持根目录&quot;&#x2F;&quot;)</span><br><span class="line">    &quot;RootPath&quot;: &quot;&#x2F;Test&quot;,</span><br><span class="line">    &#x2F;&#x2F; 隐藏OneDrive目录中的文件夹和文件, 条目间使用 &quot;|&quot; 分割. (跳过缓存设置的条目.)</span><br><span class="line">    &quot;HidePath&quot;: &quot;&#x2F;Test&#x2F;Obj01|&#x2F;Test&#x2F;Obj02&quot;,</span><br><span class="line">    &#x2F;&#x2F; 使用用户名和密码加密OneDrive目录. 目录和用户名密码间使用 &quot;?&quot; 分割, 用户名密码使用 &quot;:&quot; 分割, 条目间使用 &quot;|&quot; 分割. 无效条目将跳过. </span><br><span class="line">    &quot;AuthPath&quot;: &quot;&#x2F;Test&#x2F;Auth01?user01:pwd01|&#x2F;Test&#x2F;Auth02?user02:pwd02&quot;,</span><br><span class="line">    &#x2F;&#x2F; 缓存刷新间隔.(所有项目中的刷新时间取最小值为有效刷新间隔)</span><br><span class="line">    &quot;RefreshInterval&quot;: 900</span><br><span class="line">  &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
-
-<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Usage of OneList:</span><br><span class="line">  -a string</span><br><span class="line">        &#x2F;&#x2F; 初始化配置文件,添加新配置</span><br><span class="line">        Setup and Init auth.json.</span><br><span class="line">  -bind string</span><br><span class="line">        &#x2F;&#x2F; 绑定IP地址(公网: 0.0.0.0)</span><br><span class="line">        Bind Address (default &quot;127.0.0.1&quot;)</span><br><span class="line">  -port string</span><br><span class="line">        &#x2F;&#x2F; 绑定端口(HTTP:80)</span><br><span class="line">        Port (default &quot;5288&quot;)</span><br><span class="line">  -s string</span><br><span class="line">        &#x2F;&#x2F; 设置 SubPath 项, 需要与 -a 一起使用.</span><br><span class="line">        Set SubPath. [unique per account] (default &quot;&#x2F;&quot;)</span><br><span class="line">  -c string</span><br><span class="line">        &#x2F;&#x2F; 配置文件</span><br><span class="line">        Config file. (default &quot;config.json&quot;)</span><br><span class="line">  -t string</span><br><span class="line">        &#x2F;&#x2F; Index.html 目录样式文件</span><br><span class="line">        Index file. (default &quot;index.html&quot;)</span><br><span class="line">  -json</span><br><span class="line">        &#x2F;&#x2F; 开关</span><br><span class="line">        &#x2F;&#x2F; 数据以 json 形式输出当前目录数据</span><br><span class="line">        Output json.</span><br><span class="line">  -cn</span><br><span class="line">        &#x2F;&#x2F; 开关</span><br><span class="line">        &#x2F;&#x2F; 授权中国版(世纪互联), 需要此参数.</span><br><span class="line">        OneDrive by 21Vianet.</span><br><span class="line">  -ms</span><br><span class="line">        &#x2F;&#x2F; 开关</span><br><span class="line">        &#x2F;&#x2F; 授权个人版(家庭版), 需要此参数.</span><br><span class="line">        OneDrive by Microsoft.</span><br><span class="line">  -C string</span><br><span class="line">        &#x2F;&#x2F; 覆写所有预置的 Client ID. (不建议新手使用此参数)</span><br><span class="line">        Set  Client ID. [Overwrite all clientId]</span><br><span class="line">  -S string</span><br><span class="line">        &#x2F;&#x2F; 覆写所有预置的 Secret Key. (不建议新手使用此参数)</span><br><span class="line">        Set Secret Key. [Overwrite all secretKey]</span><br></pre></td></tr></table></figure>
-
-<h2 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 保证 config.json 和 index.html 同目录, 直接运行.</span><br><span class="line">$ OneList</span><br><span class="line"># 监听公网 80 端口</span><br><span class="line">$ OneList -bind 0.0.0.0 -port 80</span><br></pre></td></tr></table></figure>
-
-<h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h2><ul>
-<li>在初次缓存过程中或者打开空文件夹, 会提示 No Found.</li>
-<li>请使用 UTF-8 编码模式手动编辑 config.json 文件.</li>
-</ul>
-<h2 id="Nginx-反代配置"><a href="#Nginx-反代配置" class="headerlink" title="Nginx 反代配置"></a>Nginx 反代配置</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">location ^~ &#x2F;onedrive&#x2F; &#123;</span><br><span class="line">    proxy_set_header X-Real-IP $remote_addr;</span><br><span class="line">    proxy_pass http:&#x2F;&#x2F;127.0.0.1:5288;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="Client-Secret-2299-12-31"><a href="#Client-Secret-2299-12-31" class="headerlink" title="Client/Secret (~ 2299/12/31)"></a>Client/Secret (~ 2299/12/31)</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 国际版: 78d4dc35-7e46-42c6-9023-2d39314433a5| ZudGl-p.m&#x3D;LMmr3VrKgAyOf-WevB3p50</span><br><span class="line"># 中国版: dfe36e60-6133-48cf-869f-4d15b8354769| H0-1:6.Sb8:WCW&#x2F;J-c]K@fddCt[i0EZ2</span><br><span class="line"># ReplyURL: http:&#x2F;&#x2F;localhost&#x2F;onedrive-login</span><br></pre></td></tr></table></figure>]]></content>
-      <tags>
-        <tag>onelist</tag>
       </tags>
   </entry>
   <entry>
@@ -911,6 +911,219 @@
 ]]></content>
       <tags>
         <tag>office</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>ubuntu服务管理两种方式service和systemctl</title>
+    <url>/2020/03/20/ubuntu%E6%9C%8D%E5%8A%A1%E7%AE%A1%E7%90%86%E4%B8%A4%E7%A7%8D%E6%96%B9%E5%BC%8Fservice%E5%92%8Csystemctl/</url>
+    <content><![CDATA[<p>Linux 服务管理两种方式service和systemctl</p>
+<a id="more"></a>
+
+<h4 id="1-service命令"><a href="#1-service命令" class="headerlink" title="1.service命令"></a>1.service命令</h4><p>service命令其实是去/etc/init.d目录下，去执行相关程序。</p>
+<p>其中脚本需要我们自己编写。</p>
+<h5 id="1-1-基本步骤"><a href="#1-1-基本步骤" class="headerlink" title="1.1 基本步骤"></a>1.1 基本步骤</h5><ol>
+<li>进入 <code>/etc/init.d</code></li>
+<li>简历一个脚本文件，并赋予755权限：<code>chmod 755 文件名</code></li>
+</ol>
+<p>以kms服务脚本为例</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"></span><br><span class="line"><span class="comment">### BEGIN INIT INFO</span></span><br><span class="line"><span class="comment"># Provides:          kms-service</span></span><br><span class="line"><span class="comment"># Required-Start:    $network $local_fs $remote_fs</span></span><br><span class="line"><span class="comment"># Required-Stop:     $network $local_fs $remote_fs</span></span><br><span class="line"><span class="comment"># Default-Start:     2 3 4 5</span></span><br><span class="line"><span class="comment"># Default-Stop:      0 1 6</span></span><br><span class="line"><span class="comment"># Short-Description: Start kms at boot time</span></span><br><span class="line"><span class="comment"># Description:       Start or stop the KMS-service</span></span><br><span class="line"><span class="comment">### END INIT INFO</span></span><br><span class="line"></span><br><span class="line">NAME=<span class="string">"KMS"</span></span><br><span class="line">NAME_BIN=<span class="string">"kms"</span></span><br><span class="line">FILE=<span class="string">"/home/ubuntu"</span></span><br><span class="line">BIN=<span class="string">"<span class="variable">$&#123;FILE&#125;</span>/kms"</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Green_font_prefix=<span class="string">"\033[32m"</span> &amp;&amp; Red_font_prefix=<span class="string">"\033[31m"</span> &amp;&amp; Green_background_prefix=<span class="string">"\033[42;37m"</span> &amp;&amp; Red_background_prefix=<span class="string">"\033[41;37m"</span> &amp;&amp; Font_color_suffix=<span class="string">"\033[0m"</span></span><br><span class="line">Info=<span class="string">"<span class="variable">$&#123;Green_font_prefix&#125;</span>[信息]<span class="variable">$&#123;Font_color_suffix&#125;</span>"</span></span><br><span class="line">Error=<span class="string">"<span class="variable">$&#123;Red_font_prefix&#125;</span>[错误]<span class="variable">$&#123;Font_color_suffix&#125;</span>"</span></span><br><span class="line">RETVAL=0</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="title">check_running</span></span>()&#123;</span><br><span class="line">	PID=$(ps -ef |grep <span class="string">"<span class="variable">$&#123;NAME_BIN&#125;</span>"</span> |grep -v <span class="string">"grep"</span> |grep -v <span class="string">"init.d"</span> |grep -v <span class="string">"service"</span> |awk <span class="string">'&#123;print $2&#125;'</span>)</span><br><span class="line">	<span class="keyword">if</span> [[ ! -z <span class="variable">$&#123;PID&#125;</span> ]]; <span class="keyword">then</span></span><br><span class="line">		<span class="comment">#echo -e "$&#123;Info&#125;$&#123;NAME&#125; 正在运行！"</span></span><br><span class="line">		<span class="built_in">return</span> 0</span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">		<span class="comment">#echo -e "$&#123;Error&#125;$&#123;NAME&#125; 没有运行！"</span></span><br><span class="line">		<span class="built_in">return</span> 1</span><br><span class="line">	<span class="keyword">fi</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="title">start</span></span>()&#123;</span><br><span class="line">	check_running</span><br><span class="line">	<span class="keyword">if</span> [[ $? -eq 0 ]]; <span class="keyword">then</span></span><br><span class="line">		<span class="built_in">echo</span> -e <span class="string">"<span class="variable">$&#123;Info&#125;</span> <span class="variable">$NAME</span> (PID <span class="variable">$&#123;PID&#125;</span>) 正在运行..."</span> &amp;&amp; <span class="built_in">exit</span> 0</span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">		<span class="built_in">cd</span> <span class="variable">$&#123;FILE&#125;</span></span><br><span class="line">		<span class="built_in">echo</span> -e <span class="string">"<span class="variable">$&#123;Info&#125;</span> <span class="variable">$NAME</span> 启动中..."</span></span><br><span class="line">		<span class="built_in">ulimit</span> -n 51200</span><br><span class="line">		./kms </span><br><span class="line">		sleep 1s</span><br><span class="line">		check_running</span><br><span class="line">		<span class="keyword">if</span> [[ $? -eq 0 ]]; <span class="keyword">then</span></span><br><span class="line">			<span class="built_in">echo</span> -e <span class="string">"<span class="variable">$&#123;Info&#125;</span> <span class="variable">$NAME</span> 启动成功 !"</span></span><br><span class="line">		<span class="keyword">else</span></span><br><span class="line">			<span class="built_in">echo</span> -e <span class="string">"<span class="variable">$&#123;Error&#125;</span> <span class="variable">$NAME</span> 启动失败(请运行脚本查看日志错误输出) !"</span></span><br><span class="line">		<span class="keyword">fi</span></span><br><span class="line">	<span class="keyword">fi</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="title">stop</span></span>()&#123;</span><br><span class="line">	check_running</span><br><span class="line">	<span class="keyword">if</span> [[ $? -eq 0 ]]; <span class="keyword">then</span></span><br><span class="line">		<span class="built_in">kill</span> -9 <span class="variable">$&#123;PID&#125;</span></span><br><span class="line">		RETVAL=$?</span><br><span class="line">		<span class="keyword">if</span> [[ <span class="variable">$RETVAL</span> -eq 0 ]]; <span class="keyword">then</span></span><br><span class="line">			<span class="built_in">echo</span> -e <span class="string">"<span class="variable">$&#123;Info&#125;</span> <span class="variable">$NAME</span> 停止成功 !"</span></span><br><span class="line">		<span class="keyword">else</span></span><br><span class="line">			<span class="built_in">echo</span> -e <span class="string">"<span class="variable">$&#123;Error&#125;</span> <span class="variable">$NAME</span> 停止失败 !"</span></span><br><span class="line">		<span class="keyword">fi</span></span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">		<span class="built_in">echo</span> -e <span class="string">"<span class="variable">$&#123;Info&#125;</span> <span class="variable">$NAME</span> 未运行"</span></span><br><span class="line">		RETVAL=1</span><br><span class="line">	<span class="keyword">fi</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="title">status</span></span>()&#123;</span><br><span class="line">	check_running</span><br><span class="line">	<span class="keyword">if</span> [[ $? -eq 0 ]]; <span class="keyword">then</span></span><br><span class="line">		<span class="comment">#View_User</span></span><br><span class="line">		<span class="built_in">echo</span> -e <span class="string">"<span class="variable">$&#123;Info&#125;</span> <span class="variable">$NAME</span> (PID <span class="variable">$&#123;PID&#125;</span>) 正在运行..."</span></span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">		<span class="built_in">echo</span> -e <span class="string">"<span class="variable">$&#123;Info&#125;</span> <span class="variable">$NAME</span> 未运行 !"</span></span><br><span class="line">		RETVAL=1</span><br><span class="line">	<span class="keyword">fi</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="title">restart</span></span>()&#123;</span><br><span class="line">	stop</span><br><span class="line">	sleep 2s</span><br><span class="line">	start</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">case</span> <span class="string">"<span class="variable">$1</span>"</span> <span class="keyword">in</span></span><br><span class="line">	start|stop|restart|status)</span><br><span class="line">	<span class="variable">$1</span></span><br><span class="line">	;;</span><br><span class="line">	*)</span><br><span class="line">	<span class="built_in">echo</span> <span class="string">"使用方法: <span class="variable">$0</span> &#123; start | stop | restart | status &#125;"</span></span><br><span class="line">	RETVAL=1</span><br><span class="line">	;;</span><br><span class="line"><span class="keyword">esac</span></span><br><span class="line"><span class="built_in">exit</span> <span class="variable">$RETVAL</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="1-2-加入到系统启动中"><a href="#1-2-加入到系统启动中" class="headerlink" title="1.2 加入到系统启动中"></a>1.2 加入到系统启动中</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">// 添加到系统启动</span><br><span class="line">update-rc.d kms defaults </span><br><span class="line">// 从系统启动中删除</span><br><span class="line">update-rc.d kms remove</span><br></pre></td></tr></table></figure>
+
+<h5 id="1-3-启动服务"><a href="#1-3-启动服务" class="headerlink" title="1.3 启动服务"></a>1.3 启动服务</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">service kms start</span><br><span class="line">service kms stop</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-systemctl命令"><a href="#2-systemctl命令" class="headerlink" title="2.systemctl命令"></a>2.systemctl命令</h4><p>​    systemd是Linux系统最新的初始化系统(init),作用是提高系统的启动速度，尽可能启动较少的进程，尽可能更多进程并发启动。systemd对应的进程管理命令是<strong>systemctl</strong>。</p>
+<p>还是以kms服务脚本为例</p>
+<p>新建一个<code>kms.service</code>文件，保存在 <code>/etc/systemd/system/kms.service</code>.</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[Unit]</span><br><span class="line">Description=kms-service</span><br><span class="line">After=network.target</span><br><span class="line"></span><br><span class="line">[Service]</span><br><span class="line">Type=simple</span><br><span class="line">ExecStart=/usr/<span class="built_in">local</span>/bin/kms</span><br><span class="line">ExecStop=/bin/<span class="built_in">kill</span> -9 <span class="variable">$MAINPID</span></span><br><span class="line"></span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br></pre></td></tr></table></figure>
+
+<p>可以看到service文件一般由：<strong>[Unit]</strong>、<strong>[Service]</strong>和<strong>[Install]</strong> 三部分组成</p>
+<ol>
+<li>[Unit]<br>主要是对这个服务的说明，内容， 文档介绍以及对一些依赖服务定义</li>
+<li>[Service]<br>服务的主体定义，主要定义服务的一些运行参数，及操作动作</li>
+<li>[Install]<br>服务安装的相关设置，一般可设置为多用户的</li>
+</ol>
+<p><u>以下是具体参数</u></p>
+<p><strong>[Unit]</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Description</td>
+<td>服务描述，作为systemctl status 命令输出的一个介绍</td>
+</tr>
+<tr>
+<td>Documentation</td>
+<td>一个url 定义服务的具体介绍网址</td>
+</tr>
+<tr>
+<td>After</td>
+<td>在什么服务启动之后</td>
+</tr>
+<tr>
+<td>Before</td>
+<td>在什么服务启动之前启动</td>
+</tr>
+<tr>
+<td>Requires</td>
+<td>依赖其他的单元服务， 需要与列出的服务一起激活，若任何服务无法启动，则该单元不会被激活</td>
+</tr>
+<tr>
+<td>Wants</td>
+<td>比Requires依赖性弱，若其他服务没有启动成功，该服务也不受影响，只是表示一种推荐</td>
+</tr>
+</tbody></table>
+<p><strong>[Service]</strong></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>1.simple默认参数，进程作为主进程<br/>2.forking是后台运行的形式，主进程退出，os接管子进程</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>User</td>
+<td>设置服务运行的用户</td>
+</tr>
+<tr>
+<td>Group</td>
+<td>设置服务运行的用户组</td>
+</tr>
+<tr>
+<td>PIDFile</td>
+<td>存放PID的文件路径, 对于type设置为<strong>forking</strong>建议使用该项</td>
+</tr>
+<tr>
+<td>ExecStart</td>
+<td>服务的具体运行命令</td>
+</tr>
+<tr>
+<td>ExecStartPre</td>
+<td>指定在ExecStart<strong>前</strong>执行的自定义命令</td>
+</tr>
+<tr>
+<td>ExecStartPost</td>
+<td>指定在ExecStart<strong>后</strong>执行的自定义命令</td>
+</tr>
+<tr>
+<td>ExecReload</td>
+<td>重启命令，重新加载的动作， 重新加载时执行的命令或者脚本</td>
+</tr>
+<tr>
+<td>ExecStop</td>
+<td>停止命令，停止时要执行的命令或脚本</td>
+</tr>
+<tr>
+<td>Restart</td>
+<td>定义何种情况Systemd会自动重启当前服务，值： 包括<strong>always（总是重启）</strong>、<strong>no</strong> 、<strong>on-success</strong>、<strong>on-failure</strong>、<strong>on-abnormal</strong>、<strong>on-abort</strong>、<strong>on-watchdog</strong> 对于守护进程，推荐设为on-failure。对于那些允许发生错误退出的服务，可以设为on-abnormal</td>
+</tr>
+<tr>
+<td>TimeoutStartSec</td>
+<td>等待启动的时间。如果守护进程服务没有在配置的时间内发送启动完成的信号，则该服务将被认为失败， 服务将退出。<br/>以秒为单位， “0”来禁用。默认为， 默认使用DefaultTimeoutStartSec=20，<br/>若使用Type=<strong>oneshot</strong>，则该模式默认情况下超时是禁用的</td>
+</tr>
+<tr>
+<td>TimeoutStopSec</td>
+<td>等待关闭的超时时间</td>
+</tr>
+<tr>
+<td>TimeoutSec</td>
+<td>快速配置TimeoutStartSec和TimeoutStopSec时间</td>
+</tr>
+<tr>
+<td>KillMode</td>
+<td>control-group（默认值）：当前控制组里面的所有子进程，都会被杀掉<br/>process：只杀主进程<br/>mixed：主进程将收到 SIGTERM 信号，子进程收到 SIGKILL 信号<br/>none：没有进程会被杀掉，只是执行服务的 stop 命令。</td>
+</tr>
+<tr>
+<td>Environmen</td>
+<td>指定环境变量</td>
+</tr>
+<tr>
+<td>PrivateTmp=True</td>
+<td>表示给服务分配独立的临时空间</td>
+</tr>
+</tbody></table>
+<p>注意：<strong>[Service]</strong>部分的启动、重启、停止命令必须使用绝对路径，使用相对路径则会报错</p>
+<p><strong>[Install]</strong></p>
+<table>
+<thead>
+<tr>
+<th>RequiredBy</th>
+<th>依赖该服务的服务列表</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>WantedBy</td>
+<td>表示该服务所在的 Target， multi-user.target 可以设置为多用户模式具体参考手册systemd.unit(5)</td>
+</tr>
+</tbody></table>
+<p>参考手册：<a href="http://www.jinbuguo.com/systemd/systemd.index.html" target="_blank" rel="noopener">http://www.jinbuguo.com/systemd/systemd.index.html</a></p>
+<p><strong>服务状态列表：</strong></p>
+<table>
+<thead>
+<tr>
+<th>loaded</th>
+<th>系统服务已经初始化完成，加载过配置</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>actvie(running)</td>
+<td>正常运行</td>
+</tr>
+<tr>
+<td>actvie(exited)</td>
+<td>正常结束的服务</td>
+</tr>
+<tr>
+<td>active(waitting)</td>
+<td>等待其他的事件才继续处理</td>
+</tr>
+<tr>
+<td>inactive</td>
+<td>服务关闭</td>
+</tr>
+<tr>
+<td>enabled</td>
+<td>服务开机启动</td>
+</tr>
+<tr>
+<td>disabled</td>
+<td>服务开机不自启</td>
+</tr>
+<tr>
+<td>static</td>
+<td>服务开机启动项不可被管理</td>
+</tr>
+<tr>
+<td>falied</td>
+<td>系统配置错误</td>
+</tr>
+</tbody></table>
+<p><strong>管理日志：</strong></p>
+<p>Systemd 统一管理所有 Unit 的启动日志。</p>
+<table>
+<thead>
+<tr>
+<th>journalctl</th>
+<th>命令查看所有日志(内核日志和应用日志)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>journalctl _PID=</td>
+<td>查看对应pid的日志</td>
+</tr>
+</tbody></table>
+<p><strong>unit管理：</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 立即启动一个服务</span></span><br><span class="line">sudo systemctl start apache.service</span><br><span class="line"></span><br><span class="line"><span class="comment"># 立即停止一个服务</span></span><br><span class="line">sudo systemctl stop apache.service</span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置开机启动</span></span><br><span class="line">sudo systemctl <span class="built_in">enable</span> apache.service</span><br><span class="line"></span><br><span class="line"><span class="comment"># 关闭开机启动</span></span><br><span class="line">sudo systemctl <span class="built_in">disable</span> apache.service</span><br><span class="line"></span><br><span class="line"><span class="comment"># 重启一个服务</span></span><br><span class="line">sudo systemctl restart apache.service</span><br><span class="line"></span><br><span class="line"><span class="comment"># 杀死一个服务的所有子进程</span></span><br><span class="line">sudo systemctl <span class="built_in">kill</span> apache.service</span><br><span class="line"></span><br><span class="line"><span class="comment"># 重新加载一个服务的配置文件</span></span><br><span class="line">sudo systemctl reload apache.service</span><br><span class="line"></span><br><span class="line"><span class="comment"># 重载所有修改过的配置文件</span></span><br><span class="line">sudo systemctl daemon-reload</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <tags>
+        <tag>ubuntu</tag>
+        <tag>service</tag>
+        <tag>systemctl</tag>
       </tags>
   </entry>
   <entry>
@@ -1670,219 +1883,6 @@
       </tags>
   </entry>
   <entry>
-    <title>ubuntu服务管理两种方式service和systemctl</title>
-    <url>/2020/03/20/ubuntu%E6%9C%8D%E5%8A%A1%E7%AE%A1%E7%90%86%E4%B8%A4%E7%A7%8D%E6%96%B9%E5%BC%8Fservice%E5%92%8Csystemctl/</url>
-    <content><![CDATA[<p>Linux 服务管理两种方式service和systemctl</p>
-<a id="more"></a>
-
-<h4 id="1-service命令"><a href="#1-service命令" class="headerlink" title="1.service命令"></a>1.service命令</h4><p>service命令其实是去/etc/init.d目录下，去执行相关程序。</p>
-<p>其中脚本需要我们自己编写。</p>
-<h5 id="1-1-基本步骤"><a href="#1-1-基本步骤" class="headerlink" title="1.1 基本步骤"></a>1.1 基本步骤</h5><ol>
-<li>进入 <code>/etc/init.d</code></li>
-<li>简历一个脚本文件，并赋予755权限：<code>chmod 755 文件名</code></li>
-</ol>
-<p>以kms服务脚本为例</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"></span><br><span class="line"><span class="comment">### BEGIN INIT INFO</span></span><br><span class="line"><span class="comment"># Provides:          kms-service</span></span><br><span class="line"><span class="comment"># Required-Start:    $network $local_fs $remote_fs</span></span><br><span class="line"><span class="comment"># Required-Stop:     $network $local_fs $remote_fs</span></span><br><span class="line"><span class="comment"># Default-Start:     2 3 4 5</span></span><br><span class="line"><span class="comment"># Default-Stop:      0 1 6</span></span><br><span class="line"><span class="comment"># Short-Description: Start kms at boot time</span></span><br><span class="line"><span class="comment"># Description:       Start or stop the KMS-service</span></span><br><span class="line"><span class="comment">### END INIT INFO</span></span><br><span class="line"></span><br><span class="line">NAME=<span class="string">"KMS"</span></span><br><span class="line">NAME_BIN=<span class="string">"kms"</span></span><br><span class="line">FILE=<span class="string">"/home/ubuntu"</span></span><br><span class="line">BIN=<span class="string">"<span class="variable">$&#123;FILE&#125;</span>/kms"</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Green_font_prefix=<span class="string">"\033[32m"</span> &amp;&amp; Red_font_prefix=<span class="string">"\033[31m"</span> &amp;&amp; Green_background_prefix=<span class="string">"\033[42;37m"</span> &amp;&amp; Red_background_prefix=<span class="string">"\033[41;37m"</span> &amp;&amp; Font_color_suffix=<span class="string">"\033[0m"</span></span><br><span class="line">Info=<span class="string">"<span class="variable">$&#123;Green_font_prefix&#125;</span>[信息]<span class="variable">$&#123;Font_color_suffix&#125;</span>"</span></span><br><span class="line">Error=<span class="string">"<span class="variable">$&#123;Red_font_prefix&#125;</span>[错误]<span class="variable">$&#123;Font_color_suffix&#125;</span>"</span></span><br><span class="line">RETVAL=0</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="title">check_running</span></span>()&#123;</span><br><span class="line">	PID=$(ps -ef |grep <span class="string">"<span class="variable">$&#123;NAME_BIN&#125;</span>"</span> |grep -v <span class="string">"grep"</span> |grep -v <span class="string">"init.d"</span> |grep -v <span class="string">"service"</span> |awk <span class="string">'&#123;print $2&#125;'</span>)</span><br><span class="line">	<span class="keyword">if</span> [[ ! -z <span class="variable">$&#123;PID&#125;</span> ]]; <span class="keyword">then</span></span><br><span class="line">		<span class="comment">#echo -e "$&#123;Info&#125;$&#123;NAME&#125; 正在运行！"</span></span><br><span class="line">		<span class="built_in">return</span> 0</span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">		<span class="comment">#echo -e "$&#123;Error&#125;$&#123;NAME&#125; 没有运行！"</span></span><br><span class="line">		<span class="built_in">return</span> 1</span><br><span class="line">	<span class="keyword">fi</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="title">start</span></span>()&#123;</span><br><span class="line">	check_running</span><br><span class="line">	<span class="keyword">if</span> [[ $? -eq 0 ]]; <span class="keyword">then</span></span><br><span class="line">		<span class="built_in">echo</span> -e <span class="string">"<span class="variable">$&#123;Info&#125;</span> <span class="variable">$NAME</span> (PID <span class="variable">$&#123;PID&#125;</span>) 正在运行..."</span> &amp;&amp; <span class="built_in">exit</span> 0</span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">		<span class="built_in">cd</span> <span class="variable">$&#123;FILE&#125;</span></span><br><span class="line">		<span class="built_in">echo</span> -e <span class="string">"<span class="variable">$&#123;Info&#125;</span> <span class="variable">$NAME</span> 启动中..."</span></span><br><span class="line">		<span class="built_in">ulimit</span> -n 51200</span><br><span class="line">		./kms </span><br><span class="line">		sleep 1s</span><br><span class="line">		check_running</span><br><span class="line">		<span class="keyword">if</span> [[ $? -eq 0 ]]; <span class="keyword">then</span></span><br><span class="line">			<span class="built_in">echo</span> -e <span class="string">"<span class="variable">$&#123;Info&#125;</span> <span class="variable">$NAME</span> 启动成功 !"</span></span><br><span class="line">		<span class="keyword">else</span></span><br><span class="line">			<span class="built_in">echo</span> -e <span class="string">"<span class="variable">$&#123;Error&#125;</span> <span class="variable">$NAME</span> 启动失败(请运行脚本查看日志错误输出) !"</span></span><br><span class="line">		<span class="keyword">fi</span></span><br><span class="line">	<span class="keyword">fi</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="title">stop</span></span>()&#123;</span><br><span class="line">	check_running</span><br><span class="line">	<span class="keyword">if</span> [[ $? -eq 0 ]]; <span class="keyword">then</span></span><br><span class="line">		<span class="built_in">kill</span> -9 <span class="variable">$&#123;PID&#125;</span></span><br><span class="line">		RETVAL=$?</span><br><span class="line">		<span class="keyword">if</span> [[ <span class="variable">$RETVAL</span> -eq 0 ]]; <span class="keyword">then</span></span><br><span class="line">			<span class="built_in">echo</span> -e <span class="string">"<span class="variable">$&#123;Info&#125;</span> <span class="variable">$NAME</span> 停止成功 !"</span></span><br><span class="line">		<span class="keyword">else</span></span><br><span class="line">			<span class="built_in">echo</span> -e <span class="string">"<span class="variable">$&#123;Error&#125;</span> <span class="variable">$NAME</span> 停止失败 !"</span></span><br><span class="line">		<span class="keyword">fi</span></span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">		<span class="built_in">echo</span> -e <span class="string">"<span class="variable">$&#123;Info&#125;</span> <span class="variable">$NAME</span> 未运行"</span></span><br><span class="line">		RETVAL=1</span><br><span class="line">	<span class="keyword">fi</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="title">status</span></span>()&#123;</span><br><span class="line">	check_running</span><br><span class="line">	<span class="keyword">if</span> [[ $? -eq 0 ]]; <span class="keyword">then</span></span><br><span class="line">		<span class="comment">#View_User</span></span><br><span class="line">		<span class="built_in">echo</span> -e <span class="string">"<span class="variable">$&#123;Info&#125;</span> <span class="variable">$NAME</span> (PID <span class="variable">$&#123;PID&#125;</span>) 正在运行..."</span></span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">		<span class="built_in">echo</span> -e <span class="string">"<span class="variable">$&#123;Info&#125;</span> <span class="variable">$NAME</span> 未运行 !"</span></span><br><span class="line">		RETVAL=1</span><br><span class="line">	<span class="keyword">fi</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="title">restart</span></span>()&#123;</span><br><span class="line">	stop</span><br><span class="line">	sleep 2s</span><br><span class="line">	start</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">case</span> <span class="string">"<span class="variable">$1</span>"</span> <span class="keyword">in</span></span><br><span class="line">	start|stop|restart|status)</span><br><span class="line">	<span class="variable">$1</span></span><br><span class="line">	;;</span><br><span class="line">	*)</span><br><span class="line">	<span class="built_in">echo</span> <span class="string">"使用方法: <span class="variable">$0</span> &#123; start | stop | restart | status &#125;"</span></span><br><span class="line">	RETVAL=1</span><br><span class="line">	;;</span><br><span class="line"><span class="keyword">esac</span></span><br><span class="line"><span class="built_in">exit</span> <span class="variable">$RETVAL</span></span><br></pre></td></tr></table></figure>
-
-<h5 id="1-2-加入到系统启动中"><a href="#1-2-加入到系统启动中" class="headerlink" title="1.2 加入到系统启动中"></a>1.2 加入到系统启动中</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">// 添加到系统启动</span><br><span class="line">update-rc.d kms defaults </span><br><span class="line">// 从系统启动中删除</span><br><span class="line">update-rc.d kms remove</span><br></pre></td></tr></table></figure>
-
-<h5 id="1-3-启动服务"><a href="#1-3-启动服务" class="headerlink" title="1.3 启动服务"></a>1.3 启动服务</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">service kms start</span><br><span class="line">service kms stop</span><br></pre></td></tr></table></figure>
-
-<h4 id="2-systemctl命令"><a href="#2-systemctl命令" class="headerlink" title="2.systemctl命令"></a>2.systemctl命令</h4><p>​    systemd是Linux系统最新的初始化系统(init),作用是提高系统的启动速度，尽可能启动较少的进程，尽可能更多进程并发启动。systemd对应的进程管理命令是<strong>systemctl</strong>。</p>
-<p>还是以kms服务脚本为例</p>
-<p>新建一个<code>kms.service</code>文件，保存在 <code>/etc/systemd/system/kms.service</code>.</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[Unit]</span><br><span class="line">Description=kms-service</span><br><span class="line">After=network.target</span><br><span class="line"></span><br><span class="line">[Service]</span><br><span class="line">Type=simple</span><br><span class="line">ExecStart=/usr/<span class="built_in">local</span>/bin/kms</span><br><span class="line">ExecStop=/bin/<span class="built_in">kill</span> -9 <span class="variable">$MAINPID</span></span><br><span class="line"></span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br></pre></td></tr></table></figure>
-
-<p>可以看到service文件一般由：<strong>[Unit]</strong>、<strong>[Service]</strong>和<strong>[Install]</strong> 三部分组成</p>
-<ol>
-<li>[Unit]<br>主要是对这个服务的说明，内容， 文档介绍以及对一些依赖服务定义</li>
-<li>[Service]<br>服务的主体定义，主要定义服务的一些运行参数，及操作动作</li>
-<li>[Install]<br>服务安装的相关设置，一般可设置为多用户的</li>
-</ol>
-<p><u>以下是具体参数</u></p>
-<p><strong>[Unit]</strong></p>
-<table>
-<thead>
-<tr>
-<th>参数</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>Description</td>
-<td>服务描述，作为systemctl status 命令输出的一个介绍</td>
-</tr>
-<tr>
-<td>Documentation</td>
-<td>一个url 定义服务的具体介绍网址</td>
-</tr>
-<tr>
-<td>After</td>
-<td>在什么服务启动之后</td>
-</tr>
-<tr>
-<td>Before</td>
-<td>在什么服务启动之前启动</td>
-</tr>
-<tr>
-<td>Requires</td>
-<td>依赖其他的单元服务， 需要与列出的服务一起激活，若任何服务无法启动，则该单元不会被激活</td>
-</tr>
-<tr>
-<td>Wants</td>
-<td>比Requires依赖性弱，若其他服务没有启动成功，该服务也不受影响，只是表示一种推荐</td>
-</tr>
-</tbody></table>
-<p><strong>[Service]</strong></p>
-<table>
-<thead>
-<tr>
-<th>Type</th>
-<th>1.simple默认参数，进程作为主进程<br/>2.forking是后台运行的形式，主进程退出，os接管子进程</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>User</td>
-<td>设置服务运行的用户</td>
-</tr>
-<tr>
-<td>Group</td>
-<td>设置服务运行的用户组</td>
-</tr>
-<tr>
-<td>PIDFile</td>
-<td>存放PID的文件路径, 对于type设置为<strong>forking</strong>建议使用该项</td>
-</tr>
-<tr>
-<td>ExecStart</td>
-<td>服务的具体运行命令</td>
-</tr>
-<tr>
-<td>ExecStartPre</td>
-<td>指定在ExecStart<strong>前</strong>执行的自定义命令</td>
-</tr>
-<tr>
-<td>ExecStartPost</td>
-<td>指定在ExecStart<strong>后</strong>执行的自定义命令</td>
-</tr>
-<tr>
-<td>ExecReload</td>
-<td>重启命令，重新加载的动作， 重新加载时执行的命令或者脚本</td>
-</tr>
-<tr>
-<td>ExecStop</td>
-<td>停止命令，停止时要执行的命令或脚本</td>
-</tr>
-<tr>
-<td>Restart</td>
-<td>定义何种情况Systemd会自动重启当前服务，值： 包括<strong>always（总是重启）</strong>、<strong>no</strong> 、<strong>on-success</strong>、<strong>on-failure</strong>、<strong>on-abnormal</strong>、<strong>on-abort</strong>、<strong>on-watchdog</strong> 对于守护进程，推荐设为on-failure。对于那些允许发生错误退出的服务，可以设为on-abnormal</td>
-</tr>
-<tr>
-<td>TimeoutStartSec</td>
-<td>等待启动的时间。如果守护进程服务没有在配置的时间内发送启动完成的信号，则该服务将被认为失败， 服务将退出。<br/>以秒为单位， “0”来禁用。默认为， 默认使用DefaultTimeoutStartSec=20，<br/>若使用Type=<strong>oneshot</strong>，则该模式默认情况下超时是禁用的</td>
-</tr>
-<tr>
-<td>TimeoutStopSec</td>
-<td>等待关闭的超时时间</td>
-</tr>
-<tr>
-<td>TimeoutSec</td>
-<td>快速配置TimeoutStartSec和TimeoutStopSec时间</td>
-</tr>
-<tr>
-<td>KillMode</td>
-<td>control-group（默认值）：当前控制组里面的所有子进程，都会被杀掉<br/>process：只杀主进程<br/>mixed：主进程将收到 SIGTERM 信号，子进程收到 SIGKILL 信号<br/>none：没有进程会被杀掉，只是执行服务的 stop 命令。</td>
-</tr>
-<tr>
-<td>Environmen</td>
-<td>指定环境变量</td>
-</tr>
-<tr>
-<td>PrivateTmp=True</td>
-<td>表示给服务分配独立的临时空间</td>
-</tr>
-</tbody></table>
-<p>注意：<strong>[Service]</strong>部分的启动、重启、停止命令必须使用绝对路径，使用相对路径则会报错</p>
-<p><strong>[Install]</strong></p>
-<table>
-<thead>
-<tr>
-<th>RequiredBy</th>
-<th>依赖该服务的服务列表</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>WantedBy</td>
-<td>表示该服务所在的 Target， multi-user.target 可以设置为多用户模式具体参考手册systemd.unit(5)</td>
-</tr>
-</tbody></table>
-<p>参考手册：<a href="http://www.jinbuguo.com/systemd/systemd.index.html" target="_blank" rel="noopener">http://www.jinbuguo.com/systemd/systemd.index.html</a></p>
-<p><strong>服务状态列表：</strong></p>
-<table>
-<thead>
-<tr>
-<th>loaded</th>
-<th>系统服务已经初始化完成，加载过配置</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>actvie(running)</td>
-<td>正常运行</td>
-</tr>
-<tr>
-<td>actvie(exited)</td>
-<td>正常结束的服务</td>
-</tr>
-<tr>
-<td>active(waitting)</td>
-<td>等待其他的事件才继续处理</td>
-</tr>
-<tr>
-<td>inactive</td>
-<td>服务关闭</td>
-</tr>
-<tr>
-<td>enabled</td>
-<td>服务开机启动</td>
-</tr>
-<tr>
-<td>disabled</td>
-<td>服务开机不自启</td>
-</tr>
-<tr>
-<td>static</td>
-<td>服务开机启动项不可被管理</td>
-</tr>
-<tr>
-<td>falied</td>
-<td>系统配置错误</td>
-</tr>
-</tbody></table>
-<p><strong>管理日志：</strong></p>
-<p>Systemd 统一管理所有 Unit 的启动日志。</p>
-<table>
-<thead>
-<tr>
-<th>journalctl</th>
-<th>命令查看所有日志(内核日志和应用日志)</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>journalctl _PID=</td>
-<td>查看对应pid的日志</td>
-</tr>
-</tbody></table>
-<p><strong>unit管理：</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 立即启动一个服务</span></span><br><span class="line">sudo systemctl start apache.service</span><br><span class="line"></span><br><span class="line"><span class="comment"># 立即停止一个服务</span></span><br><span class="line">sudo systemctl stop apache.service</span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置开机启动</span></span><br><span class="line">sudo systemctl <span class="built_in">enable</span> apache.service</span><br><span class="line"></span><br><span class="line"><span class="comment"># 关闭开机启动</span></span><br><span class="line">sudo systemctl <span class="built_in">disable</span> apache.service</span><br><span class="line"></span><br><span class="line"><span class="comment"># 重启一个服务</span></span><br><span class="line">sudo systemctl restart apache.service</span><br><span class="line"></span><br><span class="line"><span class="comment"># 杀死一个服务的所有子进程</span></span><br><span class="line">sudo systemctl <span class="built_in">kill</span> apache.service</span><br><span class="line"></span><br><span class="line"><span class="comment"># 重新加载一个服务的配置文件</span></span><br><span class="line">sudo systemctl reload apache.service</span><br><span class="line"></span><br><span class="line"><span class="comment"># 重载所有修改过的配置文件</span></span><br><span class="line">sudo systemctl daemon-reload</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <tags>
-        <tag>ubuntu</tag>
-        <tag>service</tag>
-        <tag>systemctl</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>v2ray快速上手全记录</title>
     <url>/2020/04/23/v2ray%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E5%85%A8%E8%AE%B0%E5%BD%95/</url>
     <content><![CDATA[<p>快速上手v2ray</p>
@@ -2224,27 +2224,6 @@
       </tags>
   </entry>
   <entry>
-    <title>使用jsdelivrCDN加速github文件</title>
-    <url>/2020/06/20/%E4%BD%BF%E7%94%A8jsdelivrCDN%E5%8A%A0%E9%80%9Fgithub%E6%96%87%E4%BB%B6/</url>
-    <content><![CDATA[<p>jsDelivr 是国外的一家优秀的公共 CDN 服务提供商，也是首个「打通中国大陆（网宿公司运营）与海外的免费 CDN 服务」。</p>
-<a id="more"></a>
-
-<h3 id="jsDelivr-配置"><a href="#jsDelivr-配置" class="headerlink" title="jsDelivr 配置"></a>jsDelivr 配置</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">https:&#x2F;&#x2F;cdn.jsdelivr.net&#x2F;gh&#x2F;wf09&#x2F;upload@master&#x2F;1.png</span><br></pre></td></tr></table></figure>
-
-<p>其中：</p>
-<ul>
-<li><code>gh</code> 表示来自 Github 的仓库</li>
-<li><code>wf09/upload</code> 指的是用户名/仓库名</li>
-<li><code>master</code> 仓库的分支</li>
-<li><code>1.png</code>仓库下的具体文件</li>
-</ul>
-]]></content>
-      <tags>
-        <tag>jsdelivrCDN</tag>
-        <tag>github</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>使用pip离线安装pytorch-gpu</title>
     <url>/2020/02/17/%E4%BD%BF%E7%94%A8pip%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85pytorch/</url>
     <content><![CDATA[<p>废话不多说，上教程。</p>
@@ -2310,6 +2289,27 @@
       </tags>
   </entry>
   <entry>
+    <title>使用jsdelivrCDN加速github文件</title>
+    <url>/2020/06/20/%E4%BD%BF%E7%94%A8jsdelivrCDN%E5%8A%A0%E9%80%9Fgithub%E6%96%87%E4%BB%B6/</url>
+    <content><![CDATA[<p>jsDelivr 是国外的一家优秀的公共 CDN 服务提供商，也是首个「打通中国大陆（网宿公司运营）与海外的免费 CDN 服务」。</p>
+<a id="more"></a>
+
+<h3 id="jsDelivr-配置"><a href="#jsDelivr-配置" class="headerlink" title="jsDelivr 配置"></a>jsDelivr 配置</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">https:&#x2F;&#x2F;cdn.jsdelivr.net&#x2F;gh&#x2F;wf09&#x2F;upload@master&#x2F;1.png</span><br></pre></td></tr></table></figure>
+
+<p>其中：</p>
+<ul>
+<li><code>gh</code> 表示来自 Github 的仓库</li>
+<li><code>wf09/upload</code> 指的是用户名/仓库名</li>
+<li><code>master</code> 仓库的分支</li>
+<li><code>1.png</code>仓库下的具体文件</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>jsdelivrCDN</tag>
+        <tag>github</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>修改Pip镜像源</title>
     <url>/2020/05/11/%E4%BF%AE%E6%94%B9pip%E9%95%9C%E5%83%8F%E6%BA%90/</url>
     <content><![CDATA[<p>修改pip镜像源</p>
@@ -2364,6 +2364,58 @@
 ]]></content>
       <tags>
         <tag>pip</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>阿里云服务器测评：1CPU/1GB内存/25GB硬盘/30Mbps/轻量应用服务器</title>
+    <url>/2020/06/28/%E9%98%BF%E9%87%8C%E4%BA%91%E8%BD%BB%E9%87%8F%E5%BA%94%E7%94%A8%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%B5%8B%E8%AF%84/</url>
+    <content><![CDATA[<p>​    阿里云计算，<code>Alibaba Cloud</code>，是一家提供云端运算服务的科技公司，创立于2009年9月，为阿里巴巴集团全资所有。阿里云计算公司总部位于杭州，在北京和硅谷等地设有研发中心和运营机构，涉及云计算的产品与服务。至2018年上半年，公有云<code>IaaS</code>厂商全球市场份额阿里云排名第三，仅次于<code>AWS</code>和<code>Azure</code>。</p>
+<p>​    阿里云提供的轻量应用服务器，24元/月，CPU为1核，内存大小为<code>1GB</code>，SSD大小为<code>25GB</code>。峰值带宽限制在<code>30Mbps</code>，每月流量为<code>1TB</code>。最近都说阿里云线路变得越来越差了，小编也凑了个热闹，赶紧开了一台看看线路究竟如何。下面跟随小编来看一下如何创建轻量应用服务器吧~</p>
+<a id="more"></a>
+
+<h3 id="注册"><a href="#注册" class="headerlink" title="注册"></a>注册</h3><p>​    官网：<a href="https://www.aliyun.com/" target="_blank" rel="noopener">https://www.aliyun.com/</a></p>
+<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200628152313055.png" alt=""></p>
+<p>相信大家都已经有阿里云账号了，这里不在赘述。</p>
+<h3 id="开通机器"><a href="#开通机器" class="headerlink" title="开通机器"></a>开通机器</h3><p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200628152429787.png" alt="">选择轻量应用服务器，点击立即购买。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200628152631818.png" alt="image-20200628152631818">地域选择香港，系统镜像选择<code>Ubuntu</code>。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200628152746449.png" alt="image-20200628152746449">套餐选择最低配，不分配数据盘，时常选择一个月，点击立即购买。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200628152853042.png" alt="image-20200628152853042">同意协议后去支付，这里会跳转到支付宝的付款界面。打开手机支付宝，扫码即可。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200628153101801.png" alt="image-20200628153101801">小编习惯登录支付，输入支付密码点击确认付款即可。</p>
+<p>稍后登录控制台就能看的机器信息。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200628153537833.png" alt="image-20200628153537833">咦，IP怎么是8开头。小编有一种不详的预感~先看看他的去程回程吧。</p>
+<h3 id="去程回程"><a href="#去程回程" class="headerlink" title="去程回程"></a>去程回程</h3><p><strong>联通去程</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200628153913552.png" alt="image-20200628153913552">果不其然<del>以往都是直连香港，这次竟然绕日本的NTT。套路云啊套路云，你可真不辜负你的名字呢</del></p>
+<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200628154255025.png" alt="image-20200628154255025">下载国内的速度也超级慢。</p>
+<p><strong>联通回程</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">root@iZj6c0gzw63rkhv866t7luZ:/home/admin<span class="comment"># ./besttrace 221.12.0.221</span></span><br><span class="line">traceroute to 221.12.0.221 (221.12.0.221), 30 hops max, 60 byte packets</span><br><span class="line"> 1  *</span><br><span class="line">    *</span><br><span class="line">    *</span><br><span class="line"> 2  11.109.220.41  0.65 ms  *  美国 defense.gov</span><br><span class="line">    11.109.220.41  16.91 ms  *  美国 defense.gov</span><br><span class="line">    11.109.220.41  0.49 ms  *  美国 defense.gov</span><br><span class="line"> 3  *</span><br><span class="line">    *</span><br><span class="line">    *</span><br><span class="line"> 4  11.131.180.210  12.98 ms  *  美国 defense.gov</span><br><span class="line">    11.131.180.210  1.21 ms  *  美国 defense.gov</span><br><span class="line">    11.131.180.210  1.16 ms  *  美国 defense.gov</span><br><span class="line"> 5  103.52.74.246  1.72 ms  *  中国 香港 youku.com</span><br><span class="line">    103.52.74.246  1.46 ms  *  中国 香港 youku.com</span><br><span class="line">    103.52.74.246  1.43 ms  *  中国 香港 youku.com</span><br><span class="line"> 6  47.246.114.1  1.55 ms  *  中国 香港 阿里云</span><br><span class="line">    47.246.114.1  1.49 ms  *  中国 香港 阿里云</span><br><span class="line">    47.246.114.1  1.48 ms  *  中国 香港 阿里云</span><br><span class="line"> 7  162.245.125.205  1.72 ms  AS10099  中国 香港 联通</span><br><span class="line">    162.245.125.205  1.60 ms  AS10099  中国 香港 联通</span><br><span class="line">    162.245.125.205  1.63 ms  AS10099  中国 香港 联通</span><br><span class="line"> 8  202.77.18.194  2.56 ms  AS10099  中国 香港 联通</span><br><span class="line">    202.77.18.194  8.23 ms  AS10099  中国 香港 联通</span><br><span class="line">    202.77.18.194  5.87 ms  AS10099  中国 香港 联通</span><br><span class="line"> 9  43.252.86.66  4.14 ms  AS10099  中国 香港 联通</span><br><span class="line">    43.252.86.66  1.96 ms  AS10099  中国 香港 联通</span><br><span class="line">    43.252.86.66  7.44 ms  AS10099  中国 香港 联通</span><br><span class="line">10  202.77.23.29  58.59 ms  AS10099  中国 香港 联通</span><br><span class="line">    202.77.23.29  56.25 ms  AS10099  中国 香港 联通</span><br><span class="line">    202.77.23.29  53.92 ms  AS10099  中国 香港 联通</span><br><span class="line">11  219.158.10.61  56.70 ms  AS4837  中国 香港 联通</span><br><span class="line">    219.158.10.61  54.43 ms  AS4837  中国 香港 联通</span><br><span class="line">    219.158.10.61  52.07 ms  AS4837  中国 香港 联通</span><br><span class="line">12  219.158.98.93  59.83 ms  AS4837  中国 广东 广州 联通</span><br><span class="line">    219.158.98.93  57.58 ms  AS4837  中国 广东 广州 联通</span><br><span class="line">    219.158.98.93  76.25 ms  AS4837  中国 广东 广州 联通</span><br><span class="line">13  219.158.97.1  59.71 ms  AS4837  中国 广东 广州 联通</span><br><span class="line">    219.158.97.1  59.69 ms  AS4837  中国 广东 广州 联通</span><br><span class="line">    219.158.97.1  57.41 ms  AS4837  中国 广东 广州 联通</span><br><span class="line">14  219.158.105.6  95.74 ms  AS4837  中国 浙江 杭州 联通</span><br><span class="line">    219.158.105.6  95.74 ms  AS4837  中国 浙江 杭州 联通</span><br><span class="line">    219.158.105.6  108.98 ms  AS4837  中国 浙江 杭州 联通</span><br><span class="line">15  *</span><br><span class="line">    *</span><br><span class="line">    *</span><br><span class="line">16  221.12.0.221  98.90 ms  AS4837  中国 浙江 杭州 联通</span><br><span class="line">    221.12.0.221  96.97 ms  AS4837  中国 浙江 杭州 联通</span><br><span class="line">    221.12.0.221  99.61 ms  AS4837  中国 浙江 杭州 联通</span><br></pre></td></tr></table></figure>
+
+<p>回程还不错，可惜去程也决定了线路的质量。</p>
+<p><strong>移动去程</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200628155051869.png" alt="image-20200628155051869">看起来还不错，看看回程吧。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">root@iZj6c0gzw63rkhv866t7luZ:/home/admin<span class="comment"># ./besttrace 120.192.96.*</span></span><br><span class="line">traceroute to 120.192.96.* (120.192.96.*), 30 hops max, 60 byte packets</span><br><span class="line"> 1  *</span><br><span class="line">    *</span><br><span class="line">    *</span><br><span class="line"> 2  11.109.216.105  1.17 ms  *  美国 defense.gov</span><br><span class="line">    11.109.216.105  0.59 ms  *  美国 defense.gov</span><br><span class="line">    11.109.216.105  0.53 ms  *  美国 defense.gov</span><br><span class="line"> 3  *</span><br><span class="line">    *</span><br><span class="line">    *</span><br><span class="line"> 4  11.131.180.218  13.08 ms  *  美国 defense.gov</span><br><span class="line">    11.131.180.218  1.20 ms  *  美国 defense.gov</span><br><span class="line">    11.131.180.218  1.04 ms  *  美国 defense.gov</span><br><span class="line"> 5  103.52.74.246  1.13 ms  *  中国 香港 youku.com</span><br><span class="line">    103.52.74.246  1.19 ms  *  中国 香港 youku.com</span><br><span class="line">    103.52.74.246  1.32 ms  *  中国 香港 youku.com</span><br><span class="line"> 6  223.119.62.165  2.35 ms  AS58453  中国 香港 移动</span><br><span class="line">    223.119.62.165  2.19 ms  AS58453  中国 香港 移动</span><br><span class="line">    223.119.62.165  2.41 ms  AS58453  中国 香港 移动</span><br><span class="line"> 7  223.120.3.89  1.81 ms  AS58453  中国 香港 移动</span><br><span class="line">    223.120.3.89  1.84 ms  AS58453  中国 香港 移动</span><br><span class="line">    223.120.3.89  2.77 ms  AS58453  中国 香港 移动</span><br><span class="line"> 8  223.120.2.86  5.54 ms  AS58453  中国 广东 广州 移动</span><br><span class="line">    223.120.2.86  5.61 ms  AS58453  中国 广东 广州 移动</span><br><span class="line">    223.120.2.86  5.60 ms  AS58453  中国 广东 广州 移动</span><br><span class="line"> 9  223.120.22.29  36.03 ms  AS58453  中国 广东 广州 移动</span><br><span class="line">    223.120.22.29  35.70 ms  AS58453  中国 广东 广州 移动</span><br><span class="line">    223.120.22.29  35.95 ms  AS58453  中国 广东 广州 移动</span><br><span class="line">10  221.183.55.110  40.44 ms  AS9808  中国 北京 移动</span><br><span class="line">    221.183.55.110  40.36 ms  AS9808  中国 北京 移动</span><br><span class="line">    221.183.55.110  40.27 ms  AS9808  中国 北京 移动</span><br><span class="line">11  221.183.10.38  66.18 ms  AS9808  中国 北京 移动</span><br><span class="line">    221.183.10.38  41.33 ms  AS9808  中国 北京 移动</span><br><span class="line">    221.183.10.38  44.15 ms  AS9808  中国 北京 移动</span><br><span class="line">12  221.176.16.193  89.90 ms  AS9808  中国 北京 移动</span><br><span class="line">    221.176.16.193  39.04 ms  AS9808  中国 北京 移动</span><br><span class="line">    221.176.16.193  39.17 ms  AS9808  中国 北京 移动</span><br><span class="line">13  221.176.15.38  49.42 ms  AS9808  中国 山东 济南 移动</span><br><span class="line">    221.183.36.10  48.91 ms  AS9808  中国 山东 济南 移动</span><br><span class="line">    221.183.10.25  95.52 ms  AS9808  中国 山东 济南 移动</span><br><span class="line">14  *</span><br><span class="line">    221.183.12.194  53.58 ms  AS9808  中国 山东 济南 移动</span><br><span class="line">    *</span><br><span class="line">15  120.192.96.*  54.30 ms  AS24444  中国 山东 济南 移动</span><br><span class="line">    120.192.96.*  54.31 ms  AS24444  中国 山东 济南 移动</span><br><span class="line">    120.192.96.*  53.81 ms  AS24444  中国 山东 济南 移动</span><br></pre></td></tr></table></figure>
+
+<p>咦，看来新线路对移动有优化吖~</p>
+<p><strong>电信去程</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200628155638030.png" alt="image-20200628155638030">噗，就这<del>~</del></p>
+<p><strong>电信回程</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">root@iZj6c0gzw63rkhv866t7luZ:/home/admin<span class="comment"># ./besttrace 113.129.61.136</span></span><br><span class="line">traceroute to 113.129.61.136 (113.129.61.136), 30 hops max, 60 byte packets</span><br><span class="line"> 1  *</span><br><span class="line">    *</span><br><span class="line">    *</span><br><span class="line"> 2  11.109.216.105  0.72 ms  *  美国 defense.gov</span><br><span class="line">    11.109.216.105  0.46 ms  *  美国 defense.gov</span><br><span class="line">    11.109.216.105  0.49 ms  *  美国 defense.gov</span><br><span class="line"> 3  *</span><br><span class="line">    11.109.216.218  3.53 ms  *  美国 defense.gov</span><br><span class="line">    11.109.216.218  1.71 ms  *  美国 defense.gov</span><br><span class="line"> 4  11.131.180.250  1.15 ms  *  美国 defense.gov</span><br><span class="line">    11.131.180.250  1.23 ms  *  美国 defense.gov</span><br><span class="line">    11.131.180.250  1.21 ms  *  美国 defense.gov</span><br><span class="line"> 5  47.246.113.182  1.38 ms  *  中国 香港 阿里云</span><br><span class="line">    47.246.113.182  1.34 ms  *  中国 香港 阿里云</span><br><span class="line">    47.246.113.182  1.30 ms  *  中国 香港 阿里云</span><br><span class="line"> 6  47.246.113.253  1.69 ms  *  美国 阿里云</span><br><span class="line">    47.246.113.253  1.55 ms  *  美国 阿里云</span><br><span class="line">    47.246.113.253  1.53 ms  *  美国 阿里云</span><br><span class="line"> 7  61.14.203.49  1.71 ms  *  中国 香港 联通</span><br><span class="line">    61.14.203.49  1.82 ms  *  中国 香港 联通</span><br><span class="line">    61.14.203.49  1.79 ms  *  中国 香港 联通</span><br><span class="line"> 8  202.77.18.194  6.23 ms  AS10099  中国 香港 联通</span><br><span class="line">    202.77.18.194  3.88 ms  AS10099  中国 香港 联通</span><br><span class="line">    202.77.18.194  1.56 ms  AS10099  中国 香港 联通</span><br><span class="line"> 9  43.252.86.66  3.24 ms  AS10099  中国 香港 联通</span><br><span class="line">    43.252.86.66  8.80 ms  AS10099  中国 香港 联通</span><br><span class="line">    43.252.86.66  6.53 ms  AS10099  中国 香港 联通</span><br><span class="line">10  202.77.23.29  59.65 ms  AS10099  中国 香港 联通</span><br><span class="line">    202.77.23.29  57.28 ms  AS10099  中国 香港 联通</span><br><span class="line">    202.77.23.29  55.00 ms  AS10099  中国 香港 联通</span><br><span class="line">11  219.158.10.61  51.04 ms  AS4837  中国 香港 联通</span><br><span class="line">    219.158.10.61  56.77 ms  AS4837  中国 香港 联通</span><br><span class="line">    219.158.10.61  54.46 ms  AS4837  中国 香港 联通</span><br><span class="line">12  219.158.97.30  54.26 ms  AS4837  中国 广东 广州 联通</span><br><span class="line">    219.158.97.30  59.88 ms  AS4837  中国 广东 广州 联通</span><br><span class="line">    219.158.97.30  57.59 ms  AS4837  中国 广东 广州 联通</span><br><span class="line">13  219.158.24.125  104.40 ms  AS4837  中国 广东 广州 联通</span><br><span class="line">    219.158.24.125  110.25 ms  AS4837  中国 广东 广州 联通</span><br><span class="line">    *</span><br><span class="line">14  219.158.6.245  224.02 ms  AS4837  中国 上海 联通</span><br><span class="line">    219.158.6.245  197.84 ms  AS4837  中国 上海 联通</span><br><span class="line">    219.158.6.245  178.06 ms  AS4837  中国 上海 联通</span><br><span class="line">15  *</span><br><span class="line">    *</span><br><span class="line">    *</span><br><span class="line">16  *</span><br><span class="line">    *</span><br><span class="line">    *</span><br><span class="line">17  202.97.46.29  158.32 ms  AS4134  中国 上海 电信</span><br><span class="line">    202.97.46.29  121.45 ms  AS4134  中国 上海 电信</span><br><span class="line">    202.97.46.29  119.41 ms  AS4134  中国 上海 电信</span><br><span class="line">18  202.97.40.254  201.11 ms  AS4134  中国 山东 济南 电信</span><br><span class="line">    202.97.40.254  203.28 ms  AS4134  中国 山东 济南 电信</span><br><span class="line">    202.97.40.254  207.24 ms  AS4134  中国 山东 济南 电信</span><br><span class="line">19  219.146.26.230  219.41 ms  AS4134  中国 山东 济南 电信</span><br><span class="line">    219.146.26.230  230.19 ms  AS4134  中国 山东 济南 电信</span><br><span class="line">    219.146.26.230  247.56 ms  AS4134  中国 山东 济南 电信</span><br><span class="line">20  *</span><br><span class="line">    *</span><br><span class="line">    *</span><br><span class="line">21  *</span><br><span class="line">    *</span><br><span class="line">    *</span><br><span class="line">22  *</span><br><span class="line">    *</span><br><span class="line">    *</span><br><span class="line">23  *</span><br><span class="line">    *</span><br><span class="line">    *</span><br><span class="line">24  *</span><br><span class="line">    *</span><br><span class="line">    *</span><br><span class="line">25  *</span><br><span class="line">    *</span><br><span class="line">    *</span><br><span class="line">26  *</span><br><span class="line">    *</span><br><span class="line">    *</span><br><span class="line">27  *</span><br><span class="line">    *</span><br><span class="line">    *</span><br><span class="line">28  *</span><br><span class="line">    *</span><br><span class="line">    *</span><br><span class="line">29  *</span><br><span class="line">    *</span><br><span class="line">    *</span><br><span class="line">30  *</span><br><span class="line">    *</span><br><span class="line">    *</span><br></pre></td></tr></table></figure>
+
+<p>啊~看来这线路拉的不是一点半点啊</p>
+<p><strong>性能测试</strong></p>
+<p>通过运行 <code>wget -qO- bench.sh | bash</code>来查看VPS的基本信息。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200628160403987.png" alt="image-20200628160403987">IO是真的可以，只是这线路，哎~~</p>
+<h3 id="下载测试"><a href="#下载测试" class="headerlink" title="下载测试"></a>下载测试</h3><p>使用<code>bash &lt;(curl -Lso- https://git.io/superspeed)</code>进行全面测速。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200628161807461.png" alt="image-20200628161807461"></p>
+<p>电信和联通明显不如移动啊~~</p>
+<p>贴一个47开头的阿里云ip去程路线。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200628162005474.png" alt="image-20200628162005474">可惜，可惜。</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>移动线路可以，联通电信还是弃坑吧。</p>
+<p>套路云先是停掉了新手套餐2.0，又是改了轻量的线路，估计有很多的国人被迫下车。以后国人在境外建站不会考虑套路云了吧。</p>
+<p>完。</p>
+]]></content>
+      <tags>
+        <tag>VPS</tag>
+        <tag>阿里云</tag>
       </tags>
   </entry>
 </search>
