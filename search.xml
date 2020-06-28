@@ -16,6 +16,132 @@
       </tags>
   </entry>
   <entry>
+    <title>G-core服务器测评：1CPU/700MB内存/500MB带宽俄罗斯特价服务器</title>
+    <url>/2020/06/27/G-core%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%B5%8B%E8%AF%84/</url>
+    <content><![CDATA[<p><code>Gcore VPS</code>是一家来自俄罗斯的VPS主机商。Gcore VPS的机房遍布世界各地，主要有俄罗斯的莫斯科、伯力，韩国首尔，日本东京，美国芝加哥、迈阿密，以及澳大利亚悉尼、荷兰阿姆斯特丹、巴西圣保罗等。</p>
+<p>目前<code>Gcore</code>新出了一款仅需要月付88卢布，折合人民币不到10元的伯力节点的小号VPS，性价比非常的突出。这个机房电信联通直连，移动绕路的很厉害。这篇文章就来说说如何注册购买这款8元每月的服务器。</p>
+<a id="more"></a>
+
+<h3 id="注册"><a href="#注册" class="headerlink" title="注册"></a>注册</h3><p>​    官网：<a href="https://gcorelabs.com/ru/?from=5012791" target="_blank" rel="noopener">https://gcorelabs.com</a></p>
+<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200627231358305.png" alt=""></p>
+<p>选择<a href="https://gcorelabs.com/hosting/vds/" target="_blank" rel="noopener">Virtual Servers</a>，点击<code>Get Started for free</code> 注册账号。</p>
+<p>​    后台地址：<a href="https://ruhosting.gcorelabs.com/billmgr" target="_blank" rel="noopener">https://ruhosting.gcorelabs.com/billmgr</a></p>
+<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200627231538573.png" alt="image-20200627231538573"></p>
+<h3 id="购买"><a href="#购买" class="headerlink" title="购买"></a>购买</h3><p>​    登录后点击<code>Order a service</code>，选择<code>VPS</code>。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200627232144681.png" alt="image-20200627232144681"></p>
+<p>以下是配置介绍：</p>
+<ul>
+<li><p><strong>KVM-SSD-0-RC (Khabarovsk 哈巴罗夫斯克边疆区)</strong></p>
+</li>
+<li><p>架构：KVM</p>
+</li>
+<li><p>vCPU：1核</p>
+</li>
+<li><p>内存：512M</p>
+</li>
+<li><p>硬盘：7G SSD</p>
+</li>
+<li><p>IPv4：1个</p>
+</li>
+<li><p>带宽：500G 100Mbps</p>
+<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200627232500475.png" alt="image-20200627232500475"></p>
+</li>
+</ul>
+<p>点击<code>Order</code>，进入配置页面，这里你可以选择<code>rdns</code>域名和操作系统。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200627232916215.png" alt="image-20200627232916215"></p>
+<p>​    PS:关于<code>rdns</code>不懂得可以自行Google。</p>
+<p>点击<code>Add to cart</code>，进入购物车。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200627233046636.png" alt="image-20200627233046636"></p>
+<p>点击<code>Pay</code>，进入付款页面。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200627233134514.png" alt="image-20200627233134514"></p>
+<p>这个商家支持很多种支付方式，博主用的是<code>中国银行</code>发行的<code>万事达莫奈信用卡</code>，一次支付成功。</p>
+<h3 id="管理"><a href="#管理" class="headerlink" title="管理"></a>管理</h3><p>​    支付完毕后等待10分钟服务器开通。配置完成后，就可以管理VPS了。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200627234143257.png" alt="image-20200627234143257"></p>
+<p>​    点击<code>Try out our new user interface!</code>，进入新版界面。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200627234551903.png" alt="image-20200627234551903"></p>
+<p>点击开通好的服务器，下滑可以找到默认密码。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200627234749756.png" alt="image-20200627234749756"></p>
+<p>如果需要自定义ISO等高级操作可以退回到旧版页面，点击 <code>To panel</code>，进入服务器管理页面。</p>
+<p>或者之间点击如下链接：<a href="https://kvmmgr-rc.gcorelabs.com/vmmgr" target="_blank" rel="noopener">https://kvmmgr-rc.gcorelabs.com/vmmgr</a></p>
+<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200627235013262.png" alt="image-20200627235013262"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200627235050120.png" alt="image-20200627235050120"></p>
+<h3 id="性能测试"><a href="#性能测试" class="headerlink" title="性能测试"></a>性能测试</h3><p>通过运行 <code>wget -qO- bench.sh | bash</code>来查看VPS的基本信息。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200627235746848.png" alt="image-20200627235746848">可见服务器IO速度一般。</p>
+<h3 id="下载测试"><a href="#下载测试" class="headerlink" title="下载测试"></a>下载测试</h3><p>联通：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200627235208711.png" alt="image-20200627235208711"></p>
+<p>电信：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200628000738137.png" alt="image-20200628000738137"></p>
+<p>移动：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200628001528886.png" alt="image-20200628001528886"></p>
+<p>可见电信联通网络较好，移动较为一般。</p>
+<h3 id="去程回程"><a href="#去程回程" class="headerlink" title="去程回程"></a>去程回程</h3><p><strong>联通去程</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200628000943281.png" alt="image-20200628000943281"></p>
+<p><strong>联通回程</strong></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">root@xmu:~# besttrace 221.12.0.*   </span><br><span class="line">traceroute to 221.12.0.* (221.12.0.*), 30 hops max, 60 byte packets</span><br><span class="line"> 1  vrrp.gcore.lu (92.38.129.3)  36.49 ms  AS199524  Russian Federation Khabarovsk Krai Khabarovsk gcore.lu</span><br><span class="line">    vrrp.gcore.lu (92.38.129.3)  0.78 ms  AS199524  Russian Federation Khabarovsk Krai Khabarovsk gcore.lu</span><br><span class="line">    vrrp.gcore.lu (92.38.129.3)  131.02 ms  AS199524  Russian Federation Khabarovsk Krai Khabarovsk gcore.lu</span><br><span class="line"> 2  10.255.10.154  1.09 ms  *  LAN Address</span><br><span class="line">    10.255.10.154  1.28 ms  *  LAN Address</span><br><span class="line">    10.255.10.154  1.10 ms  *  LAN Address</span><br><span class="line"> 3  92.223.110.161  0.97 ms  AS199524  Russian Federation Khabarovsk Krai Khabarovsk gcore.lu</span><br><span class="line">    92.223.110.161  1.08 ms  AS199524  Russian Federation Khabarovsk Krai Khabarovsk gcore.lu</span><br><span class="line">    92.223.110.161  0.80 ms  AS199524  Russian Federation Khabarovsk Krai Khabarovsk gcore.lu</span><br><span class="line"> 4  188.254.90.105  1.06 ms  AS12389  Russian Federation Khabarovsk Krai Khabarovsk rt.ru</span><br><span class="line">    188.254.90.105  0.49 ms  AS12389  Russian Federation Khabarovsk Krai Khabarovsk rt.ru</span><br><span class="line">    188.254.90.105  0.43 ms  AS12389  Russian Federation Khabarovsk Krai Khabarovsk rt.ru</span><br><span class="line"> 5  188.128.106.115  2.16 ms  AS12389  Russian Federation rt.ru</span><br><span class="line">    188.128.106.115  2.13 ms  AS12389  Russian Federation rt.ru</span><br><span class="line">    188.128.106.115  1.35 ms  AS12389  Russian Federation rt.ru</span><br><span class="line"> 6  188.128.15.214  46.86 ms  AS12389  China Beijing rt.ru</span><br><span class="line">    188.128.15.214  44.29 ms  AS12389  China Beijing rt.ru</span><br><span class="line">    188.128.15.214  45.72 ms  AS12389  China Beijing rt.ru</span><br><span class="line"> 7  219.158.3.141  51.21 ms  AS4837  China Beijing ChinaUnicom</span><br><span class="line">    219.158.3.141  56.01 ms  AS4837  China Beijing ChinaUnicom</span><br><span class="line">    219.158.3.141  53.54 ms  AS4837  China Beijing ChinaUnicom</span><br><span class="line"> 8  219.158.4.173  118.75 ms  AS4837  China Beijing ChinaUnicom</span><br><span class="line">    219.158.4.173  108.69 ms  AS4837  China Beijing ChinaUnicom</span><br><span class="line">    219.158.4.173  91.07 ms  AS4837  China Beijing ChinaUnicom</span><br><span class="line"> 9  219.158.96.138  120.86 ms  AS4837  China Zhejiang Hangzhou ChinaUnicom</span><br><span class="line">    219.158.96.138  151.44 ms  AS4837  China Zhejiang Hangzhou ChinaUnicom</span><br><span class="line">    219.158.96.138  150.12 ms  AS4837  China Zhejiang Hangzhou ChinaUnicom</span><br><span class="line">10  221.12.1.26  127.96 ms  AS4837  China Zhejiang Hangzhou ChinaUnicom</span><br><span class="line">    *</span><br><span class="line">    *</span><br><span class="line">11  *</span><br><span class="line">    221.12.0.*  149.30 ms  AS4837  China Zhejiang Hangzhou ChinaUnicom</span><br><span class="line">    221.12.0.*  136.00 ms  AS4837  China Zhejiang Hangzhou ChinaUnicom</span><br></pre></td></tr></table></figure>
+
+<p><strong>电信去程</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200628002120266.png" alt="image-20200628002120266"></p>
+<p><strong>电信回程</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">root@xmu:~# besttrace 219.146.26.21</span><br><span class="line">traceroute to 219.146.26.21 (219.146.26.21), 30 hops max, 60 byte packets</span><br><span class="line"> 1  vrrp.gcore.lu (92.38.129.3)  2.60 ms  AS199524  Russian Federation Khabarovsk Krai Khabarovsk gcore.lu</span><br><span class="line">    vrrp.gcore.lu (92.38.129.3)  4.88 ms  AS199524  Russian Federation Khabarovsk Krai Khabarovsk gcore.lu</span><br><span class="line">    vrrp.gcore.lu (92.38.129.3)  6.39 ms  AS199524  Russian Federation Khabarovsk Krai Khabarovsk gcore.lu</span><br><span class="line"> 2  10.255.10.154  1.80 ms  *  LAN Address</span><br><span class="line">    10.255.10.154  0.89 ms  *  LAN Address</span><br><span class="line">    10.255.10.154  0.86 ms  *  LAN Address</span><br><span class="line"> 3  92.223.110.161  0.99 ms  AS199524  Russian Federation Khabarovsk Krai Khabarovsk gcore.lu</span><br><span class="line">    92.223.110.161  0.91 ms  AS199524  Russian Federation Khabarovsk Krai Khabarovsk gcore.lu</span><br><span class="line">    92.223.110.161  1.10 ms  AS199524  Russian Federation Khabarovsk Krai Khabarovsk gcore.lu</span><br><span class="line"> 4  188.254.90.105  0.42 ms  AS12389  Russian Federation Khabarovsk Krai Khabarovsk rt.ru</span><br><span class="line">    188.254.90.105  0.59 ms  AS12389  Russian Federation Khabarovsk Krai Khabarovsk rt.ru</span><br><span class="line">    188.254.90.105  0.40 ms  AS12389  Russian Federation Khabarovsk Krai Khabarovsk rt.ru</span><br><span class="line"> 5  188.128.106.113  1.23 ms  AS12389  Russian Federation rt.ru</span><br><span class="line">    188.128.106.113  1.19 ms  AS12389  Russian Federation rt.ru</span><br><span class="line">    188.128.106.113  1.73 ms  AS12389  Russian Federation rt.ru</span><br><span class="line"> 6  46.61.179.170  41.83 ms  AS12389  China Beijing rt.ru</span><br><span class="line">    46.61.179.170  39.51 ms  AS12389  China Beijing rt.ru</span><br><span class="line">    46.61.179.170  41.14 ms  AS12389  China Beijing rt.ru</span><br><span class="line"> 7  202.97.85.61  43.07 ms  AS4134  China Beijing ChinaTelecom</span><br><span class="line">    202.97.85.61  40.80 ms  AS4134  China Beijing ChinaTelecom</span><br><span class="line">    202.97.85.61  42.29 ms  AS4134  China Beijing ChinaTelecom</span><br><span class="line"> 8  202.97.94.205  54.93 ms  AS4134  China Beijing ChinaTelecom</span><br><span class="line">    *</span><br><span class="line">    *</span><br><span class="line"> 9  *</span><br><span class="line">    *</span><br><span class="line">    *</span><br><span class="line">10  *</span><br><span class="line">    202.97.40.234  67.59 ms  AS4134  China Shandong Qingdao ChinaTelecom</span><br><span class="line">    *</span><br><span class="line">11  *</span><br><span class="line">    219.146.22.30  74.32 ms  AS17633  China Shandong Jinan ChinaTelecom</span><br><span class="line">    219.146.22.30  74.59 ms  AS17633  China Shandong Jinan ChinaTelecom</span><br><span class="line">12  219.146.26.21  69.20 ms  AS4134  China Shandong Jinan ChinaTelecom</span><br><span class="line">    *</span><br><span class="line">    219.146.26.21  73.27 ms  AS4134  China Shandong Jinan ChinaTelecom</span><br></pre></td></tr></table></figure>
+
+<p>可见电信和联通的线路很好。</p>
+<p><strong>移动去程</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200628001821911.png" alt="image-20200628001821911"></p>
+<p><strong>移动回程</strong></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">root@xmu:~# besttrace 120.192.96.169</span><br><span class="line">traceroute to 120.192.96.169 (120.192.96.169), 30 hops max, 60 byte packets</span><br><span class="line"> 1  vrrp.gcore.lu (92.38.129.3)  122.54 ms  AS199524  Russian Federation Khabarovsk Krai Khabarovsk gcore.lu</span><br><span class="line">    vrrp.gcore.lu (92.38.129.3)  15.03 ms  AS199524  Russian Federation Khabarovsk Krai Khabarovsk gcore.lu</span><br><span class="line">    vrrp.gcore.lu (92.38.129.3)  15.93 ms  AS199524  Russian Federation Khabarovsk Krai Khabarovsk gcore.lu</span><br><span class="line"> 2  10.255.10.154  0.85 ms  *  LAN Address</span><br><span class="line">    10.255.10.154  1.06 ms  *  LAN Address</span><br><span class="line">    10.255.10.154  0.80 ms  *  LAN Address</span><br><span class="line"> 3  78.25.77.164  0.80 ms  AS31133  Russian Federation Khabarovsk Krai Khabarovsk megafon.ru</span><br><span class="line">    78.25.77.164  0.84 ms  AS31133  Russian Federation Khabarovsk Krai Khabarovsk megafon.ru</span><br><span class="line">    78.25.77.164  1.32 ms  AS31133  Russian Federation Khabarovsk Krai Khabarovsk megafon.ru</span><br><span class="line"> 4  120.192.96.169  352.14 ms  AS24444  China Shandong Jinan ChinaMobile</span><br><span class="line">    120.192.96.169  352.56 ms  AS24444  China Shandong Jinan ChinaMobile</span><br><span class="line">    120.192.96.169  351.55 ms  AS24444  China Shandong Jinan ChinaMobile</span><br></pre></td></tr></table></figure>
+
+<p>可见移动的线路很差。</p>
+<p><strong>全国ping</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200628002819075.png" alt="image-20200628002819075"></p>
+<p>总体而言线路还是不错的。</p>
+<h3 id="视频测试"><a href="#视频测试" class="headerlink" title="视频测试"></a>视频测试</h3><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200628003209519.png" alt="image-20200628003209519"  />
+
+<p>速度还可以，晚高峰的时候可能需要中转。</p>
+<h3 id="测试ip"><a href="#测试ip" class="headerlink" title="测试ip"></a>测试ip</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">- 荷兰（阿姆斯特丹）：92.38.186.2</span><br><span class="line">- 阿什本：92.223.83.2</span><br><span class="line">- 芝加哥：92.38.177.2</span><br><span class="line">- 迈阿密：92.223.66.3</span><br><span class="line">- 圣克拉拉：92.38.148.2</span><br><span class="line">- 莫斯科：92.223.103.3</span><br><span class="line">- 伯力（Khabarovsk）：92.223.80.3</span><br><span class="line">- 克拉斯诺亚尔斯克边疆区（Krasnoyarsk）：92.223.87.2</span><br><span class="line">- 叶卡捷琳堡（Yekaterinburg）：92.223.91.2</span><br><span class="line">- 卢森堡公国：92.223.88.2</span><br><span class="line">- 圣保罗：5.188.238.2</span><br><span class="line">- 首尔：92.223.73.2</span><br><span class="line">- 新加坡：92.223.86.2</span><br><span class="line">- 悉尼：146.185.236.2</span><br><span class="line">- 东京：5.188.71.3</span><br></pre></td></tr></table></figure>
+
+<p>完。</p>
+]]></content>
+      <tags>
+        <tag>G-core</tag>
+        <tag>VPS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Gost服务配置指南</title>
+    <url>/2020/06/12/Gost%E6%9C%8D%E5%8A%A1%E9%85%8D%E7%BD%AE%E6%8C%87%E5%8D%97/</url>
+    <content><![CDATA[<p>gost服务操作指南</p>
+<a id="more"></a>
+
+<h3 id="国外下载"><a href="#国外下载" class="headerlink" title="国外下载"></a>国外下载</h3><p>项目地址：<a href="https://github.com/ginuerzh/gost/releases" target="_blank" rel="noopener">https://github.com/ginuerzh/gost/releases</a></p>
+<p>wiki地址：<a href="https://docs.ginuerzh.xyz/gost/" target="_blank" rel="noopener">https://docs.ginuerzh.xyz/gost/</a></p>
+<h3 id="创建Gost服务"><a href="#创建Gost服务" class="headerlink" title="创建Gost服务"></a>创建Gost服务</h3><h4 id="1-创建Gost服务配置文件"><a href="#1-创建Gost服务配置文件" class="headerlink" title="1.创建Gost服务配置文件"></a>1.创建Gost服务配置文件</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">wget -O /etc/systemd/system/gost.service https://ftp.fly97.cn/configuration/gost.service</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-初始化服务"><a href="#2-初始化服务" class="headerlink" title="2.初始化服务"></a>2.初始化服务</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo systemctl enable gost.service</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-打开服务"><a href="#3-打开服务" class="headerlink" title="3.打开服务"></a>3.打开服务</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo systemctl enable gost.service</span><br></pre></td></tr></table></figure>
+
+<h3 id="推荐几个常用的配置"><a href="#推荐几个常用的配置" class="headerlink" title="推荐几个常用的配置"></a>推荐几个常用的配置</h3><h4 id="1-多路复用tls"><a href="#1-多路复用tls" class="headerlink" title="1.多路复用tls"></a>1.多路复用tls</h4><p>GOST内置了TLS证书，如果需要使用自定义TLS证书，有两种方法：</p>
+<ul>
+<li>在GOST运行目录放置<code>cert.pem</code>(公钥)和<code>key.pem</code>(私钥)两个文件即可，GOST会自动加载运行目录下的cert.pem和key.pem文件。</li>
+</ul>
+<h5 id="服务端"><a href="#服务端" class="headerlink" title="服务端"></a>服务端</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">gost -L mtls://:443</span><br></pre></td></tr></table></figure>
+
+<h5 id="客户端"><a href="#客户端" class="headerlink" title="客户端"></a>客户端</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">gost -L :8080 -F mtls://server_ip:443</span><br></pre></td></tr></table></figure>
+
+<h5 id="客户端证书校验"><a href="#客户端证书校验" class="headerlink" title="客户端证书校验"></a>客户端证书校验</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">gost -L=:8080 -F=<span class="string">"tls://server_domain_name:443?secure=true"</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="客户端证书锁定"><a href="#客户端证书锁定" class="headerlink" title="客户端证书锁定"></a>客户端证书锁定</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">gost -L=:8080 -F=<span class="string">"tls://:443?ca=ca.pem"</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="2-socks5-over-tls"><a href="#2-socks5-over-tls" class="headerlink" title="2.socks5 over tls"></a>2.socks5 over tls</h4><p>使用TLS加密的SOCKS5代理服务。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">gost -L socks5+tls://:1080</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-多路复用加密websocket"><a href="#3-多路复用加密websocket" class="headerlink" title="3.多路复用加密websocket"></a>3.多路复用加密websocket</h4><p>具有多路复用特性并使用TLS加密的Websocket隧道。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">gost -L mwss://:443</span><br></pre></td></tr></table></figure>]]></content>
+      <tags>
+        <tag>gost</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Anacoda3 安装Pytorch小记录</title>
     <url>/2019/12/30/Anacoda3%20%E5%AE%89%E8%A3%85Pytorch%E5%B0%8F%E8%AE%B0%E5%BD%95/</url>
     <content><![CDATA[<p>话不多说，先上教程。</p>
@@ -67,41 +193,6 @@
 ]]></content>
       <tags>
         <tag>学习教程</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Gost服务配置指南</title>
-    <url>/2020/06/12/Gost%E6%9C%8D%E5%8A%A1%E9%85%8D%E7%BD%AE%E6%8C%87%E5%8D%97/</url>
-    <content><![CDATA[<p>gost服务操作指南</p>
-<a id="more"></a>
-
-<h3 id="国外下载"><a href="#国外下载" class="headerlink" title="国外下载"></a>国外下载</h3><p>项目地址：<a href="https://github.com/ginuerzh/gost/releases" target="_blank" rel="noopener">https://github.com/ginuerzh/gost/releases</a></p>
-<p>wiki地址：<a href="https://docs.ginuerzh.xyz/gost/" target="_blank" rel="noopener">https://docs.ginuerzh.xyz/gost/</a></p>
-<h3 id="创建Gost服务"><a href="#创建Gost服务" class="headerlink" title="创建Gost服务"></a>创建Gost服务</h3><h4 id="1-创建Gost服务配置文件"><a href="#1-创建Gost服务配置文件" class="headerlink" title="1.创建Gost服务配置文件"></a>1.创建Gost服务配置文件</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">wget -O /etc/systemd/system/gost.service https://ftp.fly97.cn/configuration/gost.service</span><br></pre></td></tr></table></figure>
-
-<h4 id="2-初始化服务"><a href="#2-初始化服务" class="headerlink" title="2.初始化服务"></a>2.初始化服务</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo systemctl enable gost.service</span><br></pre></td></tr></table></figure>
-
-<h4 id="3-打开服务"><a href="#3-打开服务" class="headerlink" title="3.打开服务"></a>3.打开服务</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo systemctl enable gost.service</span><br></pre></td></tr></table></figure>
-
-<h3 id="推荐几个常用的配置"><a href="#推荐几个常用的配置" class="headerlink" title="推荐几个常用的配置"></a>推荐几个常用的配置</h3><h4 id="1-多路复用tls"><a href="#1-多路复用tls" class="headerlink" title="1.多路复用tls"></a>1.多路复用tls</h4><p>GOST内置了TLS证书，如果需要使用自定义TLS证书，有两种方法：</p>
-<ul>
-<li>在GOST运行目录放置<code>cert.pem</code>(公钥)和<code>key.pem</code>(私钥)两个文件即可，GOST会自动加载运行目录下的cert.pem和key.pem文件。</li>
-</ul>
-<h5 id="服务端"><a href="#服务端" class="headerlink" title="服务端"></a>服务端</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">gost -L mtls://:443</span><br></pre></td></tr></table></figure>
-
-<h5 id="客户端"><a href="#客户端" class="headerlink" title="客户端"></a>客户端</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">gost -L :8080 -F mtls://server_ip:443</span><br></pre></td></tr></table></figure>
-
-<h5 id="客户端证书校验"><a href="#客户端证书校验" class="headerlink" title="客户端证书校验"></a>客户端证书校验</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">gost -L=:8080 -F=<span class="string">"tls://server_domain_name:443?secure=true"</span></span><br></pre></td></tr></table></figure>
-
-<h5 id="客户端证书锁定"><a href="#客户端证书锁定" class="headerlink" title="客户端证书锁定"></a>客户端证书锁定</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">gost -L=:8080 -F=<span class="string">"tls://:443?ca=ca.pem"</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="2-socks5-over-tls"><a href="#2-socks5-over-tls" class="headerlink" title="2.socks5 over tls"></a>2.socks5 over tls</h4><p>使用TLS加密的SOCKS5代理服务。</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">gost -L socks5+tls://:1080</span><br></pre></td></tr></table></figure>
-
-<h4 id="3-多路复用加密websocket"><a href="#3-多路复用加密websocket" class="headerlink" title="3.多路复用加密websocket"></a>3.多路复用加密websocket</h4><p>具有多路复用特性并使用TLS加密的Websocket隧道。</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">gost -L mwss://:443</span><br></pre></td></tr></table></figure>]]></content>
-      <tags>
-        <tag>gost</tag>
       </tags>
   </entry>
   <entry>
@@ -175,6 +266,94 @@
       <tags>
         <tag>Linux</tag>
         <tag>crontab</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Python实用教程之下划线命名模式</title>
+    <url>/2020/03/16/Python%E5%AE%9E%E7%94%A8%E6%95%99%E7%A8%8B%E4%B9%8B%E4%B8%8B%E5%88%92%E7%BA%BF%E5%91%BD%E5%90%8D%E6%A8%A1%E5%BC%8F/</url>
+    <content><![CDATA[<p>直接上表格。</p>
+<table>
+<thead>
+<tr>
+<th align="center">命名模式</th>
+<th align="center">举例</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">单前导下划线</td>
+<td align="center">_var</td>
+<td>命名约定，仅供内部使用。通常不会由Python解释器内部执行（通配符导入除外），只作为对程序员的提示。通配符导入时，_var代表的<strong>属性</strong>或者<strong>函数</strong>不会被导入。</td>
+</tr>
+<tr>
+<td align="center">单末尾下划线</td>
+<td align="center">var_</td>
+<td>按照约定使用避免与Python关键字的命名冲突。</td>
+</tr>
+<tr>
+<td align="center">双前导下划线</td>
+<td align="center">__var</td>
+<td>当在类上下文使用时，触发名称修饰，由Python解释器强制执行。<br /><strong>Tips：</strong>可以理解为Python对象的<strong>私有属性</strong>。仅供<strong>Python内部成员函数</strong>使用。</td>
+</tr>
+<tr>
+<td align="center">双前导和双末尾下划线</td>
+<td align="center">_<em>var_</em></td>
+<td>表示Python语言定义的特殊方法，避免在你自己的属性中使用这种特殊方法。</td>
+</tr>
+<tr>
+<td align="center">单下划线</td>
+<td align="center">_</td>
+<td>有时用作临时或者不关心的变量名称，也表示<strong>Python REPL</strong>最近的一个表达式的结果。</td>
+</tr>
+</tbody></table>
+]]></content>
+      <tags>
+        <tag>Python教程</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Python实用教程之__getattr__等标识符的用法</title>
+    <url>/2020/03/16/Python%E5%AE%9E%E7%94%A8%E6%95%99%E7%A8%8B%E4%B9%8B__getattr__%E7%AD%89%E6%A0%87%E8%AF%86%E7%AC%A6%E7%9A%84%E7%94%A8%E6%B3%95/</url>
+    <content><![CDATA[<p>在使用Python的过程中可能遇到以下几个函数：</p>
+<ul>
+<li><code>getattr</code></li>
+<li><code>__getattr__</code></li>
+<li><code>__getattribute__</code></li>
+<li><code>__get__</code></li>
+</ul>
+<p>如何区别他们，如何在编程中正确使用他们呢？</p>
+<a id="more"></a>
+
+<h3 id="getattr"><a href="#getattr" class="headerlink" title="getattr"></a>getattr</h3><p><code>getattr (object, name[, default])</code>是Python的内置函数之一，它的作用是获取对象的属性。</p>
+<ul>
+<li>object 对象</li>
+<li>name 属性名</li>
+<li>default 当属性不存在时，返回的默认值</li>
+</ul>
+<p><strong>示例</strong></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="class"><span class="keyword">class</span> <span class="title">Foo</span>:</span></span><br><span class="line"><span class="meta">... </span>    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, x)</span>:</span></span><br><span class="line"><span class="meta">... </span>        self.x = x</span><br><span class="line">...</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>f = Foo(<span class="number">10</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>getattr(f, <span class="string">'x'</span>)</span><br><span class="line"><span class="number">10</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>f.x</span><br><span class="line"><span class="number">10</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>getattr(f, <span class="string">'y'</span>, <span class="string">'bar'</span>)</span><br><span class="line"><span class="string">'bar'</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="getattr-1"><a href="#getattr-1" class="headerlink" title="_ __getattr _ __"></a>_ __getattr _ __</h3><p><code>object. __getattr__(self, name)</code>是一个对象方法，如果找不到对象的属性时会调用这个方法。</p>
+<p>这个方法应该返回属性值或者抛出<code>AttributeError</code>异常。</p>
+<p>注意，如果通过正常机制能找到对象属性的话，不会调用<code>__getattr__</code>方法。</p>
+<p><strong>示例</strong></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="class"><span class="keyword">class</span> <span class="title">Frob</span>:</span></span><br><span class="line"><span class="meta">... </span>    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, bamf)</span>:</span></span><br><span class="line"><span class="meta">... </span>        self.bamf = bamf</span><br><span class="line"><span class="meta">... </span>    <span class="function"><span class="keyword">def</span> <span class="title">__getattr__</span><span class="params">(self, name)</span>:</span></span><br><span class="line"><span class="meta">... </span>        <span class="keyword">return</span> <span class="string">'Frob does not have `&#123;&#125;` attribute.'</span>.format(str(name))</span><br><span class="line">...</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>f = Frob(<span class="string">"bamf"</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>f.bar</span><br><span class="line"><span class="string">'Frob does not have `bar` attribute.'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>f.bamf</span><br><span class="line"><span class="string">'bamf'</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="getattribute"><a href="#getattribute" class="headerlink" title="____  getattribute __ __"></a>____  getattribute __ __</h3><p>当访问 某个对象的属性时，会无条件的调用这个方法。这个方法只适用于新式类。<br> 新式类就是集成自object或者type的类。</p>
+<p>如果类还同时定义了<code>__getattr__()</code>方法，则不会调用<code>__getattr__()</code>方法，除非在<code>__getattribute__()</code>方法中显示调用<code>__getattr__()</code>或者抛出了<code>AttributeError</code>。</p>
+<p>该方法应该返回属性值或者抛出<code>AttributeError</code>异常。</p>
+<p>为了避免在方法中出现无限递归的情况，应该总是使用基类的方法来获取属性：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>object.__getattribute__(self, name).</span><br></pre></td></tr></table></figure>
+
+<p>语法：<code>object. __getattribute__(self, name)</code></p>
+<p><strong>示例</strong></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="class"><span class="keyword">class</span> <span class="title">Frob</span><span class="params">(object)</span>:</span></span><br><span class="line"><span class="meta">... </span>    <span class="function"><span class="keyword">def</span> <span class="title">__getattribute__</span><span class="params">(self, name)</span>:</span></span><br><span class="line"><span class="meta">... </span>        <span class="keyword">print</span> <span class="string">"getting `&#123;&#125;`"</span>.format(str(name))</span><br><span class="line"><span class="meta">... </span>        <span class="keyword">return</span> object.__getattribute__(self, name)</span><br><span class="line">...</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>f = Frob()</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>f.bamf = <span class="number">10</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>f.bamf</span><br><span class="line">getting `bamf`</span><br><span class="line"><span class="number">10</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="get"><a href="#get" class="headerlink" title="____ __ get __"></a>____ __ get __</h3><p><code>__get__()</code>方法是描述符方法之一。描述符用于将访问对象属性转变成调用描述符方法。</p>
+<p>示例：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Descriptor</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__get__</span><span class="params">(self, obj, objtype)</span>:</span></span><br><span class="line">        <span class="keyword">print</span> <span class="string">"get value=%s"</span> % self.val </span><br><span class="line">        <span class="keyword">return</span> self.val</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__set__</span><span class="params">(self, obj, val)</span>:</span></span><br><span class="line">        <span class="keyword">print</span> <span class="string">"set value=%s"</span> % val</span><br><span class="line">        self.val = val</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Stu</span><span class="params">(object)</span>:</span></span><br><span class="line">    age = Descriptor()</span><br><span class="line"></span><br><span class="line">stu = Stu()</span><br><span class="line">stu.age = <span class="number">12</span>    <span class="comment"># set value=12</span></span><br><span class="line"><span class="keyword">print</span> stu.age   <span class="comment"># get value=12</span></span><br><span class="line">                <span class="comment"># 12</span></span><br></pre></td></tr></table></figure>]]></content>
+      <tags>
+        <tag>Python教程</tag>
       </tags>
   </entry>
   <entry>
@@ -253,94 +432,6 @@
 <h2 id="Client-Secret-2299-12-31"><a href="#Client-Secret-2299-12-31" class="headerlink" title="Client/Secret (~ 2299/12/31)"></a>Client/Secret (~ 2299/12/31)</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 国际版: 78d4dc35-7e46-42c6-9023-2d39314433a5| ZudGl-p.m&#x3D;LMmr3VrKgAyOf-WevB3p50</span><br><span class="line"># 中国版: dfe36e60-6133-48cf-869f-4d15b8354769| H0-1:6.Sb8:WCW&#x2F;J-c]K@fddCt[i0EZ2</span><br><span class="line"># ReplyURL: http:&#x2F;&#x2F;localhost&#x2F;onedrive-login</span><br></pre></td></tr></table></figure>]]></content>
       <tags>
         <tag>onelist</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Python实用教程之__getattr__等标识符的用法</title>
-    <url>/2020/03/16/Python%E5%AE%9E%E7%94%A8%E6%95%99%E7%A8%8B%E4%B9%8B__getattr__%E7%AD%89%E6%A0%87%E8%AF%86%E7%AC%A6%E7%9A%84%E7%94%A8%E6%B3%95/</url>
-    <content><![CDATA[<p>在使用Python的过程中可能遇到以下几个函数：</p>
-<ul>
-<li><code>getattr</code></li>
-<li><code>__getattr__</code></li>
-<li><code>__getattribute__</code></li>
-<li><code>__get__</code></li>
-</ul>
-<p>如何区别他们，如何在编程中正确使用他们呢？</p>
-<a id="more"></a>
-
-<h3 id="getattr"><a href="#getattr" class="headerlink" title="getattr"></a>getattr</h3><p><code>getattr (object, name[, default])</code>是Python的内置函数之一，它的作用是获取对象的属性。</p>
-<ul>
-<li>object 对象</li>
-<li>name 属性名</li>
-<li>default 当属性不存在时，返回的默认值</li>
-</ul>
-<p><strong>示例</strong></p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="class"><span class="keyword">class</span> <span class="title">Foo</span>:</span></span><br><span class="line"><span class="meta">... </span>    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, x)</span>:</span></span><br><span class="line"><span class="meta">... </span>        self.x = x</span><br><span class="line">...</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>f = Foo(<span class="number">10</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>getattr(f, <span class="string">'x'</span>)</span><br><span class="line"><span class="number">10</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>f.x</span><br><span class="line"><span class="number">10</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>getattr(f, <span class="string">'y'</span>, <span class="string">'bar'</span>)</span><br><span class="line"><span class="string">'bar'</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="getattr-1"><a href="#getattr-1" class="headerlink" title="_ __getattr _ __"></a>_ __getattr _ __</h3><p><code>object. __getattr__(self, name)</code>是一个对象方法，如果找不到对象的属性时会调用这个方法。</p>
-<p>这个方法应该返回属性值或者抛出<code>AttributeError</code>异常。</p>
-<p>注意，如果通过正常机制能找到对象属性的话，不会调用<code>__getattr__</code>方法。</p>
-<p><strong>示例</strong></p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="class"><span class="keyword">class</span> <span class="title">Frob</span>:</span></span><br><span class="line"><span class="meta">... </span>    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, bamf)</span>:</span></span><br><span class="line"><span class="meta">... </span>        self.bamf = bamf</span><br><span class="line"><span class="meta">... </span>    <span class="function"><span class="keyword">def</span> <span class="title">__getattr__</span><span class="params">(self, name)</span>:</span></span><br><span class="line"><span class="meta">... </span>        <span class="keyword">return</span> <span class="string">'Frob does not have `&#123;&#125;` attribute.'</span>.format(str(name))</span><br><span class="line">...</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>f = Frob(<span class="string">"bamf"</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>f.bar</span><br><span class="line"><span class="string">'Frob does not have `bar` attribute.'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>f.bamf</span><br><span class="line"><span class="string">'bamf'</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="getattribute"><a href="#getattribute" class="headerlink" title="____  getattribute __ __"></a>____  getattribute __ __</h3><p>当访问 某个对象的属性时，会无条件的调用这个方法。这个方法只适用于新式类。<br> 新式类就是集成自object或者type的类。</p>
-<p>如果类还同时定义了<code>__getattr__()</code>方法，则不会调用<code>__getattr__()</code>方法，除非在<code>__getattribute__()</code>方法中显示调用<code>__getattr__()</code>或者抛出了<code>AttributeError</code>。</p>
-<p>该方法应该返回属性值或者抛出<code>AttributeError</code>异常。</p>
-<p>为了避免在方法中出现无限递归的情况，应该总是使用基类的方法来获取属性：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>object.__getattribute__(self, name).</span><br></pre></td></tr></table></figure>
-
-<p>语法：<code>object. __getattribute__(self, name)</code></p>
-<p><strong>示例</strong></p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="class"><span class="keyword">class</span> <span class="title">Frob</span><span class="params">(object)</span>:</span></span><br><span class="line"><span class="meta">... </span>    <span class="function"><span class="keyword">def</span> <span class="title">__getattribute__</span><span class="params">(self, name)</span>:</span></span><br><span class="line"><span class="meta">... </span>        <span class="keyword">print</span> <span class="string">"getting `&#123;&#125;`"</span>.format(str(name))</span><br><span class="line"><span class="meta">... </span>        <span class="keyword">return</span> object.__getattribute__(self, name)</span><br><span class="line">...</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>f = Frob()</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>f.bamf = <span class="number">10</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>f.bamf</span><br><span class="line">getting `bamf`</span><br><span class="line"><span class="number">10</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="get"><a href="#get" class="headerlink" title="____ __ get __"></a>____ __ get __</h3><p><code>__get__()</code>方法是描述符方法之一。描述符用于将访问对象属性转变成调用描述符方法。</p>
-<p>示例：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Descriptor</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__get__</span><span class="params">(self, obj, objtype)</span>:</span></span><br><span class="line">        <span class="keyword">print</span> <span class="string">"get value=%s"</span> % self.val </span><br><span class="line">        <span class="keyword">return</span> self.val</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__set__</span><span class="params">(self, obj, val)</span>:</span></span><br><span class="line">        <span class="keyword">print</span> <span class="string">"set value=%s"</span> % val</span><br><span class="line">        self.val = val</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Stu</span><span class="params">(object)</span>:</span></span><br><span class="line">    age = Descriptor()</span><br><span class="line"></span><br><span class="line">stu = Stu()</span><br><span class="line">stu.age = <span class="number">12</span>    <span class="comment"># set value=12</span></span><br><span class="line"><span class="keyword">print</span> stu.age   <span class="comment"># get value=12</span></span><br><span class="line">                <span class="comment"># 12</span></span><br></pre></td></tr></table></figure>]]></content>
-      <tags>
-        <tag>Python教程</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Python实用教程之下划线命名模式</title>
-    <url>/2020/03/16/Python%E5%AE%9E%E7%94%A8%E6%95%99%E7%A8%8B%E4%B9%8B%E4%B8%8B%E5%88%92%E7%BA%BF%E5%91%BD%E5%90%8D%E6%A8%A1%E5%BC%8F/</url>
-    <content><![CDATA[<p>直接上表格。</p>
-<table>
-<thead>
-<tr>
-<th align="center">命名模式</th>
-<th align="center">举例</th>
-<th>含义</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">单前导下划线</td>
-<td align="center">_var</td>
-<td>命名约定，仅供内部使用。通常不会由Python解释器内部执行（通配符导入除外），只作为对程序员的提示。通配符导入时，_var代表的<strong>属性</strong>或者<strong>函数</strong>不会被导入。</td>
-</tr>
-<tr>
-<td align="center">单末尾下划线</td>
-<td align="center">var_</td>
-<td>按照约定使用避免与Python关键字的命名冲突。</td>
-</tr>
-<tr>
-<td align="center">双前导下划线</td>
-<td align="center">__var</td>
-<td>当在类上下文使用时，触发名称修饰，由Python解释器强制执行。<br /><strong>Tips：</strong>可以理解为Python对象的<strong>私有属性</strong>。仅供<strong>Python内部成员函数</strong>使用。</td>
-</tr>
-<tr>
-<td align="center">双前导和双末尾下划线</td>
-<td align="center">_<em>var_</em></td>
-<td>表示Python语言定义的特殊方法，避免在你自己的属性中使用这种特殊方法。</td>
-</tr>
-<tr>
-<td align="center">单下划线</td>
-<td align="center">_</td>
-<td>有时用作临时或者不关心的变量名称，也表示<strong>Python REPL</strong>最近的一个表达式的结果。</td>
-</tr>
-</tbody></table>
-]]></content>
-      <tags>
-        <tag>Python教程</tag>
       </tags>
   </entry>
   <entry>
@@ -496,6 +587,18 @@
       </tags>
   </entry>
   <entry>
+    <title>Ubuntu安装php指南</title>
+    <url>/2019/01/07/Ubuntu%E5%AE%89%E8%A3%85php%E6%8C%87%E5%8D%97/</url>
+    <content><![CDATA[<h4 id="Ubuntu安装php指南"><a href="#Ubuntu安装php指南" class="headerlink" title="Ubuntu安装php指南"></a>Ubuntu安装php指南</h4><p>由于自带的apt源中不包含php，所以在安装php之前需要给apt添加第三方源</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt-get install software-properties-common</span><br><span class="line">sudo add-apt-repository ppa:ondrej/php</span><br><span class="line"><span class="comment">#sudo add-apt-repository -r ppa:ondrej/php              #删除</span></span><br><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install -y php7.3</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <tags>
+        <tag>Linux运维</tag>
+        <tag>PHP</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Ubuntu18.04更换镜像源</title>
     <url>/2019/01/06/Ubuntu18.04%E6%9B%B4%E6%8D%A2%E4%B8%BA%E5%9B%BD%E5%86%85%E6%BA%90/</url>
     <content><![CDATA[<h4 id="Ubuntu18-04更换镜像源"><a href="#Ubuntu18-04更换镜像源" class="headerlink" title="Ubuntu18.04更换镜像源"></a>Ubuntu18.04更换镜像源</h4><h5 id="1-备份原有镜像源"><a href="#1-备份原有镜像源" class="headerlink" title="1.备份原有镜像源"></a>1.备份原有镜像源</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo mv /etc/apt/sources.list /etc/apt/sourses.list.bak</span><br></pre></td></tr></table></figure>
@@ -508,6 +611,25 @@
       <tags>
         <tag>Ubuntu18.04</tag>
         <tag>镜像源</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>caddy一键安装管理脚本</title>
+    <url>/2020/06/20/caddy%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97/</url>
+    <content><![CDATA[<p>caddy一键安装管理脚本</p>
+<a id="more"></a>
+
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">wget https://fly97.coding.net/p/caddyserver/d/caddyserver/git/raw/master/caddy.sh</span><br><span class="line">chmod +x caddy.sh</span><br><span class="line">./caddy.sh</span><br></pre></td></tr></table></figure>
+
+<p>caddy 相关命令</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">caddy install         <span class="comment">#安装</span></span><br><span class="line">caddy <span class="built_in">help</span>            <span class="comment">#帮助</span></span><br></pre></td></tr></table></figure>
+
+<p><del>注意：安装之前要先安装zip用来解压软件</del></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">apt-get install zip</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <tags>
+        <tag>caddy</tag>
       </tags>
   </entry>
   <entry>
@@ -540,37 +662,6 @@
       <tags>
         <tag>Linux运维</tag>
         <tag>nodejs</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Ubuntu安装php指南</title>
-    <url>/2019/01/07/Ubuntu%E5%AE%89%E8%A3%85php%E6%8C%87%E5%8D%97/</url>
-    <content><![CDATA[<h4 id="Ubuntu安装php指南"><a href="#Ubuntu安装php指南" class="headerlink" title="Ubuntu安装php指南"></a>Ubuntu安装php指南</h4><p>由于自带的apt源中不包含php，所以在安装php之前需要给apt添加第三方源</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt-get install software-properties-common</span><br><span class="line">sudo add-apt-repository ppa:ondrej/php</span><br><span class="line"><span class="comment">#sudo add-apt-repository -r ppa:ondrej/php              #删除</span></span><br><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install -y php7.3</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <tags>
-        <tag>Linux运维</tag>
-        <tag>PHP</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>caddy一键安装管理脚本</title>
-    <url>/2020/06/20/caddy%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97/</url>
-    <content><![CDATA[<p>caddy一键安装管理脚本</p>
-<a id="more"></a>
-
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">wget https://fly97.coding.net/p/caddyserver/d/caddyserver/git/raw/master/caddy.sh</span><br><span class="line">chmod +x caddy.sh</span><br><span class="line">./caddy.sh</span><br></pre></td></tr></table></figure>
-
-<p>caddy 相关命令</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">caddy install         <span class="comment">#安装</span></span><br><span class="line">caddy <span class="built_in">help</span>            <span class="comment">#帮助</span></span><br></pre></td></tr></table></figure>
-
-<p><del>注意：安装之前要先安装zip用来解压软件</del></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">apt-get install zip</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <tags>
-        <tag>caddy</tag>
       </tags>
   </entry>
   <entry>
@@ -719,29 +810,69 @@
       </tags>
   </entry>
   <entry>
-    <title>Office Tool Plus使用教程</title>
-    <url>/2020/05/11/office%E6%BF%80%E6%B4%BB%E6%95%99%E7%A8%8B/</url>
-    <content><![CDATA[<p>Office Tool Plus 使用教程</p>
+    <title>v2ray快速上手全记录</title>
+    <url>/2020/04/23/v2ray%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E5%85%A8%E8%AE%B0%E5%BD%95/</url>
+    <content><![CDATA[<p>快速上手v2ray</p>
 <a id="more"></a>
 
-<p>软件介绍：<a href="https://otp.landian.vip/zh-cn/" target="_blank" rel="noopener">https://otp.landian.vip/zh-cn/</a></p>
-<p>软件下载地址：<a href="https://download.coolhub.top/" target="_blank" rel="noopener">https://download.coolhub.top/</a></p>
-<p>备份地址：<a href="https://ftp.fly97.cn/windows/app/Office%20Tool%20v7.5.zip" target="_blank" rel="noopener">https://ftp.fly97.cn/windows/app/Office%20Tool%20v7.5.zip</a></p>
-<h4 id="1-选择安装产品"><a href="#1-选择安装产品" class="headerlink" title="1.选择安装产品"></a>1.选择安装产品</h4><p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200517194431639.png" alt="image-20200517194431639"></p>
-<p>注意：由于国内到微软的网络不稳定，建议<strong>部署模式</strong>选择<strong>下载后安装</strong>。耐心等待安装完毕即可。</p>
-<h4 id="2-激活office"><a href="#2-激活office" class="headerlink" title="2.激活office"></a>2.激活office</h4><p>首先，根据选择的类型选择对应的许可证。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200517194323507.png" alt="image-20200517194323507"></p>
-<p><del>然后，选择<strong>零售版</strong>安装的同学<strong>可能需要安装</strong>Office2019专业版特定的密钥：</del></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">NMMKJ-6RK4F-KMJVX-8D9MJ-6MWKP</span><br></pre></td></tr></table></figure>
+<h5 id="1-下载并运行脚本"><a href="#1-下载并运行脚本" class="headerlink" title="1.下载并运行脚本"></a>1.下载并运行脚本</h5><p>需要先安装curl：<code>apt-get install curl</code></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">bash &lt;(curl -L -s https://install.direct/go.sh)</span><br></pre></td></tr></table></figure>
 
-<p>最后，选择对应的KMS服务器。</p>
-<p>推荐使用：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">kms.moeclub.org</span><br></pre></td></tr></table></figure>
+<p>安装完毕后使用以下命令启动</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo systemctl start v2ray</span><br></pre></td></tr></table></figure>
 
-<p>完。</p>
+<p>以服务方式启动，开机自启动</p>
+<h5 id="2-caddy-websockset"><a href="#2-caddy-websockset" class="headerlink" title="2.caddy+websockset"></a>2.caddy+websockset</h5><h6 id="2-1服务端"><a href="#2-1服务端" class="headerlink" title="2.1服务端"></a>2.1服务端</h6><p>安装caddy：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">wget https://git.io/vra5C -O - -o /dev/null|bash</span><br></pre></td></tr></table></figure>
+
+<p><strong>注意：</strong>安装证书时需要查看端口是否占用</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">lsof -i:443</span><br></pre></td></tr></table></figure>
+
+<p>编辑v2ray配置文件：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vim /etc/v2ray/config.json</span><br></pre></td></tr></table></figure>
+
+<p>最简单的配置文件：</p>
+<figure class="highlight json"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line"> <span class="attr">"log"</span>: &#123;</span><br><span class="line">    <span class="attr">"loglevel"</span>: <span class="string">"warning"</span>,</span><br><span class="line">    <span class="attr">"access"</span>: <span class="string">"/var/log/v2ray/access.log"</span>,</span><br><span class="line">    <span class="attr">"error"</span>: <span class="string">"/var/log/v2ray/error.log"</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">"inbounds"</span>: [</span><br><span class="line">&#123;</span><br><span class="line">    <span class="attr">"port"</span>: <span class="number">10000</span>,  <span class="comment">//端口号</span></span><br><span class="line">    <span class="attr">"listen"</span>:<span class="string">"127.0.0.1"</span>,  <span class="comment">//默认只监听内网ip</span></span><br><span class="line">    <span class="attr">"protocol"</span>: <span class="string">"vmess"</span>,  <span class="comment">//加密协议</span></span><br><span class="line">    <span class="attr">"settings"</span>: &#123;</span><br><span class="line">      <span class="attr">"clients"</span>: [</span><br><span class="line">        &#123;</span><br><span class="line">          <span class="attr">"id"</span>: <span class="string">"c4ef8fef-91b9-4f84-8b81-8aae98f3b7f9"</span>,    <span class="comment">//uuid</span></span><br><span class="line">          <span class="attr">"alterId"</span>: <span class="number">32</span> <span class="comment">//附加id</span></span><br><span class="line">        &#125;</span><br><span class="line">      ]</span><br><span class="line">    &#125;,</span><br><span class="line">   <span class="attr">"streamSettings"</span>: &#123;</span><br><span class="line">        <span class="attr">"network"</span>:<span class="string">"ws"</span>,  <span class="comment">//传输方式</span></span><br><span class="line">        <span class="attr">"wsSettings"</span>: &#123;</span><br><span class="line">        <span class="attr">"path"</span>: <span class="string">"/app"</span>  <span class="comment">//分流路径</span></span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line"> &#125;</span><br><span class="line">],</span><br><span class="line">  <span class="attr">"outbounds"</span>: [</span><br><span class="line">&#123;</span><br><span class="line">    <span class="attr">"protocol"</span>: <span class="string">"freedom"</span>,</span><br><span class="line">    <span class="attr">"settings"</span>: &#123;&#125;</span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>配置文件下载：<code>https://ftp.fly97.cn/configuration/config.json</code></p>
+<p>编辑caddy配置文件：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">caddy edit</span><br></pre></td></tr></table></figure>
+
+<p>最简单的caddy配置文件：</p>
+<figure class="highlight makefile"><table><tr><td class="code"><pre><span class="line"><span class="section">http://yoursite &#123;</span></span><br><span class="line">        root /var/caddywww/</span><br><span class="line">        gzip</span><br><span class="line">        tls off</span><br><span class="line">        log /var/log/caddy/access.log</span><br><span class="line">        errors /var/log/caddy/error.log</span><br><span class="line">        proxy /app localhost:10000 &#123;</span><br><span class="line">        websocket</span><br><span class="line">        header_upstream -Origin</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>配置文件下载：<code>https://ftp.fly97.cn/configuration/Caddyfile</code></p>
+<h6 id="2-2客户端"><a href="#2-2客户端" class="headerlink" title="2.2客户端"></a>2.2客户端</h6><p>建议使用clash，支持win和安卓平台</p>
+<p>win平台：</p>
+<p><a href="https://github.com/Fndroid/clash_for_windows_pkg/releases" target="_blank" rel="noopener">https://github.com/Fndroid/clash_for_windows_pkg/releases</a></p>
+<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200423211355498.png" alt="image-20200423211355498"></p>
+<p>其中配置文件需要自己编写，支持快速分流。</p>
+<p>重点介绍以下v2ray部分的配置文件。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># Will be ignored after profile selection</span><br><span class="line">Proxy:</span><br><span class="line">  - name: gost</span><br><span class="line">    type: socks5</span><br><span class="line">    server: 127.0.0.1</span><br><span class="line">    port: 1080</span><br><span class="line">  - name: v2ray</span><br><span class="line">    type: vmess</span><br><span class="line">    server: yoursite</span><br><span class="line">    uuid: &quot;c4ef8fef-91b9-4f84-8b81-8aae98f3b7f9&quot;</span><br><span class="line">    port: 80</span><br><span class="line">    cipher: &quot;auto&quot;</span><br><span class="line">    udp: false</span><br><span class="line">    network: ws</span><br><span class="line">    ws-path: &quot;&#x2F;app&quot;</span><br><span class="line">    tls: false</span><br><span class="line">    alterId: 32</span><br><span class="line">Proxy Group:</span><br><span class="line">  - name: Proxy</span><br><span class="line">    type: select</span><br><span class="line">    proxies:</span><br><span class="line">      - gost</span><br><span class="line">      - v2ray</span><br><span class="line">Rule:</span><br><span class="line">- DOMAIN-SUFFIX,aliyun,Proxy</span><br><span class="line">- DOMAIN,fly97.cn,Proxy</span><br><span class="line">- DOMAIN-SUFFIX,alibabacloud,Proxy</span><br><span class="line">- DOMAIN-SUFFIX,cn,DIRECT</span><br><span class="line"></span><br><span class="line"># ad tracks</span><br><span class="line">- DOMAIN,graph.instagram.com,DIRECT</span><br><span class="line">- DOMAIN,www.googleadservices.com,DIRECT</span><br><span class="line">- DOMAIN,control.kochava.com,DIRECT</span><br><span class="line">- DOMAIN,www.google-analytics.com,DIRECT</span><br><span class="line">- DOMAIN,ssl.google-analytics.com,DIRECT</span><br><span class="line">- DOMAIN,nexus.officeapps.live.com,DIRECT</span><br><span class="line">- DOMAIN,googleads.g.doubleclick.net,DIRECT</span><br><span class="line">- DOMAIN,e.crashlytics.com,DIRECT</span><br><span class="line">- DOMAIN,ib.adnxs.com,DIRECT</span><br><span class="line">- DOMAIN-SUFFIX,googlesyndication.com,DIRECT</span><br><span class="line">- DOMAIN-SUFFIX,googletagmanager.com,DIRECT</span><br><span class="line">- DOMAIN-SUFFIX,googletagservices.com,DIRECT</span><br><span class="line">- DOMAIN,safebrowsing.googleapis.com,DIRECT</span><br><span class="line"></span><br><span class="line">- DOMAIN,google.com,Proxy</span><br><span class="line">- DOMAIN-KEYWORD,paypal,DIRECT</span><br><span class="line">- DOMAIN-SUFFIX,google.com,Proxy</span><br><span class="line">- DOMAIN-KEYWORD,facebook,Proxy</span><br><span class="line">- DOMAIN-SUFFIX,fb.me,Proxy</span><br><span class="line">- DOMAIN-SUFFIX,fbcdn.net,Proxy</span><br><span class="line">- DOMAIN-KEYWORD,gmail,Proxy</span><br><span class="line">- DOMAIN-KEYWORD,twitter,Proxy</span><br><span class="line">- DOMAIN-KEYWORD,instagram,Proxy</span><br><span class="line">- DOMAIN-SUFFIX,twimg.com,Proxy</span><br><span class="line">- DOMAIN-KEYWORD,blogspot,Proxy</span><br><span class="line">- DOMAIN-KEYWORD,whatsapp,Proxy</span><br><span class="line">- DOMAIN-KEYWORD,scholar,Proxy</span><br><span class="line">- DOMAIN-KEYWORD,glados,Proxy</span><br><span class="line">- DOMAIN-KEYWORD,mailgun,Proxy</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">- DOMAIN-KEYWORD,weibo,DIRECT</span><br><span class="line">- DOMAIN-KEYWORD,hostloc,DIRECT</span><br></pre></td></tr></table></figure>
+
+<h5 id="3-caddy-websocket-tls"><a href="#3-caddy-websocket-tls" class="headerlink" title="3.caddy+websocket+tls"></a>3.caddy+websocket+tls</h5><p>首先第二步中服务器端口换成443</p>
+<p>其次更改caddy配置文件</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">https:&#x2F;&#x2F;yoursite &#123;</span><br><span class="line">        root &#x2F;var&#x2F;caddywww&#x2F;</span><br><span class="line">        gzip</span><br><span class="line">        tls yoursite@mail</span><br><span class="line">        log &#x2F;var&#x2F;log&#x2F;caddy&#x2F;access.log</span><br><span class="line">        errors &#x2F;var&#x2F;log&#x2F;caddy&#x2F;error.log</span><br><span class="line">        proxy &#x2F;app localhost:10000 &#123;</span><br><span class="line">        websocket</span><br><span class="line">        header_upstream -Origin</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="4-caddy-tls-web"><a href="#4-caddy-tls-web" class="headerlink" title="4.caddy+tls+web"></a>4.caddy+tls+web</h5><p>优点：减少tls握手时间</p>
+<h6 id="安装tls分流器"><a href="#安装tls分流器" class="headerlink" title="安装tls分流器"></a>安装tls分流器</h6><p>对于 linux-amd64 可以使用脚本安装，以 root 身份执行以下命令：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">bash &lt;(curl -L -s https://raw.githubusercontent.com/liberal-boy/tls-shunt-proxy/master/dist/install.sh)</span><br></pre></td></tr></table></figure>
+
+<p>配置文件位于：<code>/etc/tls-shunt-proxy/config.yaml</code></p>
+<p>项目地址：<a href="https://github.com/liberal-boy/tls-shunt-proxy" target="_blank" rel="noopener">https://github.com/liberal-boy/tls-shunt-proxy</a></p>
+<h6 id="修改分流器配置文件"><a href="#修改分流器配置文件" class="headerlink" title="修改分流器配置文件"></a>修改分流器配置文件</h6><figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">listen:</span> <span class="number">0.0</span><span class="number">.0</span><span class="number">.0</span><span class="string">:443</span></span><br><span class="line"><span class="attr">vhosts:</span></span><br><span class="line">    <span class="comment"># 将 example.com 改为你的域名</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">example.com</span></span><br><span class="line">    <span class="attr">tlsoffloading:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">managedcert:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">alpn:</span> <span class="string">h2,http/1.1</span></span><br><span class="line">    <span class="comment"># 如果不需要兼容 tls12, 可改为 tls13</span></span><br><span class="line">    <span class="attr">protocols:</span> <span class="string">tls12,tls13</span></span><br><span class="line">    <span class="attr">http:</span></span><br><span class="line">      <span class="attr">handler:</span> <span class="string">fileServer</span></span><br><span class="line">      <span class="comment"># /var/www/html 是静态网站目录</span></span><br><span class="line">      <span class="attr">args:</span> <span class="string">/var/www/html</span></span><br><span class="line">    <span class="attr">default:</span></span><br><span class="line">      <span class="attr">handler:</span> <span class="string">proxyPass</span></span><br><span class="line">      <span class="attr">args:</span> <span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span><span class="string">:40001</span></span><br></pre></td></tr></table></figure>
+
+<h6 id="修改v2ray配置文件"><a href="#修改v2ray配置文件" class="headerlink" title="修改v2ray配置文件"></a>修改v2ray配置文件</h6><p>编辑文件：<code>vim /etc/v2ray/config.json</code></p>
+<figure class="highlight json"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"inbounds"</span>: [</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="attr">"protocol"</span>: <span class="string">"vmess"</span>,</span><br><span class="line">            <span class="attr">"listen"</span>: <span class="string">"127.0.0.1"</span>,</span><br><span class="line">            <span class="attr">"port"</span>: <span class="number">40001</span>,</span><br><span class="line">            <span class="attr">"settings"</span>: &#123;</span><br><span class="line">                <span class="attr">"clients"</span>: [</span><br><span class="line">                    &#123;</span><br><span class="line">                        <span class="attr">"id"</span>: <span class="string">"f2435e5c-9ad9-4367-836a-8341117d0a5f"</span></span><br><span class="line">                    &#125;</span><br><span class="line">                ]</span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="attr">"streamSettings"</span>: &#123;</span><br><span class="line">                <span class="attr">"network"</span>: <span class="string">"tcp"</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    ],</span><br><span class="line">    <span class="attr">"outbounds"</span>: [</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="attr">"protocol"</span>: <span class="string">"freedom"</span></span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h6 id="重启服务"><a href="#重启服务" class="headerlink" title="重启服务"></a>重启服务</h6><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">systemctl restart tls-shunt-proxy</span><br><span class="line">systemctl restart v2ray</span><br></pre></td></tr></table></figure>
+
+<h6 id="客户端连接"><a href="#客户端连接" class="headerlink" title="客户端连接"></a>客户端连接</h6><p>客户端连接<code>example.com:443 vmess tls</code>即可</p>
+<p>转载自：</p>
+<p><a href="https://guide.v2fly.org/advanced/tcp_tls_shunt_proxy.html#实现" target="_blank" rel="noopener">https://guide.v2fly.org/advanced/tcp_tls_shunt_proxy.html#%E5%AE%9E%E7%8E%B0</a></p>
 ]]></content>
       <tags>
-        <tag>office</tag>
+        <tag>v2ray</tag>
       </tags>
   </entry>
   <entry>
@@ -958,69 +1089,21 @@
       </tags>
   </entry>
   <entry>
-    <title>v2ray快速上手全记录</title>
-    <url>/2020/04/23/v2ray%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E5%85%A8%E8%AE%B0%E5%BD%95/</url>
-    <content><![CDATA[<p>快速上手v2ray</p>
+    <title>Outline软件使用全记录</title>
+    <url>/2020/01/04/%E4%BD%BF%E7%94%A8Outline%20App%E8%BF%9B%E8%A1%8C%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/</url>
+    <content><![CDATA[<p>Outline软件使用全记录</p>
 <a id="more"></a>
 
-<h5 id="1-下载并运行脚本"><a href="#1-下载并运行脚本" class="headerlink" title="1.下载并运行脚本"></a>1.下载并运行脚本</h5><p>需要先安装curl：<code>apt-get install curl</code></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">bash &lt;(curl -L -s https://install.direct/go.sh)</span><br></pre></td></tr></table></figure>
+<h5 id="1-如果是苹果手机，首先需要下载一个工具"><a href="#1-如果是苹果手机，首先需要下载一个工具" class="headerlink" title="1.如果是苹果手机，首先需要下载一个工具."></a>1.如果是苹果手机，首先需要下载一个工具.</h5><p>国区现在全面下架代理工具，需要一个港区或者美区ID进行下载，大多是软件收费，少数软件免费但是有广告。楼主偶然发现了一个国区也可以用的代理工具：</p>
+<p><a href="https://apps.apple.com/cn/app/outline-app/id1356177741" target="_blank" rel="noopener">https://apps.apple.com/cn/app/outline-app/id1356177741</a></p>
+<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/1.png" alt="1.png"></p>
+<h5 id="2-购买相应服务后就可以使用了"><a href="#2-购买相应服务后就可以使用了" class="headerlink" title="2.购买相应服务后就可以使用了."></a>2.购买相应服务后就可以使用了.</h5><p>楼主提供了一个免费节点，复制以下链接，点击小钥匙，选择允许添加VPN配置就可以免费使用啦</p>
+<img src="https://cdn.jsdelivr.net/gh/wf09/upload/2.jpg" alt="2.jpg" style="zoom:33%;" />
 
-<p>安装完毕后使用以下命令启动</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo systemctl start v2ray</span><br></pre></td></tr></table></figure>
-
-<p>以服务方式启动，开机自启动</p>
-<h5 id="2-caddy-websockset"><a href="#2-caddy-websockset" class="headerlink" title="2.caddy+websockset"></a>2.caddy+websockset</h5><h6 id="2-1服务端"><a href="#2-1服务端" class="headerlink" title="2.1服务端"></a>2.1服务端</h6><p>安装caddy：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">wget https://git.io/vra5C -O - -o /dev/null|bash</span><br></pre></td></tr></table></figure>
-
-<p><strong>注意：</strong>安装证书时需要查看端口是否占用</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">lsof -i:443</span><br></pre></td></tr></table></figure>
-
-<p>编辑v2ray配置文件：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vim /etc/v2ray/config.json</span><br></pre></td></tr></table></figure>
-
-<p>最简单的配置文件：</p>
-<figure class="highlight json"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line"> <span class="attr">"log"</span>: &#123;</span><br><span class="line">    <span class="attr">"loglevel"</span>: <span class="string">"warning"</span>,</span><br><span class="line">    <span class="attr">"access"</span>: <span class="string">"/var/log/v2ray/access.log"</span>,</span><br><span class="line">    <span class="attr">"error"</span>: <span class="string">"/var/log/v2ray/error.log"</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">"inbounds"</span>: [</span><br><span class="line">&#123;</span><br><span class="line">    <span class="attr">"port"</span>: <span class="number">10000</span>,  <span class="comment">//端口号</span></span><br><span class="line">    <span class="attr">"listen"</span>:<span class="string">"127.0.0.1"</span>,  <span class="comment">//默认只监听内网ip</span></span><br><span class="line">    <span class="attr">"protocol"</span>: <span class="string">"vmess"</span>,  <span class="comment">//加密协议</span></span><br><span class="line">    <span class="attr">"settings"</span>: &#123;</span><br><span class="line">      <span class="attr">"clients"</span>: [</span><br><span class="line">        &#123;</span><br><span class="line">          <span class="attr">"id"</span>: <span class="string">"c4ef8fef-91b9-4f84-8b81-8aae98f3b7f9"</span>,    <span class="comment">//uuid</span></span><br><span class="line">          <span class="attr">"alterId"</span>: <span class="number">32</span> <span class="comment">//附加id</span></span><br><span class="line">        &#125;</span><br><span class="line">      ]</span><br><span class="line">    &#125;,</span><br><span class="line">   <span class="attr">"streamSettings"</span>: &#123;</span><br><span class="line">        <span class="attr">"network"</span>:<span class="string">"ws"</span>,  <span class="comment">//传输方式</span></span><br><span class="line">        <span class="attr">"wsSettings"</span>: &#123;</span><br><span class="line">        <span class="attr">"path"</span>: <span class="string">"/app"</span>  <span class="comment">//分流路径</span></span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line"> &#125;</span><br><span class="line">],</span><br><span class="line">  <span class="attr">"outbounds"</span>: [</span><br><span class="line">&#123;</span><br><span class="line">    <span class="attr">"protocol"</span>: <span class="string">"freedom"</span>,</span><br><span class="line">    <span class="attr">"settings"</span>: &#123;&#125;</span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>配置文件下载：<code>https://ftp.fly97.cn/configuration/config.json</code></p>
-<p>编辑caddy配置文件：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">caddy edit</span><br></pre></td></tr></table></figure>
-
-<p>最简单的caddy配置文件：</p>
-<figure class="highlight makefile"><table><tr><td class="code"><pre><span class="line"><span class="section">http://yoursite &#123;</span></span><br><span class="line">        root /var/caddywww/</span><br><span class="line">        gzip</span><br><span class="line">        tls off</span><br><span class="line">        log /var/log/caddy/access.log</span><br><span class="line">        errors /var/log/caddy/error.log</span><br><span class="line">        proxy /app localhost:10000 &#123;</span><br><span class="line">        websocket</span><br><span class="line">        header_upstream -Origin</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>配置文件下载：<code>https://ftp.fly97.cn/configuration/Caddyfile</code></p>
-<h6 id="2-2客户端"><a href="#2-2客户端" class="headerlink" title="2.2客户端"></a>2.2客户端</h6><p>建议使用clash，支持win和安卓平台</p>
-<p>win平台：</p>
-<p><a href="https://github.com/Fndroid/clash_for_windows_pkg/releases" target="_blank" rel="noopener">https://github.com/Fndroid/clash_for_windows_pkg/releases</a></p>
-<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200423211355498.png" alt="image-20200423211355498"></p>
-<p>其中配置文件需要自己编写，支持快速分流。</p>
-<p>重点介绍以下v2ray部分的配置文件。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># Will be ignored after profile selection</span><br><span class="line">Proxy:</span><br><span class="line">  - name: gost</span><br><span class="line">    type: socks5</span><br><span class="line">    server: 127.0.0.1</span><br><span class="line">    port: 1080</span><br><span class="line">  - name: v2ray</span><br><span class="line">    type: vmess</span><br><span class="line">    server: yoursite</span><br><span class="line">    uuid: &quot;c4ef8fef-91b9-4f84-8b81-8aae98f3b7f9&quot;</span><br><span class="line">    port: 80</span><br><span class="line">    cipher: &quot;auto&quot;</span><br><span class="line">    udp: false</span><br><span class="line">    network: ws</span><br><span class="line">    ws-path: &quot;&#x2F;app&quot;</span><br><span class="line">    tls: false</span><br><span class="line">    alterId: 32</span><br><span class="line">Proxy Group:</span><br><span class="line">  - name: Proxy</span><br><span class="line">    type: select</span><br><span class="line">    proxies:</span><br><span class="line">      - gost</span><br><span class="line">      - v2ray</span><br><span class="line">Rule:</span><br><span class="line">- DOMAIN-SUFFIX,aliyun,Proxy</span><br><span class="line">- DOMAIN,fly97.cn,Proxy</span><br><span class="line">- DOMAIN-SUFFIX,alibabacloud,Proxy</span><br><span class="line">- DOMAIN-SUFFIX,cn,DIRECT</span><br><span class="line"></span><br><span class="line"># ad tracks</span><br><span class="line">- DOMAIN,graph.instagram.com,DIRECT</span><br><span class="line">- DOMAIN,www.googleadservices.com,DIRECT</span><br><span class="line">- DOMAIN,control.kochava.com,DIRECT</span><br><span class="line">- DOMAIN,www.google-analytics.com,DIRECT</span><br><span class="line">- DOMAIN,ssl.google-analytics.com,DIRECT</span><br><span class="line">- DOMAIN,nexus.officeapps.live.com,DIRECT</span><br><span class="line">- DOMAIN,googleads.g.doubleclick.net,DIRECT</span><br><span class="line">- DOMAIN,e.crashlytics.com,DIRECT</span><br><span class="line">- DOMAIN,ib.adnxs.com,DIRECT</span><br><span class="line">- DOMAIN-SUFFIX,googlesyndication.com,DIRECT</span><br><span class="line">- DOMAIN-SUFFIX,googletagmanager.com,DIRECT</span><br><span class="line">- DOMAIN-SUFFIX,googletagservices.com,DIRECT</span><br><span class="line">- DOMAIN,safebrowsing.googleapis.com,DIRECT</span><br><span class="line"></span><br><span class="line">- DOMAIN,google.com,Proxy</span><br><span class="line">- DOMAIN-KEYWORD,paypal,DIRECT</span><br><span class="line">- DOMAIN-SUFFIX,google.com,Proxy</span><br><span class="line">- DOMAIN-KEYWORD,facebook,Proxy</span><br><span class="line">- DOMAIN-SUFFIX,fb.me,Proxy</span><br><span class="line">- DOMAIN-SUFFIX,fbcdn.net,Proxy</span><br><span class="line">- DOMAIN-KEYWORD,gmail,Proxy</span><br><span class="line">- DOMAIN-KEYWORD,twitter,Proxy</span><br><span class="line">- DOMAIN-KEYWORD,instagram,Proxy</span><br><span class="line">- DOMAIN-SUFFIX,twimg.com,Proxy</span><br><span class="line">- DOMAIN-KEYWORD,blogspot,Proxy</span><br><span class="line">- DOMAIN-KEYWORD,whatsapp,Proxy</span><br><span class="line">- DOMAIN-KEYWORD,scholar,Proxy</span><br><span class="line">- DOMAIN-KEYWORD,glados,Proxy</span><br><span class="line">- DOMAIN-KEYWORD,mailgun,Proxy</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">- DOMAIN-KEYWORD,weibo,DIRECT</span><br><span class="line">- DOMAIN-KEYWORD,hostloc,DIRECT</span><br></pre></td></tr></table></figure>
-
-<h5 id="3-caddy-websocket-tls"><a href="#3-caddy-websocket-tls" class="headerlink" title="3.caddy+websocket+tls"></a>3.caddy+websocket+tls</h5><p>首先第二步中服务器端口换成443</p>
-<p>其次更改caddy配置文件</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">https:&#x2F;&#x2F;yoursite &#123;</span><br><span class="line">        root &#x2F;var&#x2F;caddywww&#x2F;</span><br><span class="line">        gzip</span><br><span class="line">        tls yoursite@mail</span><br><span class="line">        log &#x2F;var&#x2F;log&#x2F;caddy&#x2F;access.log</span><br><span class="line">        errors &#x2F;var&#x2F;log&#x2F;caddy&#x2F;error.log</span><br><span class="line">        proxy &#x2F;app localhost:10000 &#123;</span><br><span class="line">        websocket</span><br><span class="line">        header_upstream -Origin</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h5 id="4-caddy-tls-web"><a href="#4-caddy-tls-web" class="headerlink" title="4.caddy+tls+web"></a>4.caddy+tls+web</h5><p>优点：减少tls握手时间</p>
-<h6 id="安装tls分流器"><a href="#安装tls分流器" class="headerlink" title="安装tls分流器"></a>安装tls分流器</h6><p>对于 linux-amd64 可以使用脚本安装，以 root 身份执行以下命令：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">bash &lt;(curl -L -s https://raw.githubusercontent.com/liberal-boy/tls-shunt-proxy/master/dist/install.sh)</span><br></pre></td></tr></table></figure>
-
-<p>配置文件位于：<code>/etc/tls-shunt-proxy/config.yaml</code></p>
-<p>项目地址：<a href="https://github.com/liberal-boy/tls-shunt-proxy" target="_blank" rel="noopener">https://github.com/liberal-boy/tls-shunt-proxy</a></p>
-<h6 id="修改分流器配置文件"><a href="#修改分流器配置文件" class="headerlink" title="修改分流器配置文件"></a>修改分流器配置文件</h6><figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">listen:</span> <span class="number">0.0</span><span class="number">.0</span><span class="number">.0</span><span class="string">:443</span></span><br><span class="line"><span class="attr">vhosts:</span></span><br><span class="line">    <span class="comment"># 将 example.com 改为你的域名</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">example.com</span></span><br><span class="line">    <span class="attr">tlsoffloading:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">managedcert:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">alpn:</span> <span class="string">h2,http/1.1</span></span><br><span class="line">    <span class="comment"># 如果不需要兼容 tls12, 可改为 tls13</span></span><br><span class="line">    <span class="attr">protocols:</span> <span class="string">tls12,tls13</span></span><br><span class="line">    <span class="attr">http:</span></span><br><span class="line">      <span class="attr">handler:</span> <span class="string">fileServer</span></span><br><span class="line">      <span class="comment"># /var/www/html 是静态网站目录</span></span><br><span class="line">      <span class="attr">args:</span> <span class="string">/var/www/html</span></span><br><span class="line">    <span class="attr">default:</span></span><br><span class="line">      <span class="attr">handler:</span> <span class="string">proxyPass</span></span><br><span class="line">      <span class="attr">args:</span> <span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span><span class="string">:40001</span></span><br></pre></td></tr></table></figure>
-
-<h6 id="修改v2ray配置文件"><a href="#修改v2ray配置文件" class="headerlink" title="修改v2ray配置文件"></a>修改v2ray配置文件</h6><p>编辑文件：<code>vim /etc/v2ray/config.json</code></p>
-<figure class="highlight json"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"inbounds"</span>: [</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="attr">"protocol"</span>: <span class="string">"vmess"</span>,</span><br><span class="line">            <span class="attr">"listen"</span>: <span class="string">"127.0.0.1"</span>,</span><br><span class="line">            <span class="attr">"port"</span>: <span class="number">40001</span>,</span><br><span class="line">            <span class="attr">"settings"</span>: &#123;</span><br><span class="line">                <span class="attr">"clients"</span>: [</span><br><span class="line">                    &#123;</span><br><span class="line">                        <span class="attr">"id"</span>: <span class="string">"f2435e5c-9ad9-4367-836a-8341117d0a5f"</span></span><br><span class="line">                    &#125;</span><br><span class="line">                ]</span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="attr">"streamSettings"</span>: &#123;</span><br><span class="line">                <span class="attr">"network"</span>: <span class="string">"tcp"</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    ],</span><br><span class="line">    <span class="attr">"outbounds"</span>: [</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="attr">"protocol"</span>: <span class="string">"freedom"</span></span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h6 id="重启服务"><a href="#重启服务" class="headerlink" title="重启服务"></a>重启服务</h6><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">systemctl restart tls-shunt-proxy</span><br><span class="line">systemctl restart v2ray</span><br></pre></td></tr></table></figure>
-
-<h6 id="客户端连接"><a href="#客户端连接" class="headerlink" title="客户端连接"></a>客户端连接</h6><p>客户端连接<code>example.com:443 vmess tls</code>即可</p>
-<p>转载自：</p>
-<p><a href="https://guide.v2fly.org/advanced/tcp_tls_shunt_proxy.html#实现" target="_blank" rel="noopener">https://guide.v2fly.org/advanced/tcp_tls_shunt_proxy.html#%E5%AE%9E%E7%8E%B0</a></p>
+<p><del>ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpOWkVyeFN3MTh5YmQ=@47.241.3.53:20650/?outline=1</del></p>
 ]]></content>
       <tags>
-        <tag>v2ray</tag>
+        <tag>Outline</tag>
       </tags>
   </entry>
   <entry>
@@ -1780,6 +1863,32 @@
       </tags>
   </entry>
   <entry>
+    <title>Office Tool Plus使用教程</title>
+    <url>/2020/05/11/office%E6%BF%80%E6%B4%BB%E6%95%99%E7%A8%8B/</url>
+    <content><![CDATA[<p>Office Tool Plus 使用教程</p>
+<a id="more"></a>
+
+<p>软件介绍：<a href="https://otp.landian.vip/zh-cn/" target="_blank" rel="noopener">https://otp.landian.vip/zh-cn/</a></p>
+<p>软件下载地址：<a href="https://download.coolhub.top/" target="_blank" rel="noopener">https://download.coolhub.top/</a></p>
+<p>备份地址：<a href="https://ftp.fly97.cn/windows/app/Office%20Tool%20v7.5.zip" target="_blank" rel="noopener">https://ftp.fly97.cn/windows/app/Office%20Tool%20v7.5.zip</a></p>
+<h4 id="1-选择安装产品"><a href="#1-选择安装产品" class="headerlink" title="1.选择安装产品"></a>1.选择安装产品</h4><p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200517194431639.png" alt="image-20200517194431639"></p>
+<p>注意：由于国内到微软的网络不稳定，建议<strong>部署模式</strong>选择<strong>下载后安装</strong>。耐心等待安装完毕即可。</p>
+<h4 id="2-激活office"><a href="#2-激活office" class="headerlink" title="2.激活office"></a>2.激活office</h4><p>首先，根据选择的类型选择对应的许可证。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200517194323507.png" alt="image-20200517194323507"></p>
+<p><del>然后，选择<strong>零售版</strong>安装的同学<strong>可能需要安装</strong>Office2019专业版特定的密钥：</del></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">NMMKJ-6RK4F-KMJVX-8D9MJ-6MWKP</span><br></pre></td></tr></table></figure>
+
+<p>最后，选择对应的KMS服务器。</p>
+<p>推荐使用：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">kms.moeclub.org</span><br></pre></td></tr></table></figure>
+
+<p>完。</p>
+]]></content>
+      <tags>
+        <tag>office</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>一键安装影梭脚本</title>
     <url>/2019/12/31/%E4%B8%80%E9%94%AE%E5%AE%89%E8%A3%85ShadowsocksR%E8%84%9A%E6%9C%AC/</url>
     <content><![CDATA[<h5 id="🐕头保命。"><a href="#🐕头保命。" class="headerlink" title="🐕头保命。"></a>🐕头保命。</h5><a id="more"></a>
@@ -1796,21 +1905,24 @@
       </tags>
   </entry>
   <entry>
-    <title>Outline软件使用全记录</title>
-    <url>/2020/01/04/%E4%BD%BF%E7%94%A8Outline%20App%E8%BF%9B%E8%A1%8C%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/</url>
-    <content><![CDATA[<p>Outline软件使用全记录</p>
+    <title>使用jsdelivrCDN加速github文件</title>
+    <url>/2020/06/20/%E4%BD%BF%E7%94%A8jsdelivrCDN%E5%8A%A0%E9%80%9Fgithub%E6%96%87%E4%BB%B6/</url>
+    <content><![CDATA[<p>jsDelivr 是国外的一家优秀的公共 CDN 服务提供商，也是首个「打通中国大陆（网宿公司运营）与海外的免费 CDN 服务」。</p>
 <a id="more"></a>
 
-<h5 id="1-如果是苹果手机，首先需要下载一个工具"><a href="#1-如果是苹果手机，首先需要下载一个工具" class="headerlink" title="1.如果是苹果手机，首先需要下载一个工具."></a>1.如果是苹果手机，首先需要下载一个工具.</h5><p>国区现在全面下架代理工具，需要一个港区或者美区ID进行下载，大多是软件收费，少数软件免费但是有广告。楼主偶然发现了一个国区也可以用的代理工具：</p>
-<p><a href="https://apps.apple.com/cn/app/outline-app/id1356177741" target="_blank" rel="noopener">https://apps.apple.com/cn/app/outline-app/id1356177741</a></p>
-<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/1.png" alt="1.png"></p>
-<h5 id="2-购买相应服务后就可以使用了"><a href="#2-购买相应服务后就可以使用了" class="headerlink" title="2.购买相应服务后就可以使用了."></a>2.购买相应服务后就可以使用了.</h5><p>楼主提供了一个免费节点，复制以下链接，点击小钥匙，选择允许添加VPN配置就可以免费使用啦</p>
-<img src="https://cdn.jsdelivr.net/gh/wf09/upload/2.jpg" alt="2.jpg" style="zoom:33%;" />
+<h3 id="jsDelivr-配置"><a href="#jsDelivr-配置" class="headerlink" title="jsDelivr 配置"></a>jsDelivr 配置</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">https:&#x2F;&#x2F;cdn.jsdelivr.net&#x2F;gh&#x2F;wf09&#x2F;upload@master&#x2F;1.png</span><br></pre></td></tr></table></figure>
 
-<p><del>ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpOWkVyeFN3MTh5YmQ=@47.241.3.53:20650/?outline=1</del></p>
+<p>其中：</p>
+<ul>
+<li><code>gh</code> 表示来自 Github 的仓库</li>
+<li><code>wf09/upload</code> 指的是用户名/仓库名</li>
+<li><code>master</code> 仓库的分支</li>
+<li><code>1.png</code>仓库下的具体文件</li>
+</ul>
 ]]></content>
       <tags>
-        <tag>Outline</tag>
+        <tag>jsdelivrCDN</tag>
+        <tag>github</tag>
       </tags>
   </entry>
   <entry>
@@ -1880,83 +1992,6 @@
         <tag>git</tag>
         <tag>SSH</tag>
         <tag>WSL</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>使用Windows git本地搭建hexo并推送至github</title>
-    <url>/2020/01/03/%E4%BD%BF%E7%94%A8Windows%20git%E6%9C%AC%E5%9C%B0%E6%90%AD%E5%BB%BAhexo%E5%B9%B6%E6%8E%A8%E9%80%81%E8%87%B3github/</url>
-    <content><![CDATA[<p>之前因为重装系统丢掉了已经搭建好的Hexo博客配置文件。经过这件事以后我深刻地记住了备份的重要性。趁着刚刚搭建完博客，于是写一篇文章水一下！</p>
-<a id="more"></a>
-
-<p>1.安装git软件</p>
-<p><a href="https://git-scm.com/downloads" target="_blank" rel="noopener">https://git-scm.com/downloads</a></p>
-<img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200119205126173.png" alt="image-20200119205126173" style="zoom: 50%;" />
-
-<p>注意：此步需要添加git到环境变量，<del>因为写这边文章时，笔者已经安装完成了。</del></p>
-<p>即最后一步添加路径时选择<code>Use Git from the Windows Command Prompt</code>，这样我们就可以直接在命令提示符里打开git了。</p>
-<p>2.安装nodejs </p>
-<p><a href="https://nodejs.org/dist/v13.6.0/node-v13.6.0-x64.msi" target="_blank" rel="noopener">https://nodejs.org/dist/v13.6.0/node-v13.6.0-x64.msi</a></p>
-<img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200119205441241.png" alt="image-20200119205441241" style="zoom:50%;" />
-
-<p>注意：此步需要添加nodejs到系统变量。</p>
-<p>安装完毕后打开cmd输入<code>node -v npm -v</code>。如果显示版本号就说明安装完成了。</p>
-<img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200119210346780.png" alt="image-20200119210346780" style="zoom:50%;" />
-
-<p>2.1给npm添加国内镜像源</p>
-<p>由于众所周知的原因，官方源如此缓慢，故使用阿里爸爸的源进行加速。</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm config <span class="built_in">set</span> registry https://registry.npm.taobao.org</span><br></pre></td></tr></table></figure>
-
-<p>3.安装hexo</p>
-<p>在合适的地方新建一个文件夹，用来存放自己的博客文件。比如我的博客文件都存放在</p>
-<p><code>C:\Users\wf09\Desktop\hexo</code></p>
-<p>在该目录下右键点击<code>Git Bash Here</code></p>
-<img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200119211049388.png" alt="image-20200119211049388" style="zoom:50%;" />
-
-<p>在git命令行下依次输入以下命令：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install hexo-cli -g             <span class="comment">#安装hexo相关组件</span></span><br><span class="line">hexo -v                             <span class="comment">#检查是否安装完成</span></span><br><span class="line">hexo init                           <span class="comment">#初始化hexo博客目录</span></span><br><span class="line">npm install                         <span class="comment">#安装相关依赖</span></span><br><span class="line">npm install hexo-server --save      <span class="comment">#安装hexo服务器模块</span></span><br></pre></td></tr></table></figure>
-
-<p>安装完成后，输入<code>hexo s</code>命令以启动服务器，网站会在 <code>http://localhost:4000</code>下启动。在服务器启动期间，Hexo会监视文件变动并自动更新，无须重启服务器。</p>
-<p>可以通过 <code>-p</code> 选项指定其他端口。</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo server -p 5000</span><br></pre></td></tr></table></figure>
-
-<p>此时打开<code>http://localhost:4000</code>就可以成功启动网站了。</p>
-<p>4.推送本地网页到Github</p>
-<p>4.1链接Github</p>
-<p>右键打开<code>Git Bash</code>，输入以下命令：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git config --global user.name <span class="string">"username"</span></span><br><span class="line">git config --global user.email <span class="string">"username@your.site"</span></span><br></pre></td></tr></table></figure>
-
-<p>用户名和邮件根据你注册GitHub的信息自行修改。</p>
-<p>输入以下命令以生成SSH key：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ssh-keygen -t rsa -C <span class="string">"username@your.site"</span></span><br></pre></td></tr></table></figure>
-
-<p>打开<a href="https://link.zhihu.com/?target=http%3A//github.com/">github</a>，在头像下面点击<code>settings</code>，再点击<code>SSH and GPG keys</code>，新建一个SSH，名称任意。</p>
-<p><code>Git Bash</code> 中输入：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cat ~/.ssh/id_rsa.pub</span><br></pre></td></tr></table></figure>
-
-<p>将输出的内容复制到框中，点击确定保存。</p>
-<p>输入以下命令：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure>
-
-<p>如果出现一个警告，输入<code>yes</code>回车并忽略他就好。</p>
-<p>如果回车看到：<strong>You’ve successfully authenticated, but GitHub does not provide shell access</strong> 。表示已成功连上github。</p>
-<p>4.2设置hexo使其可以把网站发布在GitHub</p>
-<p>打开博客根目录下的<code>_config.yml</code>文件：</p>
-<p>找到以下配置</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  <span class="built_in">type</span>: git</span><br><span class="line">  repository: git@github.com:yourname/yourname.github.io</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
-
-<p>默认分支是<code>master</code></p>
-<p>在博客根目录下打开<code>Git Bash</code>，安装一个插件：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
-
-<p>然后输入<code>hexo new post &quot;article title&quot;</code>，新建一篇文章。</p>
-<p>打开你的<code>博客根目录\source\_posts</code>，会发现多了一个文件夹和一个markdown文件。文件夹用于存放图片等数据。</p>
-<p>写完markdown文件后，依次输入：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo g                   <span class="comment">#生成静态网页</span></span><br><span class="line">hexo s                   <span class="comment">#本地预览效果</span></span><br><span class="line">hexo d                   <span class="comment">#把网页推送到GitHub</span></span><br></pre></td></tr></table></figure>
-
-<p>此时打开你的<code>github.io</code>主页就可以看到发布的文章了。</p>
-]]></content>
-      <tags>
-        <tag>git</tag>
       </tags>
   </entry>
   <entry>
@@ -2055,24 +2090,80 @@
       </tags>
   </entry>
   <entry>
-    <title>使用jsdelivrCDN加速github文件</title>
-    <url>/2020/06/20/%E4%BD%BF%E7%94%A8jsdelivrCDN%E5%8A%A0%E9%80%9Fgithub%E6%96%87%E4%BB%B6/</url>
-    <content><![CDATA[<p>jsDelivr 是国外的一家优秀的公共 CDN 服务提供商，也是首个「打通中国大陆（网宿公司运营）与海外的免费 CDN 服务」。</p>
+    <title>使用Windows git本地搭建hexo并推送至github</title>
+    <url>/2020/01/03/%E4%BD%BF%E7%94%A8Windows%20git%E6%9C%AC%E5%9C%B0%E6%90%AD%E5%BB%BAhexo%E5%B9%B6%E6%8E%A8%E9%80%81%E8%87%B3github/</url>
+    <content><![CDATA[<p>之前因为重装系统丢掉了已经搭建好的Hexo博客配置文件。经过这件事以后我深刻地记住了备份的重要性。趁着刚刚搭建完博客，于是写一篇文章水一下！</p>
 <a id="more"></a>
 
-<h3 id="jsDelivr-配置"><a href="#jsDelivr-配置" class="headerlink" title="jsDelivr 配置"></a>jsDelivr 配置</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">https:&#x2F;&#x2F;cdn.jsdelivr.net&#x2F;gh&#x2F;wf09&#x2F;upload@master&#x2F;1.png</span><br></pre></td></tr></table></figure>
+<p>1.安装git软件</p>
+<p><a href="https://git-scm.com/downloads" target="_blank" rel="noopener">https://git-scm.com/downloads</a></p>
+<img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200119205126173.png" alt="image-20200119205126173" style="zoom: 50%;" />
 
-<p>其中：</p>
-<ul>
-<li><code>gh</code> 表示来自 Github 的仓库</li>
-<li><code>wf09/upload</code> 指的是用户名/仓库名</li>
-<li><code>master</code> 仓库的分支</li>
-<li><code>1.png</code>仓库下的具体文件</li>
-</ul>
+<p>注意：此步需要添加git到环境变量，<del>因为写这边文章时，笔者已经安装完成了。</del></p>
+<p>即最后一步添加路径时选择<code>Use Git from the Windows Command Prompt</code>，这样我们就可以直接在命令提示符里打开git了。</p>
+<p>2.安装nodejs </p>
+<p><a href="https://nodejs.org/dist/v13.6.0/node-v13.6.0-x64.msi" target="_blank" rel="noopener">https://nodejs.org/dist/v13.6.0/node-v13.6.0-x64.msi</a></p>
+<img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200119205441241.png" alt="image-20200119205441241" style="zoom:50%;" />
+
+<p>注意：此步需要添加nodejs到系统变量。</p>
+<p>安装完毕后打开cmd输入<code>node -v npm -v</code>。如果显示版本号就说明安装完成了。</p>
+<img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200119210346780.png" alt="image-20200119210346780" style="zoom:50%;" />
+
+<p>2.1给npm添加国内镜像源</p>
+<p>由于众所周知的原因，官方源如此缓慢，故使用阿里爸爸的源进行加速。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm config <span class="built_in">set</span> registry https://registry.npm.taobao.org</span><br></pre></td></tr></table></figure>
+
+<p>3.安装hexo</p>
+<p>在合适的地方新建一个文件夹，用来存放自己的博客文件。比如我的博客文件都存放在</p>
+<p><code>C:\Users\wf09\Desktop\hexo</code></p>
+<p>在该目录下右键点击<code>Git Bash Here</code></p>
+<img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200119211049388.png" alt="image-20200119211049388" style="zoom:50%;" />
+
+<p>在git命令行下依次输入以下命令：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install hexo-cli -g             <span class="comment">#安装hexo相关组件</span></span><br><span class="line">hexo -v                             <span class="comment">#检查是否安装完成</span></span><br><span class="line">hexo init                           <span class="comment">#初始化hexo博客目录</span></span><br><span class="line">npm install                         <span class="comment">#安装相关依赖</span></span><br><span class="line">npm install hexo-server --save      <span class="comment">#安装hexo服务器模块</span></span><br></pre></td></tr></table></figure>
+
+<p>安装完成后，输入<code>hexo s</code>命令以启动服务器，网站会在 <code>http://localhost:4000</code>下启动。在服务器启动期间，Hexo会监视文件变动并自动更新，无须重启服务器。</p>
+<p>可以通过 <code>-p</code> 选项指定其他端口。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo server -p 5000</span><br></pre></td></tr></table></figure>
+
+<p>此时打开<code>http://localhost:4000</code>就可以成功启动网站了。</p>
+<p>4.推送本地网页到Github</p>
+<p>4.1链接Github</p>
+<p>右键打开<code>Git Bash</code>，输入以下命令：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git config --global user.name <span class="string">"username"</span></span><br><span class="line">git config --global user.email <span class="string">"username@your.site"</span></span><br></pre></td></tr></table></figure>
+
+<p>用户名和邮件根据你注册GitHub的信息自行修改。</p>
+<p>输入以下命令以生成SSH key：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ssh-keygen -t rsa -C <span class="string">"username@your.site"</span></span><br></pre></td></tr></table></figure>
+
+<p>打开<a href="https://link.zhihu.com/?target=http%3A//github.com/">github</a>，在头像下面点击<code>settings</code>，再点击<code>SSH and GPG keys</code>，新建一个SSH，名称任意。</p>
+<p><code>Git Bash</code> 中输入：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cat ~/.ssh/id_rsa.pub</span><br></pre></td></tr></table></figure>
+
+<p>将输出的内容复制到框中，点击确定保存。</p>
+<p>输入以下命令：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure>
+
+<p>如果出现一个警告，输入<code>yes</code>回车并忽略他就好。</p>
+<p>如果回车看到：<strong>You’ve successfully authenticated, but GitHub does not provide shell access</strong> 。表示已成功连上github。</p>
+<p>4.2设置hexo使其可以把网站发布在GitHub</p>
+<p>打开博客根目录下的<code>_config.yml</code>文件：</p>
+<p>找到以下配置</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  <span class="built_in">type</span>: git</span><br><span class="line">  repository: git@github.com:yourname/yourname.github.io</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
+
+<p>默认分支是<code>master</code></p>
+<p>在博客根目录下打开<code>Git Bash</code>，安装一个插件：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+
+<p>然后输入<code>hexo new post &quot;article title&quot;</code>，新建一篇文章。</p>
+<p>打开你的<code>博客根目录\source\_posts</code>，会发现多了一个文件夹和一个markdown文件。文件夹用于存放图片等数据。</p>
+<p>写完markdown文件后，依次输入：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo g                   <span class="comment">#生成静态网页</span></span><br><span class="line">hexo s                   <span class="comment">#本地预览效果</span></span><br><span class="line">hexo d                   <span class="comment">#把网页推送到GitHub</span></span><br></pre></td></tr></table></figure>
+
+<p>此时打开你的<code>github.io</code>主页就可以看到发布的文章了。</p>
 ]]></content>
       <tags>
-        <tag>jsdelivrCDN</tag>
-        <tag>github</tag>
+        <tag>git</tag>
       </tags>
   </entry>
   <entry>
@@ -2161,6 +2252,16 @@
       </tags>
   </entry>
   <entry>
+    <title>升级pip</title>
+    <url>/2020/05/27/%E5%8D%87%E7%BA%A7pip/</url>
+    <content><![CDATA[<p>安装pip：<code>apt install python3-pip</code></p>
+<p>升级pip：<code>python -m pip install --upgrade pip</code></p>
+]]></content>
+      <tags>
+        <tag>pip</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>初探卷积神经网络01</title>
     <url>/2020/05/29/%E5%88%9D%E6%8E%A2%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C01/</url>
     <content><![CDATA[<p>使用Pytorch进行MNIST识别</p>
@@ -2185,16 +2286,6 @@
         <tag>Pytorch</tag>
         <tag>CNN</tag>
         <tag>MNIST</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>升级pip</title>
-    <url>/2020/05/27/%E5%8D%87%E7%BA%A7pip/</url>
-    <content><![CDATA[<p>安装pip：<code>apt install python3-pip</code></p>
-<p>升级pip：<code>python -m pip install --upgrade pip</code></p>
-]]></content>
-      <tags>
-        <tag>pip</tag>
       </tags>
   </entry>
 </search>
