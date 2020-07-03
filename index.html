@@ -19,7 +19,7 @@
 <script id="hexo-configurations">
   var NexT = window.NexT || {};
   var CONFIG = {
-    hostname: new URL('http://wf09.github.io').hostname,
+    hostname: new URL('http://fly97.cn').hostname,
     root: '/',
     scheme: 'Mist',
     version: '7.7.0',
@@ -48,15 +48,16 @@
 
   <meta name="description" content="你不是我 怎么可能做到感同身受">
 <meta property="og:type" content="website">
-<meta property="og:title" content="fly97&#39;s blogs">
-<meta property="og:url" content="http://wf09.github.io/index.html">
-<meta property="og:site_name" content="fly97&#39;s blogs">
+<meta property="og:title" content="个人随想">
+<meta property="og:url" content="http://fly97.cn/index.html">
+<meta property="og:site_name" content="个人随想">
 <meta property="og:description" content="你不是我 怎么可能做到感同身受">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:author" content="fly97">
+<meta property="article:tag" content="fly97&#39;s blogs">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://wf09.github.io/">
+<link rel="canonical" href="http://fly97.cn/">
 
 
 <script id="page-configurations">
@@ -68,7 +69,7 @@
   };
 </script>
 
-  <title>fly97's blogs</title>
+  <title>个人随想</title>
   
 
 
@@ -112,7 +113,7 @@
     <div>
       <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">fly97's blogs</span>
+        <span class="site-title">个人随想</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
@@ -204,7 +205,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://wf09.github.io/2020/06/28/%E9%98%BF%E9%87%8C%E4%BA%91%E8%BD%BB%E9%87%8F%E5%BA%94%E7%94%A8%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%B5%8B%E8%AF%84/">
+    <link itemprop="mainEntityOfPage" href="http://fly97.cn/2020/06/30/Tkinter%E4%B8%BA%E9%AA%8C%E8%AF%81%E5%87%BD%E6%95%B0%E6%8F%90%E4%BE%9B%E7%9A%84%E4%B8%80%E4%BA%9B%E9%A2%9D%E5%A4%96%E9%80%89%E9%A1%B9/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -213,12 +214,12 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="fly97's blogs">
+      <meta itemprop="name" content="个人随想">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/2020/06/28/%E9%98%BF%E9%87%8C%E4%BA%91%E8%BD%BB%E9%87%8F%E5%BA%94%E7%94%A8%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%B5%8B%E8%AF%84/" class="post-title-link" itemprop="url">阿里云服务器测评：1CPU/1GB内存/25GB硬盘/30Mbps/轻量应用服务器</a>
+            <a href="/2020/06/30/Tkinter%E4%B8%BA%E9%AA%8C%E8%AF%81%E5%87%BD%E6%95%B0%E6%8F%90%E4%BE%9B%E7%9A%84%E4%B8%80%E4%BA%9B%E9%A2%9D%E5%A4%96%E9%80%89%E9%A1%B9/" class="post-title-link" itemprop="url">Tkinter为验证函数提供的一些额外选项</a>
         </h1>
 
         <div class="post-meta">
@@ -229,7 +230,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2020-06-28 15:15:00 / 修改时间：16:28:35" itemprop="dateCreated datePublished" datetime="2020-06-28T15:15:00+08:00">2020-06-28</time>
+              <time title="创建时间：2020-06-30 13:54:00 / 修改时间：14:23:24" itemprop="dateCreated datePublished" datetime="2020-06-30T13:54:00+08:00">2020-06-30</time>
             </span>
 
           
@@ -243,16 +244,80 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>​    阿里云计算，<code>Alibaba Cloud</code>，是一家提供云端运算服务的科技公司，创立于2009年9月，为阿里巴巴集团全资所有。阿里云计算公司总部位于杭州，在北京和硅谷等地设有研发中心和运营机构，涉及云计算的产品与服务。至2018年上半年，公有云<code>IaaS</code>厂商全球市场份额阿里云排名第三，仅次于<code>AWS</code>和<code>Azure</code>。</p>
-<p>​    阿里云提供的轻量应用服务器，24元/月，CPU为1核，内存大小为<code>1GB</code>，SSD大小为<code>25GB</code>。峰值带宽限制在<code>30Mbps</code>，每月流量为<code>1TB</code>。最近都说阿里云线路变得越来越差了，小编也凑了个热闹，赶紧开了一台看看线路究竟如何。下面跟随小编来看一下如何创建轻量应用服务器吧~</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/06/28/%E9%98%BF%E9%87%8C%E4%BA%91%E8%BD%BB%E9%87%8F%E5%BA%94%E7%94%A8%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%B5%8B%E8%AF%84/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
+          <table>
+<thead>
+<tr>
+<th>选项</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>‘%d’</td>
+<td>操作代码：0表示删除操作；1表示插入操作；2表示获得、失去焦点或者<code>textvariable</code>变量的值被修改</td>
+</tr>
+<tr>
+<td>‘%i’</td>
+<td>当用户尝试插入或者删除操作时，该选项表示插入或者删除的位置(索引号)，如果是由于获得、失去焦点或<code>textvarible</code>变量的值被修改而调用验证函数，那么该值是-1</td>
+</tr>
+<tr>
+<td>‘%P’</td>
+<td>当输入框的值允许改变的时候，该值有效。该值作为输入框的最新文本内容。</td>
+</tr>
+<tr>
+<td>‘%s’</td>
+<td>该值为调用验证函数前输入框的文本内容</td>
+</tr>
+<tr>
+<td>‘%S’</td>
+<td>当插入或者删除操作触发验证函数时，该值有效。该选项表示文本被插入和删除的内容</td>
+</tr>
+<tr>
+<td>‘%v’</td>
+<td>该组件当前validate选项的值</td>
+</tr>
+<tr>
+<td>‘%V’</td>
+<td>调用该验证函数的原因。该值是’focusin’、’focusout’、’key’或’forced’（textvariable选项指定的变量值被修改）中的一个</td>
+</tr>
+<tr>
+<td>‘%W’</td>
+<td>该组件的名字</td>
+</tr>
+</tbody></table>
+<p>启用验证的开关是validate选项，该选项可以设置的值如下表所示</p>
+<table>
+<thead>
+<tr>
+<th>值</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>‘focus’</td>
+<td>当Entry组件获得或者失去焦点时候验证</td>
+</tr>
+<tr>
+<td>‘focusin’</td>
+<td>当Entry组件获得焦点的时候验证</td>
+</tr>
+<tr>
+<td>‘focusont’</td>
+<td>当Entry组件失去焦点的时候验证</td>
+</tr>
+<tr>
+<td>‘key’</td>
+<td>当输入框被编辑的时候验证</td>
+</tr>
+<tr>
+<td>‘all’</td>
+<td>当出现上面任何一种情况时验证</td>
+</tr>
+<tr>
+<td>‘none’</td>
+<td>关闭验证功能，默认设置。注意是字符串的<code>&#39;none&#39;</code>，而非<code>None</code></td>
+</tr>
+</tbody></table>
+
       
     </div>
 
@@ -271,7 +336,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://wf09.github.io/2020/06/28/AWS%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%B5%8B%E8%AF%84/">
+    <link itemprop="mainEntityOfPage" href="http://fly97.cn/2020/06/20/%E4%BD%BF%E7%94%A8jsdelivrCDN%E5%8A%A0%E9%80%9Fgithub%E6%96%87%E4%BB%B6/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -280,147 +345,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="fly97's blogs">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/06/28/AWS%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%B5%8B%E8%AF%84/" class="post-title-link" itemprop="url">AWS服务器测评：1CPU/1GB内存/7GB硬盘/EC2服务器</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2020-06-28 09:39:00 / 修改时间：15:14:47" itemprop="dateCreated datePublished" datetime="2020-06-28T09:39:00+08:00">2020-06-28</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>​    <code>Amazon Web Services (AWS)</code>亚马逊云计算服务，由亚马逊公司所创建的云计算平台，向个人、企业和政府提供一系列包括信息技术基础架构和应用的服务，如存储、数据库、计算、机器学习等等。AWS提供的大多数服务都使用按需付费的收费模式，按照用户使用资源的级别和时长收费。</p>
-<p>​    <code>AWS</code>提供免费的<code>EC2</code>实例，每月提供最多<code>750小时</code>的运行时间，<code>15GB</code>的流出流量，对于小流量玩家来说是绰绰有余。下面跟随小编来看一下如何创建EC2服务器吧~</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/06/28/AWS%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%B5%8B%E8%AF%84/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://wf09.github.io/2020/06/27/G-core%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%B5%8B%E8%AF%84/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="fly97">
-      <meta itemprop="description" content="你不是我 怎么可能做到感同身受">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="fly97's blogs">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/06/27/G-core%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%B5%8B%E8%AF%84/" class="post-title-link" itemprop="url">G-core服务器测评：1CPU/700MB内存/500MB带宽俄罗斯特价服务器</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-06-27 23:01:00" itemprop="dateCreated datePublished" datetime="2020-06-27T23:01:00+08:00">2020-06-27</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-06-28 09:27:25" itemprop="dateModified" datetime="2020-06-28T09:27:25+08:00">2020-06-28</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p><code>Gcore VPS</code>是一家来自俄罗斯的VPS主机商。Gcore VPS的机房遍布世界各地，主要有俄罗斯的莫斯科、伯力，韩国首尔，日本东京，美国芝加哥、迈阿密，以及澳大利亚悉尼、荷兰阿姆斯特丹、巴西圣保罗等。</p>
-<p>目前<code>Gcore</code>新出了一款仅需要月付88卢布，折合人民币不到10元的伯力节点的小号VPS，性价比非常的突出。这个机房电信联通直连，移动绕路的很厉害。这篇文章就来说说如何注册购买这款8元每月的服务器。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/06/27/G-core%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%B5%8B%E8%AF%84/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://wf09.github.io/2020/06/20/%E4%BD%BF%E7%94%A8jsdelivrCDN%E5%8A%A0%E9%80%9Fgithub%E6%96%87%E4%BB%B6/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="fly97">
-      <meta itemprop="description" content="你不是我 怎么可能做到感同身受">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="fly97's blogs">
+      <meta itemprop="name" content="个人随想">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
@@ -477,7 +402,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://wf09.github.io/2020/06/20/caddy%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97/">
+    <link itemprop="mainEntityOfPage" href="http://fly97.cn/2020/06/20/caddy%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -486,7 +411,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="fly97's blogs">
+      <meta itemprop="name" content="个人随想">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
@@ -543,7 +468,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://wf09.github.io/2020/06/12/linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%87%8D%E8%A3%85/">
+    <link itemprop="mainEntityOfPage" href="http://fly97.cn/2020/05/31/%E4%BD%BF%E7%94%A8WSL%E9%93%BE%E6%8E%A5Github%E4%BB%93%E5%BA%93/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -552,139 +477,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="fly97's blogs">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/06/12/linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%87%8D%E8%A3%85/" class="post-title-link" itemprop="url">Linux服务器重装</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2020-06-12 17:40:00 / 修改时间：17:50:57" itemprop="dateCreated datePublished" datetime="2020-06-12T17:40:00+08:00">2020-06-12</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h5 id="Linux服务器重装-升级"><a href="#Linux服务器重装-升级" class="headerlink" title="Linux服务器重装+升级"></a>Linux服务器重装+升级</h5>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/06/12/linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%87%8D%E8%A3%85/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://wf09.github.io/2020/06/12/Gost%E6%9C%8D%E5%8A%A1%E9%85%8D%E7%BD%AE%E6%8C%87%E5%8D%97/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="fly97">
-      <meta itemprop="description" content="你不是我 怎么可能做到感同身受">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="fly97's blogs">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/06/12/Gost%E6%9C%8D%E5%8A%A1%E9%85%8D%E7%BD%AE%E6%8C%87%E5%8D%97/" class="post-title-link" itemprop="url">Gost服务配置指南</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2020-06-12 17:17:00 / 修改时间：17:50:31" itemprop="dateCreated datePublished" datetime="2020-06-12T17:17:00+08:00">2020-06-12</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>gost服务操作指南</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/06/12/Gost%E6%9C%8D%E5%8A%A1%E9%85%8D%E7%BD%AE%E6%8C%87%E5%8D%97/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://wf09.github.io/2020/05/31/%E4%BD%BF%E7%94%A8WSL%E9%93%BE%E6%8E%A5Github%E4%BB%93%E5%BA%93/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="fly97">
-      <meta itemprop="description" content="你不是我 怎么可能做到感同身受">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="fly97's blogs">
+      <meta itemprop="name" content="个人随想">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
@@ -741,7 +534,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://wf09.github.io/2020/05/29/%E5%88%9D%E6%8E%A2%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C01/">
+    <link itemprop="mainEntityOfPage" href="http://fly97.cn/2020/05/29/%E5%88%9D%E6%8E%A2%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C01/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -750,7 +543,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="fly97's blogs">
+      <meta itemprop="name" content="个人随想">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
@@ -813,7 +606,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://wf09.github.io/2020/05/27/%E5%8D%87%E7%BA%A7pip/">
+    <link itemprop="mainEntityOfPage" href="http://fly97.cn/2020/05/27/%E5%8D%87%E7%BA%A7pip/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -822,7 +615,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="fly97's blogs">
+      <meta itemprop="name" content="个人随想">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
@@ -869,11 +662,287 @@
   
   
 
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://fly97.cn/2020/05/11/office%E6%BF%80%E6%B4%BB%E6%95%99%E7%A8%8B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="fly97">
+      <meta itemprop="description" content="你不是我 怎么可能做到感同身受">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="个人随想">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/05/11/office%E6%BF%80%E6%B4%BB%E6%95%99%E7%A8%8B/" class="post-title-link" itemprop="url">Office Tool Plus使用教程</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-05-11 12:52:00" itemprop="dateCreated datePublished" datetime="2020-05-11T12:52:00+08:00">2020-05-11</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-05-30 20:51:09" itemprop="dateModified" datetime="2020-05-30T20:51:09+08:00">2020-05-30</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>Office Tool Plus 使用教程</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/05/11/office%E6%BF%80%E6%B4%BB%E6%95%99%E7%A8%8B/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://fly97.cn/2020/05/11/%E4%BF%AE%E6%94%B9pip%E9%95%9C%E5%83%8F%E6%BA%90/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="fly97">
+      <meta itemprop="description" content="你不是我 怎么可能做到感同身受">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="个人随想">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/05/11/%E4%BF%AE%E6%94%B9pip%E9%95%9C%E5%83%8F%E6%BA%90/" class="post-title-link" itemprop="url">修改Pip镜像源</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-05-11 12:52:00" itemprop="dateCreated datePublished" datetime="2020-05-11T12:52:00+08:00">2020-05-11</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-05-27 14:58:13" itemprop="dateModified" datetime="2020-05-27T14:58:13+08:00">2020-05-27</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>修改pip镜像源</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/05/11/%E4%BF%AE%E6%94%B9pip%E9%95%9C%E5%83%8F%E6%BA%90/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://fly97.cn/2020/04/30/python%E5%AE%9E%E7%94%A8%E6%95%99%E7%A8%8B%E4%B9%8Bre%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%8C%B9%E9%85%8D/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="fly97">
+      <meta itemprop="description" content="你不是我 怎么可能做到感同身受">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="个人随想">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/04/30/python%E5%AE%9E%E7%94%A8%E6%95%99%E7%A8%8B%E4%B9%8Bre%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%8C%B9%E9%85%8D/" class="post-title-link" itemprop="url">python实用教程之re正则表达式匹配</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-04-30 21:35:00 / 修改时间：22:27:01" itemprop="dateCreated datePublished" datetime="2020-04-30T21:35:00+08:00">2020-04-30</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h4 id="1-正则表达式全集"><a href="#1-正则表达式全集" class="headerlink" title="1.正则表达式全集"></a>1.正则表达式全集</h4>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/04/30/python%E5%AE%9E%E7%94%A8%E6%95%99%E7%A8%8B%E4%B9%8Bre%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%8C%B9%E9%85%8D/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://fly97.cn/2020/04/24/Linux%E4%B9%8Bcrontab%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="fly97">
+      <meta itemprop="description" content="你不是我 怎么可能做到感同身受">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="个人随想">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/04/24/Linux%E4%B9%8Bcrontab%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/" class="post-title-link" itemprop="url">Linux之crontab定时任务</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-04-24 20:57:00 / 修改时间：21:19:17" itemprop="dateCreated datePublished" datetime="2020-04-24T20:57:00+08:00">2020-04-24</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>Linux中的crontab - - - -一个自定义定时器</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/04/24/Linux%E4%B9%8Bcrontab%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
   </div>
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -939,14 +1008,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">36</span>
+          <span class="site-state-item-count">24</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">43</span>
+        <span class="site-state-item-count">31</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -975,6 +1044,8 @@
     <footer class="footer">
       <div class="footer-inner">
         
+  <div class="beian"><a href="http://www.beian.miit.gov.cn/" rel="noopener" target="_blank">鲁ICP备19008796号-3 </a>
+  </div>
 
 <div class="copyright">
   

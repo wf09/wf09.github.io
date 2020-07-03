@@ -1,84 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>AWS服务器测评：1CPU/1GB内存/7GB硬盘/EC2服务器</title>
-    <url>/2020/06/28/AWS%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%B5%8B%E8%AF%84/</url>
-    <content><![CDATA[<p>​    <code>Amazon Web Services (AWS)</code>亚马逊云计算服务，由亚马逊公司所创建的云计算平台，向个人、企业和政府提供一系列包括信息技术基础架构和应用的服务，如存储、数据库、计算、机器学习等等。AWS提供的大多数服务都使用按需付费的收费模式，按照用户使用资源的级别和时长收费。</p>
-<p>​    <code>AWS</code>提供免费的<code>EC2</code>实例，每月提供最多<code>750小时</code>的运行时间，<code>15GB</code>的流出流量，对于小流量玩家来说是绰绰有余。下面跟随小编来看一下如何创建EC2服务器吧~</p>
-<a id="more"></a>
-
-<h3 id="注册"><a href="#注册" class="headerlink" title="注册"></a>注册</h3><p>​    官网：<a href="https://aws.amazon.com/cn/" target="_blank" rel="noopener">https://aws.amazon.com/cn/</a></p>
-<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200628094253416.png" alt=""></p>
-<p>点击创建<code>AWS</code>账户 注册账号。</p>
-<p>​    值得一提的是，这里需要需要<code>手机号验证</code>。实测国内号码可以通过验证，只是验证码接收时间可能有延迟。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200628094844523.png" alt="image-20200628094844523"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200628095020056.png" alt=""></p>
-<p>提交完会让你提交付款信息，实测<code>虚拟卡</code>可以通过验证。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200628095258851.png" alt="image-20200628095258851">这里小编使用了<code>中国银行</code>发行的<code>万事达莫奈信用卡</code>通过了验证。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/photo_2020-06-28_09-56-23.jpg" alt="photo_2020-06-28_09-56-23"></p>
-<p>为了防止流量超出导致扣费，小编这里建议将验证付款信息的<code>信用卡/虚拟卡锁死</code>。</p>
-<p>​    之后需要验证手机号。小编这里使用<code>Google Voice</code>虚拟手机号通过了验证。</p>
-<p>​    验证通过以后会收到<code>账户已就绪</code>的邮件。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200628100155068.png" alt="image-20200628100155068"></p>
-<p>接下来就可以登录控制台了。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200628100251112.png" alt="image-20200628100251112"></p>
-<p>登录界面如图。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200628100527640.png" alt="image-20200628100527640"></p>
-<h3 id="开通机器"><a href="#开通机器" class="headerlink" title="开通机器"></a>开通机器</h3><p>控制台如图所示。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200628100715857.png" alt="image-20200628100715857"></p>
-<p>这里选择<code>启动虚拟机</code>.</p>
-<p>​    注意：创建虚拟机之前记得右上角选好地区。如果开通<code>香港地区</code>的机器，需要先启用香港地区。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200628101320536.png" alt="image-20200628101320536">小编这里开通的是<code>东京</code>的机器。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200628101621772.png" alt="image-20200628101621772">注意选择<code>免费套餐</code>，不然会出现莫名扣费！</p>
-<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200628101800995.png" alt="image-20200628101800995">小编这里选择的<code>Ubuntu18.04</code>.</p>
-<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200628101859905.png" alt="image-20200628101859905">实例类型选择符合条件的免费套餐<code>t2.micro</code>。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200628102056495.png" alt="image-20200628102056495">点击下一步：添加存储.</p>
-<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200628102130375.png" alt="image-20200628102130375">点击下一步：添加标签.</p>
-<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200628102225553.png" alt="image-20200628102225553">继续选择配置安全组.</p>
-<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200628102248380.png" alt="image-20200628102248380">接下来是配置防火墙。小编一般喜欢允许所有流量，打开所有端口，在服务器上来管理防火墙。</p>
-<p>最后一步审核和启动。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200628102503138.png" alt="image-20200628102503138">确认无误点击启动。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200628102527840.png" alt="image-20200628102527840">EC2默认启用仅密钥方式登录。小编这里推荐这种方式，可以避免SSH被他人恶意登录。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200628102704020.png" alt="image-20200628102704020">点击下载密钥对。</p>
-<p>将下载的私钥导入到SSH登录管理页面中，小编这里使用的是<code>Termius</code>。该软件是收费的，使用通过<code>Github Education Pack</code>的Github账户可以免费使用1年。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200628103131871.png" alt="image-20200628103131871"></p>
-<p>导入完毕后选择启动实例。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200628103223715.png" alt="image-20200628103223715"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200628103412067.png" alt="image-20200628103412067">找到IP之后就可以在<code>Termius</code>中登录了。</p>
-<p>​    注意：使用<code>Ubuntu</code>操作系统，默认登录的用户名是<code>ubuntu</code>，<code>Debian</code>系统是<code>admin</code>。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200628103809123.png" alt="image-20200628103809123"></p>
-<h3 id="性能测试"><a href="#性能测试" class="headerlink" title="性能测试"></a>性能测试</h3><p>通过运行 <code>wget -qO- bench.sh | bash</code>来查看VPS的基本信息。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200628104019143.png" alt="image-20200628104019143">可见服务器IO较差。</p>
-<h3 id="下载测试"><a href="#下载测试" class="headerlink" title="下载测试"></a>下载测试</h3><p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200628105810226.png" alt="image-20200628105810226">结果出人意料，三网线路都不错。</p>
-<h3 id="去程回程"><a href="#去程回程" class="headerlink" title="去程回程"></a>去程回程</h3><p><strong>联通去程</strong></p>
-<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200628110013589.png" alt="image-20200628110013589"></p>
-<p><strong>联通回程</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">root@ip-172-31-39-68:/home/ubuntu<span class="comment"># ./besttrace 101.68.76.*</span></span><br><span class="line">traceroute to 101.68.76.* (101.68.76.*), 30 hops max, 60 byte packets</span><br><span class="line"> 1  ec2-54-150-128-27.ap-northeast-1.compute.amazonaws.com (54.150.128.27)  98.91 ms  AS16509  Japan Tokyo amazon.com</span><br><span class="line">    ec2-54-150-128-27.ap-northeast-1.compute.amazonaws.com (54.150.128.27)  3.66 ms  AS16509  Japan Tokyo amazon.com</span><br><span class="line">    ec2-54-150-128-27.ap-northeast-1.compute.amazonaws.com (54.150.128.27)  22.21 ms  AS16509  Japan Tokyo amazon.com</span><br><span class="line"> 2  *</span><br><span class="line">    *</span><br><span class="line">    *</span><br><span class="line"> 3  *</span><br><span class="line">    *</span><br><span class="line">    *</span><br><span class="line"> 4  *</span><br><span class="line">    *</span><br><span class="line">    *</span><br><span class="line"> 5  *</span><br><span class="line">    *</span><br><span class="line">    *</span><br><span class="line"> 6  *</span><br><span class="line">    *</span><br><span class="line">    *</span><br><span class="line"> 7  100.65.11.1  0.32 ms  *  Shared Address</span><br><span class="line">    100.65.11.1  0.40 ms  *  Shared Address</span><br><span class="line">    100.65.11.1  0.35 ms  *  Shared Address</span><br><span class="line"> 8  52.93.73.215  2.72 ms  *  Japan Tokyo amazon.com</span><br><span class="line">    52.93.73.215  2.80 ms  *  Japan Tokyo amazon.com</span><br><span class="line">    52.93.73.215  2.95 ms  *  Japan Tokyo amazon.com</span><br><span class="line"> 9  52.93.72.173  3.55 ms  *  Japan Tokyo amazon.com</span><br><span class="line">    52.93.72.173  3.12 ms  *  Japan Tokyo amazon.com</span><br><span class="line">    52.93.72.173  3.17 ms  *  Japan Tokyo amazon.com</span><br><span class="line">10  52.93.72.140  2.69 ms  *  Japan Tokyo amazon.com</span><br><span class="line">    52.93.72.140  2.71 ms  *  Japan Tokyo amazon.com</span><br><span class="line">    52.93.72.140  2.61 ms  *  Japan Tokyo amazon.com</span><br><span class="line">11  100.91.137.38  5.17 ms  *  Shared Address</span><br><span class="line">    100.91.137.38  3.11 ms  *  Shared Address</span><br><span class="line">    100.91.137.38  3.13 ms  *  Shared Address</span><br><span class="line">12  100.91.3.133  3.37 ms  *  Shared Address</span><br><span class="line">    100.91.3.133  7.23 ms  *  Shared Address</span><br><span class="line">    100.91.3.133  2.73 ms  *  Shared Address</span><br><span class="line">13  100.91.135.37  2.54 ms  *  Shared Address</span><br><span class="line">    100.91.135.37  2.51 ms  *  Shared Address</span><br><span class="line">    100.91.135.37  2.51 ms  *  Shared Address</span><br><span class="line">14  52.93.66.144  3.19 ms  *  Japan Tokyo amazon.com</span><br><span class="line">    52.93.66.144  3.29 ms  *  Japan Tokyo amazon.com</span><br><span class="line">    52.93.66.144  5.12 ms  *  Japan Tokyo amazon.com</span><br><span class="line">15  150.222.77.22  3.42 ms  *  Japan Tokyo amazon.com</span><br><span class="line">    150.222.77.22  9.20 ms  *  Japan Tokyo amazon.com</span><br><span class="line">    150.222.77.22  2.94 ms  *  Japan Tokyo amazon.com</span><br><span class="line">16  ae-10.r02.tokyjp08.jp.bb.gin.ntt.net (61.120.146.117)  3.37 ms  AS2914  Japan Tokyo ntt.com</span><br><span class="line">    ae-10.r02.tokyjp08.jp.bb.gin.ntt.net (61.120.146.117)  3.37 ms  AS2914  Japan Tokyo ntt.com</span><br><span class="line">    ae-10.r02.tokyjp08.jp.bb.gin.ntt.net (61.120.146.117)  3.62 ms  AS2914  Japan Tokyo ntt.com</span><br><span class="line">17  ae-6.r31.tokyjp05.jp.bb.gin.ntt.net (129.250.2.130)  3.45 ms  AS2914  Japan Tokyo ntt.com</span><br><span class="line">    ae-6.r31.tokyjp05.jp.bb.gin.ntt.net (129.250.2.130)  3.49 ms  AS2914  Japan Tokyo ntt.com</span><br><span class="line">    ae-6.r31.tokyjp05.jp.bb.gin.ntt.net (129.250.2.130)  3.48 ms  AS2914  Japan Tokyo ntt.com</span><br><span class="line">18  ae-11.r27.tokyjp05.jp.bb.gin.ntt.net (129.250.2.154)  115.10 ms  AS2914  Japan Tokyo ntt.com</span><br><span class="line">    ae-11.r27.tokyjp05.jp.bb.gin.ntt.net (129.250.2.154)  3.39 ms  AS2914  Japan Tokyo ntt.com</span><br><span class="line">    ae-11.r27.tokyjp05.jp.bb.gin.ntt.net (129.250.2.154)  3.41 ms  AS2914  Japan Tokyo ntt.com</span><br><span class="line">19  xe-2.cnc-g.tokyjp05.jp.bb.gin.ntt.net (129.250.8.214)  35.80 ms  AS2914  Japan Tokyo ntt.com</span><br><span class="line">    xe-2.cnc-g.tokyjp05.jp.bb.gin.ntt.net (129.250.8.214)  33.37 ms  AS2914  Japan Tokyo ntt.com</span><br><span class="line">    xe-2.cnc-g.tokyjp05.jp.bb.gin.ntt.net (129.250.8.214)  38.95 ms  AS2914  Japan Tokyo ntt.com</span><br><span class="line">20  219.158.19.78  32.02 ms  AS4837  China Shanghai ChinaUnicom</span><br><span class="line">    219.158.19.78  37.54 ms  AS4837  China Shanghai ChinaUnicom</span><br><span class="line">    219.158.19.78  35.24 ms  AS4837  China Shanghai ChinaUnicom</span><br><span class="line">21  219.158.19.69  32.31 ms  AS4837  China Shanghai ChinaUnicom</span><br><span class="line">    219.158.19.69  32.50 ms  AS4837  China Shanghai ChinaUnicom</span><br><span class="line">    *</span><br><span class="line">22  219.158.104.102  43.64 ms  AS4837  China Zhejiang Hangzhou ChinaUnicom</span><br><span class="line">    219.158.104.102  42.47 ms  AS4837  China Zhejiang Hangzhou ChinaUnicom</span><br><span class="line">    219.158.104.102  41.18 ms  AS4837  China Zhejiang Hangzhou ChinaUnicom</span><br><span class="line">23  101.68.76.*  41.41 ms  AS4837  China Zhejiang Hangzhou ChinaUnicom</span><br><span class="line">    101.68.76.*  41.53 ms  AS4837  China Zhejiang Hangzhou ChinaUnicom</span><br><span class="line">    101.68.76.*  41.43 ms  AS4837  China Zhejiang Hangzhou ChinaUnicom</span><br></pre></td></tr></table></figure>
-
-<p><strong>电信去程</strong></p>
-<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200628110524794.png" alt="image-20200628110524794"></p>
-<p><strong>电信回程</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">root@ip-172-31-39-68:/home/ubuntu<span class="comment"># ./besttrace 219.146.26.*</span></span><br><span class="line">traceroute to 219.146.26.* (219.146.26.*), 30 hops max, 60 byte packets</span><br><span class="line"> 1  ec2-54-150-128-21.ap-northeast-1.compute.amazonaws.com (54.150.128.21)  1.97 ms  AS16509  Japan Tokyo amazon.com</span><br><span class="line">    ec2-54-150-128-21.ap-northeast-1.compute.amazonaws.com (54.150.128.21)  7.90 ms  AS16509  Japan Tokyo amazon.com</span><br><span class="line">    ec2-54-150-128-21.ap-northeast-1.compute.amazonaws.com (54.150.128.21)  5.91 ms  AS16509  Japan Tokyo amazon.com</span><br><span class="line"> 2  *</span><br><span class="line">    *</span><br><span class="line">    *</span><br><span class="line"> 3  *</span><br><span class="line">    *</span><br><span class="line">    *</span><br><span class="line"> 4  *</span><br><span class="line">    *</span><br><span class="line">    *</span><br><span class="line"> 5  *</span><br><span class="line">    *</span><br><span class="line">    *</span><br><span class="line"> 6  *</span><br><span class="line">    *</span><br><span class="line">    *</span><br><span class="line"> 7  100.65.8.33  0.81 ms  *  Shared Address</span><br><span class="line">    100.65.8.33  0.53 ms  *  Shared Address</span><br><span class="line">    100.65.8.33  0.41 ms  *  Shared Address</span><br><span class="line"> 8  52.95.30.213  4.50 ms  AS16509  Japan Tokyo amazon.com</span><br><span class="line">    52.95.30.213  3.92 ms  AS16509  Japan Tokyo amazon.com</span><br><span class="line">    52.95.30.213  4.05 ms  AS16509  Japan Tokyo amazon.com</span><br><span class="line"> 9  52.95.31.129  7.80 ms  AS16509  Japan Tokyo amazon.com</span><br><span class="line">    52.95.31.129  5.08 ms  AS16509  Japan Tokyo amazon.com</span><br><span class="line">    52.95.31.129  5.28 ms  AS16509  Japan Tokyo amazon.com</span><br><span class="line">10  52.95.31.16  3.99 ms  AS16509  Japan Tokyo amazon.com</span><br><span class="line">    52.95.31.16  7.17 ms  AS16509  Japan Tokyo amazon.com</span><br><span class="line">    52.95.31.16  3.90 ms  AS16509  Japan Tokyo amazon.com</span><br><span class="line">11  *</span><br><span class="line">    100.91.149.16  4.13 ms  *  Shared Address</span><br><span class="line">    *</span><br><span class="line">12  100.91.3.143  3.80 ms  *  Shared Address</span><br><span class="line">    100.91.3.143  4.60 ms  *  Shared Address</span><br><span class="line">    100.91.3.143  4.58 ms  *  Shared Address</span><br><span class="line">13  100.91.135.21  3.71 ms  *  Shared Address</span><br><span class="line">    100.91.135.21  3.68 ms  *  Shared Address</span><br><span class="line">    100.91.135.21  3.71 ms  *  Shared Address</span><br><span class="line">14  52.93.66.96  4.60 ms  *  Japan Tokyo amazon.com</span><br><span class="line">    52.93.66.96  9.01 ms  *  Japan Tokyo amazon.com</span><br><span class="line">    52.93.66.96  16.22 ms  *  Japan Tokyo amazon.com</span><br><span class="line">15  52.93.66.89  3.69 ms  *  Japan Tokyo amazon.com</span><br><span class="line">    52.93.66.89  3.75 ms  *  Japan Tokyo amazon.com</span><br><span class="line">    52.93.66.89  3.72 ms  *  Japan Tokyo amazon.com</span><br><span class="line">16  203.215.236.33  4.43 ms  AS4134  Japan Tokyo ChinaTelecom</span><br><span class="line">    203.215.236.33  4.29 ms  AS4134  Japan Tokyo ChinaTelecom</span><br><span class="line">    203.215.236.33  4.26 ms  AS4134  Japan Tokyo ChinaTelecom</span><br><span class="line">17  202.97.6.77  31.68 ms  AS4134  China Shanghai ChinaTelecom</span><br><span class="line">    202.97.6.77  31.75 ms  AS4134  China Shanghai ChinaTelecom</span><br><span class="line">    202.97.6.77  31.70 ms  AS4134  China Shanghai ChinaTelecom</span><br><span class="line">18  202.97.12.189  55.89 ms  AS4134  China Shanghai ChinaTelecom</span><br><span class="line">    202.97.12.189  57.40 ms  AS4134  China Shanghai ChinaTelecom</span><br><span class="line">    202.97.12.189  54.98 ms  AS4134  China Shanghai ChinaTelecom</span><br><span class="line">19  202.97.57.26  47.94 ms  AS4134  China Shanghai ChinaTelecom</span><br><span class="line">    202.97.57.26  53.48 ms  AS4134  China Shanghai ChinaTelecom</span><br><span class="line">    202.97.57.26  51.15 ms  AS4134  China Shanghai ChinaTelecom</span><br><span class="line">20  202.97.40.150  57.38 ms  AS4134  China Shandong Qingdao ChinaTelecom</span><br><span class="line">    202.97.40.150  58.93 ms  AS4134  China Shandong Qingdao ChinaTelecom</span><br><span class="line">    202.97.40.150  57.40 ms  AS4134  China Shandong Qingdao ChinaTelecom</span><br><span class="line">21  219.146.22.30  63.95 ms  AS17633  China Shandong Jinan ChinaTelecom</span><br><span class="line">    219.146.22.30  65.76 ms  AS17633  China Shandong Jinan ChinaTelecom</span><br><span class="line">    219.146.22.30  102.84 ms  AS17633  China Shandong Jinan ChinaTelecom</span><br><span class="line">22  219.146.26.*  66.01 ms  AS4134  China Shandong Jinan ChinaTelecom</span><br><span class="line">    219.146.26.*  67.85 ms  AS4134  China Shandong Jinan ChinaTelecom</span><br><span class="line">    219.146.26.*  63.17 ms  AS4134  China Shandong Jinan ChinaTelecom</span><br></pre></td></tr></table></figure>
-
-<p><strong>移动去程</strong></p>
-<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200628111222908.png" alt="image-20200628111222908"></p>
-<p><strong>移动回程</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">root@ip-172-31-39-68:/home/ubuntu<span class="comment"># ./besttrace 120.192.96.169</span></span><br><span class="line">traceroute to 120.192.96.169 (120.192.96.169), 30 hops max, 60 byte packets</span><br><span class="line"> 1  ec2-54-150-128-29.ap-northeast-1.compute.amazonaws.com (54.150.128.29)  56.05 ms  AS16509  Japan Tokyo amazon.com</span><br><span class="line">    ec2-54-150-128-29.ap-northeast-1.compute.amazonaws.com (54.150.128.29)  17.95 ms  AS16509  Japan Tokyo amazon.com</span><br><span class="line">    ec2-54-150-128-29.ap-northeast-1.compute.amazonaws.com (54.150.128.29)  1.98 ms  AS16509  Japan Tokyo amazon.com</span><br><span class="line"> 2  *</span><br><span class="line">    *</span><br><span class="line">    *</span><br><span class="line"> 3  *</span><br><span class="line">    *</span><br><span class="line">    *</span><br><span class="line"> 4  *</span><br><span class="line">    *</span><br><span class="line">    *</span><br><span class="line"> 5  *</span><br><span class="line">    *</span><br><span class="line">    *</span><br><span class="line"> 6  *</span><br><span class="line">    *</span><br><span class="line">    *</span><br><span class="line"> 7  100.65.8.129  0.33 ms  *  Shared Address</span><br><span class="line">    100.65.8.129  0.35 ms  *  Shared Address</span><br><span class="line">    100.65.8.129  0.43 ms  *  Shared Address</span><br><span class="line"> 8  52.93.73.215  0.43 ms  *  Japan Tokyo amazon.com</span><br><span class="line">    52.93.73.215  0.39 ms  *  Japan Tokyo amazon.com</span><br><span class="line">    52.93.73.215  0.43 ms  *  Japan Tokyo amazon.com</span><br><span class="line"> 9  52.93.72.175  2.17 ms  *  Japan Tokyo amazon.com</span><br><span class="line">    52.93.72.175  1.83 ms  *  Japan Tokyo amazon.com</span><br><span class="line">    52.93.72.175  3.30 ms  *  Japan Tokyo amazon.com</span><br><span class="line">10  52.93.72.142  0.44 ms  *  Japan Tokyo amazon.com</span><br><span class="line">    52.93.72.142  0.43 ms  *  Japan Tokyo amazon.com</span><br><span class="line">    52.93.72.142  0.50 ms  *  Japan Tokyo amazon.com</span><br><span class="line">11  100.91.137.38  3.76 ms  *  Shared Address</span><br><span class="line">    100.91.137.38  3.24 ms  *  Shared Address</span><br><span class="line">    100.91.137.38  3.18 ms  *  Shared Address</span><br><span class="line">12  100.91.3.213  2.83 ms  *  Shared Address</span><br><span class="line">    100.91.3.213  3.58 ms  *  Shared Address</span><br><span class="line">    100.91.3.213  13.90 ms  *  Shared Address</span><br><span class="line">13  100.91.147.161  2.61 ms  *  Shared Address</span><br><span class="line">    100.91.147.161  2.52 ms  *  Shared Address</span><br><span class="line">    100.91.147.161  2.60 ms  *  Shared Address</span><br><span class="line">14  150.222.90.10  4.35 ms  *  Japan Tokyo amazon.com</span><br><span class="line">    150.222.90.10  4.04 ms  *  Japan Tokyo amazon.com</span><br><span class="line">    150.222.90.10  3.77 ms  *  Japan Tokyo amazon.com</span><br><span class="line">15  54.239.53.213  2.48 ms  AS16509  Japan Tokyo amazon.com</span><br><span class="line">    54.239.53.213  16.19 ms  AS16509  Japan Tokyo amazon.com</span><br><span class="line">    54.239.53.213  2.46 ms  AS16509  Japan Tokyo amazon.com</span><br><span class="line">16  58453.tyo.equinix.com (203.190.230.163)  5.57 ms  *  Japan Tokyo equinix.com</span><br><span class="line">    58453.tyo.equinix.com (203.190.230.163)  4.51 ms  *  Japan Tokyo equinix.com</span><br><span class="line">    58453.tyo.equinix.com (203.190.230.163)  4.02 ms  *  Japan Tokyo equinix.com</span><br><span class="line">17  223.120.2.189  3.57 ms  AS58453  Japan Tokyo ChinaMobile</span><br><span class="line">    223.120.2.189  3.38 ms  AS58453  Japan Tokyo ChinaMobile</span><br><span class="line">    223.120.2.189  3.71 ms  AS58453  Japan Tokyo ChinaMobile</span><br><span class="line">18  223.120.2.142  90.90 ms  AS58453  Japan Tokyo ChinaMobile</span><br><span class="line">    223.120.2.142  97.28 ms  AS58453  Japan Tokyo ChinaMobile</span><br><span class="line">    223.120.2.142  90.70 ms  AS58453  Japan Tokyo ChinaMobile</span><br><span class="line">19  221.183.55.102  90.89 ms  AS9808  China Beijing ChinaMobile</span><br><span class="line">    221.183.55.102  128.26 ms  AS9808  China Beijing ChinaMobile</span><br><span class="line">    221.183.55.102  90.76 ms  AS9808  China Beijing ChinaMobile</span><br><span class="line">20  221.183.46.254  91.47 ms  AS9808  China Beijing ChinaMobile</span><br><span class="line">    221.183.46.254  91.46 ms  AS9808  China Beijing ChinaMobile</span><br><span class="line">    221.183.46.254  125.84 ms  AS9808  China Beijing ChinaMobile</span><br><span class="line">21  221.176.21.185  92.31 ms  AS9808  China Beijing ChinaMobile</span><br><span class="line">    *</span><br><span class="line">    *</span><br><span class="line">22  221.176.18.209  103.29 ms  AS9808  China Shandong Qingdao ChinaMobile</span><br><span class="line">    221.176.18.209  103.46 ms  AS9808  China Shandong Qingdao ChinaMobile</span><br><span class="line">    221.176.18.209  103.50 ms  AS9808  China Shandong Qingdao ChinaMobile</span><br><span class="line">23  *</span><br><span class="line">    *</span><br><span class="line">    *</span><br><span class="line">24  120.192.96.169  105.42 ms  AS24444  China Shandong Jinan ChinaMobile</span><br><span class="line">    120.192.96.169  105.50 ms  AS24444  China Shandong Jinan ChinaMobile</span><br><span class="line">    120.192.96.169  105.64 ms  AS24444  China Shandong Jinan ChinaMobile</span><br></pre></td></tr></table></figure>
-
-<p>三网线路都不错。</p>
-<h3 id="视频测试"><a href="#视频测试" class="headerlink" title="视频测试"></a>视频测试</h3><p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200628130148965.png" alt="image-20200628130148965"></p>
-<p>对于北方联通用户来说，线路还是不错的。</p>
-<h3 id="测试IP"><a href="#测试IP" class="headerlink" title="测试IP"></a>测试IP</h3><p><a href="http://ec2-reachability.amazonaws.com/" target="_blank" rel="noopener">http://ec2-reachability.amazonaws.com/</a></p>
-<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200628111745696.png" alt="image-20200628111745696"></p>
-<p>根据自己的地区进行选择。</p>
-<p>完。</p>
-]]></content>
-      <tags>
-        <tag>AWS</tag>
-        <tag>VPS</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Anacoda3 安装Pytorch小记录</title>
     <url>/2019/12/30/Anacoda3%20%E5%AE%89%E8%A3%85Pytorch%E5%B0%8F%E8%AE%B0%E5%BD%95/</url>
     <content><![CDATA[<p>话不多说，先上教程。</p>
@@ -148,283 +70,6 @@
       </tags>
   </entry>
   <entry>
-    <title>G-core服务器测评：1CPU/700MB内存/500MB带宽俄罗斯特价服务器</title>
-    <url>/2020/06/27/G-core%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%B5%8B%E8%AF%84/</url>
-    <content><![CDATA[<p><code>Gcore VPS</code>是一家来自俄罗斯的VPS主机商。Gcore VPS的机房遍布世界各地，主要有俄罗斯的莫斯科、伯力，韩国首尔，日本东京，美国芝加哥、迈阿密，以及澳大利亚悉尼、荷兰阿姆斯特丹、巴西圣保罗等。</p>
-<p>目前<code>Gcore</code>新出了一款仅需要月付88卢布，折合人民币不到10元的伯力节点的小号VPS，性价比非常的突出。这个机房电信联通直连，移动绕路的很厉害。这篇文章就来说说如何注册购买这款8元每月的服务器。</p>
-<a id="more"></a>
-
-<h3 id="注册"><a href="#注册" class="headerlink" title="注册"></a>注册</h3><p>​    官网：<a href="https://gcorelabs.com/ru/?from=5012791" target="_blank" rel="noopener">https://gcorelabs.com</a></p>
-<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200627231358305.png" alt=""></p>
-<p>选择<a href="https://gcorelabs.com/hosting/vds/" target="_blank" rel="noopener">Virtual Servers</a>，点击<code>Get Started for free</code> 注册账号。</p>
-<p>​    后台地址：<a href="https://ruhosting.gcorelabs.com/billmgr" target="_blank" rel="noopener">https://ruhosting.gcorelabs.com/billmgr</a></p>
-<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200627231538573.png" alt="image-20200627231538573"></p>
-<h3 id="购买"><a href="#购买" class="headerlink" title="购买"></a>购买</h3><p>​    登录后点击<code>Order a service</code>，选择<code>VPS</code>。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200627232144681.png" alt="image-20200627232144681"></p>
-<p>以下是配置介绍：</p>
-<ul>
-<li><p><strong>KVM-SSD-0-RC (Khabarovsk 哈巴罗夫斯克边疆区)</strong></p>
-</li>
-<li><p>架构：KVM</p>
-</li>
-<li><p>vCPU：1核</p>
-</li>
-<li><p>内存：512M</p>
-</li>
-<li><p>硬盘：7G SSD</p>
-</li>
-<li><p>IPv4：1个</p>
-</li>
-<li><p>带宽：500G 100Mbps</p>
-<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200627232500475.png" alt="image-20200627232500475"></p>
-</li>
-</ul>
-<p>点击<code>Order</code>，进入配置页面，这里你可以选择<code>rdns</code>域名和操作系统。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200627232916215.png" alt="image-20200627232916215"></p>
-<p>​    PS:关于<code>rdns</code>不懂得可以自行Google。</p>
-<p>点击<code>Add to cart</code>，进入购物车。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200627233046636.png" alt="image-20200627233046636"></p>
-<p>点击<code>Pay</code>，进入付款页面。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200627233134514.png" alt="image-20200627233134514"></p>
-<p>这个商家支持很多种支付方式，博主用的是<code>中国银行</code>发行的<code>万事达莫奈信用卡</code>，一次支付成功。</p>
-<h3 id="管理"><a href="#管理" class="headerlink" title="管理"></a>管理</h3><p>​    支付完毕后等待10分钟服务器开通。配置完成后，就可以管理VPS了。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200627234143257.png" alt="image-20200627234143257"></p>
-<p>​    点击<code>Try out our new user interface!</code>，进入新版界面。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200627234551903.png" alt="image-20200627234551903"></p>
-<p>点击开通好的服务器，下滑可以找到默认密码。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200627234749756.png" alt="image-20200627234749756"></p>
-<p>如果需要自定义ISO等高级操作可以退回到旧版页面，点击 <code>To panel</code>，进入服务器管理页面。</p>
-<p>或者之间点击如下链接：<a href="https://kvmmgr-rc.gcorelabs.com/vmmgr" target="_blank" rel="noopener">https://kvmmgr-rc.gcorelabs.com/vmmgr</a></p>
-<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200627235013262.png" alt="image-20200627235013262"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200627235050120.png" alt="image-20200627235050120"></p>
-<h3 id="性能测试"><a href="#性能测试" class="headerlink" title="性能测试"></a>性能测试</h3><p>通过运行 <code>wget -qO- bench.sh | bash</code>来查看VPS的基本信息。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200627235746848.png" alt="image-20200627235746848">可见服务器IO速度一般。</p>
-<h3 id="下载测试"><a href="#下载测试" class="headerlink" title="下载测试"></a>下载测试</h3><p>联通：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200627235208711.png" alt="image-20200627235208711"></p>
-<p>电信：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200628000738137.png" alt="image-20200628000738137"></p>
-<p>移动：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200628001528886.png" alt="image-20200628001528886"></p>
-<p>可见电信联通网络较好，移动较为一般。</p>
-<h3 id="去程回程"><a href="#去程回程" class="headerlink" title="去程回程"></a>去程回程</h3><p><strong>联通去程</strong></p>
-<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200628000943281.png" alt="image-20200628000943281"></p>
-<p><strong>联通回程</strong></p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">root@xmu:~# besttrace 221.12.0.*   </span><br><span class="line">traceroute to 221.12.0.* (221.12.0.*), 30 hops max, 60 byte packets</span><br><span class="line"> 1  vrrp.gcore.lu (92.38.129.3)  36.49 ms  AS199524  Russian Federation Khabarovsk Krai Khabarovsk gcore.lu</span><br><span class="line">    vrrp.gcore.lu (92.38.129.3)  0.78 ms  AS199524  Russian Federation Khabarovsk Krai Khabarovsk gcore.lu</span><br><span class="line">    vrrp.gcore.lu (92.38.129.3)  131.02 ms  AS199524  Russian Federation Khabarovsk Krai Khabarovsk gcore.lu</span><br><span class="line"> 2  10.255.10.154  1.09 ms  *  LAN Address</span><br><span class="line">    10.255.10.154  1.28 ms  *  LAN Address</span><br><span class="line">    10.255.10.154  1.10 ms  *  LAN Address</span><br><span class="line"> 3  92.223.110.161  0.97 ms  AS199524  Russian Federation Khabarovsk Krai Khabarovsk gcore.lu</span><br><span class="line">    92.223.110.161  1.08 ms  AS199524  Russian Federation Khabarovsk Krai Khabarovsk gcore.lu</span><br><span class="line">    92.223.110.161  0.80 ms  AS199524  Russian Federation Khabarovsk Krai Khabarovsk gcore.lu</span><br><span class="line"> 4  188.254.90.105  1.06 ms  AS12389  Russian Federation Khabarovsk Krai Khabarovsk rt.ru</span><br><span class="line">    188.254.90.105  0.49 ms  AS12389  Russian Federation Khabarovsk Krai Khabarovsk rt.ru</span><br><span class="line">    188.254.90.105  0.43 ms  AS12389  Russian Federation Khabarovsk Krai Khabarovsk rt.ru</span><br><span class="line"> 5  188.128.106.115  2.16 ms  AS12389  Russian Federation rt.ru</span><br><span class="line">    188.128.106.115  2.13 ms  AS12389  Russian Federation rt.ru</span><br><span class="line">    188.128.106.115  1.35 ms  AS12389  Russian Federation rt.ru</span><br><span class="line"> 6  188.128.15.214  46.86 ms  AS12389  China Beijing rt.ru</span><br><span class="line">    188.128.15.214  44.29 ms  AS12389  China Beijing rt.ru</span><br><span class="line">    188.128.15.214  45.72 ms  AS12389  China Beijing rt.ru</span><br><span class="line"> 7  219.158.3.141  51.21 ms  AS4837  China Beijing ChinaUnicom</span><br><span class="line">    219.158.3.141  56.01 ms  AS4837  China Beijing ChinaUnicom</span><br><span class="line">    219.158.3.141  53.54 ms  AS4837  China Beijing ChinaUnicom</span><br><span class="line"> 8  219.158.4.173  118.75 ms  AS4837  China Beijing ChinaUnicom</span><br><span class="line">    219.158.4.173  108.69 ms  AS4837  China Beijing ChinaUnicom</span><br><span class="line">    219.158.4.173  91.07 ms  AS4837  China Beijing ChinaUnicom</span><br><span class="line"> 9  219.158.96.138  120.86 ms  AS4837  China Zhejiang Hangzhou ChinaUnicom</span><br><span class="line">    219.158.96.138  151.44 ms  AS4837  China Zhejiang Hangzhou ChinaUnicom</span><br><span class="line">    219.158.96.138  150.12 ms  AS4837  China Zhejiang Hangzhou ChinaUnicom</span><br><span class="line">10  221.12.1.26  127.96 ms  AS4837  China Zhejiang Hangzhou ChinaUnicom</span><br><span class="line">    *</span><br><span class="line">    *</span><br><span class="line">11  *</span><br><span class="line">    221.12.0.*  149.30 ms  AS4837  China Zhejiang Hangzhou ChinaUnicom</span><br><span class="line">    221.12.0.*  136.00 ms  AS4837  China Zhejiang Hangzhou ChinaUnicom</span><br></pre></td></tr></table></figure>
-
-<p><strong>电信去程</strong></p>
-<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200628002120266.png" alt="image-20200628002120266"></p>
-<p><strong>电信回程</strong></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">root@xmu:~# besttrace 219.146.26.21</span><br><span class="line">traceroute to 219.146.26.21 (219.146.26.21), 30 hops max, 60 byte packets</span><br><span class="line"> 1  vrrp.gcore.lu (92.38.129.3)  2.60 ms  AS199524  Russian Federation Khabarovsk Krai Khabarovsk gcore.lu</span><br><span class="line">    vrrp.gcore.lu (92.38.129.3)  4.88 ms  AS199524  Russian Federation Khabarovsk Krai Khabarovsk gcore.lu</span><br><span class="line">    vrrp.gcore.lu (92.38.129.3)  6.39 ms  AS199524  Russian Federation Khabarovsk Krai Khabarovsk gcore.lu</span><br><span class="line"> 2  10.255.10.154  1.80 ms  *  LAN Address</span><br><span class="line">    10.255.10.154  0.89 ms  *  LAN Address</span><br><span class="line">    10.255.10.154  0.86 ms  *  LAN Address</span><br><span class="line"> 3  92.223.110.161  0.99 ms  AS199524  Russian Federation Khabarovsk Krai Khabarovsk gcore.lu</span><br><span class="line">    92.223.110.161  0.91 ms  AS199524  Russian Federation Khabarovsk Krai Khabarovsk gcore.lu</span><br><span class="line">    92.223.110.161  1.10 ms  AS199524  Russian Federation Khabarovsk Krai Khabarovsk gcore.lu</span><br><span class="line"> 4  188.254.90.105  0.42 ms  AS12389  Russian Federation Khabarovsk Krai Khabarovsk rt.ru</span><br><span class="line">    188.254.90.105  0.59 ms  AS12389  Russian Federation Khabarovsk Krai Khabarovsk rt.ru</span><br><span class="line">    188.254.90.105  0.40 ms  AS12389  Russian Federation Khabarovsk Krai Khabarovsk rt.ru</span><br><span class="line"> 5  188.128.106.113  1.23 ms  AS12389  Russian Federation rt.ru</span><br><span class="line">    188.128.106.113  1.19 ms  AS12389  Russian Federation rt.ru</span><br><span class="line">    188.128.106.113  1.73 ms  AS12389  Russian Federation rt.ru</span><br><span class="line"> 6  46.61.179.170  41.83 ms  AS12389  China Beijing rt.ru</span><br><span class="line">    46.61.179.170  39.51 ms  AS12389  China Beijing rt.ru</span><br><span class="line">    46.61.179.170  41.14 ms  AS12389  China Beijing rt.ru</span><br><span class="line"> 7  202.97.85.61  43.07 ms  AS4134  China Beijing ChinaTelecom</span><br><span class="line">    202.97.85.61  40.80 ms  AS4134  China Beijing ChinaTelecom</span><br><span class="line">    202.97.85.61  42.29 ms  AS4134  China Beijing ChinaTelecom</span><br><span class="line"> 8  202.97.94.205  54.93 ms  AS4134  China Beijing ChinaTelecom</span><br><span class="line">    *</span><br><span class="line">    *</span><br><span class="line"> 9  *</span><br><span class="line">    *</span><br><span class="line">    *</span><br><span class="line">10  *</span><br><span class="line">    202.97.40.234  67.59 ms  AS4134  China Shandong Qingdao ChinaTelecom</span><br><span class="line">    *</span><br><span class="line">11  *</span><br><span class="line">    219.146.22.30  74.32 ms  AS17633  China Shandong Jinan ChinaTelecom</span><br><span class="line">    219.146.22.30  74.59 ms  AS17633  China Shandong Jinan ChinaTelecom</span><br><span class="line">12  219.146.26.21  69.20 ms  AS4134  China Shandong Jinan ChinaTelecom</span><br><span class="line">    *</span><br><span class="line">    219.146.26.21  73.27 ms  AS4134  China Shandong Jinan ChinaTelecom</span><br></pre></td></tr></table></figure>
-
-<p>可见电信和联通的线路很好。</p>
-<p><strong>移动去程</strong></p>
-<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200628001821911.png" alt="image-20200628001821911"></p>
-<p><strong>移动回程</strong></p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">root@xmu:~# besttrace 120.192.96.169</span><br><span class="line">traceroute to 120.192.96.169 (120.192.96.169), 30 hops max, 60 byte packets</span><br><span class="line"> 1  vrrp.gcore.lu (92.38.129.3)  122.54 ms  AS199524  Russian Federation Khabarovsk Krai Khabarovsk gcore.lu</span><br><span class="line">    vrrp.gcore.lu (92.38.129.3)  15.03 ms  AS199524  Russian Federation Khabarovsk Krai Khabarovsk gcore.lu</span><br><span class="line">    vrrp.gcore.lu (92.38.129.3)  15.93 ms  AS199524  Russian Federation Khabarovsk Krai Khabarovsk gcore.lu</span><br><span class="line"> 2  10.255.10.154  0.85 ms  *  LAN Address</span><br><span class="line">    10.255.10.154  1.06 ms  *  LAN Address</span><br><span class="line">    10.255.10.154  0.80 ms  *  LAN Address</span><br><span class="line"> 3  78.25.77.164  0.80 ms  AS31133  Russian Federation Khabarovsk Krai Khabarovsk megafon.ru</span><br><span class="line">    78.25.77.164  0.84 ms  AS31133  Russian Federation Khabarovsk Krai Khabarovsk megafon.ru</span><br><span class="line">    78.25.77.164  1.32 ms  AS31133  Russian Federation Khabarovsk Krai Khabarovsk megafon.ru</span><br><span class="line"> 4  120.192.96.169  352.14 ms  AS24444  China Shandong Jinan ChinaMobile</span><br><span class="line">    120.192.96.169  352.56 ms  AS24444  China Shandong Jinan ChinaMobile</span><br><span class="line">    120.192.96.169  351.55 ms  AS24444  China Shandong Jinan ChinaMobile</span><br></pre></td></tr></table></figure>
-
-<p>可见移动的线路很差。</p>
-<p><strong>全国ping</strong></p>
-<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200628002819075.png" alt="image-20200628002819075"></p>
-<p>总体而言线路还是不错的。</p>
-<h3 id="视频测试"><a href="#视频测试" class="headerlink" title="视频测试"></a>视频测试</h3><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200628003209519.png" alt="image-20200628003209519"  />
-
-<p>速度还可以，晚高峰的时候可能需要中转。</p>
-<h3 id="测试ip"><a href="#测试ip" class="headerlink" title="测试ip"></a>测试ip</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">- 荷兰（阿姆斯特丹）：92.38.186.2</span><br><span class="line">- 阿什本：92.223.83.2</span><br><span class="line">- 芝加哥：92.38.177.2</span><br><span class="line">- 迈阿密：92.223.66.3</span><br><span class="line">- 圣克拉拉：92.38.148.2</span><br><span class="line">- 莫斯科：92.223.103.3</span><br><span class="line">- 伯力（Khabarovsk）：92.223.80.3</span><br><span class="line">- 克拉斯诺亚尔斯克边疆区（Krasnoyarsk）：92.223.87.2</span><br><span class="line">- 叶卡捷琳堡（Yekaterinburg）：92.223.91.2</span><br><span class="line">- 卢森堡公国：92.223.88.2</span><br><span class="line">- 圣保罗：5.188.238.2</span><br><span class="line">- 首尔：92.223.73.2</span><br><span class="line">- 新加坡：92.223.86.2</span><br><span class="line">- 悉尼：146.185.236.2</span><br><span class="line">- 东京：5.188.71.3</span><br></pre></td></tr></table></figure>
-
-<p>完。</p>
-]]></content>
-      <tags>
-        <tag>VPS</tag>
-        <tag>G-core</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Gost服务配置指南</title>
-    <url>/2020/06/12/Gost%E6%9C%8D%E5%8A%A1%E9%85%8D%E7%BD%AE%E6%8C%87%E5%8D%97/</url>
-    <content><![CDATA[<p>gost服务操作指南</p>
-<a id="more"></a>
-
-<h3 id="国外下载"><a href="#国外下载" class="headerlink" title="国外下载"></a>国外下载</h3><p>项目地址：<a href="https://github.com/ginuerzh/gost/releases" target="_blank" rel="noopener">https://github.com/ginuerzh/gost/releases</a></p>
-<p>wiki地址：<a href="https://docs.ginuerzh.xyz/gost/" target="_blank" rel="noopener">https://docs.ginuerzh.xyz/gost/</a></p>
-<h3 id="创建Gost服务"><a href="#创建Gost服务" class="headerlink" title="创建Gost服务"></a>创建Gost服务</h3><h4 id="1-创建Gost服务配置文件"><a href="#1-创建Gost服务配置文件" class="headerlink" title="1.创建Gost服务配置文件"></a>1.创建Gost服务配置文件</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">wget -O /etc/systemd/system/gost.service https://ftp.fly97.cn/configuration/gost.service</span><br></pre></td></tr></table></figure>
-
-<h4 id="2-初始化服务"><a href="#2-初始化服务" class="headerlink" title="2.初始化服务"></a>2.初始化服务</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo systemctl enable gost.service</span><br></pre></td></tr></table></figure>
-
-<h4 id="3-打开服务"><a href="#3-打开服务" class="headerlink" title="3.打开服务"></a>3.打开服务</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo systemctl enable gost.service</span><br></pre></td></tr></table></figure>
-
-<h3 id="推荐几个常用的配置"><a href="#推荐几个常用的配置" class="headerlink" title="推荐几个常用的配置"></a>推荐几个常用的配置</h3><h4 id="1-多路复用tls"><a href="#1-多路复用tls" class="headerlink" title="1.多路复用tls"></a>1.多路复用tls</h4><p>GOST内置了TLS证书，如果需要使用自定义TLS证书，有两种方法：</p>
-<ul>
-<li>在GOST运行目录放置<code>cert.pem</code>(公钥)和<code>key.pem</code>(私钥)两个文件即可，GOST会自动加载运行目录下的cert.pem和key.pem文件。</li>
-</ul>
-<h5 id="服务端"><a href="#服务端" class="headerlink" title="服务端"></a>服务端</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">gost -L mtls://:443</span><br></pre></td></tr></table></figure>
-
-<h5 id="客户端"><a href="#客户端" class="headerlink" title="客户端"></a>客户端</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">gost -L :8080 -F mtls://server_ip:443</span><br></pre></td></tr></table></figure>
-
-<h5 id="客户端证书校验"><a href="#客户端证书校验" class="headerlink" title="客户端证书校验"></a>客户端证书校验</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">gost -L=:8080 -F=<span class="string">"tls://server_domain_name:443?secure=true"</span></span><br></pre></td></tr></table></figure>
-
-<h5 id="客户端证书锁定"><a href="#客户端证书锁定" class="headerlink" title="客户端证书锁定"></a>客户端证书锁定</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">gost -L=:8080 -F=<span class="string">"tls://:443?ca=ca.pem"</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="2-socks5-over-tls"><a href="#2-socks5-over-tls" class="headerlink" title="2.socks5 over tls"></a>2.socks5 over tls</h4><p>使用TLS加密的SOCKS5代理服务。</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">gost -L socks5+tls://:1080</span><br></pre></td></tr></table></figure>
-
-<h4 id="3-多路复用加密websocket"><a href="#3-多路复用加密websocket" class="headerlink" title="3.多路复用加密websocket"></a>3.多路复用加密websocket</h4><p>具有多路复用特性并使用TLS加密的Websocket隧道。</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">gost -L mwss://:443</span><br></pre></td></tr></table></figure>]]></content>
-      <tags>
-        <tag>gost</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hexo配置全记录</title>
-    <url>/2020/04/16/Hexo%E9%85%8D%E7%BD%AE%E5%85%A8%E8%AE%B0%E5%BD%95/</url>
-    <content><![CDATA[<p>hexo爬坑全记录</p>
-<a id="more"></a>
-
-<h5 id="1-启用标签页面"><a href="#1-启用标签页面" class="headerlink" title="1.启用标签页面"></a>1.启用标签页面</h5><p>编辑全站配置文件，搜索menu下tags设置，取消注释。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200216170345290.png" alt="image-20200216170345290"></p>
-<p>在hexo根目录下执行命令</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo new page <span class="string">"文章分类"</span></span><br></pre></td></tr></table></figure>
-
-<p>添加<code>type: &quot;tags&quot;</code>到内容中</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: 文章分类</span><br><span class="line">date: 2020-02-16 17:00:24</span><br><span class="line"><span class="built_in">type</span>: <span class="string">"tags"</span></span><br><span class="line">---</span><br></pre></td></tr></table></figure>
-
-<p>保存并关闭文件。生成后的主页如图所示：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200216170109378.png" alt="image-20200216170109378"></p>
-<h5 id="2-给文章添加“tags”属性"><a href="#2-给文章添加“tags”属性" class="headerlink" title="2.给文章添加“tags”属性"></a>2.给文章添加“tags”属性</h5><p>打开需要添加标签的文章，为其添加tags属性。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">title: Ubuntu安装nodejs并更改npm镜像源</span><br><span class="line">date: 2019&#x2F;1&#x2F;6 20:46:25</span><br><span class="line">updated: 2020&#x2F;1&#x2F;20 20:10:20</span><br><span class="line">tags: </span><br><span class="line">- Linux运维</span><br><span class="line">- nodejs</span><br></pre></td></tr></table></figure>
-
-<p>上方的<code>Linux运维</code>  <code>nodejs</code>就是文章的标签了。</p>
-<p>至此，成功给文章添加分类，点击首页的“标签”可以看到该标签下的所有文章。当然，只有添加了<code>tags: xxx</code>的文章才会被收录到首页的“标签”中。</p>
-<h5 id="3-设置置顶文章"><a href="#3-设置置顶文章" class="headerlink" title="3.设置置顶文章"></a>3.设置置顶文章</h5><p>在hexo根目录下执行命令（安装插件）</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm uninstall hexo-generator-index --save</span><br><span class="line">npm install hexo-generator-index-pin-top --save</span><br></pre></td></tr></table></figure>
-
-<p>然后在需要置顶的文章的Front-matter中加上top即可：</p>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">title:</span> <span class="number">2019</span></span><br><span class="line"><span class="attr">date:</span> <span class="number">2019</span><span class="number">-02</span><span class="number">-14</span> <span class="number">16</span><span class="string">:10:03</span></span><br><span class="line"><span class="attr">top:</span> <span class="literal">true</span> <span class="comment">#或者是数字</span></span><br></pre></td></tr></table></figure>
-
-<h5 id="4-通过相对路径在文章中引用图片"><a href="#4-通过相对路径在文章中引用图片" class="headerlink" title="4.通过相对路径在文章中引用图片"></a>4.通过相对路径在文章中引用图片</h5><p>修改全站配置文件，将post_asset_folder选项修改为true。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200216171946614.png" alt="image-20200216171946614"></p>
-<p>执行命令</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo new post_name</span><br></pre></td></tr></table></figure>
-
-<p>在source/_posts中会生成文章<code>post_name.md和</code>同名文件夹<code>post_name</code>。将图片资源放在<code>post_name</code>中，文章</p>
-<p>就可以使用相对路径引用图片资源了。</p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">[](image.jpg)</span><br></pre></td></tr></table></figure>
-
-<h5 id="5-启用文章置顶"><a href="#5-启用文章置顶" class="headerlink" title="5.启用文章置顶"></a>5.启用文章置顶</h5><p>使用修改后支持置顶的仓库</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm uninstall hexo-generator-index --save</span><br><span class="line"></span><br><span class="line">npm install hexo-generator-index-pin-top --save</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <tags>
-        <tag>hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Linux之crontab定时任务</title>
-    <url>/2020/04/24/Linux%E4%B9%8Bcrontab%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/</url>
-    <content><![CDATA[<p>Linux中的crontab - - - -一个自定义定时器</p>
-<a id="more"></a>
-
-<h5 id="1-crontab命令"><a href="#1-crontab命令" class="headerlink" title="1.crontab命令"></a>1.crontab命令</h5><p>重新指定crobtab定时任务文件</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">crontab $filepath</span><br></pre></td></tr></table></figure>
-
-<p>查看crontab定时任务</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">crontab -l</span><br></pre></td></tr></table></figure>
-
-<p>编辑、安装定时任务</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">crontab -e</span><br></pre></td></tr></table></figure>
-
-<p><strong>2.crontab时间举例</strong></p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 每天早上6点 </span></span><br><span class="line">0 6 * * * echo "Good morning." &gt;&gt; /tmp/test.txt //注意单纯echo，从屏幕上看不到任何输出，因为cron把任何输出都email到root的信箱了。</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 每两个小时 </span></span><br><span class="line">0 */2 * * * echo "Have a break now." &gt;&gt; /tmp/test.txt  </span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 晚上11点到早上8点之间每两个小时和早上八点 </span></span><br><span class="line">0 23-7/2，8 * * * echo "Have a good dream" &gt;&gt; /tmp/test.txt</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 每个月的4号和每个礼拜的礼拜一到礼拜三的早上11点 </span></span><br><span class="line">0 11 4 * 1-3 command line</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 1月1日早上4点 </span></span><br><span class="line">0 4 1 1 * command line SHELL=/bin/bash PATH=/sbin:/bin:/usr/sbin:/usr/bin MAILTO=root //如果出现错误，或者有数据输出，数据作为邮件发给这个帐号 HOME=/ </span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 每小时（第一分钟）执行/etc/cron.hourly内的脚本</span></span><br><span class="line">01 * * * * root run-parts /etc/cron.hourly</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 每天（凌晨4：02）执行/etc/cron.daily内的脚本</span></span><br><span class="line">02 4 * * * root run-parts /etc/cron.daily </span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 每星期（周日凌晨4：22）执行/etc/cron.weekly内的脚本</span></span><br><span class="line">22 4 * * 0 root run-parts /etc/cron.weekly </span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 每月（1号凌晨4：42）去执行/etc/cron.monthly内的脚本 </span></span><br><span class="line">42 4 1 * * root run-parts /etc/cron.monthly </span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 注意:  <span class="string">"run-parts"</span>这个参数了，如果去掉这个参数的话，后面就可以写要运行的某个脚本名，而不是文件夹名。 　 </span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 每天的下午4点、5点、6点的5 min、15 min、25 min、35 min、45 min、55 min时执行命令。 </span></span><br><span class="line">5，15，25，35，45，55 16，17，18 * * * command</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 每周一，三，五的下午3：00系统进入维护状态，重新启动系统。</span></span><br><span class="line">00 15 * *1，3，5 shutdown -r +5</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 每小时的10分，40分执行用户目录下的innd/bbslin这个指令： </span></span><br><span class="line">10，40 * * * * innd/bbslink </span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 每小时的1分执行用户目录下的bin/account这个指令： </span></span><br><span class="line">1 * * * * bin/account</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 每1分钟执行以下命令</span></span><br><span class="line">*/1 * * * * bin/python</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 每天早晨三点二十分执行用户目录下如下所示的两个指令（每个指令以;分隔）： </span></span><br><span class="line">203 * * * （/bin/rm -f expire.ls logins.bad;bin/expire$#@62;expire.1st）</span><br></pre></td></tr></table></figure>
-
-<h5 id="3-crontab任务举例"><a href="#3-crontab任务举例" class="headerlink" title="3.crontab任务举例"></a>3.crontab任务举例</h5><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">*/5 * * * * /bin/bash /root/kaoyan/tiaoji.sh</span><br></pre></td></tr></table></figure>
-
-<p>sh写法举例</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/bash</span></span><br><span class="line">PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:~/bin</span><br><span class="line">export PATH</span><br><span class="line"></span><br><span class="line">cd /root/kaoyan</span><br><span class="line">/root/***/python3 *.py &gt;&gt; /root/****/*.log 2&gt;&amp;1</span><br><span class="line"><span class="meta">#</span><span class="bash">将所有输出写入日志文件</span></span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <tags>
-        <tag>Linux</tag>
-        <tag>crontab</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Linux服务器更换密钥</title>
-    <url>/2019/01/06/Linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%9B%B4%E6%8D%A2%E5%AF%86%E9%92%A5%E8%84%9A%E6%9C%AC/</url>
-    <content><![CDATA[<p><strong>1. 制作密钥对</strong></p>
-<p>首先在服务器上制作密钥对。首先用密码登录到你打算使用密钥登录的账户，然后执行以下命令：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[root@host ~]$ ssh-keygen  &lt;== 建立密钥对</span><br><span class="line">Generating public/private rsa key pair.</span><br><span class="line">Enter file <span class="keyword">in</span> <span class="built_in">which</span> to save the key (/root/.ssh/id_rsa): &lt;== 按 Enter</span><br><span class="line">Created directory <span class="string">'/root/.ssh'</span>.</span><br><span class="line">Enter passphrase (empty <span class="keyword">for</span> no passphrase): &lt;== 输入密钥锁码，或直接按 Enter 留空</span><br><span class="line">Enter same passphrase again: &lt;== 再输入一遍密钥锁码</span><br><span class="line">Your identification has been saved <span class="keyword">in</span> /root/.ssh/id_rsa. &lt;== 私钥</span><br><span class="line">Your public key has been saved <span class="keyword">in</span> /root/.ssh/id_rsa.pub. &lt;== 公钥</span><br><span class="line">The key fingerprint is:</span><br><span class="line">0f:d3:e7:1a:1c:bd:5c:03:f1:19:f1:22:df:9b:cc:08 root@host</span><br></pre></td></tr></table></figure>
-
-<p>密钥锁码在使用私钥时必须输入，这样就可以保护私钥不被盗用。当然，也可以留空，实现无密码登录。</p>
-<p>现在，在 root 用户的家目录中生成了一个 <code>.ssh</code> 的隐藏目录，内含两个密钥文件。<code>id_rsa</code> 为私钥，<code>id_rsa.pub</code> 为公钥。</p>
-<p><strong>2. 在服务器上安装公钥</strong></p>
-<p>键入以下命令，在服务器上安装公钥：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[root@host ~]$ <span class="built_in">cd</span> .ssh</span><br><span class="line">[root@host .ssh]$ cat id_rsa.pub &gt;&gt; authorized_keys</span><br></pre></td></tr></table></figure>
-
-<p>如此便完成了公钥的安装。为了确保连接成功，请保证以下文件权限正确：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[root@host .ssh]$ chmod 600 authorized_keys</span><br><span class="line">[root@host .ssh]$ chmod 700 ~/.ssh</span><br></pre></td></tr></table></figure>
-
-<p><strong>3. 设置 SSH，打开密钥登录功能</strong></p>
-<p>编辑 <code>/etc/ssh/sshd_config</code> 文件，进行如下设置：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">RSAAuthentication yes</span><br><span class="line">PubkeyAuthentication yes</span><br></pre></td></tr></table></figure>
-
-<p>另外，请留意 root 用户能否通过 SSH 登录：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">PermitRootLogin yes</span><br></pre></td></tr></table></figure>
-
-<p>当你完成全部设置，并以密钥方式登录成功后，再禁用密码登录：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">PasswordAuthentication no</span><br></pre></td></tr></table></figure>
-
-<p>最后，重启 SSH 服务：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[root@host .ssh]$ service sshd restart</span><br></pre></td></tr></table></figure>
-
-<h6 id="已写好了脚本："><a href="#已写好了脚本：" class="headerlink" title="已写好了脚本："></a>已写好了脚本：</h6><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">wget -O pub.sh https://fly97.coding.net/p/shell/d/shell/git/raw/master/rsa/id_rsa.sh &amp;&amp; chmod +x pub.sh &amp;&amp; bash pub.sh</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <tags>
-        <tag>密钥</tag>
-        <tag>Linux运维</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Onelist服务安装指南</title>
-    <url>/2020/01/01/OneList%E6%9C%8D%E5%8A%A1%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97/</url>
-    <content><![CDATA[<p>onedrive列表索引服务</p>
-<a id="more"></a>
-
-<h5 id="安装脚本"><a href="#安装脚本" class="headerlink" title="安装脚本"></a>安装脚本</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">wget https://fly97.coding.net/p/saving/d/saving/git/raw/master/shell/golist.sh &amp;&amp; chmod +x golist.sh &amp;&amp; ./golist.sh</span><br></pre></td></tr></table></figure>
-
-<h5 id="以下转载自萌咖大佬"><a href="#以下转载自萌咖大佬" class="headerlink" title="以下转载自萌咖大佬"></a>以下转载自萌咖大佬</h5><p><a href="https://github.com/MoeClub/OneList/blob/master/Rewrite/README.MD" target="_blank" rel="noopener">https://github.com/MoeClub/OneList/blob/master/Rewrite/README.MD</a></p>
-<h5 id="OneList-Written-in-GoLang"><a href="#OneList-Written-in-GoLang" class="headerlink" title="OneList - Written in GoLang"></a>OneList - Written in GoLang</h5><ul>
-<li>支持 国际版, 个人免费版(家庭版), 中国版(世纪互联).</li>
-<li>支持同时列出多个盘的目录.(同时挂载多个网盘或单个网盘挂载成多个<code>SubPath</code>,要求每个<code>SubPath</code>唯一)</li>
-<li>支持文件夹内超过 200 个项目</li>
-<li>支持后台自动刷新缓存.</li>
-<li>支持路径中含有特殊字符.</li>
-<li>支持使用不同目录使用不同账户密码加密(HTTP 401).</li>
-<li>支持隐藏目录和文件(跳过缓存).</li>
-<li>支持自定义 ClientID 和 SecretKey .</li>
-<li>数据储存在内存中,响应更加迅速.</li>
-</ul>
-<h6 id="授权"><a href="#授权" class="headerlink" title="授权"></a>授权</h6><h3 id="通过下面URL登录-右键新标签打开"><a href="#通过下面URL登录-右键新标签打开" class="headerlink" title="通过下面URL登录 (右键新标签打开)"></a>通过下面URL登录 (右键新标签打开)</h3><h4 id="国际版-个人版-家庭版"><a href="#国际版-个人版-家庭版" class="headerlink" title="国际版, 个人版(家庭版)"></a>国际版, 个人版(家庭版)</h4><p><a href="https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=78d4dc35-7e46-42c6-9023-2d39314433a5&response_type=code&redirect_uri=http://localhost/onedrive-login&response_mode=query&scope=offline_access%20User.Read%20Files.ReadWrite.All" target="_blank" rel="noopener">https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=78d4dc35-7e46-42c6-9023-2d39314433a5&amp;response_type=code&amp;redirect_uri=http://localhost/onedrive-login&amp;response_mode=query&amp;scope=offline_access%20User.Read%20Files.ReadWrite.All</a></p>
-<h4 id="中国版-世纪互联"><a href="#中国版-世纪互联" class="headerlink" title="中国版(世纪互联)"></a>中国版(世纪互联)</h4><p><a href="https://login.chinacloudapi.cn/common/oauth2/v2.0/authorize?client_id=dfe36e60-6133-48cf-869f-4d15b8354769&response_type=code&redirect_uri=http://localhost/onedrive-login&response_mode=query&scope=offline_access%20User.Read%20Files.ReadWrite.All" target="_blank" rel="noopener">https://login.chinacloudapi.cn/common/oauth2/v2.0/authorize?client_id=dfe36e60-6133-48cf-869f-4d15b8354769&amp;response_type=code&amp;redirect_uri=http://localhost/onedrive-login&amp;response_mode=query&amp;scope=offline_access%20User.Read%20Files.ReadWrite.All</a></p>
-<h2 id="添加配置文件"><a href="#添加配置文件" class="headerlink" title="添加配置文件"></a>添加配置文件</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 国际版</span><br><span class="line">OneList -a &quot;url&quot; -s &quot;&#x2F;onedrive01&quot;</span><br><span class="line"># 个人版(家庭版)</span><br><span class="line">OneList -ms -a &quot;url&quot; -s &quot;&#x2F;onedrive02&quot;</span><br><span class="line"># 中国版(世纪互联)</span><br><span class="line">OneList -cn -a &quot;url&quot; -s &quot;&#x2F;onedrive03&quot;</span><br><span class="line"></span><br><span class="line"># 在浏览器地址栏中获取以 http:&#x2F;&#x2F;loaclhost 开头的整个url内容</span><br><span class="line"># 将获取的完整url内容替换命令中的 url 三个字母</span><br><span class="line"># 每次产生的 url 只能用一次, 重试请重新获取 url</span><br><span class="line"># 可以一个盘内的多个文件夹分别映射到多个&#96;SubPath&#96;上</span><br><span class="line"># 此操作将会自动添加的配置文件</span><br><span class="line"># 提示 Success! Add config. &#39;&#x2F;path&#x2F;to&#x2F;config.json&#39; 则成功</span><br></pre></td></tr></table></figure>
-
-<h2 id="修改配置文件"><a href="#修改配置文件" class="headerlink" title="修改配置文件"></a>修改配置文件</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[</span><br><span class="line">  &#123;</span><br><span class="line">    &#x2F;&#x2F; 如果是家庭版或者个人免费版, 此项应为 true.</span><br><span class="line">    &quot;MSAccount&quot;: false,</span><br><span class="line">    &#x2F;&#x2F; 如果是中国版(世纪互联), 此项应为 true.</span><br><span class="line">    &quot;MainLand&quot;: false,</span><br><span class="line">    &#x2F;&#x2F; 授权令牌</span><br><span class="line">    &quot;RefreshToken&quot;: &quot;1234564567890ABCDEF&quot;,</span><br><span class="line">    &#x2F;&#x2F; 单配置文件中,此项要唯一.将此OneDrive中设置为&#96;RootPath&#96;目录映射在&#96;http:&#x2F;&#x2F;127.0.0.1:5288&#x2F;onedrive&#96; 下.</span><br><span class="line">    &#x2F;&#x2F; (只推荐一个盘位的时候使用根目录&quot;&#x2F;&quot;.)</span><br><span class="line">    &quot;SubPath&quot;: &quot;&#x2F;onedrive&quot;,</span><br><span class="line">    &#x2F;&#x2F; 读取OneDrive的某个目录作为根目录. (支持根目录&quot;&#x2F;&quot;)</span><br><span class="line">    &quot;RootPath&quot;: &quot;&#x2F;Test&quot;,</span><br><span class="line">    &#x2F;&#x2F; 隐藏OneDrive目录中的文件夹和文件, 条目间使用 &quot;|&quot; 分割. (跳过缓存设置的条目.)</span><br><span class="line">    &quot;HidePath&quot;: &quot;&#x2F;Test&#x2F;Obj01|&#x2F;Test&#x2F;Obj02&quot;,</span><br><span class="line">    &#x2F;&#x2F; 使用用户名和密码加密OneDrive目录. 目录和用户名密码间使用 &quot;?&quot; 分割, 用户名密码使用 &quot;:&quot; 分割, 条目间使用 &quot;|&quot; 分割. 无效条目将跳过. </span><br><span class="line">    &quot;AuthPath&quot;: &quot;&#x2F;Test&#x2F;Auth01?user01:pwd01|&#x2F;Test&#x2F;Auth02?user02:pwd02&quot;,</span><br><span class="line">    &#x2F;&#x2F; 缓存刷新间隔.(所有项目中的刷新时间取最小值为有效刷新间隔)</span><br><span class="line">    &quot;RefreshInterval&quot;: 900</span><br><span class="line">  &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
-
-<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Usage of OneList:</span><br><span class="line">  -a string</span><br><span class="line">        &#x2F;&#x2F; 初始化配置文件,添加新配置</span><br><span class="line">        Setup and Init auth.json.</span><br><span class="line">  -bind string</span><br><span class="line">        &#x2F;&#x2F; 绑定IP地址(公网: 0.0.0.0)</span><br><span class="line">        Bind Address (default &quot;127.0.0.1&quot;)</span><br><span class="line">  -port string</span><br><span class="line">        &#x2F;&#x2F; 绑定端口(HTTP:80)</span><br><span class="line">        Port (default &quot;5288&quot;)</span><br><span class="line">  -s string</span><br><span class="line">        &#x2F;&#x2F; 设置 SubPath 项, 需要与 -a 一起使用.</span><br><span class="line">        Set SubPath. [unique per account] (default &quot;&#x2F;&quot;)</span><br><span class="line">  -c string</span><br><span class="line">        &#x2F;&#x2F; 配置文件</span><br><span class="line">        Config file. (default &quot;config.json&quot;)</span><br><span class="line">  -t string</span><br><span class="line">        &#x2F;&#x2F; Index.html 目录样式文件</span><br><span class="line">        Index file. (default &quot;index.html&quot;)</span><br><span class="line">  -json</span><br><span class="line">        &#x2F;&#x2F; 开关</span><br><span class="line">        &#x2F;&#x2F; 数据以 json 形式输出当前目录数据</span><br><span class="line">        Output json.</span><br><span class="line">  -cn</span><br><span class="line">        &#x2F;&#x2F; 开关</span><br><span class="line">        &#x2F;&#x2F; 授权中国版(世纪互联), 需要此参数.</span><br><span class="line">        OneDrive by 21Vianet.</span><br><span class="line">  -ms</span><br><span class="line">        &#x2F;&#x2F; 开关</span><br><span class="line">        &#x2F;&#x2F; 授权个人版(家庭版), 需要此参数.</span><br><span class="line">        OneDrive by Microsoft.</span><br><span class="line">  -C string</span><br><span class="line">        &#x2F;&#x2F; 覆写所有预置的 Client ID. (不建议新手使用此参数)</span><br><span class="line">        Set  Client ID. [Overwrite all clientId]</span><br><span class="line">  -S string</span><br><span class="line">        &#x2F;&#x2F; 覆写所有预置的 Secret Key. (不建议新手使用此参数)</span><br><span class="line">        Set Secret Key. [Overwrite all secretKey]</span><br></pre></td></tr></table></figure>
-
-<h2 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 保证 config.json 和 index.html 同目录, 直接运行.</span><br><span class="line">$ OneList</span><br><span class="line"># 监听公网 80 端口</span><br><span class="line">$ OneList -bind 0.0.0.0 -port 80</span><br></pre></td></tr></table></figure>
-
-<h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h2><ul>
-<li>在初次缓存过程中或者打开空文件夹, 会提示 No Found.</li>
-<li>请使用 UTF-8 编码模式手动编辑 config.json 文件.</li>
-</ul>
-<h2 id="Nginx-反代配置"><a href="#Nginx-反代配置" class="headerlink" title="Nginx 反代配置"></a>Nginx 反代配置</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">location ^~ &#x2F;onedrive&#x2F; &#123;</span><br><span class="line">    proxy_set_header X-Real-IP $remote_addr;</span><br><span class="line">    proxy_pass http:&#x2F;&#x2F;127.0.0.1:5288;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="Client-Secret-2299-12-31"><a href="#Client-Secret-2299-12-31" class="headerlink" title="Client/Secret (~ 2299/12/31)"></a>Client/Secret (~ 2299/12/31)</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 国际版: 78d4dc35-7e46-42c6-9023-2d39314433a5| ZudGl-p.m&#x3D;LMmr3VrKgAyOf-WevB3p50</span><br><span class="line"># 中国版: dfe36e60-6133-48cf-869f-4d15b8354769| H0-1:6.Sb8:WCW&#x2F;J-c]K@fddCt[i0EZ2</span><br><span class="line"># ReplyURL: http:&#x2F;&#x2F;localhost&#x2F;onedrive-login</span><br></pre></td></tr></table></figure>]]></content>
-      <tags>
-        <tag>onelist</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Python实用教程之__getattr__等标识符的用法</title>
     <url>/2020/03/16/Python%E5%AE%9E%E7%94%A8%E6%95%99%E7%A8%8B%E4%B9%8B__getattr__%E7%AD%89%E6%A0%87%E8%AF%86%E7%AC%A6%E7%9A%84%E7%94%A8%E6%B3%95/</url>
     <content><![CDATA[<p>在使用Python的过程中可能遇到以下几个函数：</p>
@@ -467,6 +112,35 @@
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Descriptor</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__get__</span><span class="params">(self, obj, objtype)</span>:</span></span><br><span class="line">        <span class="keyword">print</span> <span class="string">"get value=%s"</span> % self.val </span><br><span class="line">        <span class="keyword">return</span> self.val</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__set__</span><span class="params">(self, obj, val)</span>:</span></span><br><span class="line">        <span class="keyword">print</span> <span class="string">"set value=%s"</span> % val</span><br><span class="line">        self.val = val</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Stu</span><span class="params">(object)</span>:</span></span><br><span class="line">    age = Descriptor()</span><br><span class="line"></span><br><span class="line">stu = Stu()</span><br><span class="line">stu.age = <span class="number">12</span>    <span class="comment"># set value=12</span></span><br><span class="line"><span class="keyword">print</span> stu.age   <span class="comment"># get value=12</span></span><br><span class="line">                <span class="comment"># 12</span></span><br></pre></td></tr></table></figure>]]></content>
       <tags>
         <tag>Python教程</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Linux之crontab定时任务</title>
+    <url>/2020/04/24/Linux%E4%B9%8Bcrontab%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/</url>
+    <content><![CDATA[<p>Linux中的crontab - - - -一个自定义定时器</p>
+<a id="more"></a>
+
+<h5 id="1-crontab命令"><a href="#1-crontab命令" class="headerlink" title="1.crontab命令"></a>1.crontab命令</h5><p>重新指定crobtab定时任务文件</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">crontab $filepath</span><br></pre></td></tr></table></figure>
+
+<p>查看crontab定时任务</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">crontab -l</span><br></pre></td></tr></table></figure>
+
+<p>编辑、安装定时任务</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">crontab -e</span><br></pre></td></tr></table></figure>
+
+<p><strong>2.crontab时间举例</strong></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 每天早上6点 </span></span><br><span class="line">0 6 * * * echo "Good morning." &gt;&gt; /tmp/test.txt //注意单纯echo，从屏幕上看不到任何输出，因为cron把任何输出都email到root的信箱了。</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 每两个小时 </span></span><br><span class="line">0 */2 * * * echo "Have a break now." &gt;&gt; /tmp/test.txt  </span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 晚上11点到早上8点之间每两个小时和早上八点 </span></span><br><span class="line">0 23-7/2，8 * * * echo "Have a good dream" &gt;&gt; /tmp/test.txt</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 每个月的4号和每个礼拜的礼拜一到礼拜三的早上11点 </span></span><br><span class="line">0 11 4 * 1-3 command line</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 1月1日早上4点 </span></span><br><span class="line">0 4 1 1 * command line SHELL=/bin/bash PATH=/sbin:/bin:/usr/sbin:/usr/bin MAILTO=root //如果出现错误，或者有数据输出，数据作为邮件发给这个帐号 HOME=/ </span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 每小时（第一分钟）执行/etc/cron.hourly内的脚本</span></span><br><span class="line">01 * * * * root run-parts /etc/cron.hourly</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 每天（凌晨4：02）执行/etc/cron.daily内的脚本</span></span><br><span class="line">02 4 * * * root run-parts /etc/cron.daily </span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 每星期（周日凌晨4：22）执行/etc/cron.weekly内的脚本</span></span><br><span class="line">22 4 * * 0 root run-parts /etc/cron.weekly </span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 每月（1号凌晨4：42）去执行/etc/cron.monthly内的脚本 </span></span><br><span class="line">42 4 1 * * root run-parts /etc/cron.monthly </span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 注意:  <span class="string">"run-parts"</span>这个参数了，如果去掉这个参数的话，后面就可以写要运行的某个脚本名，而不是文件夹名。 　 </span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 每天的下午4点、5点、6点的5 min、15 min、25 min、35 min、45 min、55 min时执行命令。 </span></span><br><span class="line">5，15，25，35，45，55 16，17，18 * * * command</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 每周一，三，五的下午3：00系统进入维护状态，重新启动系统。</span></span><br><span class="line">00 15 * *1，3，5 shutdown -r +5</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 每小时的10分，40分执行用户目录下的innd/bbslin这个指令： </span></span><br><span class="line">10，40 * * * * innd/bbslink </span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 每小时的1分执行用户目录下的bin/account这个指令： </span></span><br><span class="line">1 * * * * bin/account</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 每1分钟执行以下命令</span></span><br><span class="line">*/1 * * * * bin/python</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 每天早晨三点二十分执行用户目录下如下所示的两个指令（每个指令以;分隔）： </span></span><br><span class="line">203 * * * （/bin/rm -f expire.ls logins.bad;bin/expire$#@62;expire.1st）</span><br></pre></td></tr></table></figure>
+
+<h5 id="3-crontab任务举例"><a href="#3-crontab任务举例" class="headerlink" title="3.crontab任务举例"></a>3.crontab任务举例</h5><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">*/5 * * * * /bin/bash /root/kaoyan/tiaoji.sh</span><br></pre></td></tr></table></figure>
+
+<p>sh写法举例</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/bash</span></span><br><span class="line">PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:~/bin</span><br><span class="line">export PATH</span><br><span class="line"></span><br><span class="line">cd /root/kaoyan</span><br><span class="line">/root/***/python3 *.py &gt;&gt; /root/****/*.log 2&gt;&amp;1</span><br><span class="line"><span class="meta">#</span><span class="bash">将所有输出写入日志文件</span></span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <tags>
+        <tag>Linux</tag>
+        <tag>crontab</tag>
       </tags>
   </entry>
   <entry>
@@ -665,6 +339,88 @@
       </tags>
   </entry>
   <entry>
+    <title>Tkinter为验证函数提供的一些额外选项</title>
+    <url>/2020/06/30/Tkinter%E4%B8%BA%E9%AA%8C%E8%AF%81%E5%87%BD%E6%95%B0%E6%8F%90%E4%BE%9B%E7%9A%84%E4%B8%80%E4%BA%9B%E9%A2%9D%E5%A4%96%E9%80%89%E9%A1%B9/</url>
+    <content><![CDATA[<table>
+<thead>
+<tr>
+<th>选项</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>‘%d’</td>
+<td>操作代码：0表示删除操作；1表示插入操作；2表示获得、失去焦点或者<code>textvariable</code>变量的值被修改</td>
+</tr>
+<tr>
+<td>‘%i’</td>
+<td>当用户尝试插入或者删除操作时，该选项表示插入或者删除的位置(索引号)，如果是由于获得、失去焦点或<code>textvarible</code>变量的值被修改而调用验证函数，那么该值是-1</td>
+</tr>
+<tr>
+<td>‘%P’</td>
+<td>当输入框的值允许改变的时候，该值有效。该值作为输入框的最新文本内容。</td>
+</tr>
+<tr>
+<td>‘%s’</td>
+<td>该值为调用验证函数前输入框的文本内容</td>
+</tr>
+<tr>
+<td>‘%S’</td>
+<td>当插入或者删除操作触发验证函数时，该值有效。该选项表示文本被插入和删除的内容</td>
+</tr>
+<tr>
+<td>‘%v’</td>
+<td>该组件当前validate选项的值</td>
+</tr>
+<tr>
+<td>‘%V’</td>
+<td>调用该验证函数的原因。该值是’focusin’、’focusout’、’key’或’forced’（textvariable选项指定的变量值被修改）中的一个</td>
+</tr>
+<tr>
+<td>‘%W’</td>
+<td>该组件的名字</td>
+</tr>
+</tbody></table>
+<p>启用验证的开关是validate选项，该选项可以设置的值如下表所示</p>
+<table>
+<thead>
+<tr>
+<th>值</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>‘focus’</td>
+<td>当Entry组件获得或者失去焦点时候验证</td>
+</tr>
+<tr>
+<td>‘focusin’</td>
+<td>当Entry组件获得焦点的时候验证</td>
+</tr>
+<tr>
+<td>‘focusont’</td>
+<td>当Entry组件失去焦点的时候验证</td>
+</tr>
+<tr>
+<td>‘key’</td>
+<td>当输入框被编辑的时候验证</td>
+</tr>
+<tr>
+<td>‘all’</td>
+<td>当出现上面任何一种情况时验证</td>
+</tr>
+<tr>
+<td>‘none’</td>
+<td>关闭验证功能，默认设置。注意是字符串的<code>&#39;none&#39;</code>，而非<code>None</code></td>
+</tr>
+</tbody></table>
+]]></content>
+      <tags>
+        <tag>Python</tag>
+        <tag>Tkinter</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Ubuntu18.04更换镜像源</title>
     <url>/2019/01/06/Ubuntu18.04%E6%9B%B4%E6%8D%A2%E4%B8%BA%E5%9B%BD%E5%86%85%E6%BA%90/</url>
     <content><![CDATA[<h4 id="Ubuntu18-04更换镜像源"><a href="#Ubuntu18-04更换镜像源" class="headerlink" title="Ubuntu18.04更换镜像源"></a>Ubuntu18.04更换镜像源</h4><h5 id="1-备份原有镜像源"><a href="#1-备份原有镜像源" class="headerlink" title="1.备份原有镜像源"></a>1.备份原有镜像源</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo mv /etc/apt/sources.list /etc/apt/sourses.list.bak</span><br></pre></td></tr></table></figure>
@@ -743,151 +499,6 @@
       </tags>
   </entry>
   <entry>
-    <title>gcc编译错误处理</title>
-    <url>/2020/04/07/gcc%E7%BC%96%E8%AF%91%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/</url>
-    <content><![CDATA[<p><strong>完整错误信息如下：</strong></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">main.c:(.text+0x31): undefined reference to sqrt&#39; 3.c:(.text+0x66): undefined reference to sqrt</span><br><span class="line"> collect2: error: ld returned 1 exit status</span><br></pre></td></tr></table></figure>
-
-<p>很明显这是一个链接错误。解决方法是gcc编译时在指令后加-lm参数，使它可以找到相应库。</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">gcc main.c -o main -lm</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <tags>
-        <tag>gcc</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>screen会话管理器用法</title>
-    <url>/2019/03/06/linux%20screen%20%E5%91%BD%E4%BB%A4%E8%AF%A6%E8%A7%A3/</url>
-    <content><![CDATA[<h5 id="screen-会话管理器用法"><a href="#screen-会话管理器用法" class="headerlink" title="screen 会话管理器用法"></a>screen 会话管理器用法</h5><a id="more"></a>
-
-<p><strong>一、背景</strong></p>
-<p>系统管理员经常需要SSH 或者telent 远程登录到Linux 服务器，经常运行一些需要很长时间才能完成的任务，比如系统备份、ftp 传输等等。通常情况下我们都是为每一个这样的任务开一个远程终端窗口，因为它们执行的时间太长了。必须等待它们执行完毕，在此期间不能关掉窗口或者断开连接，否则这个任务就会被杀掉，一切半途而废了。</p>
-<p><strong>二、简介</strong></p>
-<p><strong>GNU Screen</strong>是一款由GNU计划开发的用于命令行终端切换的自由软件。用户可以通过该软件同时连接多个本地或远程的命令行会话，并在其间自由切换。</p>
-<p>GNU Screen可以看作是窗口管理器的命令行界面版本。它提供了统一的管理多个会话的界面和相应的功能。</p>
-<ul>
-<li><strong>会话恢复</strong></li>
-</ul>
-<ul>
-<li><strong>多窗口</strong></li>
-</ul>
-<ul>
-<li><strong>会话共享</strong></li>
-</ul>
-<p>GNU’s Screen 官方站点：<a href="http://www.gnu.org/software/screen/" target="_blank" rel="noopener">http://www.gnu.org/software/screen/</a></p>
-<p><strong>三、语法</strong></p>
-<p># screen [-AmRvx -ls -wipe][-d &lt;作业名称&gt;][-h &lt;行数&gt;][-r &lt;作业名称&gt;][-s ][-S &lt;作业名称&gt;]</p>
-<p><strong>参数说明</strong></p>
-<p>-A 　将所有的视窗都调整为目前终端机的大小。<br>-d &lt;作业名称&gt; 　将指定的screen作业离线。<br>-h &lt;行数&gt; 　指定视窗的缓冲区行数。<br>-m 　即使目前已在作业中的screen作业，仍强制建立新的screen作业。<br>-r &lt;作业名称&gt; 　恢复离线的screen作业。<br>-R 　先试图恢复离线的作业。若找不到离线的作业，即建立新的screen作业。<br>-s 　指定建立新视窗时，所要执行的shell。<br>-S &lt;作业名称&gt; 　指定screen作业的名称。<br>-v 　显示版本信息。<br>-x 　恢复之前离线的screen作业。<br>-ls或–list 　显示目前所有的screen作业。<br>-wipe 　检查目前所有的screen作业，并删除已经无法使用的screen作业。</p>
-<p><strong>四、常用screen参数</strong></p>
-<p>screen -S yourname -&gt; 新建一个叫yourname的session<br>screen -ls -&gt; 列出当前所有的session<br>screen -r yourname -&gt; 回到yourname这个session<br>screen -d yourname -&gt; 远程detach某个session<br>screen -d -r yourname -&gt; 结束当前session并回到yourname这个session</p>
-<p><strong>在每个screen session 下，所有命令都以 ctrl+a(C-a) 开始。</strong><br>C-a ? -&gt; 显示所有键绑定信息<br>C-a c -&gt; 创建一个新的运行shell的窗口并切换到该窗口<br>C-a n -&gt; Next，切换到下一个 window<br>C-a p -&gt; Previous，切换到前一个 window<br>C-a 0..9 -&gt; 切换到第 0..9 个 window<br>Ctrl+a [Space] -&gt; 由视窗0循序切换到视窗9<br>C-a C-a -&gt; 在两个最近使用的 window 间切换<br>C-a x -&gt; 锁住当前的 window，需用用户密码解锁<br>C-a d -&gt; detach，暂时离开当前session，将目前的 screen session (可能含有多个 windows) 丢到后台执行，并会回到还没进 screen 时的状态，此时在 screen session 里，每个 window 内运行的 process (无论是前台/后台)都在继续执行，即使 logout 也不影响。<br>C-a z -&gt; 把当前session放到后台执行，用 shell 的 fg 命令则可回去。<br>C-a w -&gt; 显示所有窗口列表<br>C-a t -&gt; Time，显示当前时间，和系统的 load<br>C-a k -&gt; kill window，强行关闭当前的 window<br>C-a [ -&gt; 进入 copy mode，在 copy mode 下可以回滚、搜索、复制就像用使用 vi 一样<br>  C-b Backward，PageUp<br>  C-f Forward，PageDown<br>  H(大写) High，将光标移至左上角<br>  L Low，将光标移至左下角<br>  0 移到行首<br>  $ 行末<br>  w forward one word，以字为单位往前移<br>  b backward one word，以字为单位往后移<br>  Space 第一次按为标记区起点，第二次按为终点<br>  Esc 结束 copy mode<br>C-a ] -&gt; Paste，把刚刚在 copy mode 选定的内容贴上</p>
-<p><strong>五、使用 screen</strong></p>
-<p><strong>5.1 安装screen</strong></p>
-<p>流行的Linux发行版（例如Red Hat Enterprise Linux）通常会自带screen实用程序，如果没有的话，可以从GNU screen的官方网站下载。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[root@TS-DEV ~]# yum install screen</span><br><span class="line">[root@TS-DEV ~]# rpm -qa|grep screen</span><br><span class="line">screen-4.0.3-4.el5</span><br><span class="line">[root@TS-DEV ~]#</span><br></pre></td></tr></table></figure>
-
-<p><strong>5.2 创建一个新的窗口</strong></p>
-<p>安装完成后，直接敲命令screen就可以启动它。但是这样启动的screen会话没有名字，实践上推荐为每个screen会话取一个名字，方便分辨：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[root@TS-DEV ~]# screen -S david</span><br></pre></td></tr></table></figure>
-
-<p>screen启动后，会创建第一个窗口，也就是窗口No. 0，并在其中打开一个系统默认的shell，一般都会是bash。所以你敲入命令screen之后，会立刻又返回到命令提示符，仿佛什么也没有发生似的，其实你已经进入Screen的世界了。当然，也可以在screen命令之后加入你喜欢的参数，使之直接打开你指定的程序，例如：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[root@TS-DEV ~]# screen vi david.txt</span><br></pre></td></tr></table></figure>
-
-<p>screen创建一个执行vi david.txt的单窗口会话，退出vi 将退出该窗口/会话。</p>
-<p><strong>5.3 查看窗口和窗口名称</strong></p>
-<p>打开多个窗口后，可以使用快捷键C-a w列出当前所有窗口。如果使用文本终端，这个列表会列在屏幕左下角，如果使用X环境下的终端模拟器，这个列表会列在标题栏里。窗口列表的样子一般是这样：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">0$ bash  1-$ bash  2*$ bash</span><br></pre></td></tr></table></figure>
-
-<p>这个例子中我开启了三个窗口，其中*号表示当前位于窗口2，-号表示上一次切换窗口时位于窗口1。</p>
-<p>Screen默认会为窗口命名为编号和窗口中运行程序名的组合，上面的例子中窗口都是默认名字。练习了上面查看窗口的方法，你可能就希望各个窗口可以有不同的名字以方便区分了。可以使用快捷键C-a A来为当前窗口重命名，按下快捷键后，Screen会允许你为当前窗口输入新的名字，回车确认。</p>
-<p><strong>5.4 会话分离与恢复</strong></p>
-<p>你可以不中断screen窗口中程序的运行而暂时断开（detach）screen会话，并在随后时间重新连接（attach）该会话，重新控制各窗口中运行的程序。例如，我们打开一个screen窗口编辑/tmp/david.txt文件：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[root@TS-DEV ~]# screen vi &#x2F;tmp&#x2F;david.txt</span><br></pre></td></tr></table></figure>
-
-<p>之后我们想暂时退出做点别的事情，比如出去散散步，那么在screen窗口键入<code>C-a d</code>，Screen会给出detached提示：</p>
-<p><strong>暂时中断会话</strong></p>
-<p><img src="https://images0.cnblogs.com/blog/370046/201301/29144351-ff7e78c079a44f51ae44d48b6942b87f.jpg" alt="img"></p>
-<p>半个小时之后回来了，找到该screen会话：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[root@TS-DEV ~]# screen -ls</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://images0.cnblogs.com/blog/370046/201301/29144759-7cea9fc3f5f4481ab21df8bd017c88ef.jpg" alt="img"></p>
-<p>重新连接会话：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[root@TS-DEV ~]# screen -r 12865</span><br></pre></td></tr></table></figure>
-
-<p>一切都在。</p>
-<p>当然，如果你在另一台机器上没有分离一个Screen会话，就无从恢复会话了。</p>
-<p>这时可以使用下面命令强制将这个会话从它所在的终端分离，转移到新的终端上来：</p>
-<p><img src="https://images0.cnblogs.com/blog/370046/201301/29215655-6d2f0c7e7f294756a4b40a40e1e76a84.jpg" alt="img"></p>
-<p><strong>5.5 清除dead 会话</strong></p>
-<p>如果由于某种原因其中一个会话死掉了（例如人为杀掉该会话），这时screen -list会显示该会话为dead状态。使用screen -wipe命令清除该会话：</p>
-<p><img src="https://images0.cnblogs.com/blog/370046/201301/29154746-51185199905542c68d3c3b46dddef648.jpg" alt="img"></p>
-<p><strong>5.6 关闭或杀死窗口</strong></p>
-<p>正常情况下，当你退出一个窗口中最后一个程序（通常是bash）后，这个窗口就关闭了。另一个关闭窗口的方法是使用C-a k，这个快捷键杀死当前的窗口，同时也将杀死这个窗口中正在运行的进程。</p>
-<p>如果一个Screen会话中最后一个窗口被关闭了，那么整个Screen会话也就退出了，screen进程会被终止。</p>
-<p>除了依次退出/杀死当前Screen会话中所有窗口这种方法之外，还可以使用快捷键C-a :，然后输入quit命令退出Screen会话。需要注意的是，这样退出会杀死所有窗口并退出其中运行的所有程序。其实C-a :这个快捷键允许用户直接输入的命令有很多，包括分屏可以输入split等，这也是实现Screen功能的一个途径，不过个人认为还是快捷键比较方便些。</p>
-<p><strong>六、screen 高级应用</strong> </p>
-<p><strong>6.1 会话共享</strong></p>
-<p>还有一种比较好玩的会话恢复，可以实现会话共享。假设你在和朋友在不同地点以相同用户登录一台机器，然后你创建一个screen会话，你朋友可以在他的终端上命令：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[root@TS-DEV ~]# screen -x</span><br></pre></td></tr></table></figure>
-
-<p>这个命令会将你朋友的终端Attach到你的Screen会话上，并且你的终端不会被Detach。这样你就可以和朋友共享同一个会话了，如果你们当前又处于同一个窗口，那就相当于坐在同一个显示器前面，你的操作会同步演示给你朋友，你朋友的操作也会同步演示给你。当然，如果你们切换到这个会话的不同窗口中去，那还是可以分别进行不同的操作的。</p>
-<p><strong>6.2 会话锁定与解锁</strong></p>
-<p>Screen允许使用快捷键C-a s锁定会话。锁定以后，再进行任何输入屏幕都不会再有反应了。但是要注意虽然屏幕上看不到反应，但你的输入都会被Screen中的进程接收到。快捷键C-a q可以解锁一个会话。</p>
-<p>也可以使用C-a x锁定会话，不同的是这样锁定之后，会话会被Screen所属用户的密码保护，需要输入密码才能继续访问这个会话。</p>
-<p><strong>6.3 发送命令到screen会话</strong></p>
-<p>在Screen会话之外，可以通过screen命令操作一个Screen会话，这也为使用Screen作为脚本程序增加了便利。关于Screen在脚本中的应用超出了入门的范围，这里只看一个例子，体会一下在会话之外对Screen的操作：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[root@TS-DEV ~]# screen -S sandy -X screen ping www.baidu.com</span><br></pre></td></tr></table></figure>
-
-<p>这个命令在一个叫做sandy的screen会话中创建一个新窗口，并在其中运行ping命令。</p>
-<p><strong>6.4 屏幕分割</strong></p>
-<p>现在显示器那么大，将一个屏幕分割成不同区域显示不同的Screen窗口显然是个很酷的事情。可以使用快捷键C-a S将显示器水平分割，Screen 4.00.03版本以后，也支持垂直分屏，快捷键是C-a |。分屏以后，可以使用C-a <tab>在各个区块间切换，每一区块上都可以创建窗口并在其中运行进程。</p>
-<p>可以用C-a X快捷键关闭当前焦点所在的屏幕区块，也可以用C-a Q关闭除当前区块之外其他的所有区块。关闭的区块中的窗口并不会关闭，还可以通过窗口切换找到它。</p>
-<p><img src="https://images0.cnblogs.com/blog/370046/201301/29205553-38cdde403beb45f4814ca9a180987a9e.jpg" alt="img"></p>
-<p><strong>6.5 C/P模式和操作</strong></p>
-<p>screen的另一个很强大的功能就是可以在不同窗口之间进行复制粘贴了。使用快捷键C-a <Esc>或者C-a [可以进入copy/paste模式，这个模式下可以像在vi中一样移动光标，并可以使用空格键设置标记。其实在这个模式下有很多类似vi的操作，譬如使用/进行搜索，使用y快速标记一行，使用w快速标记一个单词等。关于C/P模式下的高级操作，其文档的这一部分有比较详细的说明。</p>
-<p>一般情况下，可以移动光标到指定位置，按下空格设置一个开头标记，然后移动光标到结尾位置，按下空格设置第二个标记，同时会将两个标记之间的部分储存在copy/paste buffer中，并退出copy/paste模式。在正常模式下，可以使用快捷键C-a ]将储存在buffer中的内容粘贴到当前窗口。</p>
-<p><img src="https://images0.cnblogs.com/blog/370046/201301/29210355-9026652834d446d2bbafa18fd7bca276.jpg" alt="img"></p>
-<p><strong>6.6 更多screen功能</strong></p>
-<p>同大多数UNIX程序一样，GNU Screen提供了丰富强大的定制功能。你可以在Screen的默认两级配置文件/etc/screenrc和$HOME/.screenrc中指定更多，例如设定screen选项，定制绑定键，设定screen会话自启动窗口，启用多用户模式，定制用户访问权限控制等等。如果你愿意的话，也可以自己指定screen配置文件。</p>
-<p>以多用户功能为例，screen默认是以单用户模式运行的，你需要在配置文件中指定multiuser on 来打开多用户模式，通过acl*（acladd,acldel,aclchg…）命令，你可以灵活配置其他用户访问你的screen会话。更多配置文件内容请参考screen的man页。</p>
-<p><strong>6.7 解决screen状态为Attached连上不的问题</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">screen -ls</span><br><span class="line">screen -D -r ＜session-id&gt;</span><br></pre></td></tr></table></figure>
-
-<p>解释：-D -r 先踢掉前一用户，再登陆。</p>
-]]></content>
-      <tags>
-        <tag>Linux运维</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Linux服务器重装</title>
-    <url>/2020/06/12/linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%87%8D%E8%A3%85/</url>
-    <content><![CDATA[<h5 id="Linux服务器重装-升级"><a href="#Linux服务器重装-升级" class="headerlink" title="Linux服务器重装+升级"></a>Linux服务器重装+升级</h5><a id="more"></a>
-
-<h4 id="1-安装依赖"><a href="#1-安装依赖" class="headerlink" title="1.安装依赖"></a>1.安装依赖</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#Debian&#x2F;Ubuntu</span><br><span class="line">apt-get install -y xz-utils openssl gawk file</span><br><span class="line">#RedHat&#x2F;CentOS</span><br><span class="line">yum install -y xz openssl gawk file</span><br></pre></td></tr></table></figure>
-
-<h4 id="2-下载脚本"><a href="#2-下载脚本" class="headerlink" title="2.下载脚本"></a>2.下载脚本</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">wget -O InstallNET.sh https://fly97.coding.net/p/shell/d/shell/git/raw/master/dd/InstallNET.sh</span><br></pre></td></tr></table></figure>
-
-<h4 id="3-运行命令："><a href="#3-运行命令：" class="headerlink" title="3.运行命令："></a>3.运行命令：</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">bash InstallNET.sh -c 6.9 -v 64 -a --mirror <span class="string">'http://mirror.centos.org/centos'</span></span><br><span class="line">bash InstallNET.sh -u 16.04 -v 64 -a -mirror <span class="string">'http://mirrors.aliyun.com/ubuntu/'</span></span><br><span class="line">bash InstallNET.sh -u 16.04 -v 64 -a -mirror <span class="string">'http://mirrors.cloud.aliyuncs.com/ubuntu'</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="4-用户名以及密码："><a href="#4-用户名以及密码：" class="headerlink" title="4.用户名以及密码："></a>4.用户名以及密码：</h4><p><code>root@MoeClub.org</code></p>
-<h4 id="5-升级到-最新版ubuntu"><a href="#5-升级到-最新版ubuntu" class="headerlink" title="5.升级到 最新版ubuntu"></a>5.升级到 最新版ubuntu</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo apt install update-manager-core</span><br><span class="line">sudo do-release-upgrade -d</span><br></pre></td></tr></table></figure>
-
-<p>这个命令将会禁用所有的第三方软件源，并且将 apt 列表指向 focal 软件源。你将会被提示几次，进行确认，是否真的需要继续升级。当你被问到服务是否在升级过程中自动重启，请输入：<code>y</code>。</p>
-<p>在升级过程中，命令将会问你各种问题，比如你是否想要保存已经存在的配置文件，或者安装软件版的维护者版本。如果你没有对配置文件做任何自定义修改，最安全的做法就是输入：<code>Y</code>。否则，我们推荐你保持当前的配置文件。在你做出选择之前，仔细阅读问题。</p>
-<p>升级过程将会在一个 GNU 屏幕会话中运行，并且在连接丢失时，自动继续。</p>
-<p>整个过程将会花费一些时间，具体依赖于你的升级的软件包数目和你的网速。</p>
-<p>一旦新的软件包都被安装了，升级工具将会询问你是否移除旧的软件。如果你不确定，输入<code>d</code>并且检查这些旧的软件包列表。通常情况下，输入<code>y</code>并且移除所有旧的软件包都是安全操作。</p>
-<p>当升级过程完成，并且假设所有操作都很顺利，你将被提示是否重启你的机器。 输入<code>y</code>继续：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">System upgrade is complete.</span><br><span class="line"></span><br><span class="line">Restart required</span><br><span class="line"></span><br><span class="line">To finish the upgrade, a restart is required.</span><br><span class="line">If you select &#39;y&#39; the system will be restarted.</span><br><span class="line"></span><br><span class="line">Continue [yN] y</span><br></pre></td></tr></table></figure>]]></content>
-      <tags>
-        <tag>服务器重装</tag>
-        <tag>服务器升级</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Office Tool Plus使用教程</title>
     <url>/2020/05/11/office%E6%BF%80%E6%B4%BB%E6%95%99%E7%A8%8B/</url>
     <content><![CDATA[<p>Office Tool Plus 使用教程</p>
@@ -911,219 +522,6 @@
 ]]></content>
       <tags>
         <tag>office</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>ubuntu服务管理两种方式service和systemctl</title>
-    <url>/2020/03/20/ubuntu%E6%9C%8D%E5%8A%A1%E7%AE%A1%E7%90%86%E4%B8%A4%E7%A7%8D%E6%96%B9%E5%BC%8Fservice%E5%92%8Csystemctl/</url>
-    <content><![CDATA[<p>Linux 服务管理两种方式service和systemctl</p>
-<a id="more"></a>
-
-<h4 id="1-service命令"><a href="#1-service命令" class="headerlink" title="1.service命令"></a>1.service命令</h4><p>service命令其实是去/etc/init.d目录下，去执行相关程序。</p>
-<p>其中脚本需要我们自己编写。</p>
-<h5 id="1-1-基本步骤"><a href="#1-1-基本步骤" class="headerlink" title="1.1 基本步骤"></a>1.1 基本步骤</h5><ol>
-<li>进入 <code>/etc/init.d</code></li>
-<li>简历一个脚本文件，并赋予755权限：<code>chmod 755 文件名</code></li>
-</ol>
-<p>以kms服务脚本为例</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"></span><br><span class="line"><span class="comment">### BEGIN INIT INFO</span></span><br><span class="line"><span class="comment"># Provides:          kms-service</span></span><br><span class="line"><span class="comment"># Required-Start:    $network $local_fs $remote_fs</span></span><br><span class="line"><span class="comment"># Required-Stop:     $network $local_fs $remote_fs</span></span><br><span class="line"><span class="comment"># Default-Start:     2 3 4 5</span></span><br><span class="line"><span class="comment"># Default-Stop:      0 1 6</span></span><br><span class="line"><span class="comment"># Short-Description: Start kms at boot time</span></span><br><span class="line"><span class="comment"># Description:       Start or stop the KMS-service</span></span><br><span class="line"><span class="comment">### END INIT INFO</span></span><br><span class="line"></span><br><span class="line">NAME=<span class="string">"KMS"</span></span><br><span class="line">NAME_BIN=<span class="string">"kms"</span></span><br><span class="line">FILE=<span class="string">"/home/ubuntu"</span></span><br><span class="line">BIN=<span class="string">"<span class="variable">$&#123;FILE&#125;</span>/kms"</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Green_font_prefix=<span class="string">"\033[32m"</span> &amp;&amp; Red_font_prefix=<span class="string">"\033[31m"</span> &amp;&amp; Green_background_prefix=<span class="string">"\033[42;37m"</span> &amp;&amp; Red_background_prefix=<span class="string">"\033[41;37m"</span> &amp;&amp; Font_color_suffix=<span class="string">"\033[0m"</span></span><br><span class="line">Info=<span class="string">"<span class="variable">$&#123;Green_font_prefix&#125;</span>[信息]<span class="variable">$&#123;Font_color_suffix&#125;</span>"</span></span><br><span class="line">Error=<span class="string">"<span class="variable">$&#123;Red_font_prefix&#125;</span>[错误]<span class="variable">$&#123;Font_color_suffix&#125;</span>"</span></span><br><span class="line">RETVAL=0</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="title">check_running</span></span>()&#123;</span><br><span class="line">	PID=$(ps -ef |grep <span class="string">"<span class="variable">$&#123;NAME_BIN&#125;</span>"</span> |grep -v <span class="string">"grep"</span> |grep -v <span class="string">"init.d"</span> |grep -v <span class="string">"service"</span> |awk <span class="string">'&#123;print $2&#125;'</span>)</span><br><span class="line">	<span class="keyword">if</span> [[ ! -z <span class="variable">$&#123;PID&#125;</span> ]]; <span class="keyword">then</span></span><br><span class="line">		<span class="comment">#echo -e "$&#123;Info&#125;$&#123;NAME&#125; 正在运行！"</span></span><br><span class="line">		<span class="built_in">return</span> 0</span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">		<span class="comment">#echo -e "$&#123;Error&#125;$&#123;NAME&#125; 没有运行！"</span></span><br><span class="line">		<span class="built_in">return</span> 1</span><br><span class="line">	<span class="keyword">fi</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="title">start</span></span>()&#123;</span><br><span class="line">	check_running</span><br><span class="line">	<span class="keyword">if</span> [[ $? -eq 0 ]]; <span class="keyword">then</span></span><br><span class="line">		<span class="built_in">echo</span> -e <span class="string">"<span class="variable">$&#123;Info&#125;</span> <span class="variable">$NAME</span> (PID <span class="variable">$&#123;PID&#125;</span>) 正在运行..."</span> &amp;&amp; <span class="built_in">exit</span> 0</span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">		<span class="built_in">cd</span> <span class="variable">$&#123;FILE&#125;</span></span><br><span class="line">		<span class="built_in">echo</span> -e <span class="string">"<span class="variable">$&#123;Info&#125;</span> <span class="variable">$NAME</span> 启动中..."</span></span><br><span class="line">		<span class="built_in">ulimit</span> -n 51200</span><br><span class="line">		./kms </span><br><span class="line">		sleep 1s</span><br><span class="line">		check_running</span><br><span class="line">		<span class="keyword">if</span> [[ $? -eq 0 ]]; <span class="keyword">then</span></span><br><span class="line">			<span class="built_in">echo</span> -e <span class="string">"<span class="variable">$&#123;Info&#125;</span> <span class="variable">$NAME</span> 启动成功 !"</span></span><br><span class="line">		<span class="keyword">else</span></span><br><span class="line">			<span class="built_in">echo</span> -e <span class="string">"<span class="variable">$&#123;Error&#125;</span> <span class="variable">$NAME</span> 启动失败(请运行脚本查看日志错误输出) !"</span></span><br><span class="line">		<span class="keyword">fi</span></span><br><span class="line">	<span class="keyword">fi</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="title">stop</span></span>()&#123;</span><br><span class="line">	check_running</span><br><span class="line">	<span class="keyword">if</span> [[ $? -eq 0 ]]; <span class="keyword">then</span></span><br><span class="line">		<span class="built_in">kill</span> -9 <span class="variable">$&#123;PID&#125;</span></span><br><span class="line">		RETVAL=$?</span><br><span class="line">		<span class="keyword">if</span> [[ <span class="variable">$RETVAL</span> -eq 0 ]]; <span class="keyword">then</span></span><br><span class="line">			<span class="built_in">echo</span> -e <span class="string">"<span class="variable">$&#123;Info&#125;</span> <span class="variable">$NAME</span> 停止成功 !"</span></span><br><span class="line">		<span class="keyword">else</span></span><br><span class="line">			<span class="built_in">echo</span> -e <span class="string">"<span class="variable">$&#123;Error&#125;</span> <span class="variable">$NAME</span> 停止失败 !"</span></span><br><span class="line">		<span class="keyword">fi</span></span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">		<span class="built_in">echo</span> -e <span class="string">"<span class="variable">$&#123;Info&#125;</span> <span class="variable">$NAME</span> 未运行"</span></span><br><span class="line">		RETVAL=1</span><br><span class="line">	<span class="keyword">fi</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="title">status</span></span>()&#123;</span><br><span class="line">	check_running</span><br><span class="line">	<span class="keyword">if</span> [[ $? -eq 0 ]]; <span class="keyword">then</span></span><br><span class="line">		<span class="comment">#View_User</span></span><br><span class="line">		<span class="built_in">echo</span> -e <span class="string">"<span class="variable">$&#123;Info&#125;</span> <span class="variable">$NAME</span> (PID <span class="variable">$&#123;PID&#125;</span>) 正在运行..."</span></span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">		<span class="built_in">echo</span> -e <span class="string">"<span class="variable">$&#123;Info&#125;</span> <span class="variable">$NAME</span> 未运行 !"</span></span><br><span class="line">		RETVAL=1</span><br><span class="line">	<span class="keyword">fi</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="title">restart</span></span>()&#123;</span><br><span class="line">	stop</span><br><span class="line">	sleep 2s</span><br><span class="line">	start</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">case</span> <span class="string">"<span class="variable">$1</span>"</span> <span class="keyword">in</span></span><br><span class="line">	start|stop|restart|status)</span><br><span class="line">	<span class="variable">$1</span></span><br><span class="line">	;;</span><br><span class="line">	*)</span><br><span class="line">	<span class="built_in">echo</span> <span class="string">"使用方法: <span class="variable">$0</span> &#123; start | stop | restart | status &#125;"</span></span><br><span class="line">	RETVAL=1</span><br><span class="line">	;;</span><br><span class="line"><span class="keyword">esac</span></span><br><span class="line"><span class="built_in">exit</span> <span class="variable">$RETVAL</span></span><br></pre></td></tr></table></figure>
-
-<h5 id="1-2-加入到系统启动中"><a href="#1-2-加入到系统启动中" class="headerlink" title="1.2 加入到系统启动中"></a>1.2 加入到系统启动中</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">// 添加到系统启动</span><br><span class="line">update-rc.d kms defaults </span><br><span class="line">// 从系统启动中删除</span><br><span class="line">update-rc.d kms remove</span><br></pre></td></tr></table></figure>
-
-<h5 id="1-3-启动服务"><a href="#1-3-启动服务" class="headerlink" title="1.3 启动服务"></a>1.3 启动服务</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">service kms start</span><br><span class="line">service kms stop</span><br></pre></td></tr></table></figure>
-
-<h4 id="2-systemctl命令"><a href="#2-systemctl命令" class="headerlink" title="2.systemctl命令"></a>2.systemctl命令</h4><p>​    systemd是Linux系统最新的初始化系统(init),作用是提高系统的启动速度，尽可能启动较少的进程，尽可能更多进程并发启动。systemd对应的进程管理命令是<strong>systemctl</strong>。</p>
-<p>还是以kms服务脚本为例</p>
-<p>新建一个<code>kms.service</code>文件，保存在 <code>/etc/systemd/system/kms.service</code>.</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[Unit]</span><br><span class="line">Description=kms-service</span><br><span class="line">After=network.target</span><br><span class="line"></span><br><span class="line">[Service]</span><br><span class="line">Type=simple</span><br><span class="line">ExecStart=/usr/<span class="built_in">local</span>/bin/kms</span><br><span class="line">ExecStop=/bin/<span class="built_in">kill</span> -9 <span class="variable">$MAINPID</span></span><br><span class="line"></span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br></pre></td></tr></table></figure>
-
-<p>可以看到service文件一般由：<strong>[Unit]</strong>、<strong>[Service]</strong>和<strong>[Install]</strong> 三部分组成</p>
-<ol>
-<li>[Unit]<br>主要是对这个服务的说明，内容， 文档介绍以及对一些依赖服务定义</li>
-<li>[Service]<br>服务的主体定义，主要定义服务的一些运行参数，及操作动作</li>
-<li>[Install]<br>服务安装的相关设置，一般可设置为多用户的</li>
-</ol>
-<p><u>以下是具体参数</u></p>
-<p><strong>[Unit]</strong></p>
-<table>
-<thead>
-<tr>
-<th>参数</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>Description</td>
-<td>服务描述，作为systemctl status 命令输出的一个介绍</td>
-</tr>
-<tr>
-<td>Documentation</td>
-<td>一个url 定义服务的具体介绍网址</td>
-</tr>
-<tr>
-<td>After</td>
-<td>在什么服务启动之后</td>
-</tr>
-<tr>
-<td>Before</td>
-<td>在什么服务启动之前启动</td>
-</tr>
-<tr>
-<td>Requires</td>
-<td>依赖其他的单元服务， 需要与列出的服务一起激活，若任何服务无法启动，则该单元不会被激活</td>
-</tr>
-<tr>
-<td>Wants</td>
-<td>比Requires依赖性弱，若其他服务没有启动成功，该服务也不受影响，只是表示一种推荐</td>
-</tr>
-</tbody></table>
-<p><strong>[Service]</strong></p>
-<table>
-<thead>
-<tr>
-<th>Type</th>
-<th>1.simple默认参数，进程作为主进程<br/>2.forking是后台运行的形式，主进程退出，os接管子进程</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>User</td>
-<td>设置服务运行的用户</td>
-</tr>
-<tr>
-<td>Group</td>
-<td>设置服务运行的用户组</td>
-</tr>
-<tr>
-<td>PIDFile</td>
-<td>存放PID的文件路径, 对于type设置为<strong>forking</strong>建议使用该项</td>
-</tr>
-<tr>
-<td>ExecStart</td>
-<td>服务的具体运行命令</td>
-</tr>
-<tr>
-<td>ExecStartPre</td>
-<td>指定在ExecStart<strong>前</strong>执行的自定义命令</td>
-</tr>
-<tr>
-<td>ExecStartPost</td>
-<td>指定在ExecStart<strong>后</strong>执行的自定义命令</td>
-</tr>
-<tr>
-<td>ExecReload</td>
-<td>重启命令，重新加载的动作， 重新加载时执行的命令或者脚本</td>
-</tr>
-<tr>
-<td>ExecStop</td>
-<td>停止命令，停止时要执行的命令或脚本</td>
-</tr>
-<tr>
-<td>Restart</td>
-<td>定义何种情况Systemd会自动重启当前服务，值： 包括<strong>always（总是重启）</strong>、<strong>no</strong> 、<strong>on-success</strong>、<strong>on-failure</strong>、<strong>on-abnormal</strong>、<strong>on-abort</strong>、<strong>on-watchdog</strong> 对于守护进程，推荐设为on-failure。对于那些允许发生错误退出的服务，可以设为on-abnormal</td>
-</tr>
-<tr>
-<td>TimeoutStartSec</td>
-<td>等待启动的时间。如果守护进程服务没有在配置的时间内发送启动完成的信号，则该服务将被认为失败， 服务将退出。<br/>以秒为单位， “0”来禁用。默认为， 默认使用DefaultTimeoutStartSec=20，<br/>若使用Type=<strong>oneshot</strong>，则该模式默认情况下超时是禁用的</td>
-</tr>
-<tr>
-<td>TimeoutStopSec</td>
-<td>等待关闭的超时时间</td>
-</tr>
-<tr>
-<td>TimeoutSec</td>
-<td>快速配置TimeoutStartSec和TimeoutStopSec时间</td>
-</tr>
-<tr>
-<td>KillMode</td>
-<td>control-group（默认值）：当前控制组里面的所有子进程，都会被杀掉<br/>process：只杀主进程<br/>mixed：主进程将收到 SIGTERM 信号，子进程收到 SIGKILL 信号<br/>none：没有进程会被杀掉，只是执行服务的 stop 命令。</td>
-</tr>
-<tr>
-<td>Environmen</td>
-<td>指定环境变量</td>
-</tr>
-<tr>
-<td>PrivateTmp=True</td>
-<td>表示给服务分配独立的临时空间</td>
-</tr>
-</tbody></table>
-<p>注意：<strong>[Service]</strong>部分的启动、重启、停止命令必须使用绝对路径，使用相对路径则会报错</p>
-<p><strong>[Install]</strong></p>
-<table>
-<thead>
-<tr>
-<th>RequiredBy</th>
-<th>依赖该服务的服务列表</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>WantedBy</td>
-<td>表示该服务所在的 Target， multi-user.target 可以设置为多用户模式具体参考手册systemd.unit(5)</td>
-</tr>
-</tbody></table>
-<p>参考手册：<a href="http://www.jinbuguo.com/systemd/systemd.index.html" target="_blank" rel="noopener">http://www.jinbuguo.com/systemd/systemd.index.html</a></p>
-<p><strong>服务状态列表：</strong></p>
-<table>
-<thead>
-<tr>
-<th>loaded</th>
-<th>系统服务已经初始化完成，加载过配置</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>actvie(running)</td>
-<td>正常运行</td>
-</tr>
-<tr>
-<td>actvie(exited)</td>
-<td>正常结束的服务</td>
-</tr>
-<tr>
-<td>active(waitting)</td>
-<td>等待其他的事件才继续处理</td>
-</tr>
-<tr>
-<td>inactive</td>
-<td>服务关闭</td>
-</tr>
-<tr>
-<td>enabled</td>
-<td>服务开机启动</td>
-</tr>
-<tr>
-<td>disabled</td>
-<td>服务开机不自启</td>
-</tr>
-<tr>
-<td>static</td>
-<td>服务开机启动项不可被管理</td>
-</tr>
-<tr>
-<td>falied</td>
-<td>系统配置错误</td>
-</tr>
-</tbody></table>
-<p><strong>管理日志：</strong></p>
-<p>Systemd 统一管理所有 Unit 的启动日志。</p>
-<table>
-<thead>
-<tr>
-<th>journalctl</th>
-<th>命令查看所有日志(内核日志和应用日志)</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>journalctl _PID=</td>
-<td>查看对应pid的日志</td>
-</tr>
-</tbody></table>
-<p><strong>unit管理：</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 立即启动一个服务</span></span><br><span class="line">sudo systemctl start apache.service</span><br><span class="line"></span><br><span class="line"><span class="comment"># 立即停止一个服务</span></span><br><span class="line">sudo systemctl stop apache.service</span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置开机启动</span></span><br><span class="line">sudo systemctl <span class="built_in">enable</span> apache.service</span><br><span class="line"></span><br><span class="line"><span class="comment"># 关闭开机启动</span></span><br><span class="line">sudo systemctl <span class="built_in">disable</span> apache.service</span><br><span class="line"></span><br><span class="line"><span class="comment"># 重启一个服务</span></span><br><span class="line">sudo systemctl restart apache.service</span><br><span class="line"></span><br><span class="line"><span class="comment"># 杀死一个服务的所有子进程</span></span><br><span class="line">sudo systemctl <span class="built_in">kill</span> apache.service</span><br><span class="line"></span><br><span class="line"><span class="comment"># 重新加载一个服务的配置文件</span></span><br><span class="line">sudo systemctl reload apache.service</span><br><span class="line"></span><br><span class="line"><span class="comment"># 重载所有修改过的配置文件</span></span><br><span class="line">sudo systemctl daemon-reload</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <tags>
-        <tag>ubuntu</tag>
-        <tag>service</tag>
-        <tag>systemctl</tag>
       </tags>
   </entry>
   <entry>
@@ -1883,103 +1281,216 @@
       </tags>
   </entry>
   <entry>
-    <title>v2ray快速上手全记录</title>
-    <url>/2020/04/23/v2ray%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E5%85%A8%E8%AE%B0%E5%BD%95/</url>
-    <content><![CDATA[<p>快速上手v2ray</p>
+    <title>ubuntu服务管理两种方式service和systemctl</title>
+    <url>/2020/03/20/ubuntu%E6%9C%8D%E5%8A%A1%E7%AE%A1%E7%90%86%E4%B8%A4%E7%A7%8D%E6%96%B9%E5%BC%8Fservice%E5%92%8Csystemctl/</url>
+    <content><![CDATA[<p>Linux 服务管理两种方式service和systemctl</p>
 <a id="more"></a>
 
-<h5 id="1-下载并运行脚本"><a href="#1-下载并运行脚本" class="headerlink" title="1.下载并运行脚本"></a>1.下载并运行脚本</h5><p>需要先安装curl：<code>apt-get install curl</code></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">bash &lt;(curl -L -s https://install.direct/go.sh)</span><br></pre></td></tr></table></figure>
+<h4 id="1-service命令"><a href="#1-service命令" class="headerlink" title="1.service命令"></a>1.service命令</h4><p>service命令其实是去/etc/init.d目录下，去执行相关程序。</p>
+<p>其中脚本需要我们自己编写。</p>
+<h5 id="1-1-基本步骤"><a href="#1-1-基本步骤" class="headerlink" title="1.1 基本步骤"></a>1.1 基本步骤</h5><ol>
+<li>进入 <code>/etc/init.d</code></li>
+<li>简历一个脚本文件，并赋予755权限：<code>chmod 755 文件名</code></li>
+</ol>
+<p>以kms服务脚本为例</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"></span><br><span class="line"><span class="comment">### BEGIN INIT INFO</span></span><br><span class="line"><span class="comment"># Provides:          kms-service</span></span><br><span class="line"><span class="comment"># Required-Start:    $network $local_fs $remote_fs</span></span><br><span class="line"><span class="comment"># Required-Stop:     $network $local_fs $remote_fs</span></span><br><span class="line"><span class="comment"># Default-Start:     2 3 4 5</span></span><br><span class="line"><span class="comment"># Default-Stop:      0 1 6</span></span><br><span class="line"><span class="comment"># Short-Description: Start kms at boot time</span></span><br><span class="line"><span class="comment"># Description:       Start or stop the KMS-service</span></span><br><span class="line"><span class="comment">### END INIT INFO</span></span><br><span class="line"></span><br><span class="line">NAME=<span class="string">"KMS"</span></span><br><span class="line">NAME_BIN=<span class="string">"kms"</span></span><br><span class="line">FILE=<span class="string">"/home/ubuntu"</span></span><br><span class="line">BIN=<span class="string">"<span class="variable">$&#123;FILE&#125;</span>/kms"</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Green_font_prefix=<span class="string">"\033[32m"</span> &amp;&amp; Red_font_prefix=<span class="string">"\033[31m"</span> &amp;&amp; Green_background_prefix=<span class="string">"\033[42;37m"</span> &amp;&amp; Red_background_prefix=<span class="string">"\033[41;37m"</span> &amp;&amp; Font_color_suffix=<span class="string">"\033[0m"</span></span><br><span class="line">Info=<span class="string">"<span class="variable">$&#123;Green_font_prefix&#125;</span>[信息]<span class="variable">$&#123;Font_color_suffix&#125;</span>"</span></span><br><span class="line">Error=<span class="string">"<span class="variable">$&#123;Red_font_prefix&#125;</span>[错误]<span class="variable">$&#123;Font_color_suffix&#125;</span>"</span></span><br><span class="line">RETVAL=0</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="title">check_running</span></span>()&#123;</span><br><span class="line">	PID=$(ps -ef |grep <span class="string">"<span class="variable">$&#123;NAME_BIN&#125;</span>"</span> |grep -v <span class="string">"grep"</span> |grep -v <span class="string">"init.d"</span> |grep -v <span class="string">"service"</span> |awk <span class="string">'&#123;print $2&#125;'</span>)</span><br><span class="line">	<span class="keyword">if</span> [[ ! -z <span class="variable">$&#123;PID&#125;</span> ]]; <span class="keyword">then</span></span><br><span class="line">		<span class="comment">#echo -e "$&#123;Info&#125;$&#123;NAME&#125; 正在运行！"</span></span><br><span class="line">		<span class="built_in">return</span> 0</span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">		<span class="comment">#echo -e "$&#123;Error&#125;$&#123;NAME&#125; 没有运行！"</span></span><br><span class="line">		<span class="built_in">return</span> 1</span><br><span class="line">	<span class="keyword">fi</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="title">start</span></span>()&#123;</span><br><span class="line">	check_running</span><br><span class="line">	<span class="keyword">if</span> [[ $? -eq 0 ]]; <span class="keyword">then</span></span><br><span class="line">		<span class="built_in">echo</span> -e <span class="string">"<span class="variable">$&#123;Info&#125;</span> <span class="variable">$NAME</span> (PID <span class="variable">$&#123;PID&#125;</span>) 正在运行..."</span> &amp;&amp; <span class="built_in">exit</span> 0</span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">		<span class="built_in">cd</span> <span class="variable">$&#123;FILE&#125;</span></span><br><span class="line">		<span class="built_in">echo</span> -e <span class="string">"<span class="variable">$&#123;Info&#125;</span> <span class="variable">$NAME</span> 启动中..."</span></span><br><span class="line">		<span class="built_in">ulimit</span> -n 51200</span><br><span class="line">		./kms </span><br><span class="line">		sleep 1s</span><br><span class="line">		check_running</span><br><span class="line">		<span class="keyword">if</span> [[ $? -eq 0 ]]; <span class="keyword">then</span></span><br><span class="line">			<span class="built_in">echo</span> -e <span class="string">"<span class="variable">$&#123;Info&#125;</span> <span class="variable">$NAME</span> 启动成功 !"</span></span><br><span class="line">		<span class="keyword">else</span></span><br><span class="line">			<span class="built_in">echo</span> -e <span class="string">"<span class="variable">$&#123;Error&#125;</span> <span class="variable">$NAME</span> 启动失败(请运行脚本查看日志错误输出) !"</span></span><br><span class="line">		<span class="keyword">fi</span></span><br><span class="line">	<span class="keyword">fi</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="title">stop</span></span>()&#123;</span><br><span class="line">	check_running</span><br><span class="line">	<span class="keyword">if</span> [[ $? -eq 0 ]]; <span class="keyword">then</span></span><br><span class="line">		<span class="built_in">kill</span> -9 <span class="variable">$&#123;PID&#125;</span></span><br><span class="line">		RETVAL=$?</span><br><span class="line">		<span class="keyword">if</span> [[ <span class="variable">$RETVAL</span> -eq 0 ]]; <span class="keyword">then</span></span><br><span class="line">			<span class="built_in">echo</span> -e <span class="string">"<span class="variable">$&#123;Info&#125;</span> <span class="variable">$NAME</span> 停止成功 !"</span></span><br><span class="line">		<span class="keyword">else</span></span><br><span class="line">			<span class="built_in">echo</span> -e <span class="string">"<span class="variable">$&#123;Error&#125;</span> <span class="variable">$NAME</span> 停止失败 !"</span></span><br><span class="line">		<span class="keyword">fi</span></span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">		<span class="built_in">echo</span> -e <span class="string">"<span class="variable">$&#123;Info&#125;</span> <span class="variable">$NAME</span> 未运行"</span></span><br><span class="line">		RETVAL=1</span><br><span class="line">	<span class="keyword">fi</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="title">status</span></span>()&#123;</span><br><span class="line">	check_running</span><br><span class="line">	<span class="keyword">if</span> [[ $? -eq 0 ]]; <span class="keyword">then</span></span><br><span class="line">		<span class="comment">#View_User</span></span><br><span class="line">		<span class="built_in">echo</span> -e <span class="string">"<span class="variable">$&#123;Info&#125;</span> <span class="variable">$NAME</span> (PID <span class="variable">$&#123;PID&#125;</span>) 正在运行..."</span></span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">		<span class="built_in">echo</span> -e <span class="string">"<span class="variable">$&#123;Info&#125;</span> <span class="variable">$NAME</span> 未运行 !"</span></span><br><span class="line">		RETVAL=1</span><br><span class="line">	<span class="keyword">fi</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="title">restart</span></span>()&#123;</span><br><span class="line">	stop</span><br><span class="line">	sleep 2s</span><br><span class="line">	start</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">case</span> <span class="string">"<span class="variable">$1</span>"</span> <span class="keyword">in</span></span><br><span class="line">	start|stop|restart|status)</span><br><span class="line">	<span class="variable">$1</span></span><br><span class="line">	;;</span><br><span class="line">	*)</span><br><span class="line">	<span class="built_in">echo</span> <span class="string">"使用方法: <span class="variable">$0</span> &#123; start | stop | restart | status &#125;"</span></span><br><span class="line">	RETVAL=1</span><br><span class="line">	;;</span><br><span class="line"><span class="keyword">esac</span></span><br><span class="line"><span class="built_in">exit</span> <span class="variable">$RETVAL</span></span><br></pre></td></tr></table></figure>
 
-<p>安装完毕后使用以下命令启动</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo systemctl start v2ray</span><br></pre></td></tr></table></figure>
+<h5 id="1-2-加入到系统启动中"><a href="#1-2-加入到系统启动中" class="headerlink" title="1.2 加入到系统启动中"></a>1.2 加入到系统启动中</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">// 添加到系统启动</span><br><span class="line">update-rc.d kms defaults </span><br><span class="line">// 从系统启动中删除</span><br><span class="line">update-rc.d kms remove</span><br></pre></td></tr></table></figure>
 
-<p>以服务方式启动，开机自启动</p>
-<h5 id="2-caddy-websockset"><a href="#2-caddy-websockset" class="headerlink" title="2.caddy+websockset"></a>2.caddy+websockset</h5><h6 id="2-1服务端"><a href="#2-1服务端" class="headerlink" title="2.1服务端"></a>2.1服务端</h6><p>安装caddy：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">wget https://git.io/vra5C -O - -o /dev/null|bash</span><br></pre></td></tr></table></figure>
+<h5 id="1-3-启动服务"><a href="#1-3-启动服务" class="headerlink" title="1.3 启动服务"></a>1.3 启动服务</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">service kms start</span><br><span class="line">service kms stop</span><br></pre></td></tr></table></figure>
 
-<p><strong>注意：</strong>安装证书时需要查看端口是否占用</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">lsof -i:443</span><br></pre></td></tr></table></figure>
+<h4 id="2-systemctl命令"><a href="#2-systemctl命令" class="headerlink" title="2.systemctl命令"></a>2.systemctl命令</h4><p>​    systemd是Linux系统最新的初始化系统(init),作用是提高系统的启动速度，尽可能启动较少的进程，尽可能更多进程并发启动。systemd对应的进程管理命令是<strong>systemctl</strong>。</p>
+<p>还是以kms服务脚本为例</p>
+<p>新建一个<code>kms.service</code>文件，保存在 <code>/etc/systemd/system/kms.service</code>.</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[Unit]</span><br><span class="line">Description=kms-service</span><br><span class="line">After=network.target</span><br><span class="line"></span><br><span class="line">[Service]</span><br><span class="line">Type=simple</span><br><span class="line">ExecStart=/usr/<span class="built_in">local</span>/bin/kms</span><br><span class="line">ExecStop=/bin/<span class="built_in">kill</span> -9 <span class="variable">$MAINPID</span></span><br><span class="line"></span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br></pre></td></tr></table></figure>
 
-<p>编辑v2ray配置文件：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vim /etc/v2ray/config.json</span><br></pre></td></tr></table></figure>
+<p>可以看到service文件一般由：<strong>[Unit]</strong>、<strong>[Service]</strong>和<strong>[Install]</strong> 三部分组成</p>
+<ol>
+<li>[Unit]<br>主要是对这个服务的说明，内容， 文档介绍以及对一些依赖服务定义</li>
+<li>[Service]<br>服务的主体定义，主要定义服务的一些运行参数，及操作动作</li>
+<li>[Install]<br>服务安装的相关设置，一般可设置为多用户的</li>
+</ol>
+<p><u>以下是具体参数</u></p>
+<p><strong>[Unit]</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Description</td>
+<td>服务描述，作为systemctl status 命令输出的一个介绍</td>
+</tr>
+<tr>
+<td>Documentation</td>
+<td>一个url 定义服务的具体介绍网址</td>
+</tr>
+<tr>
+<td>After</td>
+<td>在什么服务启动之后</td>
+</tr>
+<tr>
+<td>Before</td>
+<td>在什么服务启动之前启动</td>
+</tr>
+<tr>
+<td>Requires</td>
+<td>依赖其他的单元服务， 需要与列出的服务一起激活，若任何服务无法启动，则该单元不会被激活</td>
+</tr>
+<tr>
+<td>Wants</td>
+<td>比Requires依赖性弱，若其他服务没有启动成功，该服务也不受影响，只是表示一种推荐</td>
+</tr>
+</tbody></table>
+<p><strong>[Service]</strong></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>1.simple默认参数，进程作为主进程<br/>2.forking是后台运行的形式，主进程退出，os接管子进程</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>User</td>
+<td>设置服务运行的用户</td>
+</tr>
+<tr>
+<td>Group</td>
+<td>设置服务运行的用户组</td>
+</tr>
+<tr>
+<td>PIDFile</td>
+<td>存放PID的文件路径, 对于type设置为<strong>forking</strong>建议使用该项</td>
+</tr>
+<tr>
+<td>ExecStart</td>
+<td>服务的具体运行命令</td>
+</tr>
+<tr>
+<td>ExecStartPre</td>
+<td>指定在ExecStart<strong>前</strong>执行的自定义命令</td>
+</tr>
+<tr>
+<td>ExecStartPost</td>
+<td>指定在ExecStart<strong>后</strong>执行的自定义命令</td>
+</tr>
+<tr>
+<td>ExecReload</td>
+<td>重启命令，重新加载的动作， 重新加载时执行的命令或者脚本</td>
+</tr>
+<tr>
+<td>ExecStop</td>
+<td>停止命令，停止时要执行的命令或脚本</td>
+</tr>
+<tr>
+<td>Restart</td>
+<td>定义何种情况Systemd会自动重启当前服务，值： 包括<strong>always（总是重启）</strong>、<strong>no</strong> 、<strong>on-success</strong>、<strong>on-failure</strong>、<strong>on-abnormal</strong>、<strong>on-abort</strong>、<strong>on-watchdog</strong> 对于守护进程，推荐设为on-failure。对于那些允许发生错误退出的服务，可以设为on-abnormal</td>
+</tr>
+<tr>
+<td>TimeoutStartSec</td>
+<td>等待启动的时间。如果守护进程服务没有在配置的时间内发送启动完成的信号，则该服务将被认为失败， 服务将退出。<br/>以秒为单位， “0”来禁用。默认为， 默认使用DefaultTimeoutStartSec=20，<br/>若使用Type=<strong>oneshot</strong>，则该模式默认情况下超时是禁用的</td>
+</tr>
+<tr>
+<td>TimeoutStopSec</td>
+<td>等待关闭的超时时间</td>
+</tr>
+<tr>
+<td>TimeoutSec</td>
+<td>快速配置TimeoutStartSec和TimeoutStopSec时间</td>
+</tr>
+<tr>
+<td>KillMode</td>
+<td>control-group（默认值）：当前控制组里面的所有子进程，都会被杀掉<br/>process：只杀主进程<br/>mixed：主进程将收到 SIGTERM 信号，子进程收到 SIGKILL 信号<br/>none：没有进程会被杀掉，只是执行服务的 stop 命令。</td>
+</tr>
+<tr>
+<td>Environmen</td>
+<td>指定环境变量</td>
+</tr>
+<tr>
+<td>PrivateTmp=True</td>
+<td>表示给服务分配独立的临时空间</td>
+</tr>
+</tbody></table>
+<p>注意：<strong>[Service]</strong>部分的启动、重启、停止命令必须使用绝对路径，使用相对路径则会报错</p>
+<p><strong>[Install]</strong></p>
+<table>
+<thead>
+<tr>
+<th>RequiredBy</th>
+<th>依赖该服务的服务列表</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>WantedBy</td>
+<td>表示该服务所在的 Target， multi-user.target 可以设置为多用户模式具体参考手册systemd.unit(5)</td>
+</tr>
+</tbody></table>
+<p>参考手册：<a href="http://www.jinbuguo.com/systemd/systemd.index.html" target="_blank" rel="noopener">http://www.jinbuguo.com/systemd/systemd.index.html</a></p>
+<p><strong>服务状态列表：</strong></p>
+<table>
+<thead>
+<tr>
+<th>loaded</th>
+<th>系统服务已经初始化完成，加载过配置</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>actvie(running)</td>
+<td>正常运行</td>
+</tr>
+<tr>
+<td>actvie(exited)</td>
+<td>正常结束的服务</td>
+</tr>
+<tr>
+<td>active(waitting)</td>
+<td>等待其他的事件才继续处理</td>
+</tr>
+<tr>
+<td>inactive</td>
+<td>服务关闭</td>
+</tr>
+<tr>
+<td>enabled</td>
+<td>服务开机启动</td>
+</tr>
+<tr>
+<td>disabled</td>
+<td>服务开机不自启</td>
+</tr>
+<tr>
+<td>static</td>
+<td>服务开机启动项不可被管理</td>
+</tr>
+<tr>
+<td>falied</td>
+<td>系统配置错误</td>
+</tr>
+</tbody></table>
+<p><strong>管理日志：</strong></p>
+<p>Systemd 统一管理所有 Unit 的启动日志。</p>
+<table>
+<thead>
+<tr>
+<th>journalctl</th>
+<th>命令查看所有日志(内核日志和应用日志)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>journalctl _PID=</td>
+<td>查看对应pid的日志</td>
+</tr>
+</tbody></table>
+<p><strong>unit管理：</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 立即启动一个服务</span></span><br><span class="line">sudo systemctl start apache.service</span><br><span class="line"></span><br><span class="line"><span class="comment"># 立即停止一个服务</span></span><br><span class="line">sudo systemctl stop apache.service</span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置开机启动</span></span><br><span class="line">sudo systemctl <span class="built_in">enable</span> apache.service</span><br><span class="line"></span><br><span class="line"><span class="comment"># 关闭开机启动</span></span><br><span class="line">sudo systemctl <span class="built_in">disable</span> apache.service</span><br><span class="line"></span><br><span class="line"><span class="comment"># 重启一个服务</span></span><br><span class="line">sudo systemctl restart apache.service</span><br><span class="line"></span><br><span class="line"><span class="comment"># 杀死一个服务的所有子进程</span></span><br><span class="line">sudo systemctl <span class="built_in">kill</span> apache.service</span><br><span class="line"></span><br><span class="line"><span class="comment"># 重新加载一个服务的配置文件</span></span><br><span class="line">sudo systemctl reload apache.service</span><br><span class="line"></span><br><span class="line"><span class="comment"># 重载所有修改过的配置文件</span></span><br><span class="line">sudo systemctl daemon-reload</span><br></pre></td></tr></table></figure>
 
-<p>最简单的配置文件：</p>
-<figure class="highlight json"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line"> <span class="attr">"log"</span>: &#123;</span><br><span class="line">    <span class="attr">"loglevel"</span>: <span class="string">"warning"</span>,</span><br><span class="line">    <span class="attr">"access"</span>: <span class="string">"/var/log/v2ray/access.log"</span>,</span><br><span class="line">    <span class="attr">"error"</span>: <span class="string">"/var/log/v2ray/error.log"</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">"inbounds"</span>: [</span><br><span class="line">&#123;</span><br><span class="line">    <span class="attr">"port"</span>: <span class="number">10000</span>,  <span class="comment">//端口号</span></span><br><span class="line">    <span class="attr">"listen"</span>:<span class="string">"127.0.0.1"</span>,  <span class="comment">//默认只监听内网ip</span></span><br><span class="line">    <span class="attr">"protocol"</span>: <span class="string">"vmess"</span>,  <span class="comment">//加密协议</span></span><br><span class="line">    <span class="attr">"settings"</span>: &#123;</span><br><span class="line">      <span class="attr">"clients"</span>: [</span><br><span class="line">        &#123;</span><br><span class="line">          <span class="attr">"id"</span>: <span class="string">"c4ef8fef-91b9-4f84-8b81-8aae98f3b7f9"</span>,    <span class="comment">//uuid</span></span><br><span class="line">          <span class="attr">"alterId"</span>: <span class="number">32</span> <span class="comment">//附加id</span></span><br><span class="line">        &#125;</span><br><span class="line">      ]</span><br><span class="line">    &#125;,</span><br><span class="line">   <span class="attr">"streamSettings"</span>: &#123;</span><br><span class="line">        <span class="attr">"network"</span>:<span class="string">"ws"</span>,  <span class="comment">//传输方式</span></span><br><span class="line">        <span class="attr">"wsSettings"</span>: &#123;</span><br><span class="line">        <span class="attr">"path"</span>: <span class="string">"/app"</span>  <span class="comment">//分流路径</span></span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line"> &#125;</span><br><span class="line">],</span><br><span class="line">  <span class="attr">"outbounds"</span>: [</span><br><span class="line">&#123;</span><br><span class="line">    <span class="attr">"protocol"</span>: <span class="string">"freedom"</span>,</span><br><span class="line">    <span class="attr">"settings"</span>: &#123;&#125;</span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>配置文件下载：<code>https://ftp.fly97.cn/configuration/config.json</code></p>
-<p>编辑caddy配置文件：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">caddy edit</span><br></pre></td></tr></table></figure>
-
-<p>最简单的caddy配置文件：</p>
-<figure class="highlight makefile"><table><tr><td class="code"><pre><span class="line"><span class="section">http://yoursite &#123;</span></span><br><span class="line">        root /var/caddywww/</span><br><span class="line">        gzip</span><br><span class="line">        tls off</span><br><span class="line">        log /var/log/caddy/access.log</span><br><span class="line">        errors /var/log/caddy/error.log</span><br><span class="line">        proxy /app localhost:10000 &#123;</span><br><span class="line">        websocket</span><br><span class="line">        header_upstream -Origin</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>配置文件下载：<code>https://ftp.fly97.cn/configuration/Caddyfile</code></p>
-<h6 id="2-2客户端"><a href="#2-2客户端" class="headerlink" title="2.2客户端"></a>2.2客户端</h6><p>建议使用clash，支持win和安卓平台</p>
-<p>win平台：</p>
-<p><a href="https://github.com/Fndroid/clash_for_windows_pkg/releases" target="_blank" rel="noopener">https://github.com/Fndroid/clash_for_windows_pkg/releases</a></p>
-<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200423211355498.png" alt="image-20200423211355498"></p>
-<p>其中配置文件需要自己编写，支持快速分流。</p>
-<p>重点介绍以下v2ray部分的配置文件。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># Will be ignored after profile selection</span><br><span class="line">Proxy:</span><br><span class="line">  - name: gost</span><br><span class="line">    type: socks5</span><br><span class="line">    server: 127.0.0.1</span><br><span class="line">    port: 1080</span><br><span class="line">  - name: v2ray</span><br><span class="line">    type: vmess</span><br><span class="line">    server: yoursite</span><br><span class="line">    uuid: &quot;c4ef8fef-91b9-4f84-8b81-8aae98f3b7f9&quot;</span><br><span class="line">    port: 80</span><br><span class="line">    cipher: &quot;auto&quot;</span><br><span class="line">    udp: false</span><br><span class="line">    network: ws</span><br><span class="line">    ws-path: &quot;&#x2F;app&quot;</span><br><span class="line">    tls: false</span><br><span class="line">    alterId: 32</span><br><span class="line">Proxy Group:</span><br><span class="line">  - name: Proxy</span><br><span class="line">    type: select</span><br><span class="line">    proxies:</span><br><span class="line">      - gost</span><br><span class="line">      - v2ray</span><br><span class="line">Rule:</span><br><span class="line">- DOMAIN-SUFFIX,aliyun,Proxy</span><br><span class="line">- DOMAIN,fly97.cn,Proxy</span><br><span class="line">- DOMAIN-SUFFIX,alibabacloud,Proxy</span><br><span class="line">- DOMAIN-SUFFIX,cn,DIRECT</span><br><span class="line"></span><br><span class="line"># ad tracks</span><br><span class="line">- DOMAIN,graph.instagram.com,DIRECT</span><br><span class="line">- DOMAIN,www.googleadservices.com,DIRECT</span><br><span class="line">- DOMAIN,control.kochava.com,DIRECT</span><br><span class="line">- DOMAIN,www.google-analytics.com,DIRECT</span><br><span class="line">- DOMAIN,ssl.google-analytics.com,DIRECT</span><br><span class="line">- DOMAIN,nexus.officeapps.live.com,DIRECT</span><br><span class="line">- DOMAIN,googleads.g.doubleclick.net,DIRECT</span><br><span class="line">- DOMAIN,e.crashlytics.com,DIRECT</span><br><span class="line">- DOMAIN,ib.adnxs.com,DIRECT</span><br><span class="line">- DOMAIN-SUFFIX,googlesyndication.com,DIRECT</span><br><span class="line">- DOMAIN-SUFFIX,googletagmanager.com,DIRECT</span><br><span class="line">- DOMAIN-SUFFIX,googletagservices.com,DIRECT</span><br><span class="line">- DOMAIN,safebrowsing.googleapis.com,DIRECT</span><br><span class="line"></span><br><span class="line">- DOMAIN,google.com,Proxy</span><br><span class="line">- DOMAIN-KEYWORD,paypal,DIRECT</span><br><span class="line">- DOMAIN-SUFFIX,google.com,Proxy</span><br><span class="line">- DOMAIN-KEYWORD,facebook,Proxy</span><br><span class="line">- DOMAIN-SUFFIX,fb.me,Proxy</span><br><span class="line">- DOMAIN-SUFFIX,fbcdn.net,Proxy</span><br><span class="line">- DOMAIN-KEYWORD,gmail,Proxy</span><br><span class="line">- DOMAIN-KEYWORD,twitter,Proxy</span><br><span class="line">- DOMAIN-KEYWORD,instagram,Proxy</span><br><span class="line">- DOMAIN-SUFFIX,twimg.com,Proxy</span><br><span class="line">- DOMAIN-KEYWORD,blogspot,Proxy</span><br><span class="line">- DOMAIN-KEYWORD,whatsapp,Proxy</span><br><span class="line">- DOMAIN-KEYWORD,scholar,Proxy</span><br><span class="line">- DOMAIN-KEYWORD,glados,Proxy</span><br><span class="line">- DOMAIN-KEYWORD,mailgun,Proxy</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">- DOMAIN-KEYWORD,weibo,DIRECT</span><br><span class="line">- DOMAIN-KEYWORD,hostloc,DIRECT</span><br></pre></td></tr></table></figure>
-
-<h5 id="3-caddy-websocket-tls"><a href="#3-caddy-websocket-tls" class="headerlink" title="3.caddy+websocket+tls"></a>3.caddy+websocket+tls</h5><p>首先第二步中服务器端口换成443</p>
-<p>其次更改caddy配置文件</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">https:&#x2F;&#x2F;yoursite &#123;</span><br><span class="line">        root &#x2F;var&#x2F;caddywww&#x2F;</span><br><span class="line">        gzip</span><br><span class="line">        tls yoursite@mail</span><br><span class="line">        log &#x2F;var&#x2F;log&#x2F;caddy&#x2F;access.log</span><br><span class="line">        errors &#x2F;var&#x2F;log&#x2F;caddy&#x2F;error.log</span><br><span class="line">        proxy &#x2F;app localhost:10000 &#123;</span><br><span class="line">        websocket</span><br><span class="line">        header_upstream -Origin</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h5 id="4-caddy-tls-web"><a href="#4-caddy-tls-web" class="headerlink" title="4.caddy+tls+web"></a>4.caddy+tls+web</h5><p>优点：减少tls握手时间</p>
-<h6 id="安装tls分流器"><a href="#安装tls分流器" class="headerlink" title="安装tls分流器"></a>安装tls分流器</h6><p>对于 linux-amd64 可以使用脚本安装，以 root 身份执行以下命令：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">bash &lt;(curl -L -s https://raw.githubusercontent.com/liberal-boy/tls-shunt-proxy/master/dist/install.sh)</span><br></pre></td></tr></table></figure>
-
-<p>配置文件位于：<code>/etc/tls-shunt-proxy/config.yaml</code></p>
-<p>项目地址：<a href="https://github.com/liberal-boy/tls-shunt-proxy" target="_blank" rel="noopener">https://github.com/liberal-boy/tls-shunt-proxy</a></p>
-<h6 id="修改分流器配置文件"><a href="#修改分流器配置文件" class="headerlink" title="修改分流器配置文件"></a>修改分流器配置文件</h6><figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">listen:</span> <span class="number">0.0</span><span class="number">.0</span><span class="number">.0</span><span class="string">:443</span></span><br><span class="line"><span class="attr">vhosts:</span></span><br><span class="line">    <span class="comment"># 将 example.com 改为你的域名</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">example.com</span></span><br><span class="line">    <span class="attr">tlsoffloading:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">managedcert:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">alpn:</span> <span class="string">h2,http/1.1</span></span><br><span class="line">    <span class="comment"># 如果不需要兼容 tls12, 可改为 tls13</span></span><br><span class="line">    <span class="attr">protocols:</span> <span class="string">tls12,tls13</span></span><br><span class="line">    <span class="attr">http:</span></span><br><span class="line">      <span class="attr">handler:</span> <span class="string">fileServer</span></span><br><span class="line">      <span class="comment"># /var/www/html 是静态网站目录</span></span><br><span class="line">      <span class="attr">args:</span> <span class="string">/var/www/html</span></span><br><span class="line">    <span class="attr">default:</span></span><br><span class="line">      <span class="attr">handler:</span> <span class="string">proxyPass</span></span><br><span class="line">      <span class="attr">args:</span> <span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span><span class="string">:40001</span></span><br></pre></td></tr></table></figure>
-
-<h6 id="修改v2ray配置文件"><a href="#修改v2ray配置文件" class="headerlink" title="修改v2ray配置文件"></a>修改v2ray配置文件</h6><p>编辑文件：<code>vim /etc/v2ray/config.json</code></p>
-<figure class="highlight json"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"inbounds"</span>: [</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="attr">"protocol"</span>: <span class="string">"vmess"</span>,</span><br><span class="line">            <span class="attr">"listen"</span>: <span class="string">"127.0.0.1"</span>,</span><br><span class="line">            <span class="attr">"port"</span>: <span class="number">40001</span>,</span><br><span class="line">            <span class="attr">"settings"</span>: &#123;</span><br><span class="line">                <span class="attr">"clients"</span>: [</span><br><span class="line">                    &#123;</span><br><span class="line">                        <span class="attr">"id"</span>: <span class="string">"f2435e5c-9ad9-4367-836a-8341117d0a5f"</span></span><br><span class="line">                    &#125;</span><br><span class="line">                ]</span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="attr">"streamSettings"</span>: &#123;</span><br><span class="line">                <span class="attr">"network"</span>: <span class="string">"tcp"</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    ],</span><br><span class="line">    <span class="attr">"outbounds"</span>: [</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="attr">"protocol"</span>: <span class="string">"freedom"</span></span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h6 id="重启服务"><a href="#重启服务" class="headerlink" title="重启服务"></a>重启服务</h6><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">systemctl restart tls-shunt-proxy</span><br><span class="line">systemctl restart v2ray</span><br></pre></td></tr></table></figure>
-
-<h6 id="客户端连接"><a href="#客户端连接" class="headerlink" title="客户端连接"></a>客户端连接</h6><p>客户端连接<code>example.com:443 vmess tls</code>即可</p>
-<p>转载自：</p>
-<p><a href="https://guide.v2fly.org/advanced/tcp_tls_shunt_proxy.html#实现" target="_blank" rel="noopener">https://guide.v2fly.org/advanced/tcp_tls_shunt_proxy.html#%E5%AE%9E%E7%8E%B0</a></p>
 ]]></content>
       <tags>
-        <tag>v2ray</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>一键安装影梭脚本</title>
-    <url>/2019/12/31/%E4%B8%80%E9%94%AE%E5%AE%89%E8%A3%85ShadowsocksR%E8%84%9A%E6%9C%AC/</url>
-    <content><![CDATA[<h5 id="🐕头保命。"><a href="#🐕头保命。" class="headerlink" title="🐕头保命。"></a>🐕头保命。</h5><a id="more"></a>
-
-<h5 id="服务端脚本"><a href="#服务端脚本" class="headerlink" title="服务端脚本"></a><del>服务端脚本</del></h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">wget https://fly97.fun/files/git/shadowsocksr/ssr.sh &amp;&amp; chmod +x ssr.sh</span><br></pre></td></tr></table></figure>
-
-<h5 id="一键安装ShadowsocksR服务端脚本"><a href="#一键安装ShadowsocksR服务端脚本" class="headerlink" title="一键安装ShadowsocksR服务端脚本"></a>一键安装ShadowsocksR服务端脚本</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">wget https://code.aliyun.com/wf.09/shadowsocks/raw/master/ssr.sh &amp;&amp; chmod +x ssr.sh</span><br></pre></td></tr></table></figure>
-
-<h5 id="一键安装ShadowsocksR客户端脚本"><a href="#一键安装ShadowsocksR客户端脚本" class="headerlink" title="一键安装ShadowsocksR客户端脚本"></a>一键安装ShadowsocksR客户端脚本</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">wget https://code.aliyun.com/wf.09/shadowsocks/raw/master/ssr &amp;&amp; chmod +x ssr &amp;&amp; mv ssr /usr/<span class="built_in">local</span>/bin</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <tags>
-        <tag>ShadowsocksR</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Outline软件使用全记录</title>
-    <url>/2020/01/04/%E4%BD%BF%E7%94%A8Outline%20App%E8%BF%9B%E8%A1%8C%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/</url>
-    <content><![CDATA[<p>Outline软件使用全记录</p>
-<a id="more"></a>
-
-<h5 id="1-如果是苹果手机，首先需要下载一个工具"><a href="#1-如果是苹果手机，首先需要下载一个工具" class="headerlink" title="1.如果是苹果手机，首先需要下载一个工具."></a>1.如果是苹果手机，首先需要下载一个工具.</h5><p>国区现在全面下架代理工具，需要一个港区或者美区ID进行下载，大多是软件收费，少数软件免费但是有广告。楼主偶然发现了一个国区也可以用的代理工具：</p>
-<p><a href="https://apps.apple.com/cn/app/outline-app/id1356177741" target="_blank" rel="noopener">https://apps.apple.com/cn/app/outline-app/id1356177741</a></p>
-<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/1.png" alt="1.png"></p>
-<h5 id="2-购买相应服务后就可以使用了"><a href="#2-购买相应服务后就可以使用了" class="headerlink" title="2.购买相应服务后就可以使用了."></a>2.购买相应服务后就可以使用了.</h5><p>楼主提供了一个免费节点，复制以下链接，点击小钥匙，选择允许添加VPN配置就可以免费使用啦</p>
-<img src="https://cdn.jsdelivr.net/gh/wf09/upload/2.jpg" alt="2.jpg" style="zoom:33%;" />
-
-<p><del>ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpOWkVyeFN3MTh5YmQ=@47.241.3.53:20650/?outline=1</del></p>
-]]></content>
-      <tags>
-        <tag>Outline</tag>
+        <tag>ubuntu</tag>
+        <tag>service</tag>
+        <tag>systemctl</tag>
       </tags>
   </entry>
   <entry>
@@ -2224,6 +1735,27 @@
       </tags>
   </entry>
   <entry>
+    <title>使用jsdelivrCDN加速github文件</title>
+    <url>/2020/06/20/%E4%BD%BF%E7%94%A8jsdelivrCDN%E5%8A%A0%E9%80%9Fgithub%E6%96%87%E4%BB%B6/</url>
+    <content><![CDATA[<p>jsDelivr 是国外的一家优秀的公共 CDN 服务提供商，也是首个「打通中国大陆（网宿公司运营）与海外的免费 CDN 服务」。</p>
+<a id="more"></a>
+
+<h3 id="jsDelivr-配置"><a href="#jsDelivr-配置" class="headerlink" title="jsDelivr 配置"></a>jsDelivr 配置</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">https:&#x2F;&#x2F;cdn.jsdelivr.net&#x2F;gh&#x2F;wf09&#x2F;upload@master&#x2F;1.png</span><br></pre></td></tr></table></figure>
+
+<p>其中：</p>
+<ul>
+<li><code>gh</code> 表示来自 Github 的仓库</li>
+<li><code>wf09/upload</code> 指的是用户名/仓库名</li>
+<li><code>master</code> 仓库的分支</li>
+<li><code>1.png</code>仓库下的具体文件</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>jsdelivrCDN</tag>
+        <tag>github</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>使用pip离线安装pytorch-gpu</title>
     <url>/2020/02/17/%E4%BD%BF%E7%94%A8pip%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85pytorch/</url>
     <content><![CDATA[<p>废话不多说，上教程。</p>
@@ -2289,27 +1821,6 @@
       </tags>
   </entry>
   <entry>
-    <title>使用jsdelivrCDN加速github文件</title>
-    <url>/2020/06/20/%E4%BD%BF%E7%94%A8jsdelivrCDN%E5%8A%A0%E9%80%9Fgithub%E6%96%87%E4%BB%B6/</url>
-    <content><![CDATA[<p>jsDelivr 是国外的一家优秀的公共 CDN 服务提供商，也是首个「打通中国大陆（网宿公司运营）与海外的免费 CDN 服务」。</p>
-<a id="more"></a>
-
-<h3 id="jsDelivr-配置"><a href="#jsDelivr-配置" class="headerlink" title="jsDelivr 配置"></a>jsDelivr 配置</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">https:&#x2F;&#x2F;cdn.jsdelivr.net&#x2F;gh&#x2F;wf09&#x2F;upload@master&#x2F;1.png</span><br></pre></td></tr></table></figure>
-
-<p>其中：</p>
-<ul>
-<li><code>gh</code> 表示来自 Github 的仓库</li>
-<li><code>wf09/upload</code> 指的是用户名/仓库名</li>
-<li><code>master</code> 仓库的分支</li>
-<li><code>1.png</code>仓库下的具体文件</li>
-</ul>
-]]></content>
-      <tags>
-        <tag>jsdelivrCDN</tag>
-        <tag>github</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>修改Pip镜像源</title>
     <url>/2020/05/11/%E4%BF%AE%E6%94%B9pip%E9%95%9C%E5%83%8F%E6%BA%90/</url>
     <content><![CDATA[<p>修改pip镜像源</p>
@@ -2364,58 +1875,6 @@
 ]]></content>
       <tags>
         <tag>pip</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>阿里云服务器测评：1CPU/1GB内存/25GB硬盘/30Mbps/轻量应用服务器</title>
-    <url>/2020/06/28/%E9%98%BF%E9%87%8C%E4%BA%91%E8%BD%BB%E9%87%8F%E5%BA%94%E7%94%A8%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%B5%8B%E8%AF%84/</url>
-    <content><![CDATA[<p>​    阿里云计算，<code>Alibaba Cloud</code>，是一家提供云端运算服务的科技公司，创立于2009年9月，为阿里巴巴集团全资所有。阿里云计算公司总部位于杭州，在北京和硅谷等地设有研发中心和运营机构，涉及云计算的产品与服务。至2018年上半年，公有云<code>IaaS</code>厂商全球市场份额阿里云排名第三，仅次于<code>AWS</code>和<code>Azure</code>。</p>
-<p>​    阿里云提供的轻量应用服务器，24元/月，CPU为1核，内存大小为<code>1GB</code>，SSD大小为<code>25GB</code>。峰值带宽限制在<code>30Mbps</code>，每月流量为<code>1TB</code>。最近都说阿里云线路变得越来越差了，小编也凑了个热闹，赶紧开了一台看看线路究竟如何。下面跟随小编来看一下如何创建轻量应用服务器吧~</p>
-<a id="more"></a>
-
-<h3 id="注册"><a href="#注册" class="headerlink" title="注册"></a>注册</h3><p>​    官网：<a href="https://www.aliyun.com/" target="_blank" rel="noopener">https://www.aliyun.com/</a></p>
-<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200628152313055.png" alt=""></p>
-<p>相信大家都已经有阿里云账号了，这里不在赘述。</p>
-<h3 id="开通机器"><a href="#开通机器" class="headerlink" title="开通机器"></a>开通机器</h3><p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200628152429787.png" alt="">选择轻量应用服务器，点击立即购买。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200628152631818.png" alt="image-20200628152631818">地域选择香港，系统镜像选择<code>Ubuntu</code>。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200628152746449.png" alt="image-20200628152746449">套餐选择最低配，不分配数据盘，时常选择一个月，点击立即购买。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200628152853042.png" alt="image-20200628152853042">同意协议后去支付，这里会跳转到支付宝的付款界面。打开手机支付宝，扫码即可。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200628153101801.png" alt="image-20200628153101801">小编习惯登录支付，输入支付密码点击确认付款即可。</p>
-<p>稍后登录控制台就能看的机器信息。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200628153537833.png" alt="image-20200628153537833">咦，IP怎么是8开头。小编有一种不详的预感~先看看他的去程回程吧。</p>
-<h3 id="去程回程"><a href="#去程回程" class="headerlink" title="去程回程"></a>去程回程</h3><p><strong>联通去程</strong></p>
-<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200628153913552.png" alt="image-20200628153913552">果不其然<del>以往都是直连香港，这次竟然绕日本的NTT。套路云啊套路云，你可真不辜负你的名字呢</del></p>
-<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200628154255025.png" alt="image-20200628154255025">下载国内的速度也超级慢。</p>
-<p><strong>联通回程</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">root@iZj6c0gzw63rkhv866t7luZ:/home/admin<span class="comment"># ./besttrace 221.12.0.221</span></span><br><span class="line">traceroute to 221.12.0.221 (221.12.0.221), 30 hops max, 60 byte packets</span><br><span class="line"> 1  *</span><br><span class="line">    *</span><br><span class="line">    *</span><br><span class="line"> 2  11.109.220.41  0.65 ms  *  美国 defense.gov</span><br><span class="line">    11.109.220.41  16.91 ms  *  美国 defense.gov</span><br><span class="line">    11.109.220.41  0.49 ms  *  美国 defense.gov</span><br><span class="line"> 3  *</span><br><span class="line">    *</span><br><span class="line">    *</span><br><span class="line"> 4  11.131.180.210  12.98 ms  *  美国 defense.gov</span><br><span class="line">    11.131.180.210  1.21 ms  *  美国 defense.gov</span><br><span class="line">    11.131.180.210  1.16 ms  *  美国 defense.gov</span><br><span class="line"> 5  103.52.74.246  1.72 ms  *  中国 香港 youku.com</span><br><span class="line">    103.52.74.246  1.46 ms  *  中国 香港 youku.com</span><br><span class="line">    103.52.74.246  1.43 ms  *  中国 香港 youku.com</span><br><span class="line"> 6  47.246.114.1  1.55 ms  *  中国 香港 阿里云</span><br><span class="line">    47.246.114.1  1.49 ms  *  中国 香港 阿里云</span><br><span class="line">    47.246.114.1  1.48 ms  *  中国 香港 阿里云</span><br><span class="line"> 7  162.245.125.205  1.72 ms  AS10099  中国 香港 联通</span><br><span class="line">    162.245.125.205  1.60 ms  AS10099  中国 香港 联通</span><br><span class="line">    162.245.125.205  1.63 ms  AS10099  中国 香港 联通</span><br><span class="line"> 8  202.77.18.194  2.56 ms  AS10099  中国 香港 联通</span><br><span class="line">    202.77.18.194  8.23 ms  AS10099  中国 香港 联通</span><br><span class="line">    202.77.18.194  5.87 ms  AS10099  中国 香港 联通</span><br><span class="line"> 9  43.252.86.66  4.14 ms  AS10099  中国 香港 联通</span><br><span class="line">    43.252.86.66  1.96 ms  AS10099  中国 香港 联通</span><br><span class="line">    43.252.86.66  7.44 ms  AS10099  中国 香港 联通</span><br><span class="line">10  202.77.23.29  58.59 ms  AS10099  中国 香港 联通</span><br><span class="line">    202.77.23.29  56.25 ms  AS10099  中国 香港 联通</span><br><span class="line">    202.77.23.29  53.92 ms  AS10099  中国 香港 联通</span><br><span class="line">11  219.158.10.61  56.70 ms  AS4837  中国 香港 联通</span><br><span class="line">    219.158.10.61  54.43 ms  AS4837  中国 香港 联通</span><br><span class="line">    219.158.10.61  52.07 ms  AS4837  中国 香港 联通</span><br><span class="line">12  219.158.98.93  59.83 ms  AS4837  中国 广东 广州 联通</span><br><span class="line">    219.158.98.93  57.58 ms  AS4837  中国 广东 广州 联通</span><br><span class="line">    219.158.98.93  76.25 ms  AS4837  中国 广东 广州 联通</span><br><span class="line">13  219.158.97.1  59.71 ms  AS4837  中国 广东 广州 联通</span><br><span class="line">    219.158.97.1  59.69 ms  AS4837  中国 广东 广州 联通</span><br><span class="line">    219.158.97.1  57.41 ms  AS4837  中国 广东 广州 联通</span><br><span class="line">14  219.158.105.6  95.74 ms  AS4837  中国 浙江 杭州 联通</span><br><span class="line">    219.158.105.6  95.74 ms  AS4837  中国 浙江 杭州 联通</span><br><span class="line">    219.158.105.6  108.98 ms  AS4837  中国 浙江 杭州 联通</span><br><span class="line">15  *</span><br><span class="line">    *</span><br><span class="line">    *</span><br><span class="line">16  221.12.0.221  98.90 ms  AS4837  中国 浙江 杭州 联通</span><br><span class="line">    221.12.0.221  96.97 ms  AS4837  中国 浙江 杭州 联通</span><br><span class="line">    221.12.0.221  99.61 ms  AS4837  中国 浙江 杭州 联通</span><br></pre></td></tr></table></figure>
-
-<p>回程还不错，可惜去程也决定了线路的质量。</p>
-<p><strong>移动去程</strong></p>
-<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200628155051869.png" alt="image-20200628155051869">看起来还不错，看看回程吧。</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">root@iZj6c0gzw63rkhv866t7luZ:/home/admin<span class="comment"># ./besttrace 120.192.96.*</span></span><br><span class="line">traceroute to 120.192.96.* (120.192.96.*), 30 hops max, 60 byte packets</span><br><span class="line"> 1  *</span><br><span class="line">    *</span><br><span class="line">    *</span><br><span class="line"> 2  11.109.216.105  1.17 ms  *  美国 defense.gov</span><br><span class="line">    11.109.216.105  0.59 ms  *  美国 defense.gov</span><br><span class="line">    11.109.216.105  0.53 ms  *  美国 defense.gov</span><br><span class="line"> 3  *</span><br><span class="line">    *</span><br><span class="line">    *</span><br><span class="line"> 4  11.131.180.218  13.08 ms  *  美国 defense.gov</span><br><span class="line">    11.131.180.218  1.20 ms  *  美国 defense.gov</span><br><span class="line">    11.131.180.218  1.04 ms  *  美国 defense.gov</span><br><span class="line"> 5  103.52.74.246  1.13 ms  *  中国 香港 youku.com</span><br><span class="line">    103.52.74.246  1.19 ms  *  中国 香港 youku.com</span><br><span class="line">    103.52.74.246  1.32 ms  *  中国 香港 youku.com</span><br><span class="line"> 6  223.119.62.165  2.35 ms  AS58453  中国 香港 移动</span><br><span class="line">    223.119.62.165  2.19 ms  AS58453  中国 香港 移动</span><br><span class="line">    223.119.62.165  2.41 ms  AS58453  中国 香港 移动</span><br><span class="line"> 7  223.120.3.89  1.81 ms  AS58453  中国 香港 移动</span><br><span class="line">    223.120.3.89  1.84 ms  AS58453  中国 香港 移动</span><br><span class="line">    223.120.3.89  2.77 ms  AS58453  中国 香港 移动</span><br><span class="line"> 8  223.120.2.86  5.54 ms  AS58453  中国 广东 广州 移动</span><br><span class="line">    223.120.2.86  5.61 ms  AS58453  中国 广东 广州 移动</span><br><span class="line">    223.120.2.86  5.60 ms  AS58453  中国 广东 广州 移动</span><br><span class="line"> 9  223.120.22.29  36.03 ms  AS58453  中国 广东 广州 移动</span><br><span class="line">    223.120.22.29  35.70 ms  AS58453  中国 广东 广州 移动</span><br><span class="line">    223.120.22.29  35.95 ms  AS58453  中国 广东 广州 移动</span><br><span class="line">10  221.183.55.110  40.44 ms  AS9808  中国 北京 移动</span><br><span class="line">    221.183.55.110  40.36 ms  AS9808  中国 北京 移动</span><br><span class="line">    221.183.55.110  40.27 ms  AS9808  中国 北京 移动</span><br><span class="line">11  221.183.10.38  66.18 ms  AS9808  中国 北京 移动</span><br><span class="line">    221.183.10.38  41.33 ms  AS9808  中国 北京 移动</span><br><span class="line">    221.183.10.38  44.15 ms  AS9808  中国 北京 移动</span><br><span class="line">12  221.176.16.193  89.90 ms  AS9808  中国 北京 移动</span><br><span class="line">    221.176.16.193  39.04 ms  AS9808  中国 北京 移动</span><br><span class="line">    221.176.16.193  39.17 ms  AS9808  中国 北京 移动</span><br><span class="line">13  221.176.15.38  49.42 ms  AS9808  中国 山东 济南 移动</span><br><span class="line">    221.183.36.10  48.91 ms  AS9808  中国 山东 济南 移动</span><br><span class="line">    221.183.10.25  95.52 ms  AS9808  中国 山东 济南 移动</span><br><span class="line">14  *</span><br><span class="line">    221.183.12.194  53.58 ms  AS9808  中国 山东 济南 移动</span><br><span class="line">    *</span><br><span class="line">15  120.192.96.*  54.30 ms  AS24444  中国 山东 济南 移动</span><br><span class="line">    120.192.96.*  54.31 ms  AS24444  中国 山东 济南 移动</span><br><span class="line">    120.192.96.*  53.81 ms  AS24444  中国 山东 济南 移动</span><br></pre></td></tr></table></figure>
-
-<p>咦，看来新线路对移动有优化吖~</p>
-<p><strong>电信去程</strong></p>
-<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200628155638030.png" alt="image-20200628155638030">噗，就这<del>~</del></p>
-<p><strong>电信回程</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">root@iZj6c0gzw63rkhv866t7luZ:/home/admin<span class="comment"># ./besttrace 113.129.61.136</span></span><br><span class="line">traceroute to 113.129.61.136 (113.129.61.136), 30 hops max, 60 byte packets</span><br><span class="line"> 1  *</span><br><span class="line">    *</span><br><span class="line">    *</span><br><span class="line"> 2  11.109.216.105  0.72 ms  *  美国 defense.gov</span><br><span class="line">    11.109.216.105  0.46 ms  *  美国 defense.gov</span><br><span class="line">    11.109.216.105  0.49 ms  *  美国 defense.gov</span><br><span class="line"> 3  *</span><br><span class="line">    11.109.216.218  3.53 ms  *  美国 defense.gov</span><br><span class="line">    11.109.216.218  1.71 ms  *  美国 defense.gov</span><br><span class="line"> 4  11.131.180.250  1.15 ms  *  美国 defense.gov</span><br><span class="line">    11.131.180.250  1.23 ms  *  美国 defense.gov</span><br><span class="line">    11.131.180.250  1.21 ms  *  美国 defense.gov</span><br><span class="line"> 5  47.246.113.182  1.38 ms  *  中国 香港 阿里云</span><br><span class="line">    47.246.113.182  1.34 ms  *  中国 香港 阿里云</span><br><span class="line">    47.246.113.182  1.30 ms  *  中国 香港 阿里云</span><br><span class="line"> 6  47.246.113.253  1.69 ms  *  美国 阿里云</span><br><span class="line">    47.246.113.253  1.55 ms  *  美国 阿里云</span><br><span class="line">    47.246.113.253  1.53 ms  *  美国 阿里云</span><br><span class="line"> 7  61.14.203.49  1.71 ms  *  中国 香港 联通</span><br><span class="line">    61.14.203.49  1.82 ms  *  中国 香港 联通</span><br><span class="line">    61.14.203.49  1.79 ms  *  中国 香港 联通</span><br><span class="line"> 8  202.77.18.194  6.23 ms  AS10099  中国 香港 联通</span><br><span class="line">    202.77.18.194  3.88 ms  AS10099  中国 香港 联通</span><br><span class="line">    202.77.18.194  1.56 ms  AS10099  中国 香港 联通</span><br><span class="line"> 9  43.252.86.66  3.24 ms  AS10099  中国 香港 联通</span><br><span class="line">    43.252.86.66  8.80 ms  AS10099  中国 香港 联通</span><br><span class="line">    43.252.86.66  6.53 ms  AS10099  中国 香港 联通</span><br><span class="line">10  202.77.23.29  59.65 ms  AS10099  中国 香港 联通</span><br><span class="line">    202.77.23.29  57.28 ms  AS10099  中国 香港 联通</span><br><span class="line">    202.77.23.29  55.00 ms  AS10099  中国 香港 联通</span><br><span class="line">11  219.158.10.61  51.04 ms  AS4837  中国 香港 联通</span><br><span class="line">    219.158.10.61  56.77 ms  AS4837  中国 香港 联通</span><br><span class="line">    219.158.10.61  54.46 ms  AS4837  中国 香港 联通</span><br><span class="line">12  219.158.97.30  54.26 ms  AS4837  中国 广东 广州 联通</span><br><span class="line">    219.158.97.30  59.88 ms  AS4837  中国 广东 广州 联通</span><br><span class="line">    219.158.97.30  57.59 ms  AS4837  中国 广东 广州 联通</span><br><span class="line">13  219.158.24.125  104.40 ms  AS4837  中国 广东 广州 联通</span><br><span class="line">    219.158.24.125  110.25 ms  AS4837  中国 广东 广州 联通</span><br><span class="line">    *</span><br><span class="line">14  219.158.6.245  224.02 ms  AS4837  中国 上海 联通</span><br><span class="line">    219.158.6.245  197.84 ms  AS4837  中国 上海 联通</span><br><span class="line">    219.158.6.245  178.06 ms  AS4837  中国 上海 联通</span><br><span class="line">15  *</span><br><span class="line">    *</span><br><span class="line">    *</span><br><span class="line">16  *</span><br><span class="line">    *</span><br><span class="line">    *</span><br><span class="line">17  202.97.46.29  158.32 ms  AS4134  中国 上海 电信</span><br><span class="line">    202.97.46.29  121.45 ms  AS4134  中国 上海 电信</span><br><span class="line">    202.97.46.29  119.41 ms  AS4134  中国 上海 电信</span><br><span class="line">18  202.97.40.254  201.11 ms  AS4134  中国 山东 济南 电信</span><br><span class="line">    202.97.40.254  203.28 ms  AS4134  中国 山东 济南 电信</span><br><span class="line">    202.97.40.254  207.24 ms  AS4134  中国 山东 济南 电信</span><br><span class="line">19  219.146.26.230  219.41 ms  AS4134  中国 山东 济南 电信</span><br><span class="line">    219.146.26.230  230.19 ms  AS4134  中国 山东 济南 电信</span><br><span class="line">    219.146.26.230  247.56 ms  AS4134  中国 山东 济南 电信</span><br><span class="line">20  *</span><br><span class="line">    *</span><br><span class="line">    *</span><br><span class="line">21  *</span><br><span class="line">    *</span><br><span class="line">    *</span><br><span class="line">22  *</span><br><span class="line">    *</span><br><span class="line">    *</span><br><span class="line">23  *</span><br><span class="line">    *</span><br><span class="line">    *</span><br><span class="line">24  *</span><br><span class="line">    *</span><br><span class="line">    *</span><br><span class="line">25  *</span><br><span class="line">    *</span><br><span class="line">    *</span><br><span class="line">26  *</span><br><span class="line">    *</span><br><span class="line">    *</span><br><span class="line">27  *</span><br><span class="line">    *</span><br><span class="line">    *</span><br><span class="line">28  *</span><br><span class="line">    *</span><br><span class="line">    *</span><br><span class="line">29  *</span><br><span class="line">    *</span><br><span class="line">    *</span><br><span class="line">30  *</span><br><span class="line">    *</span><br><span class="line">    *</span><br></pre></td></tr></table></figure>
-
-<p>啊~看来这线路拉的不是一点半点啊</p>
-<p><strong>性能测试</strong></p>
-<p>通过运行 <code>wget -qO- bench.sh | bash</code>来查看VPS的基本信息。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200628160403987.png" alt="image-20200628160403987">IO是真的可以，只是这线路，哎~~</p>
-<h3 id="下载测试"><a href="#下载测试" class="headerlink" title="下载测试"></a>下载测试</h3><p>使用<code>bash &lt;(curl -Lso- https://git.io/superspeed)</code>进行全面测速。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200628161807461.png" alt="image-20200628161807461"></p>
-<p>电信和联通明显不如移动啊~~</p>
-<p>贴一个47开头的阿里云ip去程路线。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200628162005474.png" alt="image-20200628162005474">可惜，可惜。</p>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>移动线路可以，联通电信还是弃坑吧。</p>
-<p>套路云先是停掉了新手套餐2.0，又是改了轻量的线路，估计有很多的国人被迫下车。以后国人在境外建站不会考虑套路云了吧。</p>
-<p>完。</p>
-]]></content>
-      <tags>
-        <tag>VPS</tag>
-        <tag>阿里云</tag>
       </tags>
   </entry>
 </search>
