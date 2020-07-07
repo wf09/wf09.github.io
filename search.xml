@@ -215,7 +215,10 @@
   <entry>
     <title>Tkinter为验证函数提供的一些额外选项</title>
     <url>/2020/06/30/Tkinter%E4%B8%BA%E9%AA%8C%E8%AF%81%E5%87%BD%E6%95%B0%E6%8F%90%E4%BE%9B%E7%9A%84%E4%B8%80%E4%BA%9B%E9%A2%9D%E5%A4%96%E9%80%89%E9%A1%B9/</url>
-    <content><![CDATA[<table>
+    <content><![CDATA[<p>Tkinter学习笔记</p>
+<a id="more"></a>
+
+<table>
 <thead>
 <tr>
 <th>选项</th>
