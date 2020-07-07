@@ -1,6 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Git常见操作之在本地目录下关联远程仓库和如何取消本地目录下关联的远程库</title>
+    <url>/2020/03/07/Git%E5%B8%B8%E8%A7%81%E6%93%8D%E4%BD%9C/</url>
+    <content><![CDATA[<p>不说废话，上教程。</p>
+<a id="more"></a>
+
+<h5 id="1-在本地目录下关联远程repository-："><a href="#1-在本地目录下关联远程repository-：" class="headerlink" title="1.在本地目录下关联远程repository ："></a>1.在本地目录下关联远程repository ：</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git remote add origin git@github.com:git_username/repository_name.git</span><br></pre></td></tr></table></figure>
+
+<h5 id="2-取消本地目录下关联的远程库："><a href="#2-取消本地目录下关联的远程库：" class="headerlink" title="2.取消本地目录下关联的远程库："></a>2.取消本地目录下关联的远程库：</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git remote remove origin</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <tags>
+        <tag>git</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Anacoda3 安装Pytorch小记录</title>
     <url>/2019/12/30/Anacoda3%20%E5%AE%89%E8%A3%85Pytorch%E5%B0%8F%E8%AE%B0%E5%BD%95/</url>
     <content><![CDATA[<p>话不多说，先上教程。</p>
@@ -52,21 +67,6 @@
 ]]></content>
       <tags>
         <tag>学习教程</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Git常见操作之在本地目录下关联远程仓库和如何取消本地目录下关联的远程库</title>
-    <url>/2020/03/07/Git%E5%B8%B8%E8%A7%81%E6%93%8D%E4%BD%9C/</url>
-    <content><![CDATA[<p>不说废话，上教程。</p>
-<a id="more"></a>
-
-<h5 id="1-在本地目录下关联远程repository-："><a href="#1-在本地目录下关联远程repository-：" class="headerlink" title="1.在本地目录下关联远程repository ："></a>1.在本地目录下关联远程repository ：</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git remote add origin git@github.com:git_username/repository_name.git</span><br></pre></td></tr></table></figure>
-
-<h5 id="2-取消本地目录下关联的远程库："><a href="#2-取消本地目录下关联的远程库：" class="headerlink" title="2.取消本地目录下关联的远程库："></a>2.取消本地目录下关联的远程库：</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git remote remove origin</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <tags>
-        <tag>git</tag>
       </tags>
   </entry>
   <entry>
@@ -187,80 +187,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Python数据存储之pickle模块的使用</title>
-    <url>/2020/03/04/Python%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8%E4%B9%8Bpickle%E6%A8%A1%E5%9D%97%E7%9A%84%E4%BD%BF%E7%94%A8/</url>
-    <content><![CDATA[<p>废话不多说，直接上代码。</p>
-<a id="more"></a>
-
-<h5 id="把变量写入文件"><a href="#把变量写入文件" class="headerlink" title="把变量写入文件"></a>把变量写入文件</h5><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> pickle</span><br><span class="line"></span><br><span class="line">data = <span class="string">"I am a boy."</span></span><br><span class="line">file = open(<span class="string">'data.pkl'</span>, <span class="string">'wb'</span>)</span><br><span class="line">pickle.dump(data, file, [protocol])</span><br><span class="line"><span class="comment">#data----变量名称</span></span><br><span class="line"><span class="comment">#file----文件指针</span></span><br><span class="line"><span class="comment">#protocol----序列化使用的协议。如果该项省略，则默认为0。如果为负值或HIGHEST_PROTOCOL，则使用最高的协议版本</span></span><br></pre></td></tr></table></figure>
-
-<h5 id="从文件中读取变量"><a href="#从文件中读取变量" class="headerlink" title="从文件中读取变量"></a>从文件中读取变量</h5><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> pickle</span><br><span class="line"></span><br><span class="line">file = open(<span class="string">'data.pkl'</span>, <span class="string">'rb'</span>)</span><br><span class="line">data = pickle.load(file)</span><br></pre></td></tr></table></figure>
-
-
-
-<h5 id="With-open函数打开文件的各种方式"><a href="#With-open函数打开文件的各种方式" class="headerlink" title="With open函数打开文件的各种方式"></a>With open函数打开文件的各种方式</h5><table>
-<thead>
-<tr>
-<th><strong>type</strong></th>
-<th>info</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>r</td>
-<td>以只读方式打开文件。文件的指针将会放在文件的开头。这是默认模式。</td>
-</tr>
-<tr>
-<td>w</td>
-<td>打开一个文件只用于写入。如果该文件已存在则将其覆盖。如果该文件不存在，创建新文件。</td>
-</tr>
-<tr>
-<td>a</td>
-<td>打开一个文件用于追加。如果该文件已存在，文件指针将会放在文件的结尾。也就是说，新的内容将会被写入到已有内容之后。如果该文件不存在，创建新文件进行写入。</td>
-</tr>
-<tr>
-<td>rb</td>
-<td>以二进制格式打开一个文件用于只读。文件指针将会放在文件的开头。这是默认模式。</td>
-</tr>
-<tr>
-<td>wb</td>
-<td>以二进制格式打开一个文件只用于写入。如果该文件已存在则将其覆盖。如果该文件不存在，创建新文件。</td>
-</tr>
-<tr>
-<td>ab</td>
-<td>以二进制格式打开一个文件用于追加。如果该文件已存在，文件指针将会放在文件的结尾。也就是说，新的内容将会被写入到已有内容之后。如果该文件不存在，创建新文件进行写入。</td>
-</tr>
-<tr>
-<td>r+</td>
-<td>打开一个文件用于读写。文件指针将会放在文件的开头。</td>
-</tr>
-<tr>
-<td>w+</td>
-<td>打开一个文件用于读写。如果该文件已存在则将其覆盖。如果该文件不存在，创建新文件。</td>
-</tr>
-<tr>
-<td>a+</td>
-<td>打开一个文件用于读写。如果该文件已存在，文件指针将会放在文件的结尾。文件打开时会是追加模式。如果该文件不存在，创建新文件用于读写。</td>
-</tr>
-<tr>
-<td>rb+</td>
-<td>以二进制格式打开一个文件用于读写。文件指针将会放在文件的开头。</td>
-</tr>
-<tr>
-<td>wb+</td>
-<td>以二进制格式打开一个文件用于读写。如果该文件已存在则将其覆盖。如果该文件不存在，创建新文件。</td>
-</tr>
-<tr>
-<td>ab+</td>
-<td>以二进制格式打开一个文件用于追加。如果该文件已存在，文件指针将会放在文件的结尾。如果该文件不存在，创建新文件用于读写。</td>
-</tr>
-</tbody></table>
-]]></content>
-      <tags>
-        <tag>Python教程</tag>
-        <tag>pickle</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Python深度学习之PyTorch学习小记录</title>
     <url>/2020/03/05/Python%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E4%B9%8BPyTorch%E5%AD%A6%E4%B9%A0%E5%B0%8F%E8%AE%B0%E5%BD%95/</url>
     <content><![CDATA[<p>不说废话，直接上教程。</p>
@@ -284,58 +210,6 @@
       <tags>
         <tag>Python深度学习</tag>
         <tag>Pytorch</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Python深度学习之深入浅出LSTM</title>
-    <url>/2020/03/16/Python%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E4%B9%8B%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BALSTM/</url>
-    <content><![CDATA[<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=deflault"></script>
-
-<p>什么是LSTM？</p>
-<a id="more"></a>
-
-<h4 id="1-LSTM是什么"><a href="#1-LSTM是什么" class="headerlink" title="1.LSTM是什么"></a>1.LSTM是什么</h4><p>LSTM 即 Long Short Term 网络——一般就叫做LSTM——是一种特殊的RNN，可以学习长期依赖信息。LSTM由 <em>Hochreiter &amp; Schmidhuber</em> (1997) 提出， 并被 <em>Alex Graves</em> 进行了改良和推广。在很多问题，LSTM 都取得了相当巨大的成功，并得到了广泛的使用。</p>
-<p>LSTM 通过刻意的设计来避免长期依赖问题。记住长期的信息是 LSTM 的默认行为，而非需要付出很大代价才能获得的能力。</p>
-<p>所有的 RNN都具有一种重复神经网络模块的链式的形式，在标准的RNN中，这个重复的模块只有一个非常简单的结构，例如一个 <em>tanh</em> 层。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/20150829181722_450.png" alt=""></p>
-<blockquote>
-<p>上图即<strong>标准RNN中</strong>重复模块包含单一的层</p>
-</blockquote>
-<p>LSTM同样是这样的结构，但是重复的模块拥有一个不同的结构。不同于单一神经网络层，这里有四个，以一种非常特殊的方式进行交互。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/20150829181722_631.png" alt=""></p>
-<blockquote>
-<p>上图即<strong>LSTM</strong>中的重复模块包含的四个交互的层</p>
-</blockquote>
-<p>我们会一步一步的剖析LSTM解析图。现在，我们先来熟悉一下途中使用的各种元素的图标。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/20150829181722_777.png" alt=""></p>
-<blockquote>
-<p>LSTM中的图标</p>
-</blockquote>
-<p>在上面的图例中，每一条黑线传输着一整个向量，从一个节点的输出到其他节点的输入。粉色的圈代表 <em>pointwise</em> (逐点的)操作，诸如向量的和，而黄色的矩阵就是学习到的神经网络层。合在一起的线表示向量的连接，分开的线表示内容被复制，然后分发到不同的位置。</p>
-<h4 id="2-LSTM核心内容"><a href="#2-LSTM核心内容" class="headerlink" title="2.LSTM核心内容"></a>2.LSTM核心内容</h4><p>LSTM的关键就是细胞状态（cell），水平线在图上方贯穿运行，细胞状态类似于传送带，直接在整个链上运行，只有一些少量的线性交互，信息在上面流传保持不变会很容易。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/20150829181723_640.png" alt=""></p>
-<p>LSTM 有通过精心设计的称作”<strong>门</strong>“的结构来去除或者增加信息到细胞状态的能力。门是一种让信息选择式通过的方法。他们包含一个 <em>sigmoid</em> 神经网络层和一个 <em>pointwise</em> 乘法操作。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/20150829181723_567.png" alt=""></p>
-<p><em>sigmoid</em> 层输出 0 到 1 之间的数值，描述每个部分有多少量可以通过。0 代表”不允许任何量通过”，1 就指”允许任何量通过”。</p>
-<p>LSTM有三个门，来保护和控制细胞状态。</p>
-<h4 id="3-逐步理解LSTM"><a href="#3-逐步理解LSTM" class="headerlink" title="3.逐步理解LSTM"></a>3.逐步理解LSTM</h4><p>LSTM中第一步是决定会从细胞状态中丢弃什么信息。这个决定通过一个称为 <strong>忘记门层</strong> 的门来完成。该门会读取 \(h_{t-1}\) 和 \(x_{t}\) ，输出一个在 0 到 1 之间的数值给每个在细胞状态中的数字。1 表示”完全保留”，0 代表”完全舍弃”。</p>
-<p>让我们回到 <strong>语言模型</strong> 的例子中来基于已经看到的词预测下一个词。在这个问题中，细胞状态可能包含当前 <strong>主语</strong> 的类别，因此正确的 <strong>代词</strong> 可以被选择出来。当我们看到新的 <strong>代词</strong> 可以被选择出来。当我们看到新的 <strong>代词</strong> ，我们希望忘记旧的 <strong>代词</strong>。</p>
-<p><img src="C:%5CUsers%5Cwf09%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C20150829181723_259.png" alt=""></p>
-<h5 id="3-1决定丢弃信息"><a href="#3-1决定丢弃信息" class="headerlink" title="3.1决定丢弃信息"></a>3.1决定丢弃信息</h5><p>下一步是确定什么样的新信息被存放在细胞状态中。这里包含两部分。第一，<em>sigmoid</em> 层称 “输入门层” 决定什么值我们将要更新。然后，一个 <em>tanh</em> 层创建一个一个新的候选值向量，\(\tilde{C_{t}}\)，会被加入到状态中。下一步，我们会将这两个信息来产生对状态的更新。</p>
-<p>在我们 <strong>语言模型</strong> 的例子中，我们希望增加新的 <strong>代词</strong> 的类别到细胞状态中，来替代旧的需要忘记的 <strong>代词</strong>。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/20150829181723_897.png" alt=""></p>
-<h5 id="3-2确定更新的信息"><a href="#3-2确定更新的信息" class="headerlink" title="3.2确定更新的信息"></a>3.2确定更新的信息</h5><p>现在是更新旧细胞状态的时间了，\(C_{t-1}\) 更新为 \(C_{t}\)</p>
-<p>我们把旧状态与 \(f_t\) 相乘，丢弃掉确定丢弃的信息，接着加上 \(i_t * \tilde{C}_t\) ，这就是新的候选值。</p>
-<p>在 <strong>语言模型</strong> 的例子中，这就是我们实际根据前面确定的目标，丢弃 <strong>旧代词</strong> 的类别信息并添加新的信息的地方。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/20150829181723_883.png" alt=""></p>
-<h5 id="3-3更新细胞状态"><a href="#3-3更新细胞状态" class="headerlink" title="3.3更新细胞状态"></a>3.3更新细胞状态</h5><p>最终，我们需要确定输出什么值，这个输出将会基于我们的细胞状态，但是也是一个过滤后的版本。首先，我们运行一个 <em>sigmoid</em> 层来确定细胞状态的哪个部分将输出出去。接着，我们把细胞状态通过 <em>tanh</em> 进行处理，得到一个在 -1 到 1 之间的值，并将它和 sigmoid 门的输出相乘，最终我们仅仅会输出我们确定输出的那部分。</p>
-<p>在 <strong>语言模型</strong> 的例子中，因为他就看到了一个  <strong>代词</strong> ，可能需要输出一个 <strong>代词</strong> 相关的信息。例如，可能输出是否代词是单数还是负数。如果是 <strong>动词</strong> 的话，我们也他要知道 <strong>动词</strong> 需要进行的词形变化。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/20150829181723_463.png" alt=""></p>
-]]></content>
-      <tags>
-        <tag>Python深度学习</tag>
-        <tag>pytorch</tag>
-        <tag>LSTM</tag>
       </tags>
   </entry>
   <entry>
@@ -421,6 +295,163 @@
       </tags>
   </entry>
   <entry>
+    <title>Python深度学习之深入浅出LSTM</title>
+    <url>/2020/03/16/Python%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E4%B9%8B%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BALSTM/</url>
+    <content><![CDATA[<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=deflault"></script>
+
+<p>什么是LSTM？</p>
+<a id="more"></a>
+
+<h4 id="1-LSTM是什么"><a href="#1-LSTM是什么" class="headerlink" title="1.LSTM是什么"></a>1.LSTM是什么</h4><p>LSTM 即 Long Short Term 网络——一般就叫做LSTM——是一种特殊的RNN，可以学习长期依赖信息。LSTM由 <em>Hochreiter &amp; Schmidhuber</em> (1997) 提出， 并被 <em>Alex Graves</em> 进行了改良和推广。在很多问题，LSTM 都取得了相当巨大的成功，并得到了广泛的使用。</p>
+<p>LSTM 通过刻意的设计来避免长期依赖问题。记住长期的信息是 LSTM 的默认行为，而非需要付出很大代价才能获得的能力。</p>
+<p>所有的 RNN都具有一种重复神经网络模块的链式的形式，在标准的RNN中，这个重复的模块只有一个非常简单的结构，例如一个 <em>tanh</em> 层。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/20150829181722_450.png" alt=""></p>
+<blockquote>
+<p>上图即<strong>标准RNN中</strong>重复模块包含单一的层</p>
+</blockquote>
+<p>LSTM同样是这样的结构，但是重复的模块拥有一个不同的结构。不同于单一神经网络层，这里有四个，以一种非常特殊的方式进行交互。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/20150829181722_631.png" alt=""></p>
+<blockquote>
+<p>上图即<strong>LSTM</strong>中的重复模块包含的四个交互的层</p>
+</blockquote>
+<p>我们会一步一步的剖析LSTM解析图。现在，我们先来熟悉一下途中使用的各种元素的图标。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/20150829181722_777.png" alt=""></p>
+<blockquote>
+<p>LSTM中的图标</p>
+</blockquote>
+<p>在上面的图例中，每一条黑线传输着一整个向量，从一个节点的输出到其他节点的输入。粉色的圈代表 <em>pointwise</em> (逐点的)操作，诸如向量的和，而黄色的矩阵就是学习到的神经网络层。合在一起的线表示向量的连接，分开的线表示内容被复制，然后分发到不同的位置。</p>
+<h4 id="2-LSTM核心内容"><a href="#2-LSTM核心内容" class="headerlink" title="2.LSTM核心内容"></a>2.LSTM核心内容</h4><p>LSTM的关键就是细胞状态（cell），水平线在图上方贯穿运行，细胞状态类似于传送带，直接在整个链上运行，只有一些少量的线性交互，信息在上面流传保持不变会很容易。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/20150829181723_640.png" alt=""></p>
+<p>LSTM 有通过精心设计的称作”<strong>门</strong>“的结构来去除或者增加信息到细胞状态的能力。门是一种让信息选择式通过的方法。他们包含一个 <em>sigmoid</em> 神经网络层和一个 <em>pointwise</em> 乘法操作。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/20150829181723_567.png" alt=""></p>
+<p><em>sigmoid</em> 层输出 0 到 1 之间的数值，描述每个部分有多少量可以通过。0 代表”不允许任何量通过”，1 就指”允许任何量通过”。</p>
+<p>LSTM有三个门，来保护和控制细胞状态。</p>
+<h4 id="3-逐步理解LSTM"><a href="#3-逐步理解LSTM" class="headerlink" title="3.逐步理解LSTM"></a>3.逐步理解LSTM</h4><p>LSTM中第一步是决定会从细胞状态中丢弃什么信息。这个决定通过一个称为 <strong>忘记门层</strong> 的门来完成。该门会读取 \(h_{t-1}\) 和 \(x_{t}\) ，输出一个在 0 到 1 之间的数值给每个在细胞状态中的数字。1 表示”完全保留”，0 代表”完全舍弃”。</p>
+<p>让我们回到 <strong>语言模型</strong> 的例子中来基于已经看到的词预测下一个词。在这个问题中，细胞状态可能包含当前 <strong>主语</strong> 的类别，因此正确的 <strong>代词</strong> 可以被选择出来。当我们看到新的 <strong>代词</strong> 可以被选择出来。当我们看到新的 <strong>代词</strong> ，我们希望忘记旧的 <strong>代词</strong>。</p>
+<p><img src="C:%5CUsers%5Cwf09%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C20150829181723_259.png" alt=""></p>
+<h5 id="3-1决定丢弃信息"><a href="#3-1决定丢弃信息" class="headerlink" title="3.1决定丢弃信息"></a>3.1决定丢弃信息</h5><p>下一步是确定什么样的新信息被存放在细胞状态中。这里包含两部分。第一，<em>sigmoid</em> 层称 “输入门层” 决定什么值我们将要更新。然后，一个 <em>tanh</em> 层创建一个一个新的候选值向量，\(\tilde{C_{t}}\)，会被加入到状态中。下一步，我们会将这两个信息来产生对状态的更新。</p>
+<p>在我们 <strong>语言模型</strong> 的例子中，我们希望增加新的 <strong>代词</strong> 的类别到细胞状态中，来替代旧的需要忘记的 <strong>代词</strong>。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/20150829181723_897.png" alt=""></p>
+<h5 id="3-2确定更新的信息"><a href="#3-2确定更新的信息" class="headerlink" title="3.2确定更新的信息"></a>3.2确定更新的信息</h5><p>现在是更新旧细胞状态的时间了，\(C_{t-1}\) 更新为 \(C_{t}\)</p>
+<p>我们把旧状态与 \(f_t\) 相乘，丢弃掉确定丢弃的信息，接着加上 \(i_t * \tilde{C}_t\) ，这就是新的候选值。</p>
+<p>在 <strong>语言模型</strong> 的例子中，这就是我们实际根据前面确定的目标，丢弃 <strong>旧代词</strong> 的类别信息并添加新的信息的地方。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/20150829181723_883.png" alt=""></p>
+<h5 id="3-3更新细胞状态"><a href="#3-3更新细胞状态" class="headerlink" title="3.3更新细胞状态"></a>3.3更新细胞状态</h5><p>最终，我们需要确定输出什么值，这个输出将会基于我们的细胞状态，但是也是一个过滤后的版本。首先，我们运行一个 <em>sigmoid</em> 层来确定细胞状态的哪个部分将输出出去。接着，我们把细胞状态通过 <em>tanh</em> 进行处理，得到一个在 -1 到 1 之间的值，并将它和 sigmoid 门的输出相乘，最终我们仅仅会输出我们确定输出的那部分。</p>
+<p>在 <strong>语言模型</strong> 的例子中，因为他就看到了一个  <strong>代词</strong> ，可能需要输出一个 <strong>代词</strong> 相关的信息。例如，可能输出是否代词是单数还是负数。如果是 <strong>动词</strong> 的话，我们也他要知道 <strong>动词</strong> 需要进行的词形变化。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/20150829181723_463.png" alt=""></p>
+]]></content>
+      <tags>
+        <tag>Python深度学习</tag>
+        <tag>pytorch</tag>
+        <tag>LSTM</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Python数据存储之pickle模块的使用</title>
+    <url>/2020/03/04/Python%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8%E4%B9%8Bpickle%E6%A8%A1%E5%9D%97%E7%9A%84%E4%BD%BF%E7%94%A8/</url>
+    <content><![CDATA[<p>废话不多说，直接上代码。</p>
+<a id="more"></a>
+
+<h5 id="把变量写入文件"><a href="#把变量写入文件" class="headerlink" title="把变量写入文件"></a>把变量写入文件</h5><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> pickle</span><br><span class="line"></span><br><span class="line">data = <span class="string">"I am a boy."</span></span><br><span class="line">file = open(<span class="string">'data.pkl'</span>, <span class="string">'wb'</span>)</span><br><span class="line">pickle.dump(data, file, [protocol])</span><br><span class="line"><span class="comment">#data----变量名称</span></span><br><span class="line"><span class="comment">#file----文件指针</span></span><br><span class="line"><span class="comment">#protocol----序列化使用的协议。如果该项省略，则默认为0。如果为负值或HIGHEST_PROTOCOL，则使用最高的协议版本</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="从文件中读取变量"><a href="#从文件中读取变量" class="headerlink" title="从文件中读取变量"></a>从文件中读取变量</h5><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> pickle</span><br><span class="line"></span><br><span class="line">file = open(<span class="string">'data.pkl'</span>, <span class="string">'rb'</span>)</span><br><span class="line">data = pickle.load(file)</span><br></pre></td></tr></table></figure>
+
+
+
+<h5 id="With-open函数打开文件的各种方式"><a href="#With-open函数打开文件的各种方式" class="headerlink" title="With open函数打开文件的各种方式"></a>With open函数打开文件的各种方式</h5><table>
+<thead>
+<tr>
+<th><strong>type</strong></th>
+<th>info</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>r</td>
+<td>以只读方式打开文件。文件的指针将会放在文件的开头。这是默认模式。</td>
+</tr>
+<tr>
+<td>w</td>
+<td>打开一个文件只用于写入。如果该文件已存在则将其覆盖。如果该文件不存在，创建新文件。</td>
+</tr>
+<tr>
+<td>a</td>
+<td>打开一个文件用于追加。如果该文件已存在，文件指针将会放在文件的结尾。也就是说，新的内容将会被写入到已有内容之后。如果该文件不存在，创建新文件进行写入。</td>
+</tr>
+<tr>
+<td>rb</td>
+<td>以二进制格式打开一个文件用于只读。文件指针将会放在文件的开头。这是默认模式。</td>
+</tr>
+<tr>
+<td>wb</td>
+<td>以二进制格式打开一个文件只用于写入。如果该文件已存在则将其覆盖。如果该文件不存在，创建新文件。</td>
+</tr>
+<tr>
+<td>ab</td>
+<td>以二进制格式打开一个文件用于追加。如果该文件已存在，文件指针将会放在文件的结尾。也就是说，新的内容将会被写入到已有内容之后。如果该文件不存在，创建新文件进行写入。</td>
+</tr>
+<tr>
+<td>r+</td>
+<td>打开一个文件用于读写。文件指针将会放在文件的开头。</td>
+</tr>
+<tr>
+<td>w+</td>
+<td>打开一个文件用于读写。如果该文件已存在则将其覆盖。如果该文件不存在，创建新文件。</td>
+</tr>
+<tr>
+<td>a+</td>
+<td>打开一个文件用于读写。如果该文件已存在，文件指针将会放在文件的结尾。文件打开时会是追加模式。如果该文件不存在，创建新文件用于读写。</td>
+</tr>
+<tr>
+<td>rb+</td>
+<td>以二进制格式打开一个文件用于读写。文件指针将会放在文件的开头。</td>
+</tr>
+<tr>
+<td>wb+</td>
+<td>以二进制格式打开一个文件用于读写。如果该文件已存在则将其覆盖。如果该文件不存在，创建新文件。</td>
+</tr>
+<tr>
+<td>ab+</td>
+<td>以二进制格式打开一个文件用于追加。如果该文件已存在，文件指针将会放在文件的结尾。如果该文件不存在，创建新文件用于读写。</td>
+</tr>
+</tbody></table>
+]]></content>
+      <tags>
+        <tag>Python教程</tag>
+        <tag>pickle</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>caddy一键安装管理脚本</title>
+    <url>/2020/06/20/caddy%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97/</url>
+    <content><![CDATA[<p>caddy一键安装管理脚本</p>
+<a id="more"></a>
+
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">wget https://fly97.coding.net/p/caddyserver/d/caddyserver/git/raw/master/caddy.sh</span><br><span class="line">chmod +x caddy.sh</span><br><span class="line">./caddy.sh</span><br></pre></td></tr></table></figure>
+
+<p>caddy 相关命令</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">caddy install         <span class="comment">#安装</span></span><br><span class="line">caddy <span class="built_in">help</span>            <span class="comment">#帮助</span></span><br></pre></td></tr></table></figure>
+
+<p><del>注意：安装之前要先安装zip用来解压软件</del></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">apt-get install zip</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <tags>
+        <tag>caddy</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Ubuntu安装php指南</title>
+    <url>/2019/01/07/Ubuntu%E5%AE%89%E8%A3%85php%E6%8C%87%E5%8D%97/</url>
+    <content><![CDATA[<h4 id="Ubuntu安装php指南"><a href="#Ubuntu安装php指南" class="headerlink" title="Ubuntu安装php指南"></a>Ubuntu安装php指南</h4><p>由于自带的apt源中不包含php，所以在安装php之前需要给apt添加第三方源</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt-get install software-properties-common</span><br><span class="line">sudo add-apt-repository ppa:ondrej/php</span><br><span class="line"><span class="comment">#sudo add-apt-repository -r ppa:ondrej/php              #删除</span></span><br><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install -y php7.3</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <tags>
+        <tag>Linux运维</tag>
+        <tag>PHP</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Ubuntu18.04更换镜像源</title>
     <url>/2019/01/06/Ubuntu18.04%E6%9B%B4%E6%8D%A2%E4%B8%BA%E5%9B%BD%E5%86%85%E6%BA%90/</url>
     <content><![CDATA[<h4 id="Ubuntu18-04更换镜像源"><a href="#Ubuntu18-04更换镜像源" class="headerlink" title="Ubuntu18.04更换镜像源"></a>Ubuntu18.04更换镜像源</h4><h5 id="1-备份原有镜像源"><a href="#1-备份原有镜像源" class="headerlink" title="1.备份原有镜像源"></a>1.备份原有镜像源</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo mv /etc/apt/sources.list /etc/apt/sourses.list.bak</span><br></pre></td></tr></table></figure>
@@ -468,37 +499,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Ubuntu安装php指南</title>
-    <url>/2019/01/07/Ubuntu%E5%AE%89%E8%A3%85php%E6%8C%87%E5%8D%97/</url>
-    <content><![CDATA[<h4 id="Ubuntu安装php指南"><a href="#Ubuntu安装php指南" class="headerlink" title="Ubuntu安装php指南"></a>Ubuntu安装php指南</h4><p>由于自带的apt源中不包含php，所以在安装php之前需要给apt添加第三方源</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt-get install software-properties-common</span><br><span class="line">sudo add-apt-repository ppa:ondrej/php</span><br><span class="line"><span class="comment">#sudo add-apt-repository -r ppa:ondrej/php              #删除</span></span><br><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install -y php7.3</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <tags>
-        <tag>Linux运维</tag>
-        <tag>PHP</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>caddy一键安装管理脚本</title>
-    <url>/2020/06/20/caddy%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97/</url>
-    <content><![CDATA[<p>caddy一键安装管理脚本</p>
-<a id="more"></a>
-
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">wget https://fly97.coding.net/p/caddyserver/d/caddyserver/git/raw/master/caddy.sh</span><br><span class="line">chmod +x caddy.sh</span><br><span class="line">./caddy.sh</span><br></pre></td></tr></table></figure>
-
-<p>caddy 相关命令</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">caddy install         <span class="comment">#安装</span></span><br><span class="line">caddy <span class="built_in">help</span>            <span class="comment">#帮助</span></span><br></pre></td></tr></table></figure>
-
-<p><del>注意：安装之前要先安装zip用来解压软件</del></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">apt-get install zip</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <tags>
-        <tag>caddy</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Office Tool Plus使用教程</title>
     <url>/2020/05/11/office%E6%BF%80%E6%B4%BB%E6%95%99%E7%A8%8B/</url>
     <content><![CDATA[<p>Office Tool Plus 使用教程</p>
@@ -522,6 +522,75 @@
 ]]></content>
       <tags>
         <tag>office</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>使用WSL链接Github仓库以及如何配置ssh权限问题</title>
+    <url>/2020/05/31/%E4%BD%BF%E7%94%A8WSL%E9%93%BE%E6%8E%A5Github%E4%BB%93%E5%BA%93/</url>
+    <content><![CDATA[<p>话不多说，先上教程。</p>
+<a id="more"></a>
+
+<h4 id="1-首先，要安装WSL-Windows-Subsystem-for-Linux-。即适用于Window10的Linux子系统。"><a href="#1-首先，要安装WSL-Windows-Subsystem-for-Linux-。即适用于Window10的Linux子系统。" class="headerlink" title="1.首先，要安装WSL(Windows Subsystem for Linux)。即适用于Window10的Linux子系统。"></a>1.首先，要安装WSL(Windows Subsystem for Linux)。即适用于Window10的Linux子系统。</h4><ul>
+<li>打开开发者选项，选择开发人员模式。<img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20191228201007723.png" alt="image-20191228201007723"></li>
+</ul>
+<ul>
+<li>打开控制面板-程序，选择适用于Linux的Windows子系统。<img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20191228201255121.png" alt="image-20191228201255121"></li>
+</ul>
+<ul>
+<li><p>打开Windows应用商店，搜索linux，选择你喜欢的linux系统点击安装。这里以Ubuntu为例。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/20200531102849.png" alt="image-20191228201558935"></p>
+</li>
+</ul>
+<p>第一次打开要选择用户名和密码，因为笔者已经安装完了，这里就不再截图了。到此为止WSL就安装好了。</p>
+<h4 id="2-使用WSL安装hexo相关软件并链接到github仓库"><a href="#2-使用WSL安装hexo相关软件并链接到github仓库" class="headerlink" title="2.使用WSL安装hexo相关软件并链接到github仓库"></a>2.使用WSL安装hexo相关软件并链接到github仓库</h4><p>打开刚刚安装好的Ubuntu，输入：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo apt update</span><br><span class="line">sudo apt install git</span><br></pre></td></tr></table></figure>
+
+<h5 id="初始化git："><a href="#初始化git：" class="headerlink" title="初始化git："></a>初始化git：</h5><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F;进入项目</span><br><span class="line">cd Desktop&#x2F;myproject</span><br><span class="line">&#x2F;&#x2F;初始化git</span><br><span class="line"> git init</span><br></pre></td></tr></table></figure>
+
+<h5 id="创建ssh-key："><a href="#创建ssh-key：" class="headerlink" title="创建ssh key："></a>创建ssh key：</h5><p>为了让github能够识别是我们自己上传文件，需要创建ssh key</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &quot;your_email@youremail.com&quot;</span><br></pre></td></tr></table></figure>
+
+<p>这里的<strong><a href="mailto:your_email@youremail.com">your_email@youremail.com</a></strong>是你的<strong>邮箱地址</strong>，在输入后会询问你是否保存创建的ssh key，点回车就好，然后要求输入你要设置的密码，如果直接回车表示不设密码。然后会提示你ssh key已经创建好。</p>
+<h5 id="把密码导入GitHub："><a href="#把密码导入GitHub：" class="headerlink" title="把密码导入GitHub："></a>把密码导入GitHub：</h5><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cat ~&#x2F;.ssh&#x2F;id_rsa.pub</span><br></pre></td></tr></table></figure>
+
+<p>此时在终端会显示出刚刚创建好的ssh key，复制出来，在github在点击头像，然后点击setting，在找到SSH and GPG keys，创建一个new ssh key，然后将刚刚复制的ssh key填入即可。</p>
+<h5 id="验证是否连接成功："><a href="#验证是否连接成功：" class="headerlink" title="验证是否连接成功："></a>验证是否连接成功：</h5><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure>
+
+<p>如果回车看到：<strong>You’ve successfully authenticated, but GitHub does not provide shell access</strong> 。表示已成功连上github。</p>
+<h5 id="设置username和email："><a href="#设置username和email：" class="headerlink" title="设置username和email："></a>设置username和email：</h5><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git config --global user.name &quot;your name&quot;</span><br><span class="line">git config --global user.email &quot;your_email@youremail.com&quot;</span><br></pre></td></tr></table></figure>
+
+<h5 id="添加远程地址："><a href="#添加远程地址：" class="headerlink" title="添加远程地址："></a>添加远程地址：</h5><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git remote add origin git@github.com:yourName&#x2F;yourRepo.git</span><br></pre></td></tr></table></figure>
+
+<p>后面的yourName和yourRepo分别是你的github的用户名和刚才新建的仓库名。</p>
+<h5 id="上传项目："><a href="#上传项目：" class="headerlink" title="上传项目："></a>上传项目：</h5><p>依次运行以下命令</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git status</span><br><span class="line">git add .</span><br><span class="line">git commit -m &#39;my project push&#39;</span><br><span class="line">git push origin master  --force</span><br></pre></td></tr></table></figure>
+
+<p>这里的<strong>master</strong>指的是主分支名，如果是其他分支，则填写相应的分支名。</p>
+<p>这样我们就将我们的项目上传到github仓库。</p>
+<h5 id="备注：私钥和公钥的权限问题"><a href="#备注：私钥和公钥的权限问题" class="headerlink" title="备注：私钥和公钥的权限问题"></a>备注：私钥和公钥的权限问题</h5><p>确认将 SSH 权限应用于公钥和私钥文件。</p>
+<ol>
+<li><p>通过运行以下命令来检查 SSH 公钥文件：<code>ls -l /etc/ssh/*key.pub</code></p>
+</li>
+<li><p>确认所有者是 root，组所有者是 root，并且文件权限设置为 0644 (-rw-r–r–)。</p>
+</li>
+<li><p>通过运行以下命令来修复任何问题。</p>
+<p><code>chown root /etc/ssh/*key.pub</code></p>
+<p><code>chgrp root /etc/ssh/*key.pub</code></p>
+<p><code>chmod 644 /etc/ssh/*key.pub</code></p>
+</li>
+<li><p>通过运行以下命令来检查 SSH 私钥文件：<code>ls -l /etc/ssh/*key</code></p>
+</li>
+<li><p>通过运行以下命令来修复任何问题。</p>
+<p><code>chown root /etc/ssh/*key</code></p>
+<p><code>chgrp root /etc/ssh/*key</code></p>
+<p><code>chmod 644 /etc/ssh/*key</code></p>
+</li>
+</ol>
+]]></content>
+      <tags>
+        <tag>git</tag>
+        <tag>SSH</tag>
+        <tag>WSL</tag>
       </tags>
   </entry>
   <entry>
@@ -1494,72 +1563,24 @@
       </tags>
   </entry>
   <entry>
-    <title>使用WSL链接Github仓库以及如何配置ssh权限问题</title>
-    <url>/2020/05/31/%E4%BD%BF%E7%94%A8WSL%E9%93%BE%E6%8E%A5Github%E4%BB%93%E5%BA%93/</url>
-    <content><![CDATA[<p>话不多说，先上教程。</p>
+    <title>使用jsdelivrCDN加速github文件</title>
+    <url>/2020/06/20/%E4%BD%BF%E7%94%A8jsdelivrCDN%E5%8A%A0%E9%80%9Fgithub%E6%96%87%E4%BB%B6/</url>
+    <content><![CDATA[<p>jsDelivr 是国外的一家优秀的公共 CDN 服务提供商，也是首个「打通中国大陆（网宿公司运营）与海外的免费 CDN 服务」。</p>
 <a id="more"></a>
 
-<h4 id="1-首先，要安装WSL-Windows-Subsystem-for-Linux-。即适用于Window10的Linux子系统。"><a href="#1-首先，要安装WSL-Windows-Subsystem-for-Linux-。即适用于Window10的Linux子系统。" class="headerlink" title="1.首先，要安装WSL(Windows Subsystem for Linux)。即适用于Window10的Linux子系统。"></a>1.首先，要安装WSL(Windows Subsystem for Linux)。即适用于Window10的Linux子系统。</h4><ul>
-<li>打开开发者选项，选择开发人员模式。<img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20191228201007723.png" alt="image-20191228201007723"></li>
-</ul>
+<h3 id="jsDelivr-配置"><a href="#jsDelivr-配置" class="headerlink" title="jsDelivr 配置"></a>jsDelivr 配置</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">https:&#x2F;&#x2F;cdn.jsdelivr.net&#x2F;gh&#x2F;wf09&#x2F;upload@master&#x2F;1.png</span><br></pre></td></tr></table></figure>
+
+<p>其中：</p>
 <ul>
-<li>打开控制面板-程序，选择适用于Linux的Windows子系统。<img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20191228201255121.png" alt="image-20191228201255121"></li>
+<li><code>gh</code> 表示来自 Github 的仓库</li>
+<li><code>wf09/upload</code> 指的是用户名/仓库名</li>
+<li><code>master</code> 仓库的分支</li>
+<li><code>1.png</code>仓库下的具体文件</li>
 </ul>
-<ul>
-<li><p>打开Windows应用商店，搜索linux，选择你喜欢的linux系统点击安装。这里以Ubuntu为例。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/20200531102849.png" alt="image-20191228201558935"></p>
-</li>
-</ul>
-<p>第一次打开要选择用户名和密码，因为笔者已经安装完了，这里就不再截图了。到此为止WSL就安装好了。</p>
-<h4 id="2-使用WSL安装hexo相关软件并链接到github仓库"><a href="#2-使用WSL安装hexo相关软件并链接到github仓库" class="headerlink" title="2.使用WSL安装hexo相关软件并链接到github仓库"></a>2.使用WSL安装hexo相关软件并链接到github仓库</h4><p>打开刚刚安装好的Ubuntu，输入：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo apt update</span><br><span class="line">sudo apt install git</span><br></pre></td></tr></table></figure>
-
-<h5 id="初始化git："><a href="#初始化git：" class="headerlink" title="初始化git："></a>初始化git：</h5><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F;进入项目</span><br><span class="line">cd Desktop&#x2F;myproject</span><br><span class="line">&#x2F;&#x2F;初始化git</span><br><span class="line"> git init</span><br></pre></td></tr></table></figure>
-
-<h5 id="创建ssh-key："><a href="#创建ssh-key：" class="headerlink" title="创建ssh key："></a>创建ssh key：</h5><p>为了让github能够识别是我们自己上传文件，需要创建ssh key</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &quot;your_email@youremail.com&quot;</span><br></pre></td></tr></table></figure>
-
-<p>这里的<strong><a href="mailto:your_email@youremail.com">your_email@youremail.com</a></strong>是你的<strong>邮箱地址</strong>，在输入后会询问你是否保存创建的ssh key，点回车就好，然后要求输入你要设置的密码，如果直接回车表示不设密码。然后会提示你ssh key已经创建好。</p>
-<h5 id="把密码导入GitHub："><a href="#把密码导入GitHub：" class="headerlink" title="把密码导入GitHub："></a>把密码导入GitHub：</h5><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cat ~&#x2F;.ssh&#x2F;id_rsa.pub</span><br></pre></td></tr></table></figure>
-
-<p>此时在终端会显示出刚刚创建好的ssh key，复制出来，在github在点击头像，然后点击setting，在找到SSH and GPG keys，创建一个new ssh key，然后将刚刚复制的ssh key填入即可。</p>
-<h5 id="验证是否连接成功："><a href="#验证是否连接成功：" class="headerlink" title="验证是否连接成功："></a>验证是否连接成功：</h5><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure>
-
-<p>如果回车看到：<strong>You’ve successfully authenticated, but GitHub does not provide shell access</strong> 。表示已成功连上github。</p>
-<h5 id="设置username和email："><a href="#设置username和email：" class="headerlink" title="设置username和email："></a>设置username和email：</h5><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git config --global user.name &quot;your name&quot;</span><br><span class="line">git config --global user.email &quot;your_email@youremail.com&quot;</span><br></pre></td></tr></table></figure>
-
-<h5 id="添加远程地址："><a href="#添加远程地址：" class="headerlink" title="添加远程地址："></a>添加远程地址：</h5><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git remote add origin git@github.com:yourName&#x2F;yourRepo.git</span><br></pre></td></tr></table></figure>
-
-<p>后面的yourName和yourRepo分别是你的github的用户名和刚才新建的仓库名。</p>
-<h5 id="上传项目："><a href="#上传项目：" class="headerlink" title="上传项目："></a>上传项目：</h5><p>依次运行以下命令</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git status</span><br><span class="line">git add .</span><br><span class="line">git commit -m &#39;my project push&#39;</span><br><span class="line">git push origin master  --force</span><br></pre></td></tr></table></figure>
-
-<p>这里的<strong>master</strong>指的是主分支名，如果是其他分支，则填写相应的分支名。</p>
-<p>这样我们就将我们的项目上传到github仓库。</p>
-<h5 id="备注：私钥和公钥的权限问题"><a href="#备注：私钥和公钥的权限问题" class="headerlink" title="备注：私钥和公钥的权限问题"></a>备注：私钥和公钥的权限问题</h5><p>确认将 SSH 权限应用于公钥和私钥文件。</p>
-<ol>
-<li><p>通过运行以下命令来检查 SSH 公钥文件：<code>ls -l /etc/ssh/*key.pub</code></p>
-</li>
-<li><p>确认所有者是 root，组所有者是 root，并且文件权限设置为 0644 (-rw-r–r–)。</p>
-</li>
-<li><p>通过运行以下命令来修复任何问题。</p>
-<p><code>chown root /etc/ssh/*key.pub</code></p>
-<p><code>chgrp root /etc/ssh/*key.pub</code></p>
-<p><code>chmod 644 /etc/ssh/*key.pub</code></p>
-</li>
-<li><p>通过运行以下命令来检查 SSH 私钥文件：<code>ls -l /etc/ssh/*key</code></p>
-</li>
-<li><p>通过运行以下命令来修复任何问题。</p>
-<p><code>chown root /etc/ssh/*key</code></p>
-<p><code>chgrp root /etc/ssh/*key</code></p>
-<p><code>chmod 644 /etc/ssh/*key</code></p>
-</li>
-</ol>
 ]]></content>
       <tags>
-        <tag>git</tag>
-        <tag>SSH</tag>
-        <tag>WSL</tag>
+        <tag>jsdelivrCDN</tag>
+        <tag>github</tag>
       </tags>
   </entry>
   <entry>
@@ -1637,6 +1658,118 @@
 ]]></content>
       <tags>
         <tag>git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>修改Pip镜像源</title>
+    <url>/2020/05/11/%E4%BF%AE%E6%94%B9pip%E9%95%9C%E5%83%8F%E6%BA%90/</url>
+    <content><![CDATA[<p>修改pip镜像源</p>
+<a id="more"></a>
+
+<p>清华源：<a href="https://pypi.tuna.tsinghua.edu.cn/simple/" target="_blank" rel="noopener">https://pypi.tuna.tsinghua.edu.cn/simple/</a></p>
+<p>豆瓣源：<a href="https://pypi.doubanio.com/simple/" target="_blank" rel="noopener">https://pypi.doubanio.com/simple/</a></p>
+<p>使用方法</p>
+<p>临时使用：可以在使用pip的时候加参数-i <a href="https://pypi.tuna.tsinghua.edu.cn/simple" target="_blank" rel="noopener">https://pypi.tuna.tsinghua.edu.cn/simple</a></p>
+<p>例如：pip install -i <a href="https://pypi.tuna.tsinghua.edu.cn/simple" target="_blank" rel="noopener">https://pypi.tuna.tsinghua.edu.cn/simple</a> gevent</p>
+<p>永久修改：linux下，修改 <code>~/.pip/pip.conf</code>，设置为以下内容：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[global]</span><br><span class="line">index-url &#x3D; https:&#x2F;&#x2F;pypi.tuna.tsinghua.edu.cn&#x2F;simple</span><br></pre></td></tr></table></figure>
+
+<p>windows下，直接在user目录中创建一个pip目录，如：C:\Users\wf09.pip，新建文件pip.ini，内容如下</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[global]</span><br><span class="line">index-url &#x3D; https:&#x2F;&#x2F;pypi.tuna.tsinghua.edu.cn&#x2F;simple</span><br></pre></td></tr></table></figure>]]></content>
+      <tags>
+        <tag>pip</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>使用pip离线安装pytorch-gpu</title>
+    <url>/2020/02/17/%E4%BD%BF%E7%94%A8pip%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85pytorch/</url>
+    <content><![CDATA[<p>废话不多说，上教程。</p>
+<a id="more"></a>
+
+<h4 id="1-查看Linux预装的Python3版本"><a href="#1-查看Linux预装的Python3版本" class="headerlink" title="1.查看Linux预装的Python3版本"></a>1.查看Linux预装的Python3版本</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">root@wf09:~<span class="comment"># python3 -V</span></span><br><span class="line">Python 3.6.9</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-下载对应的Pytorch版本"><a href="#2-下载对应的Pytorch版本" class="headerlink" title="2.下载对应的Pytorch版本"></a>2.下载对应的Pytorch版本</h4><p><a href="https://download.pytorch.org/whl/torch_stable.html" target="_blank" rel="noopener">https://download.pytorch.org/whl/torch_stable.html</a></p>
+<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/3.png" alt=""></p>
+<p>Python版本是3.6.9，下载的版本是<code>cpu/torch-1.4.0%2Bcpu-cp36-cp36m-linux_x86_64.whl</code></p>
+<h4 id="3-安装pip3"><a href="#3-安装pip3" class="headerlink" title="3.安装pip3"></a>3.安装pip3</h4><h5 id="3-1-Linux"><a href="#3-1-Linux" class="headerlink" title="3.1 Linux"></a>3.1 Linux</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">apt-get install python3-pip</span><br></pre></td></tr></table></figure>
+
+<p><strong>tips：</strong>由于apt源自带的pip版本过低，可以执行如下命令升级pip。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">python3 -m pip install --upgrade pip</span><br></pre></td></tr></table></figure>
+
+<p>升级完pip以后，pip就相当于pip3了。</p>
+<h5 id="3-2-Win"><a href="#3-2-Win" class="headerlink" title="3.2 Win"></a>3.2 Win</h5><p>安装完Python后默认安装pip，执行命令升级pip即可</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">python3 -m pip install --upgrade pip</span><br></pre></td></tr></table></figure>
+
+<h4 id="4-离线安装Pytorch"><a href="#4-离线安装Pytorch" class="headerlink" title="4.离线安装Pytorch"></a>4.离线安装Pytorch</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pip install --no-index --find-links=torch-1.4.0+cpu-cp36-cp36m-linux_x86_64.whl torch</span><br></pre></td></tr></table></figure>
+
+<h4 id="5-windows10卸载Pytorch-cpu版本并安装GPU版本"><a href="#5-windows10卸载Pytorch-cpu版本并安装GPU版本" class="headerlink" title="5.windows10卸载Pytorch-cpu版本并安装GPU版本"></a>5.windows10卸载Pytorch-cpu版本并安装GPU版本</h4><h5 id="5-1-卸载cpu版"><a href="#5-1-卸载cpu版" class="headerlink" title="5.1 卸载cpu版"></a>5.1 卸载cpu版</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pip uninstall torch   		<span class="comment">#卸载torch</span></span><br><span class="line">pip uninstall torchvison    <span class="comment">#卸载torchvison</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="5-2-安装CUDA"><a href="#5-2-安装CUDA" class="headerlink" title="5.2 安装CUDA"></a>5.2 安装CUDA</h5><p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200315143756001.png" alt="image-20200315143756001"></p>
+<p><a href="https://developer.nvidia.com/cuda-toolkit-archive" target="_blank" rel="noopener">https://developer.nvidia.com/cuda-toolkit-archive</a></p>
+<p>笔者使用的<code>Win10</code>，附上离线安装版链接：</p>
+<p><del><a href="http://developer.download.nvidia.com/compute/cuda/10.2/Prod/local_installers/cuda_10.2.89_441.22_win10.exe" target="_blank" rel="noopener">http://developer.download.nvidia.com/compute/cuda/10.2/Prod/local_installers/cuda_10.2.89_441.22_win10.exe</a></del></p>
+<h6 id="Tips：最新版本的CUDA-10-2-现在还无法被Pytorch支持，安装10-1版本的即可。"><a href="#Tips：最新版本的CUDA-10-2-现在还无法被Pytorch支持，安装10-1版本的即可。" class="headerlink" title="Tips：最新版本的CUDA(10.2)现在还无法被Pytorch支持，安装10.1版本的即可。"></a>Tips：最新版本的CUDA(10.2)现在还无法被Pytorch支持，安装10.1版本的即可。</h6><p><a href="http://developer.download.nvidia.com/compute/cuda/10.1/Prod/local_installers/cuda_10.1.243_426.00_win10.exe" target="_blank" rel="noopener">http://developer.download.nvidia.com/compute/cuda/10.1/Prod/local_installers/cuda_10.1.243_426.00_win10.exe</a></p>
+<p>下载完毕，双击打开即可。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200315145247036.png" alt="image-20200315145247036"></p>
+<p>点击OK选择下一步。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200315145432177.png" alt="image-20200315145432177"></p>
+<p>等待进度条达到100%，会自动打开安装程序。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200315150124951.png" alt="image-20200315150124951"></p>
+<p>选择自定义，然后全部选中，期间会升级本机的<strong>显卡驱动</strong>。</p>
+<h6 id="Tips：升级显卡驱动是很重要的一步，不升级到最新版本无法正确安装CUDA"><a href="#Tips：升级显卡驱动是很重要的一步，不升级到最新版本无法正确安装CUDA" class="headerlink" title="Tips：升级显卡驱动是很重要的一步，不升级到最新版本无法正确安装CUDA"></a><strong>Tips：</strong>升级显卡驱动是很重要的一步，不升级到最新版本无法正确安装<strong>CUDA</strong></h6><p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200315150240356.png" alt="image-20200315150240356"></p>
+<p>等待安装完毕。</p>
+<h5 id="5-3-安装cuDNN"><a href="#5-3-安装cuDNN" class="headerlink" title="5.3 安装cuDNN"></a>5.3 安装cuDNN</h5><p><strong>相比标准的cuda，它在一些常用的神经网络操作上进行了性能的优化，比如卷积，pooling，归一化，以及激活层等等。</strong></p>
+<p>下载过程中需要注册 <strong>NVIDIA account</strong>。</p>
+<p>下载完毕后执行解压：会生成<code>cuda/include、cuda/lib、cuda/bin</code>三个目录；</p>
+<p>然后分别将<code>cuda/include、cuda/lib、cuda/bin</code>三个目录中的内容拷贝到<code>C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.1</code>对应的<code>include、lib、bin</code>目录下即可。</p>
+<h5 id="5-4安装Pytorch-GPU版本"><a href="#5-4安装Pytorch-GPU版本" class="headerlink" title="5.4安装Pytorch-GPU版本"></a><strong>5.4安装Pytorch-GPU版本</strong></h5><p>下载Pytorch-CUDA版本的whl文件，用于离线安装。</p>
+<p><a href="https://download.pytorch.org/whl/torch_stable.html" target="_blank" rel="noopener">https://download.pytorch.org/whl/torch_stable.html</a></p>
+<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200315151856974.png" alt="image-20200315151856974"></p>
+<p>其中，<strong>cu101</strong>代表CUDA版本是10.1，<strong>cp37</strong>代表CPython version 3.7（指的是C语言实现的Python，就是原汁原味的Python。除了CPython以外，还有用Java实现的Jython，用.NET实现的IronPython，使Python方便地和Java程序、.NET程序集成。另外还有一些实验性的Python解释器比如PyPy），<strong>win</strong>代表Windows操作系统，<strong>amd64</strong>代表64位CPU平台。</p>
+<p>使用<strong>管理员权限</strong>打开<code>Anaconda Prompt (Anaconda3)</code>cmd窗口，输入</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pip install 下载路径\torch-1.4.0-cp37-cp37m-win_amd64.whl</span><br></pre></td></tr></table></figure>
+
+<p>等待安装完毕。</p>
+<p>使用相同的操作安装 <code>torchvision</code>，其中包含流行的数据集。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pip install 下载路径\torchvision-0.5.0-cp37-cp37m-win_amd64.whl</span><br></pre></td></tr></table></figure>
+
+<p>至此<strong>Pytoch-GPU</strong>版已经全部安装完毕。</p>
+<p><strong>5.5 测试是否安装成功</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200315153854134.png" alt="image-20200315153854134"></p>
+<p>打开cmd窗口，输入<strong>python</strong>进入<strong>python环境</strong>。依次输入：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line">torch.cuda.is_available()</span><br><span class="line"><span class="comment"># True</span></span><br></pre></td></tr></table></figure>
+
+<p>输出为<strong>True</strong>，安装完毕。</p>
+]]></content>
+      <tags>
+        <tag>pytorch</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>初探卷积神经网络01</title>
+    <url>/2020/05/29/%E5%88%9D%E6%8E%A2%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C01/</url>
+    <content><![CDATA[<p>使用Pytorch进行MNIST识别</p>
+<a id="more"></a>
+
+<h5 id="数据集部分："><a href="#数据集部分：" class="headerlink" title="数据集部分："></a>数据集部分：</h5><p>下载地址：<a href="http://yann.lecun.com/exdb/mnist/" target="_blank" rel="noopener">http://yann.lecun.com/exdb/mnist/</a></p>
+<p>如果使用<code>torchvision</code>下载速度较慢可以参考：<a href="https://blog.csdn.net/york1996/article/details/81780065" target="_blank" rel="noopener">https://blog.csdn.net/york1996/article/details/81780065</a></p>
+<h5 id="网络定义部分："><a href="#网络定义部分：" class="headerlink" title="网络定义部分："></a>网络定义部分：</h5><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Net</span><span class="params">(nn.Module)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        super(Net, self).__init__()</span><br><span class="line">        self.conv1 = nn.Conv2d(<span class="number">1</span>, <span class="number">32</span>, <span class="number">3</span>, <span class="number">1</span>)         <span class="comment">#输入通道数为1, 输出通道数为32, 卷积核大小为3*3, 步长为1</span></span><br><span class="line">        self.conv2 = nn.Conv2d(<span class="number">32</span>, <span class="number">64</span>, <span class="number">3</span>, <span class="number">1</span>)        </span><br><span class="line">        self.dropout1 = nn.Dropout2d(<span class="number">0.25</span>)          <span class="comment">#随机将输入张量中整个通道设置为0</span></span><br><span class="line">        self.dropout2 = nn.Dropout2d(<span class="number">0.5</span>)</span><br><span class="line">        self.fc1 = nn.Linear(<span class="number">9216</span>, <span class="number">256</span>)             <span class="comment">#全连接层</span></span><br><span class="line">        self.fc2 = nn.Linear(<span class="number">256</span>, <span class="number">10</span>)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">forward</span><span class="params">(self, x)</span>:</span></span><br><span class="line">        x = self.conv1(x)</span><br><span class="line">        x = F.relu(x)</span><br><span class="line">        x = self.conv2(x)</span><br><span class="line">        x = F.relu(x)</span><br><span class="line">        x = F.max_pool2d(x, <span class="number">2</span>)                      <span class="comment">#使用2*2的窗口进行最大值池化</span></span><br><span class="line">        x = self.dropout1(x)</span><br><span class="line">        x = torch.flatten(x, <span class="number">1</span>)                     <span class="comment">#展平一个连续范围的维度</span></span><br><span class="line">        x = self.fc1(x)</span><br><span class="line">        x = F.relu(x)</span><br><span class="line">        x = self.dropout2(x)</span><br><span class="line">        x = self.fc2(x)</span><br><span class="line">        output = F.log_softmax(x, dim=<span class="number">1</span>)</span><br><span class="line">        <span class="keyword">return</span> output</span><br></pre></td></tr></table></figure>
+
+<p>卷积层第一层： <code>nn.Conv2d(1, 32, 3, 1)</code></p>
+<p>输入通道数为1，输出通道数为32，使用大小为3*3的卷积核，步长为1。</p>
+<p>卷积层第二层：<code>nn.Conv2d(32, 64, 3, 1)</code> </p>
+<p>输入通道数为32，输出通道数为64，使用大小为3*3的卷积核，步长为1。</p>
+<p>前向传播中使用池化层：<code>F.max_pool2d(x, 2)</code>   </p>
+<p>最后展平一个连续的维度：<code>torch.flatten(x, 1)</code></p>
+<p><strong>详细描述：</strong></p>
+<p>大小为<strong>1X28X28</strong>的图片，经过第一层卷积层，维度变为<strong>32X26X26</strong>，在经过第二层卷积层，维度变为<strong>64X24X24</strong>，在经过一层最大值池化层处理以后，维度变为<strong>64X12X12</strong>，全部展开以后维度变为<strong>1X9216</strong>。</p>
+<h5 id="卷积计算公式："><a href="#卷积计算公式：" class="headerlink" title="卷积计算公式："></a>卷积计算公式：</h5><p><code>卷积后输出图像宽/高=(图像宽/高 - 卷积核宽/高 + 用零填充的个数) / 步长</code></p>
+<h5 id="池化计算公式："><a href="#池化计算公式：" class="headerlink" title="池化计算公式："></a>池化计算公式：</h5><p><code>池化后图像宽/高=池化前图像宽/高 / 池化窗口宽度</code></p>
+]]></content>
+      <tags>
+        <tag>Pytorch</tag>
+        <tag>CNN</tag>
+        <tag>MNIST</tag>
       </tags>
   </entry>
   <entry>
@@ -1732,139 +1865,6 @@
 ]]></content>
       <tags>
         <tag>证书</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>使用jsdelivrCDN加速github文件</title>
-    <url>/2020/06/20/%E4%BD%BF%E7%94%A8jsdelivrCDN%E5%8A%A0%E9%80%9Fgithub%E6%96%87%E4%BB%B6/</url>
-    <content><![CDATA[<p>jsDelivr 是国外的一家优秀的公共 CDN 服务提供商，也是首个「打通中国大陆（网宿公司运营）与海外的免费 CDN 服务」。</p>
-<a id="more"></a>
-
-<h3 id="jsDelivr-配置"><a href="#jsDelivr-配置" class="headerlink" title="jsDelivr 配置"></a>jsDelivr 配置</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">https:&#x2F;&#x2F;cdn.jsdelivr.net&#x2F;gh&#x2F;wf09&#x2F;upload@master&#x2F;1.png</span><br></pre></td></tr></table></figure>
-
-<p>其中：</p>
-<ul>
-<li><code>gh</code> 表示来自 Github 的仓库</li>
-<li><code>wf09/upload</code> 指的是用户名/仓库名</li>
-<li><code>master</code> 仓库的分支</li>
-<li><code>1.png</code>仓库下的具体文件</li>
-</ul>
-]]></content>
-      <tags>
-        <tag>jsdelivrCDN</tag>
-        <tag>github</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>使用pip离线安装pytorch-gpu</title>
-    <url>/2020/02/17/%E4%BD%BF%E7%94%A8pip%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85pytorch/</url>
-    <content><![CDATA[<p>废话不多说，上教程。</p>
-<a id="more"></a>
-
-<h4 id="1-查看Linux预装的Python3版本"><a href="#1-查看Linux预装的Python3版本" class="headerlink" title="1.查看Linux预装的Python3版本"></a>1.查看Linux预装的Python3版本</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">root@wf09:~<span class="comment"># python3 -V</span></span><br><span class="line">Python 3.6.9</span><br></pre></td></tr></table></figure>
-
-<h4 id="2-下载对应的Pytorch版本"><a href="#2-下载对应的Pytorch版本" class="headerlink" title="2.下载对应的Pytorch版本"></a>2.下载对应的Pytorch版本</h4><p><a href="https://download.pytorch.org/whl/torch_stable.html" target="_blank" rel="noopener">https://download.pytorch.org/whl/torch_stable.html</a></p>
-<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/3.png" alt=""></p>
-<p>Python版本是3.6.9，下载的版本是<code>cpu/torch-1.4.0%2Bcpu-cp36-cp36m-linux_x86_64.whl</code></p>
-<h4 id="3-安装pip3"><a href="#3-安装pip3" class="headerlink" title="3.安装pip3"></a>3.安装pip3</h4><h5 id="3-1-Linux"><a href="#3-1-Linux" class="headerlink" title="3.1 Linux"></a>3.1 Linux</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">apt-get install python3-pip</span><br></pre></td></tr></table></figure>
-
-<p><strong>tips：</strong>由于apt源自带的pip版本过低，可以执行如下命令升级pip。</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">python3 -m pip install --upgrade pip</span><br></pre></td></tr></table></figure>
-
-<p>升级完pip以后，pip就相当于pip3了。</p>
-<h5 id="3-2-Win"><a href="#3-2-Win" class="headerlink" title="3.2 Win"></a>3.2 Win</h5><p>安装完Python后默认安装pip，执行命令升级pip即可</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">python3 -m pip install --upgrade pip</span><br></pre></td></tr></table></figure>
-
-<h4 id="4-离线安装Pytorch"><a href="#4-离线安装Pytorch" class="headerlink" title="4.离线安装Pytorch"></a>4.离线安装Pytorch</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pip install --no-index --find-links=torch-1.4.0+cpu-cp36-cp36m-linux_x86_64.whl torch</span><br></pre></td></tr></table></figure>
-
-<h4 id="5-windows10卸载Pytorch-cpu版本并安装GPU版本"><a href="#5-windows10卸载Pytorch-cpu版本并安装GPU版本" class="headerlink" title="5.windows10卸载Pytorch-cpu版本并安装GPU版本"></a>5.windows10卸载Pytorch-cpu版本并安装GPU版本</h4><h5 id="5-1-卸载cpu版"><a href="#5-1-卸载cpu版" class="headerlink" title="5.1 卸载cpu版"></a>5.1 卸载cpu版</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pip uninstall torch   		<span class="comment">#卸载torch</span></span><br><span class="line">pip uninstall torchvison    <span class="comment">#卸载torchvison</span></span><br></pre></td></tr></table></figure>
-
-<h5 id="5-2-安装CUDA"><a href="#5-2-安装CUDA" class="headerlink" title="5.2 安装CUDA"></a>5.2 安装CUDA</h5><p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200315143756001.png" alt="image-20200315143756001"></p>
-<p><a href="https://developer.nvidia.com/cuda-toolkit-archive" target="_blank" rel="noopener">https://developer.nvidia.com/cuda-toolkit-archive</a></p>
-<p>笔者使用的<code>Win10</code>，附上离线安装版链接：</p>
-<p><del><a href="http://developer.download.nvidia.com/compute/cuda/10.2/Prod/local_installers/cuda_10.2.89_441.22_win10.exe" target="_blank" rel="noopener">http://developer.download.nvidia.com/compute/cuda/10.2/Prod/local_installers/cuda_10.2.89_441.22_win10.exe</a></del></p>
-<h6 id="Tips：最新版本的CUDA-10-2-现在还无法被Pytorch支持，安装10-1版本的即可。"><a href="#Tips：最新版本的CUDA-10-2-现在还无法被Pytorch支持，安装10-1版本的即可。" class="headerlink" title="Tips：最新版本的CUDA(10.2)现在还无法被Pytorch支持，安装10.1版本的即可。"></a>Tips：最新版本的CUDA(10.2)现在还无法被Pytorch支持，安装10.1版本的即可。</h6><p><a href="http://developer.download.nvidia.com/compute/cuda/10.1/Prod/local_installers/cuda_10.1.243_426.00_win10.exe" target="_blank" rel="noopener">http://developer.download.nvidia.com/compute/cuda/10.1/Prod/local_installers/cuda_10.1.243_426.00_win10.exe</a></p>
-<p>下载完毕，双击打开即可。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200315145247036.png" alt="image-20200315145247036"></p>
-<p>点击OK选择下一步。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200315145432177.png" alt="image-20200315145432177"></p>
-<p>等待进度条达到100%，会自动打开安装程序。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200315150124951.png" alt="image-20200315150124951"></p>
-<p>选择自定义，然后全部选中，期间会升级本机的<strong>显卡驱动</strong>。</p>
-<h6 id="Tips：升级显卡驱动是很重要的一步，不升级到最新版本无法正确安装CUDA"><a href="#Tips：升级显卡驱动是很重要的一步，不升级到最新版本无法正确安装CUDA" class="headerlink" title="Tips：升级显卡驱动是很重要的一步，不升级到最新版本无法正确安装CUDA"></a><strong>Tips：</strong>升级显卡驱动是很重要的一步，不升级到最新版本无法正确安装<strong>CUDA</strong></h6><p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200315150240356.png" alt="image-20200315150240356"></p>
-<p>等待安装完毕。</p>
-<h5 id="5-3-安装cuDNN"><a href="#5-3-安装cuDNN" class="headerlink" title="5.3 安装cuDNN"></a>5.3 安装cuDNN</h5><p><strong>相比标准的cuda，它在一些常用的神经网络操作上进行了性能的优化，比如卷积，pooling，归一化，以及激活层等等。</strong></p>
-<p>下载过程中需要注册 <strong>NVIDIA account</strong>。</p>
-<p>下载完毕后执行解压：会生成<code>cuda/include、cuda/lib、cuda/bin</code>三个目录；</p>
-<p>然后分别将<code>cuda/include、cuda/lib、cuda/bin</code>三个目录中的内容拷贝到<code>C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.1</code>对应的<code>include、lib、bin</code>目录下即可。</p>
-<h5 id="5-4安装Pytorch-GPU版本"><a href="#5-4安装Pytorch-GPU版本" class="headerlink" title="5.4安装Pytorch-GPU版本"></a><strong>5.4安装Pytorch-GPU版本</strong></h5><p>下载Pytorch-CUDA版本的whl文件，用于离线安装。</p>
-<p><a href="https://download.pytorch.org/whl/torch_stable.html" target="_blank" rel="noopener">https://download.pytorch.org/whl/torch_stable.html</a></p>
-<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200315151856974.png" alt="image-20200315151856974"></p>
-<p>其中，<strong>cu101</strong>代表CUDA版本是10.1，<strong>cp37</strong>代表CPython version 3.7（指的是C语言实现的Python，就是原汁原味的Python。除了CPython以外，还有用Java实现的Jython，用.NET实现的IronPython，使Python方便地和Java程序、.NET程序集成。另外还有一些实验性的Python解释器比如PyPy），<strong>win</strong>代表Windows操作系统，<strong>amd64</strong>代表64位CPU平台。</p>
-<p>使用<strong>管理员权限</strong>打开<code>Anaconda Prompt (Anaconda3)</code>cmd窗口，输入</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pip install 下载路径\torch-1.4.0-cp37-cp37m-win_amd64.whl</span><br></pre></td></tr></table></figure>
-
-<p>等待安装完毕。</p>
-<p>使用相同的操作安装 <code>torchvision</code>，其中包含流行的数据集。</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pip install 下载路径\torchvision-0.5.0-cp37-cp37m-win_amd64.whl</span><br></pre></td></tr></table></figure>
-
-<p>至此<strong>Pytoch-GPU</strong>版已经全部安装完毕。</p>
-<p><strong>5.5 测试是否安装成功</strong></p>
-<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200315153854134.png" alt="image-20200315153854134"></p>
-<p>打开cmd窗口，输入<strong>python</strong>进入<strong>python环境</strong>。依次输入：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line">torch.cuda.is_available()</span><br><span class="line"><span class="comment"># True</span></span><br></pre></td></tr></table></figure>
-
-<p>输出为<strong>True</strong>，安装完毕。</p>
-]]></content>
-      <tags>
-        <tag>pytorch</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>修改Pip镜像源</title>
-    <url>/2020/05/11/%E4%BF%AE%E6%94%B9pip%E9%95%9C%E5%83%8F%E6%BA%90/</url>
-    <content><![CDATA[<p>修改pip镜像源</p>
-<a id="more"></a>
-
-<p>清华源：<a href="https://pypi.tuna.tsinghua.edu.cn/simple/" target="_blank" rel="noopener">https://pypi.tuna.tsinghua.edu.cn/simple/</a></p>
-<p>豆瓣源：<a href="https://pypi.doubanio.com/simple/" target="_blank" rel="noopener">https://pypi.doubanio.com/simple/</a></p>
-<p>使用方法</p>
-<p>临时使用：可以在使用pip的时候加参数-i <a href="https://pypi.tuna.tsinghua.edu.cn/simple" target="_blank" rel="noopener">https://pypi.tuna.tsinghua.edu.cn/simple</a></p>
-<p>例如：pip install -i <a href="https://pypi.tuna.tsinghua.edu.cn/simple" target="_blank" rel="noopener">https://pypi.tuna.tsinghua.edu.cn/simple</a> gevent</p>
-<p>永久修改：linux下，修改 <code>~/.pip/pip.conf</code>，设置为以下内容：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[global]</span><br><span class="line">index-url &#x3D; https:&#x2F;&#x2F;pypi.tuna.tsinghua.edu.cn&#x2F;simple</span><br></pre></td></tr></table></figure>
-
-<p>windows下，直接在user目录中创建一个pip目录，如：C:\Users\wf09.pip，新建文件pip.ini，内容如下</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[global]</span><br><span class="line">index-url &#x3D; https:&#x2F;&#x2F;pypi.tuna.tsinghua.edu.cn&#x2F;simple</span><br></pre></td></tr></table></figure>]]></content>
-      <tags>
-        <tag>pip</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>初探卷积神经网络01</title>
-    <url>/2020/05/29/%E5%88%9D%E6%8E%A2%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C01/</url>
-    <content><![CDATA[<p>使用Pytorch进行MNIST识别</p>
-<a id="more"></a>
-
-<h5 id="数据集部分："><a href="#数据集部分：" class="headerlink" title="数据集部分："></a>数据集部分：</h5><p>下载地址：<a href="http://yann.lecun.com/exdb/mnist/" target="_blank" rel="noopener">http://yann.lecun.com/exdb/mnist/</a></p>
-<p>如果使用<code>torchvision</code>下载速度较慢可以参考：<a href="https://blog.csdn.net/york1996/article/details/81780065" target="_blank" rel="noopener">https://blog.csdn.net/york1996/article/details/81780065</a></p>
-<h5 id="网络定义部分："><a href="#网络定义部分：" class="headerlink" title="网络定义部分："></a>网络定义部分：</h5><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Net</span><span class="params">(nn.Module)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        super(Net, self).__init__()</span><br><span class="line">        self.conv1 = nn.Conv2d(<span class="number">1</span>, <span class="number">32</span>, <span class="number">3</span>, <span class="number">1</span>)         <span class="comment">#输入通道数为1, 输出通道数为32, 卷积核大小为3*3, 步长为1</span></span><br><span class="line">        self.conv2 = nn.Conv2d(<span class="number">32</span>, <span class="number">64</span>, <span class="number">3</span>, <span class="number">1</span>)        </span><br><span class="line">        self.dropout1 = nn.Dropout2d(<span class="number">0.25</span>)          <span class="comment">#随机将输入张量中整个通道设置为0</span></span><br><span class="line">        self.dropout2 = nn.Dropout2d(<span class="number">0.5</span>)</span><br><span class="line">        self.fc1 = nn.Linear(<span class="number">9216</span>, <span class="number">256</span>)             <span class="comment">#全连接层</span></span><br><span class="line">        self.fc2 = nn.Linear(<span class="number">256</span>, <span class="number">10</span>)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">forward</span><span class="params">(self, x)</span>:</span></span><br><span class="line">        x = self.conv1(x)</span><br><span class="line">        x = F.relu(x)</span><br><span class="line">        x = self.conv2(x)</span><br><span class="line">        x = F.relu(x)</span><br><span class="line">        x = F.max_pool2d(x, <span class="number">2</span>)                      <span class="comment">#使用2*2的窗口进行最大值池化</span></span><br><span class="line">        x = self.dropout1(x)</span><br><span class="line">        x = torch.flatten(x, <span class="number">1</span>)                     <span class="comment">#展平一个连续范围的维度</span></span><br><span class="line">        x = self.fc1(x)</span><br><span class="line">        x = F.relu(x)</span><br><span class="line">        x = self.dropout2(x)</span><br><span class="line">        x = self.fc2(x)</span><br><span class="line">        output = F.log_softmax(x, dim=<span class="number">1</span>)</span><br><span class="line">        <span class="keyword">return</span> output</span><br></pre></td></tr></table></figure>
-
-<p>卷积层第一层： <code>nn.Conv2d(1, 32, 3, 1)</code></p>
-<p>输入通道数为1，输出通道数为32，使用大小为3*3的卷积核，步长为1。</p>
-<p>卷积层第二层：<code>nn.Conv2d(32, 64, 3, 1)</code> </p>
-<p>输入通道数为32，输出通道数为64，使用大小为3*3的卷积核，步长为1。</p>
-<p>前向传播中使用池化层：<code>F.max_pool2d(x, 2)</code>   </p>
-<p>最后展平一个连续的维度：<code>torch.flatten(x, 1)</code></p>
-<p><strong>详细描述：</strong></p>
-<p>大小为<strong>1X28X28</strong>的图片，经过第一层卷积层，维度变为<strong>32X26X26</strong>，在经过第二层卷积层，维度变为<strong>64X24X24</strong>，在经过一层最大值池化层处理以后，维度变为<strong>64X12X12</strong>，全部展开以后维度变为<strong>1X9216</strong>。</p>
-<h5 id="卷积计算公式："><a href="#卷积计算公式：" class="headerlink" title="卷积计算公式："></a>卷积计算公式：</h5><p><code>卷积后输出图像宽/高=(图像宽/高 - 卷积核宽/高 + 用零填充的个数) / 步长</code></p>
-<h5 id="池化计算公式："><a href="#池化计算公式：" class="headerlink" title="池化计算公式："></a>池化计算公式：</h5><p><code>池化后图像宽/高=池化前图像宽/高 / 池化窗口宽度</code></p>
-]]></content>
-      <tags>
-        <tag>Pytorch</tag>
-        <tag>CNN</tag>
-        <tag>MNIST</tag>
       </tags>
   </entry>
   <entry>
