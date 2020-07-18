@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/font-awesome@4/css/font-awesome.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    hostname: new URL('http://fly97.cn').hostname,
+    root: '/',
+    scheme: 'Mist',
+    version: '7.7.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"hide","padding":18,"offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    comments: {"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}
+  };
+</script>
+
+  <meta name="description" content="Docker 是个划时代的开源项目，它彻底释放了计算虚拟化的威力，极大提高了应用的维护效率，降低了云计算应用开发的成本。使用 Docker，可以让应用的部署、测试和分发都变得前所未有的高效和轻松。 此次介绍的是Docker的安装及常见命令。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="初探Docker(一)">
+<meta property="og:url" content="http://fly97.cn/2020/07/18/%E5%88%9D%E6%8E%A2docker01/index.html">
+<meta property="og:site_name" content="个人随想">
+<meta property="og:description" content="Docker 是个划时代的开源项目，它彻底释放了计算虚拟化的威力，极大提高了应用的维护效率，降低了云计算应用开发的成本。使用 Docker，可以让应用的部署、测试和分发都变得前所未有的高效和轻松。 此次介绍的是Docker的安装及常见命令。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200718170304988.png">
+<meta property="article:published_time" content="2020-07-18T08:56:00.000Z">
+<meta property="article:modified_time" content="2020-07-18T10:42:22.802Z">
+<meta property="article:author" content="fly97">
+<meta property="article:tag" content="学习">
+<meta property="article:tag" content="docker">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200718170304988.png">
+
+<link rel="canonical" href="http://fly97.cn/2020/07/18/%E5%88%9D%E6%8E%A2docker01/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true
+  };
+</script>
+
+  <title>初探Docker(一) | 个人随想</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">个人随想</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section">首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section">标签</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section">归档</a>
+
+  </li>
+        <li class="menu-item menu-item-referral">
+
+    <a href="/referral/" rel="section">推广</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger">搜索
+        </a>
+      </li>
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+  <a href="https://github.com/wf09" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://fly97.cn/2020/07/18/%E5%88%9D%E6%8E%A2docker01/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="fly97">
+      <meta itemprop="description" content="你不是我 怎么可能做到感同身受">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="个人随想">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          初探Docker(一)
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-07-18 16:56:00 / 修改时间：18:42:22" itemprop="dateCreated datePublished" datetime="2020-07-18T16:56:00+08:00">2020-07-18</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p><a href="https://www.docker.com/" target="_blank" rel="noopener">Docker</a> 是个划时代的开源项目，它彻底释放了计算虚拟化的威力，极大提高了应用的维护效率，降低了云计算应用开发的成本。使用 Docker，可以让应用的部署、测试和分发都变得前所未有的高效和轻松。</p>
+<p>此次介绍的是Docker的安装及常见命令。</p>
+<a id="more"></a>
+
+<h3 id="安装Docker"><a href="#安装Docker" class="headerlink" title="安装Docker"></a>安装Docker</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">curl -fsSL get.docker.com -o get-docker.sh</span><br><span class="line">sudo sh get-docker.sh --mirror Aliyun</span><br><span class="line"><span class="comment"># sudo sh get-docker.sh --mirror AzureChinaCloud</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="启动Docker-CE"><a href="#启动Docker-CE" class="headerlink" title="启动Docker-CE"></a>启动Docker-CE</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl <span class="built_in">enable</span> docker</span><br><span class="line">sudo systemctl start docker</span><br></pre></td></tr></table></figure>
+
+<h3 id="测试-Docker-是否安装正确"><a href="#测试-Docker-是否安装正确" class="headerlink" title="测试 Docker 是否安装正确"></a>测试 Docker 是否安装正确</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">docker run hello-world</span><br><span class="line">以下是输出：</span><br><span class="line">Unable to find image 'hello-world:latest' locally</span><br><span class="line">latest: Pulling from library/hello-world</span><br><span class="line">d1725b59e92d: Pull complete</span><br><span class="line">Digest: sha256:0add3ace90ecb4adbf7777e9aacf18357296e799f81cabc9fde470971e499788</span><br><span class="line">Status: Downloaded newer image for hello-world:latest</span><br><span class="line"></span><br><span class="line">Hello from Docker!</span><br><span class="line">This message shows that your installation appears to be working correctly.</span><br><span class="line"></span><br><span class="line">To generate this message, Docker took the following steps:</span><br><span class="line"> 1. The Docker client contacted the Docker daemon.</span><br><span class="line"> 2. The Docker daemon pulled the "hello-world" image from the Docker Hub.</span><br><span class="line">    (amd64)</span><br><span class="line"> 3. The Docker daemon created a new container from that image which runs the</span><br><span class="line">    executable that produces the output you are currently reading.</span><br><span class="line"> 4. The Docker daemon streamed that output to the Docker client, which sent it</span><br><span class="line">    to your terminal.</span><br><span class="line"></span><br><span class="line">To try something more ambitious, you can run an Ubuntu container with:</span><br><span class="line"><span class="meta"> $</span><span class="bash"> docker run -it ubuntu bash</span></span><br><span class="line"></span><br><span class="line">Share images, automate workflows, and more with a free Docker ID:</span><br><span class="line"> https://hub.docker.com/</span><br><span class="line"></span><br><span class="line">For more examples and ideas, visit:</span><br><span class="line"> https://docs.docker.com/get-started/</span><br></pre></td></tr></table></figure>
+
+<h3 id="获取镜像加速器"><a href="#获取镜像加速器" class="headerlink" title="获取镜像加速器"></a>获取镜像加速器</h3><p>国内从 Docker Hub 拉取镜像有时会遇到困难，此时可以配置镜像加速器。国内很多云服务商都提供了国内加速器服务，例如：</p>
+<ul>
+<li><p>网易云加速器 <code>https://hub-mirror.c.163.com</code></p>
+</li>
+<li><p>百度云加速器 <code>https://mirror.baidubce.com</code></p>
+</li>
+<li><p><a href="https://cr.console.aliyun.com/cn-hangzhou/mirrors" target="_blank" rel="noopener">阿里云加速器(需登录账号获取)</a></p>
+<p>本节我们以 <a href="https://www.163yun.com/" target="_blank" rel="noopener">网易云</a> 镜像服务 <code>https://hub-mirror.c.163.com</code> 为例进行介绍。</p>
+</li>
+</ul>
+<h4 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h4><p>对于使用 <a href="https://www.freedesktop.org/wiki/Software/systemd/" target="_blank" rel="noopener">systemd</a> 的系统，请在 <code>/etc/docker/daemon.json</code> 中写入如下内容（如果文件不存在请新建该文件）：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"registry-mirrors"</span>: [</span><br><span class="line">    <span class="string">"https://hub-mirror.c.163.com"</span>,</span><br><span class="line">    <span class="string">"https://mirror.baidubce.com"</span></span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>注意要保证该文件符合 <strong>json</strong> 规范，否则 Docker 将不能启动。</p>
+</blockquote>
+<p>之后重启服务。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl daemon-reload</span><br><span class="line">sudo systemctl restart docker</span><br></pre></td></tr></table></figure>
+
+<h4 id="Windows-10"><a href="#Windows-10" class="headerlink" title="Windows 10"></a>Windows 10</h4><p>对于使用 <code>Windows 10</code> 的用户，在任务栏托盘 Docker 图标内右键菜单选择 <code>Settings</code>，打开配置窗口后在左侧导航菜单选择 <code>Docker Engine</code>，在右侧像下边一样编辑 json 文件，之后点击 <code>Apply &amp; Restart</code> 保存后 Docker 就会重启并应用配置的镜像地址了。</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"registry-mirrors"</span>: [</span><br><span class="line">    <span class="string">"https://28wgvhgl.mirror.aliyuncs.com"</span></span><br><span class="line">  ],</span><br><span class="line">  <span class="attr">"insecure-registries"</span>: [],</span><br><span class="line">  <span class="attr">"debug"</span>: <span class="literal">true</span>,</span><br><span class="line">  <span class="attr">"experimental"</span>: <span class="literal">false</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200718170304988.png" alt=""></p>
+<h3 id="常见docker命令"><a href="#常见docker命令" class="headerlink" title="常见docker命令"></a>常见docker命令</h3><h4 id="取回容器"><a href="#取回容器" class="headerlink" title="取回容器"></a>取回容器</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull fly97/v2fly</span><br></pre></td></tr></table></figure>
+
+<h4 id="运行容器"><a href="#运行容器" class="headerlink" title="运行容器"></a>运行容器</h4><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -d --name v2fly -v /etc/caddy:/etc/caddy  -p 443:443 fly97/v2fly</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>-v ：启用目录挂载。冒号”:”前面的目录是<strong>宿主机目录</strong>，后面的目录是<strong>容器内目录</strong>。</p>
+<p>-p：启用端口映射。</p>
+<p>-d：在后台运行容器并打印容器ID。</p>
+</blockquote>
+<h4 id="进入容器"><a href="#进入容器" class="headerlink" title="进入容器"></a>进入容器</h4><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker <span class="built_in">exec</span> -it $(docker ps| grep fly97/v2fly | awk <span class="string">'&#123;print $1&#125;'</span> /bin/sh</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>-i： 交互式操作。</p>
+<p>-t：启用终端运行。</p>
+<p>/bin/sh：打开交互式 Shell</p>
+</blockquote>
+<h4 id="查看当前运行的容器"><a href="#查看当前运行的容器" class="headerlink" title="查看当前运行的容器"></a>查看当前运行的容器</h4><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker ps</span><br></pre></td></tr></table></figure>
+
+<h4 id="运行容器-1"><a href="#运行容器-1" class="headerlink" title="运行容器"></a>运行容器</h4><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker start CONTAINER_NAME</span><br></pre></td></tr></table></figure>
+
+<h4 id="停止容器"><a href="#停止容器" class="headerlink" title="停止容器"></a>停止容器</h4><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker stop CONTAINER_NAME</span><br></pre></td></tr></table></figure>
+
+<h4 id="删除容器"><a href="#删除容器" class="headerlink" title="删除容器"></a>删除容器</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker rm CONTAINER_NAME</span><br></pre></td></tr></table></figure>
+
+<h4 id="查看镜像"><a href="#查看镜像" class="headerlink" title="查看镜像"></a>查看镜像</h4><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker images</span><br></pre></td></tr></table></figure>
+
+<h4 id="删除镜像"><a href="#删除镜像" class="headerlink" title="删除镜像"></a>删除镜像</h4><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker rmi IMAGE_ID</span><br></pre></td></tr></table></figure>
+
+<h4 id="全部命令"><a href="#全部命令" class="headerlink" title="全部命令"></a>全部命令</h4><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br></pre></td><td class="code"><pre><span class="line">PS C:\Users\wf09\Desktop\v2fly<span class="literal">-docker</span>&gt; docker -<span class="literal">-help</span></span><br><span class="line"></span><br><span class="line">Usage:  docker [<span class="type">OPTIONS</span>] COMMAND</span><br><span class="line"></span><br><span class="line">A self<span class="literal">-sufficient</span> runtime <span class="keyword">for</span> containers</span><br><span class="line"></span><br><span class="line">Options:</span><br><span class="line">      -<span class="literal">-config</span> string      Location of client config files (default</span><br><span class="line">                           <span class="string">"C:\\Users\\wf09\\.docker"</span>)</span><br><span class="line">  <span class="literal">-c</span>, -<span class="literal">-context</span> string     Name of the context to use to connect to the</span><br><span class="line">                           daemon (overrides DOCKER_HOST env var and</span><br><span class="line">                           default context set with <span class="string">"docker context use"</span>)</span><br><span class="line">  <span class="literal">-D</span>, -<span class="literal">-debug</span>              Enable debug mode</span><br><span class="line">  <span class="literal">-H</span>, -<span class="literal">-host</span> list          Daemon socket(s) to connect to</span><br><span class="line">  <span class="literal">-l</span>, -<span class="literal">-log</span><span class="literal">-level</span> string   Set the logging level</span><br><span class="line">                           (<span class="string">"debug"</span>|<span class="string">"info"</span>|<span class="string">"warn"</span>|<span class="string">"error"</span>|<span class="string">"fatal"</span>)</span><br><span class="line">                           (default <span class="string">"info"</span>)</span><br><span class="line">      -<span class="literal">-tls</span>                Use TLS; implied by -<span class="literal">-tlsverify</span></span><br><span class="line">      -<span class="literal">-tlscacert</span> string   Trust certs signed only by this CA (default</span><br><span class="line">                           <span class="string">"C:\\Users\\wf09\\.docker\\ca.pem"</span>)</span><br><span class="line">      -<span class="literal">-tlscert</span> string     Path to TLS certificate file (default</span><br><span class="line">                           <span class="string">"C:\\Users\\wf09\\.docker\\cert.pem"</span>)</span><br><span class="line">      -<span class="literal">-tlskey</span> string      Path to TLS key file (default</span><br><span class="line">                           <span class="string">"C:\\Users\\wf09\\.docker\\key.pem"</span>)</span><br><span class="line">      -<span class="literal">-tlsverify</span>          Use TLS and verify the remote</span><br><span class="line">  <span class="literal">-v</span>, -<span class="literal">-version</span>            Print version information and quit</span><br><span class="line"></span><br><span class="line">Management Commands:</span><br><span class="line">  builder     Manage builds</span><br><span class="line">  config      Manage Docker configs</span><br><span class="line">  container   Manage containers</span><br><span class="line">  context     Manage contexts</span><br><span class="line">  image       Manage images</span><br><span class="line">  network     Manage networks</span><br><span class="line">  node        Manage Swarm nodes</span><br><span class="line">  plugin      Manage plugins</span><br><span class="line">  secret      Manage Docker secrets</span><br><span class="line">  service     Manage services</span><br><span class="line">  stack       Manage Docker stacks</span><br><span class="line">  swarm       Manage Swarm</span><br><span class="line">  system      Manage Docker</span><br><span class="line">  trust       Manage trust on Docker images</span><br><span class="line">  volume      Manage volumes</span><br><span class="line"></span><br><span class="line">Commands:</span><br><span class="line">  attach      Attach local standard input, output, and error streams to a running container</span><br><span class="line">  build       Build an image from a Dockerfile</span><br><span class="line">  commit      Create a new image from a container<span class="string">'s changes</span></span><br><span class="line"><span class="string">  cp          Copy files/folders between a container and the local filesystem</span></span><br><span class="line"><span class="string">  create      Create a new container</span></span><br><span class="line"><span class="string">  diff        Inspect changes to files or directories on a container'</span>s filesystem</span><br><span class="line">  events      Get real time events from the server</span><br><span class="line">  exec        Run a command <span class="keyword">in</span> a running container</span><br><span class="line">  export      Export a container<span class="string">'s filesystem as a tar archive</span></span><br><span class="line"><span class="string">  history     Show the history of an image</span></span><br><span class="line"><span class="string">  images      List images</span></span><br><span class="line"><span class="string">  import      Import the contents from a tarball to create a filesystem image</span></span><br><span class="line"><span class="string">  info        Display system-wide information</span></span><br><span class="line"><span class="string">  inspect     Return low-level information on Docker objects</span></span><br><span class="line"><span class="string">  kill        Kill one or more running containers</span></span><br><span class="line"><span class="string">  load        Load an image from a tar archive or STDIN</span></span><br><span class="line"><span class="string">  login       Log in to a Docker registry</span></span><br><span class="line"><span class="string">  logout      Log out from a Docker registry</span></span><br><span class="line"><span class="string">  logs        Fetch the logs of a container</span></span><br><span class="line"><span class="string">  pause       Pause all processes within one or more containers</span></span><br><span class="line"><span class="string">  port        List port mappings or a specific mapping for the container</span></span><br><span class="line"><span class="string">  ps          List containers</span></span><br><span class="line"><span class="string">  pull        Pull an image or a repository from a registry</span></span><br><span class="line"><span class="string">  push        Push an image or a repository to a registry</span></span><br><span class="line"><span class="string">  rename      Rename a container</span></span><br><span class="line"><span class="string">  restart     Restart one or more containers</span></span><br><span class="line"><span class="string">  rm          Remove one or more containers</span></span><br><span class="line"><span class="string">  rmi         Remove one or more images</span></span><br><span class="line"><span class="string">  run         Run a command in a new container</span></span><br><span class="line"><span class="string">  save        Save one or more images to a tar archive (streamed to STDOUT by default)</span></span><br><span class="line"><span class="string">  search      Search the Docker Hub for images</span></span><br><span class="line"><span class="string">  start       Start one or more stopped containers</span></span><br><span class="line"><span class="string">  stats       Display a live stream of container(s) resource usage statistics</span></span><br><span class="line"><span class="string">  stop        Stop one or more running containers</span></span><br><span class="line"><span class="string">  tag         Create a tag TARGET_IMAGE that refers to SOURCE_IMAGE</span></span><br><span class="line"><span class="string">  top         Display the running processes of a container</span></span><br><span class="line"><span class="string">  unpause     Unpause all processes within one or more containers</span></span><br><span class="line"><span class="string">  update      Update configuration of one or more containers</span></span><br><span class="line"><span class="string">  version     Show the Docker version information</span></span><br><span class="line"><span class="string">  wait        Block until one or more containers stop, then print their exit codes</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">Run '</span>docker COMMAND -<span class="literal">-help</span><span class="string">' for more information on a command.</span></span><br></pre></td></tr></table></figure>
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E5%AD%A6%E4%B9%A0/" rel="tag"># 学习</a>
+              <a href="/tags/docker/" rel="tag"># docker</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/06/30/Tkinter%E4%B8%BA%E9%AA%8C%E8%AF%81%E5%87%BD%E6%95%B0%E6%8F%90%E4%BE%9B%E7%9A%84%E4%B8%80%E4%BA%9B%E9%A2%9D%E5%A4%96%E9%80%89%E9%A1%B9/" rel="prev" title="Tkinter为验证函数提供的一些额外选项">
+      <i class="fa fa-chevron-left"></i> Tkinter为验证函数提供的一些额外选项
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let activeClass = CONFIG.comments.activeClass;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装Docker"><span class="nav-number">1.</span> <span class="nav-text">安装Docker</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#启动Docker-CE"><span class="nav-number">2.</span> <span class="nav-text">启动Docker-CE</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#测试-Docker-是否安装正确"><span class="nav-number">3.</span> <span class="nav-text">测试 Docker 是否安装正确</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获取镜像加速器"><span class="nav-number">4.</span> <span class="nav-text">获取镜像加速器</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Linux"><span class="nav-number">4.1.</span> <span class="nav-text">Linux</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Windows-10"><span class="nav-number">4.2.</span> <span class="nav-text">Windows 10</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常见docker命令"><span class="nav-number">5.</span> <span class="nav-text">常见docker命令</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#取回容器"><span class="nav-number">5.1.</span> <span class="nav-text">取回容器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#运行容器"><span class="nav-number">5.2.</span> <span class="nav-text">运行容器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#进入容器"><span class="nav-number">5.3.</span> <span class="nav-text">进入容器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#查看当前运行的容器"><span class="nav-number">5.4.</span> <span class="nav-text">查看当前运行的容器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#运行容器-1"><span class="nav-number">5.5.</span> <span class="nav-text">运行容器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#停止容器"><span class="nav-number">5.6.</span> <span class="nav-text">停止容器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#删除容器"><span class="nav-number">5.7.</span> <span class="nav-text">删除容器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#查看镜像"><span class="nav-number">5.8.</span> <span class="nav-text">查看镜像</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#删除镜像"><span class="nav-number">5.9.</span> <span class="nav-text">删除镜像</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#全部命令"><span class="nav-number">5.10.</span> <span class="nav-text">全部命令</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">fly97</p>
+  <div class="site-description" itemprop="description">你不是我 怎么可能做到感同身受</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">25</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">33</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/wf09" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;wf09" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:wf.09@qq.com" title="E-Mail → mailto:wf.09@qq.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+  <div class="beian"><a href="http://www.beian.miit.gov.cn/" rel="noopener" target="_blank">鲁ICP备19008796号-3 </a>
+  </div>
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">fly97</span>
+</div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.1.0/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/velocity-animate@1/velocity.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/velocity-animate@1/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+<script type="text/javascript" src="//cdn.jsdelivr.net/gh/ygbhf/clicklove/clicklove.js"></script>
+<script data-ad-client="ca-pub-2238291690005827" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+</html>
