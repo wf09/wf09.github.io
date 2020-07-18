@@ -115,6 +115,35 @@
       </tags>
   </entry>
   <entry>
+    <title>Linux之crontab定时任务</title>
+    <url>/2020/04/24/Linux%E4%B9%8Bcrontab%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/</url>
+    <content><![CDATA[<p>Linux中的crontab - - - -一个自定义定时器</p>
+<a id="more"></a>
+
+<h5 id="1-crontab命令"><a href="#1-crontab命令" class="headerlink" title="1.crontab命令"></a>1.crontab命令</h5><p>重新指定crobtab定时任务文件</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">crontab $filepath</span><br></pre></td></tr></table></figure>
+
+<p>查看crontab定时任务</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">crontab -l</span><br></pre></td></tr></table></figure>
+
+<p>编辑、安装定时任务</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">crontab -e</span><br></pre></td></tr></table></figure>
+
+<p><strong>2.crontab时间举例</strong></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 每天早上6点 </span></span><br><span class="line">0 6 * * * echo "Good morning." &gt;&gt; /tmp/test.txt //注意单纯echo，从屏幕上看不到任何输出，因为cron把任何输出都email到root的信箱了。</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 每两个小时 </span></span><br><span class="line">0 */2 * * * echo "Have a break now." &gt;&gt; /tmp/test.txt  </span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 晚上11点到早上8点之间每两个小时和早上八点 </span></span><br><span class="line">0 23-7/2，8 * * * echo "Have a good dream" &gt;&gt; /tmp/test.txt</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 每个月的4号和每个礼拜的礼拜一到礼拜三的早上11点 </span></span><br><span class="line">0 11 4 * 1-3 command line</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 1月1日早上4点 </span></span><br><span class="line">0 4 1 1 * command line SHELL=/bin/bash PATH=/sbin:/bin:/usr/sbin:/usr/bin MAILTO=root //如果出现错误，或者有数据输出，数据作为邮件发给这个帐号 HOME=/ </span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 每小时（第一分钟）执行/etc/cron.hourly内的脚本</span></span><br><span class="line">01 * * * * root run-parts /etc/cron.hourly</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 每天（凌晨4：02）执行/etc/cron.daily内的脚本</span></span><br><span class="line">02 4 * * * root run-parts /etc/cron.daily </span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 每星期（周日凌晨4：22）执行/etc/cron.weekly内的脚本</span></span><br><span class="line">22 4 * * 0 root run-parts /etc/cron.weekly </span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 每月（1号凌晨4：42）去执行/etc/cron.monthly内的脚本 </span></span><br><span class="line">42 4 1 * * root run-parts /etc/cron.monthly </span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 注意:  <span class="string">"run-parts"</span>这个参数了，如果去掉这个参数的话，后面就可以写要运行的某个脚本名，而不是文件夹名。 　 </span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 每天的下午4点、5点、6点的5 min、15 min、25 min、35 min、45 min、55 min时执行命令。 </span></span><br><span class="line">5，15，25，35，45，55 16，17，18 * * * command</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 每周一，三，五的下午3：00系统进入维护状态，重新启动系统。</span></span><br><span class="line">00 15 * *1，3，5 shutdown -r +5</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 每小时的10分，40分执行用户目录下的innd/bbslin这个指令： </span></span><br><span class="line">10，40 * * * * innd/bbslink </span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 每小时的1分执行用户目录下的bin/account这个指令： </span></span><br><span class="line">1 * * * * bin/account</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 每1分钟执行以下命令</span></span><br><span class="line">*/1 * * * * bin/python</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 每天早晨三点二十分执行用户目录下如下所示的两个指令（每个指令以;分隔）： </span></span><br><span class="line">203 * * * （/bin/rm -f expire.ls logins.bad;bin/expire$#@62;expire.1st）</span><br></pre></td></tr></table></figure>
+
+<h5 id="3-crontab任务举例"><a href="#3-crontab任务举例" class="headerlink" title="3.crontab任务举例"></a>3.crontab任务举例</h5><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">*/5 * * * * /bin/bash /root/kaoyan/tiaoji.sh</span><br></pre></td></tr></table></figure>
+
+<p>sh写法举例</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/bash</span></span><br><span class="line">PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:~/bin</span><br><span class="line">export PATH</span><br><span class="line"></span><br><span class="line">cd /root/kaoyan</span><br><span class="line">/root/***/python3 *.py &gt;&gt; /root/****/*.log 2&gt;&amp;1</span><br><span class="line"><span class="meta">#</span><span class="bash">将所有输出写入日志文件</span></span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <tags>
+        <tag>Linux</tag>
+        <tag>crontab</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Python实用教程之下划线命名模式</title>
     <url>/2020/03/16/Python%E5%AE%9E%E7%94%A8%E6%95%99%E7%A8%8B%E4%B9%8B%E4%B8%8B%E5%88%92%E7%BA%BF%E5%91%BD%E5%90%8D%E6%A8%A1%E5%BC%8F/</url>
     <content><![CDATA[<p>直接上表格。</p>
@@ -155,35 +184,6 @@
 ]]></content>
       <tags>
         <tag>Python教程</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Linux之crontab定时任务</title>
-    <url>/2020/04/24/Linux%E4%B9%8Bcrontab%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/</url>
-    <content><![CDATA[<p>Linux中的crontab - - - -一个自定义定时器</p>
-<a id="more"></a>
-
-<h5 id="1-crontab命令"><a href="#1-crontab命令" class="headerlink" title="1.crontab命令"></a>1.crontab命令</h5><p>重新指定crobtab定时任务文件</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">crontab $filepath</span><br></pre></td></tr></table></figure>
-
-<p>查看crontab定时任务</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">crontab -l</span><br></pre></td></tr></table></figure>
-
-<p>编辑、安装定时任务</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">crontab -e</span><br></pre></td></tr></table></figure>
-
-<p><strong>2.crontab时间举例</strong></p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 每天早上6点 </span></span><br><span class="line">0 6 * * * echo "Good morning." &gt;&gt; /tmp/test.txt //注意单纯echo，从屏幕上看不到任何输出，因为cron把任何输出都email到root的信箱了。</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 每两个小时 </span></span><br><span class="line">0 */2 * * * echo "Have a break now." &gt;&gt; /tmp/test.txt  </span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 晚上11点到早上8点之间每两个小时和早上八点 </span></span><br><span class="line">0 23-7/2，8 * * * echo "Have a good dream" &gt;&gt; /tmp/test.txt</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 每个月的4号和每个礼拜的礼拜一到礼拜三的早上11点 </span></span><br><span class="line">0 11 4 * 1-3 command line</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 1月1日早上4点 </span></span><br><span class="line">0 4 1 1 * command line SHELL=/bin/bash PATH=/sbin:/bin:/usr/sbin:/usr/bin MAILTO=root //如果出现错误，或者有数据输出，数据作为邮件发给这个帐号 HOME=/ </span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 每小时（第一分钟）执行/etc/cron.hourly内的脚本</span></span><br><span class="line">01 * * * * root run-parts /etc/cron.hourly</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 每天（凌晨4：02）执行/etc/cron.daily内的脚本</span></span><br><span class="line">02 4 * * * root run-parts /etc/cron.daily </span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 每星期（周日凌晨4：22）执行/etc/cron.weekly内的脚本</span></span><br><span class="line">22 4 * * 0 root run-parts /etc/cron.weekly </span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 每月（1号凌晨4：42）去执行/etc/cron.monthly内的脚本 </span></span><br><span class="line">42 4 1 * * root run-parts /etc/cron.monthly </span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 注意:  <span class="string">"run-parts"</span>这个参数了，如果去掉这个参数的话，后面就可以写要运行的某个脚本名，而不是文件夹名。 　 </span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 每天的下午4点、5点、6点的5 min、15 min、25 min、35 min、45 min、55 min时执行命令。 </span></span><br><span class="line">5，15，25，35，45，55 16，17，18 * * * command</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 每周一，三，五的下午3：00系统进入维护状态，重新启动系统。</span></span><br><span class="line">00 15 * *1，3，5 shutdown -r +5</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 每小时的10分，40分执行用户目录下的innd/bbslin这个指令： </span></span><br><span class="line">10，40 * * * * innd/bbslink </span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 每小时的1分执行用户目录下的bin/account这个指令： </span></span><br><span class="line">1 * * * * bin/account</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 每1分钟执行以下命令</span></span><br><span class="line">*/1 * * * * bin/python</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 每天早晨三点二十分执行用户目录下如下所示的两个指令（每个指令以;分隔）： </span></span><br><span class="line">203 * * * （/bin/rm -f expire.ls logins.bad;bin/expire$#@62;expire.1st）</span><br></pre></td></tr></table></figure>
-
-<h5 id="3-crontab任务举例"><a href="#3-crontab任务举例" class="headerlink" title="3.crontab任务举例"></a>3.crontab任务举例</h5><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">*/5 * * * * /bin/bash /root/kaoyan/tiaoji.sh</span><br></pre></td></tr></table></figure>
-
-<p>sh写法举例</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/bash</span></span><br><span class="line">PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:~/bin</span><br><span class="line">export PATH</span><br><span class="line"></span><br><span class="line">cd /root/kaoyan</span><br><span class="line">/root/***/python3 *.py &gt;&gt; /root/****/*.log 2&gt;&amp;1</span><br><span class="line"><span class="meta">#</span><span class="bash">将所有输出写入日志文件</span></span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <tags>
-        <tag>Linux</tag>
-        <tag>crontab</tag>
       </tags>
   </entry>
   <entry>
@@ -261,91 +261,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Tkinter为验证函数提供的一些额外选项</title>
-    <url>/2020/06/30/Tkinter%E4%B8%BA%E9%AA%8C%E8%AF%81%E5%87%BD%E6%95%B0%E6%8F%90%E4%BE%9B%E7%9A%84%E4%B8%80%E4%BA%9B%E9%A2%9D%E5%A4%96%E9%80%89%E9%A1%B9/</url>
-    <content><![CDATA[<p>Tkinter学习笔记</p>
-<a id="more"></a>
-
-<table>
-<thead>
-<tr>
-<th>选项</th>
-<th>含义</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>‘%d’</td>
-<td>操作代码：0表示删除操作；1表示插入操作；2表示获得、失去焦点或者<code>textvariable</code>变量的值被修改</td>
-</tr>
-<tr>
-<td>‘%i’</td>
-<td>当用户尝试插入或者删除操作时，该选项表示插入或者删除的位置(索引号)，如果是由于获得、失去焦点或<code>textvarible</code>变量的值被修改而调用验证函数，那么该值是-1</td>
-</tr>
-<tr>
-<td>‘%P’</td>
-<td>当输入框的值允许改变的时候，该值有效。该值作为输入框的最新文本内容。</td>
-</tr>
-<tr>
-<td>‘%s’</td>
-<td>该值为调用验证函数前输入框的文本内容</td>
-</tr>
-<tr>
-<td>‘%S’</td>
-<td>当插入或者删除操作触发验证函数时，该值有效。该选项表示文本被插入和删除的内容</td>
-</tr>
-<tr>
-<td>‘%v’</td>
-<td>该组件当前validate选项的值</td>
-</tr>
-<tr>
-<td>‘%V’</td>
-<td>调用该验证函数的原因。该值是’focusin’、’focusout’、’key’或’forced’（textvariable选项指定的变量值被修改）中的一个</td>
-</tr>
-<tr>
-<td>‘%W’</td>
-<td>该组件的名字</td>
-</tr>
-</tbody></table>
-<p>启用验证的开关是validate选项，该选项可以设置的值如下表所示</p>
-<table>
-<thead>
-<tr>
-<th>值</th>
-<th>含义</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>‘focus’</td>
-<td>当Entry组件获得或者失去焦点时候验证</td>
-</tr>
-<tr>
-<td>‘focusin’</td>
-<td>当Entry组件获得焦点的时候验证</td>
-</tr>
-<tr>
-<td>‘focusont’</td>
-<td>当Entry组件失去焦点的时候验证</td>
-</tr>
-<tr>
-<td>‘key’</td>
-<td>当输入框被编辑的时候验证</td>
-</tr>
-<tr>
-<td>‘all’</td>
-<td>当出现上面任何一种情况时验证</td>
-</tr>
-<tr>
-<td>‘none’</td>
-<td>关闭验证功能，默认设置。注意是字符串的<code>&#39;none&#39;</code>，而非<code>None</code></td>
-</tr>
-</tbody></table>
-]]></content>
-      <tags>
-        <tag>Python</tag>
-        <tag>Tkinter</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Python深度学习之PyTorch学习小记录</title>
     <url>/2020/03/05/Python%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E4%B9%8BPyTorch%E5%AD%A6%E4%B9%A0%E5%B0%8F%E8%AE%B0%E5%BD%95/</url>
     <content><![CDATA[<p>不说废话，直接上教程。</p>
@@ -369,6 +284,21 @@
       <tags>
         <tag>Python深度学习</tag>
         <tag>Pytorch</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Ubuntu18.04更换镜像源</title>
+    <url>/2019/01/06/Ubuntu18.04%E6%9B%B4%E6%8D%A2%E4%B8%BA%E5%9B%BD%E5%86%85%E6%BA%90/</url>
+    <content><![CDATA[<h4 id="Ubuntu18-04更换镜像源"><a href="#Ubuntu18-04更换镜像源" class="headerlink" title="Ubuntu18.04更换镜像源"></a>Ubuntu18.04更换镜像源</h4><h5 id="1-备份原有镜像源"><a href="#1-备份原有镜像源" class="headerlink" title="1.备份原有镜像源"></a>1.备份原有镜像源</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo mv /etc/apt/sources.list /etc/apt/sourses.list.bak</span><br></pre></td></tr></table></figure>
+
+<h5 id="2-修改-etc-apt-sources-list文件"><a href="#2-修改-etc-apt-sources-list文件" class="headerlink" title="2.修改/etc/apt/sources.list文件"></a>2.修改/etc/apt/sources.list文件</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vim /etc/apt/sources.list</span><br><span class="line"><span class="comment">#中科大源</span></span><br><span class="line">deb https://mirrors.ustc.edu.cn/ubuntu/ bionic main restricted universe multiverse</span><br><span class="line">deb https://mirrors.ustc.edu.cn/ubuntu/ bionic-updates main restricted universe multiverse</span><br><span class="line">deb https://mirrors.ustc.edu.cn/ubuntu/ bionic-backports main restricted universe multiverse</span><br><span class="line">deb https://mirrors.ustc.edu.cn/ubuntu/ bionic-security main restricted universe multiverse</span><br><span class="line">deb https://mirrors.ustc.edu.cn/ubuntu/ bionic-proposed main restricted universe multiverse</span><br><span class="line">deb-src https://mirrors.ustc.edu.cn/ubuntu/ bionic main restricted universe multiverse</span><br><span class="line">deb-src https://mirrors.ustc.edu.cn/ubuntu/ bionic-updates main restricted universe multiverse</span><br><span class="line">deb-src https://mirrors.ustc.edu.cn/ubuntu/ bionic-backports main restricted universe multiverse</span><br><span class="line">deb-src https://mirrors.ustc.edu.cn/ubuntu/ bionic-security main restricted universe multiverse</span><br><span class="line">deb-src https://mirrors.ustc.edu.cn/ubuntu/ bionic-proposed main restricted universe multiverse</span><br><span class="line"></span><br><span class="line"><span class="comment">#阿里云源</span></span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ bionic main restricted universe multiverse</span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ bionic-security main restricted universe multiverse</span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ bionic-updates main restricted universe multiverse</span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ bionic-proposed main restricted universe multiverse</span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ bionic-backports main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ bionic main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ bionic-security main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ bionic-updates main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ bionic-proposed main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ bionic-backports main restricted universe multiverse</span><br><span class="line"></span><br><span class="line"><span class="comment">#清华源</span></span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic main restricted universe multiverse</span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-updates main restricted universe multiverse</span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-backports main restricted universe multiverse</span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-security main restricted universe multiverse</span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-proposed main restricted universe multiverse</span><br><span class="line">deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic main restricted universe multiverse</span><br><span class="line">deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-updates main restricted universe multiverse</span><br><span class="line">deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-backports main restricted universe multiverse</span><br><span class="line">deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-security main restricted universe multiverse</span><br><span class="line">deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-proposed main restricted universe multiverse</span><br><span class="line"></span><br><span class="line"><span class="comment">#香港中文科技大学源</span></span><br><span class="line">deb http://ftp.cuhk.edu.hk/pub/Linux/ubuntu/ bionic main restricted universe </span><br><span class="line">deb http://ftp.cuhk.edu.hk/pub/Linux/ubuntu/ bionic-security main restricted universe </span><br><span class="line">deb http://ftp.cuhk.edu.hk/pub/Linux/ubuntu/ bionic-updates main restricted universe </span><br><span class="line">deb http://ftp.cuhk.edu.hk/pub/Linux/ubuntu/ bionic-proposed main restricted universe </span><br><span class="line">deb http://ftp.cuhk.edu.hk/pub/Linux/ubuntu/ bionic-backports main restricted universe </span><br><span class="line">deb-src http://ftp.cuhk.edu.hk/pub/Linux/ubuntu/ bionic main restricted universe multiverse</span><br><span class="line">deb-src http://ftp.cuhk.edu.hk/pub/Linux/ubuntu/ bionic-security main restricted universe </span><br><span class="line">deb-src http://ftp.cuhk.edu.hk/pub/Linux/ubuntu/ bionic-updates main restricted universe </span><br><span class="line">deb-src http://ftp.cuhk.edu.hk/pub/Linux/ubuntu/ bionic-proposed main restricted universe </span><br><span class="line">deb-src http://ftp.cuhk.edu.hk/pub/Linux/ubuntu/ bionic-backports main restricted universe</span><br></pre></td></tr></table></figure>
+
+<h5 id="3-其他相关命令"><a href="#3-其他相关命令" class="headerlink" title="3.其他相关命令"></a>3.其他相关命令</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt-get update  更新源</span><br><span class="line">sudo apt-get install package 安装包</span><br><span class="line">sudo apt-get remove package 删除包</span><br><span class="line">sudo apt-cache search package 搜索软件包</span><br><span class="line">sudo apt-cache show package  获取包的相关信息，如说明、大小、版本等</span><br><span class="line">sudo apt-get install package --reinstall  重新安装包</span><br><span class="line">sudo apt-get -f install  修复安装</span><br><span class="line">sudo apt-get remove package --purge 删除包，包括配置文件等</span><br><span class="line">sudo apt-get build-dep package 安装相关的编译环境</span><br><span class="line">sudo apt-get upgrade 更新已安装的包</span><br><span class="line">sudo apt-get dist-upgrade 升级系统</span><br><span class="line">sudo apt-cache depends package 了解使用该包依赖那些包</span><br><span class="line">sudo apt-cache rdepends package 查看该包被哪些包依赖</span><br><span class="line">sudo apt-get <span class="built_in">source</span> package  下载该包的源代码</span><br><span class="line">sudo apt-get clean &amp;&amp; sudo apt-get autoclean 清理无用的包</span><br><span class="line">sudo apt-get check 检查是否有损坏的依赖</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <tags>
+        <tag>Ubuntu18.04</tag>
+        <tag>镜像源</tag>
       </tags>
   </entry>
   <entry>
@@ -424,37 +354,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Ubuntu安装php指南</title>
-    <url>/2019/01/07/Ubuntu%E5%AE%89%E8%A3%85php%E6%8C%87%E5%8D%97/</url>
-    <content><![CDATA[<h4 id="Ubuntu安装php指南"><a href="#Ubuntu安装php指南" class="headerlink" title="Ubuntu安装php指南"></a>Ubuntu安装php指南</h4><p>由于自带的apt源中不包含php，所以在安装php之前需要给apt添加第三方源</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt-get install software-properties-common</span><br><span class="line">sudo add-apt-repository ppa:ondrej/php</span><br><span class="line"><span class="comment">#sudo add-apt-repository -r ppa:ondrej/php              #删除</span></span><br><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install -y php7.3</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <tags>
-        <tag>Linux运维</tag>
-        <tag>PHP</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>caddy一键安装管理脚本</title>
-    <url>/2020/06/20/caddy%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97/</url>
-    <content><![CDATA[<p>caddy一键安装管理脚本</p>
-<a id="more"></a>
-
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">wget https://fly97.coding.net/p/caddyserver/d/caddyserver/git/raw/master/caddy.sh</span><br><span class="line">chmod +x caddy.sh</span><br><span class="line">./caddy.sh</span><br></pre></td></tr></table></figure>
-
-<p>caddy 相关命令</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">caddy install         <span class="comment">#安装</span></span><br><span class="line">caddy <span class="built_in">help</span>            <span class="comment">#帮助</span></span><br></pre></td></tr></table></figure>
-
-<p><del>注意：安装之前要先安装zip用来解压软件</del></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">apt-get install zip</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <tags>
-        <tag>caddy</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Ubuntu安装nodejs并更改npm镜像源</title>
     <url>/2019/01/06/Ubuntu%E5%AE%89%E8%A3%85nodejs/</url>
     <content><![CDATA[<h4 id="Ubuntu安装nodejs并更改npm镜像源"><a href="#Ubuntu安装nodejs并更改npm镜像源" class="headerlink" title="Ubuntu安装nodejs并更改npm镜像源"></a>Ubuntu安装nodejs并更改npm镜像源</h4><p>由于众所周知的原因，在国内使用原有的源安装<code>nodejs</code>速度非常缓慢，故可以采用清华大学的源</p>
@@ -487,21 +386,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Ubuntu18.04更换镜像源</title>
-    <url>/2019/01/06/Ubuntu18.04%E6%9B%B4%E6%8D%A2%E4%B8%BA%E5%9B%BD%E5%86%85%E6%BA%90/</url>
-    <content><![CDATA[<h4 id="Ubuntu18-04更换镜像源"><a href="#Ubuntu18-04更换镜像源" class="headerlink" title="Ubuntu18.04更换镜像源"></a>Ubuntu18.04更换镜像源</h4><h5 id="1-备份原有镜像源"><a href="#1-备份原有镜像源" class="headerlink" title="1.备份原有镜像源"></a>1.备份原有镜像源</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo mv /etc/apt/sources.list /etc/apt/sourses.list.bak</span><br></pre></td></tr></table></figure>
-
-<h5 id="2-修改-etc-apt-sources-list文件"><a href="#2-修改-etc-apt-sources-list文件" class="headerlink" title="2.修改/etc/apt/sources.list文件"></a>2.修改/etc/apt/sources.list文件</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vim /etc/apt/sources.list</span><br><span class="line"><span class="comment">#中科大源</span></span><br><span class="line">deb https://mirrors.ustc.edu.cn/ubuntu/ bionic main restricted universe multiverse</span><br><span class="line">deb https://mirrors.ustc.edu.cn/ubuntu/ bionic-updates main restricted universe multiverse</span><br><span class="line">deb https://mirrors.ustc.edu.cn/ubuntu/ bionic-backports main restricted universe multiverse</span><br><span class="line">deb https://mirrors.ustc.edu.cn/ubuntu/ bionic-security main restricted universe multiverse</span><br><span class="line">deb https://mirrors.ustc.edu.cn/ubuntu/ bionic-proposed main restricted universe multiverse</span><br><span class="line">deb-src https://mirrors.ustc.edu.cn/ubuntu/ bionic main restricted universe multiverse</span><br><span class="line">deb-src https://mirrors.ustc.edu.cn/ubuntu/ bionic-updates main restricted universe multiverse</span><br><span class="line">deb-src https://mirrors.ustc.edu.cn/ubuntu/ bionic-backports main restricted universe multiverse</span><br><span class="line">deb-src https://mirrors.ustc.edu.cn/ubuntu/ bionic-security main restricted universe multiverse</span><br><span class="line">deb-src https://mirrors.ustc.edu.cn/ubuntu/ bionic-proposed main restricted universe multiverse</span><br><span class="line"></span><br><span class="line"><span class="comment">#阿里云源</span></span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ bionic main restricted universe multiverse</span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ bionic-security main restricted universe multiverse</span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ bionic-updates main restricted universe multiverse</span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ bionic-proposed main restricted universe multiverse</span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ bionic-backports main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ bionic main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ bionic-security main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ bionic-updates main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ bionic-proposed main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ bionic-backports main restricted universe multiverse</span><br><span class="line"></span><br><span class="line"><span class="comment">#清华源</span></span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic main restricted universe multiverse</span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-updates main restricted universe multiverse</span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-backports main restricted universe multiverse</span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-security main restricted universe multiverse</span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-proposed main restricted universe multiverse</span><br><span class="line">deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic main restricted universe multiverse</span><br><span class="line">deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-updates main restricted universe multiverse</span><br><span class="line">deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-backports main restricted universe multiverse</span><br><span class="line">deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-security main restricted universe multiverse</span><br><span class="line">deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-proposed main restricted universe multiverse</span><br><span class="line"></span><br><span class="line"><span class="comment">#香港中文科技大学源</span></span><br><span class="line">deb http://ftp.cuhk.edu.hk/pub/Linux/ubuntu/ bionic main restricted universe </span><br><span class="line">deb http://ftp.cuhk.edu.hk/pub/Linux/ubuntu/ bionic-security main restricted universe </span><br><span class="line">deb http://ftp.cuhk.edu.hk/pub/Linux/ubuntu/ bionic-updates main restricted universe </span><br><span class="line">deb http://ftp.cuhk.edu.hk/pub/Linux/ubuntu/ bionic-proposed main restricted universe </span><br><span class="line">deb http://ftp.cuhk.edu.hk/pub/Linux/ubuntu/ bionic-backports main restricted universe </span><br><span class="line">deb-src http://ftp.cuhk.edu.hk/pub/Linux/ubuntu/ bionic main restricted universe multiverse</span><br><span class="line">deb-src http://ftp.cuhk.edu.hk/pub/Linux/ubuntu/ bionic-security main restricted universe </span><br><span class="line">deb-src http://ftp.cuhk.edu.hk/pub/Linux/ubuntu/ bionic-updates main restricted universe </span><br><span class="line">deb-src http://ftp.cuhk.edu.hk/pub/Linux/ubuntu/ bionic-proposed main restricted universe </span><br><span class="line">deb-src http://ftp.cuhk.edu.hk/pub/Linux/ubuntu/ bionic-backports main restricted universe</span><br></pre></td></tr></table></figure>
-
-<h5 id="3-其他相关命令"><a href="#3-其他相关命令" class="headerlink" title="3.其他相关命令"></a>3.其他相关命令</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt-get update  更新源</span><br><span class="line">sudo apt-get install package 安装包</span><br><span class="line">sudo apt-get remove package 删除包</span><br><span class="line">sudo apt-cache search package 搜索软件包</span><br><span class="line">sudo apt-cache show package  获取包的相关信息，如说明、大小、版本等</span><br><span class="line">sudo apt-get install package --reinstall  重新安装包</span><br><span class="line">sudo apt-get -f install  修复安装</span><br><span class="line">sudo apt-get remove package --purge 删除包，包括配置文件等</span><br><span class="line">sudo apt-get build-dep package 安装相关的编译环境</span><br><span class="line">sudo apt-get upgrade 更新已安装的包</span><br><span class="line">sudo apt-get dist-upgrade 升级系统</span><br><span class="line">sudo apt-cache depends package 了解使用该包依赖那些包</span><br><span class="line">sudo apt-cache rdepends package 查看该包被哪些包依赖</span><br><span class="line">sudo apt-get <span class="built_in">source</span> package  下载该包的源代码</span><br><span class="line">sudo apt-get clean &amp;&amp; sudo apt-get autoclean 清理无用的包</span><br><span class="line">sudo apt-get check 检查是否有损坏的依赖</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <tags>
-        <tag>Ubuntu18.04</tag>
-        <tag>镜像源</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Office Tool Plus使用教程</title>
     <url>/2020/05/11/office%E6%BF%80%E6%B4%BB%E6%95%99%E7%A8%8B/</url>
     <content><![CDATA[<p>Office Tool Plus 使用教程</p>
@@ -528,216 +412,22 @@
       </tags>
   </entry>
   <entry>
-    <title>ubuntu服务管理两种方式service和systemctl</title>
-    <url>/2020/03/20/ubuntu%E6%9C%8D%E5%8A%A1%E7%AE%A1%E7%90%86%E4%B8%A4%E7%A7%8D%E6%96%B9%E5%BC%8Fservice%E5%92%8Csystemctl/</url>
-    <content><![CDATA[<p>Linux 服务管理两种方式service和systemctl</p>
+    <title>caddy一键安装管理脚本</title>
+    <url>/2020/06/20/caddy%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97/</url>
+    <content><![CDATA[<p>caddy一键安装管理脚本</p>
 <a id="more"></a>
 
-<h4 id="1-service命令"><a href="#1-service命令" class="headerlink" title="1.service命令"></a>1.service命令</h4><p>service命令其实是去/etc/init.d目录下，去执行相关程序。</p>
-<p>其中脚本需要我们自己编写。</p>
-<h5 id="1-1-基本步骤"><a href="#1-1-基本步骤" class="headerlink" title="1.1 基本步骤"></a>1.1 基本步骤</h5><ol>
-<li>进入 <code>/etc/init.d</code></li>
-<li>简历一个脚本文件，并赋予755权限：<code>chmod 755 文件名</code></li>
-</ol>
-<p>以kms服务脚本为例</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"></span><br><span class="line"><span class="comment">### BEGIN INIT INFO</span></span><br><span class="line"><span class="comment"># Provides:          kms-service</span></span><br><span class="line"><span class="comment"># Required-Start:    $network $local_fs $remote_fs</span></span><br><span class="line"><span class="comment"># Required-Stop:     $network $local_fs $remote_fs</span></span><br><span class="line"><span class="comment"># Default-Start:     2 3 4 5</span></span><br><span class="line"><span class="comment"># Default-Stop:      0 1 6</span></span><br><span class="line"><span class="comment"># Short-Description: Start kms at boot time</span></span><br><span class="line"><span class="comment"># Description:       Start or stop the KMS-service</span></span><br><span class="line"><span class="comment">### END INIT INFO</span></span><br><span class="line"></span><br><span class="line">NAME=<span class="string">"KMS"</span></span><br><span class="line">NAME_BIN=<span class="string">"kms"</span></span><br><span class="line">FILE=<span class="string">"/home/ubuntu"</span></span><br><span class="line">BIN=<span class="string">"<span class="variable">$&#123;FILE&#125;</span>/kms"</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Green_font_prefix=<span class="string">"\033[32m"</span> &amp;&amp; Red_font_prefix=<span class="string">"\033[31m"</span> &amp;&amp; Green_background_prefix=<span class="string">"\033[42;37m"</span> &amp;&amp; Red_background_prefix=<span class="string">"\033[41;37m"</span> &amp;&amp; Font_color_suffix=<span class="string">"\033[0m"</span></span><br><span class="line">Info=<span class="string">"<span class="variable">$&#123;Green_font_prefix&#125;</span>[信息]<span class="variable">$&#123;Font_color_suffix&#125;</span>"</span></span><br><span class="line">Error=<span class="string">"<span class="variable">$&#123;Red_font_prefix&#125;</span>[错误]<span class="variable">$&#123;Font_color_suffix&#125;</span>"</span></span><br><span class="line">RETVAL=0</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="title">check_running</span></span>()&#123;</span><br><span class="line">	PID=$(ps -ef |grep <span class="string">"<span class="variable">$&#123;NAME_BIN&#125;</span>"</span> |grep -v <span class="string">"grep"</span> |grep -v <span class="string">"init.d"</span> |grep -v <span class="string">"service"</span> |awk <span class="string">'&#123;print $2&#125;'</span>)</span><br><span class="line">	<span class="keyword">if</span> [[ ! -z <span class="variable">$&#123;PID&#125;</span> ]]; <span class="keyword">then</span></span><br><span class="line">		<span class="comment">#echo -e "$&#123;Info&#125;$&#123;NAME&#125; 正在运行！"</span></span><br><span class="line">		<span class="built_in">return</span> 0</span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">		<span class="comment">#echo -e "$&#123;Error&#125;$&#123;NAME&#125; 没有运行！"</span></span><br><span class="line">		<span class="built_in">return</span> 1</span><br><span class="line">	<span class="keyword">fi</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="title">start</span></span>()&#123;</span><br><span class="line">	check_running</span><br><span class="line">	<span class="keyword">if</span> [[ $? -eq 0 ]]; <span class="keyword">then</span></span><br><span class="line">		<span class="built_in">echo</span> -e <span class="string">"<span class="variable">$&#123;Info&#125;</span> <span class="variable">$NAME</span> (PID <span class="variable">$&#123;PID&#125;</span>) 正在运行..."</span> &amp;&amp; <span class="built_in">exit</span> 0</span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">		<span class="built_in">cd</span> <span class="variable">$&#123;FILE&#125;</span></span><br><span class="line">		<span class="built_in">echo</span> -e <span class="string">"<span class="variable">$&#123;Info&#125;</span> <span class="variable">$NAME</span> 启动中..."</span></span><br><span class="line">		<span class="built_in">ulimit</span> -n 51200</span><br><span class="line">		./kms </span><br><span class="line">		sleep 1s</span><br><span class="line">		check_running</span><br><span class="line">		<span class="keyword">if</span> [[ $? -eq 0 ]]; <span class="keyword">then</span></span><br><span class="line">			<span class="built_in">echo</span> -e <span class="string">"<span class="variable">$&#123;Info&#125;</span> <span class="variable">$NAME</span> 启动成功 !"</span></span><br><span class="line">		<span class="keyword">else</span></span><br><span class="line">			<span class="built_in">echo</span> -e <span class="string">"<span class="variable">$&#123;Error&#125;</span> <span class="variable">$NAME</span> 启动失败(请运行脚本查看日志错误输出) !"</span></span><br><span class="line">		<span class="keyword">fi</span></span><br><span class="line">	<span class="keyword">fi</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="title">stop</span></span>()&#123;</span><br><span class="line">	check_running</span><br><span class="line">	<span class="keyword">if</span> [[ $? -eq 0 ]]; <span class="keyword">then</span></span><br><span class="line">		<span class="built_in">kill</span> -9 <span class="variable">$&#123;PID&#125;</span></span><br><span class="line">		RETVAL=$?</span><br><span class="line">		<span class="keyword">if</span> [[ <span class="variable">$RETVAL</span> -eq 0 ]]; <span class="keyword">then</span></span><br><span class="line">			<span class="built_in">echo</span> -e <span class="string">"<span class="variable">$&#123;Info&#125;</span> <span class="variable">$NAME</span> 停止成功 !"</span></span><br><span class="line">		<span class="keyword">else</span></span><br><span class="line">			<span class="built_in">echo</span> -e <span class="string">"<span class="variable">$&#123;Error&#125;</span> <span class="variable">$NAME</span> 停止失败 !"</span></span><br><span class="line">		<span class="keyword">fi</span></span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">		<span class="built_in">echo</span> -e <span class="string">"<span class="variable">$&#123;Info&#125;</span> <span class="variable">$NAME</span> 未运行"</span></span><br><span class="line">		RETVAL=1</span><br><span class="line">	<span class="keyword">fi</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="title">status</span></span>()&#123;</span><br><span class="line">	check_running</span><br><span class="line">	<span class="keyword">if</span> [[ $? -eq 0 ]]; <span class="keyword">then</span></span><br><span class="line">		<span class="comment">#View_User</span></span><br><span class="line">		<span class="built_in">echo</span> -e <span class="string">"<span class="variable">$&#123;Info&#125;</span> <span class="variable">$NAME</span> (PID <span class="variable">$&#123;PID&#125;</span>) 正在运行..."</span></span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">		<span class="built_in">echo</span> -e <span class="string">"<span class="variable">$&#123;Info&#125;</span> <span class="variable">$NAME</span> 未运行 !"</span></span><br><span class="line">		RETVAL=1</span><br><span class="line">	<span class="keyword">fi</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="title">restart</span></span>()&#123;</span><br><span class="line">	stop</span><br><span class="line">	sleep 2s</span><br><span class="line">	start</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">case</span> <span class="string">"<span class="variable">$1</span>"</span> <span class="keyword">in</span></span><br><span class="line">	start|stop|restart|status)</span><br><span class="line">	<span class="variable">$1</span></span><br><span class="line">	;;</span><br><span class="line">	*)</span><br><span class="line">	<span class="built_in">echo</span> <span class="string">"使用方法: <span class="variable">$0</span> &#123; start | stop | restart | status &#125;"</span></span><br><span class="line">	RETVAL=1</span><br><span class="line">	;;</span><br><span class="line"><span class="keyword">esac</span></span><br><span class="line"><span class="built_in">exit</span> <span class="variable">$RETVAL</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">wget https://fly97.coding.net/p/caddyserver/d/caddyserver/git/raw/master/caddy.sh</span><br><span class="line">chmod +x caddy.sh</span><br><span class="line">./caddy.sh</span><br></pre></td></tr></table></figure>
 
-<h5 id="1-2-加入到系统启动中"><a href="#1-2-加入到系统启动中" class="headerlink" title="1.2 加入到系统启动中"></a>1.2 加入到系统启动中</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">// 添加到系统启动</span><br><span class="line">update-rc.d kms defaults </span><br><span class="line">// 从系统启动中删除</span><br><span class="line">update-rc.d kms remove</span><br></pre></td></tr></table></figure>
+<p>caddy 相关命令</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">caddy install         <span class="comment">#安装</span></span><br><span class="line">caddy <span class="built_in">help</span>            <span class="comment">#帮助</span></span><br></pre></td></tr></table></figure>
 
-<h5 id="1-3-启动服务"><a href="#1-3-启动服务" class="headerlink" title="1.3 启动服务"></a>1.3 启动服务</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">service kms start</span><br><span class="line">service kms stop</span><br></pre></td></tr></table></figure>
-
-<h4 id="2-systemctl命令"><a href="#2-systemctl命令" class="headerlink" title="2.systemctl命令"></a>2.systemctl命令</h4><p>​    systemd是Linux系统最新的初始化系统(init),作用是提高系统的启动速度，尽可能启动较少的进程，尽可能更多进程并发启动。systemd对应的进程管理命令是<strong>systemctl</strong>。</p>
-<p>还是以kms服务脚本为例</p>
-<p>新建一个<code>kms.service</code>文件，保存在 <code>/etc/systemd/system/kms.service</code>.</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[Unit]</span><br><span class="line">Description=kms-service</span><br><span class="line">After=network.target</span><br><span class="line"></span><br><span class="line">[Service]</span><br><span class="line">Type=simple</span><br><span class="line">ExecStart=/usr/<span class="built_in">local</span>/bin/kms</span><br><span class="line">ExecStop=/bin/<span class="built_in">kill</span> -9 <span class="variable">$MAINPID</span></span><br><span class="line"></span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br></pre></td></tr></table></figure>
-
-<p>可以看到service文件一般由：<strong>[Unit]</strong>、<strong>[Service]</strong>和<strong>[Install]</strong> 三部分组成</p>
-<ol>
-<li>[Unit]<br>主要是对这个服务的说明，内容， 文档介绍以及对一些依赖服务定义</li>
-<li>[Service]<br>服务的主体定义，主要定义服务的一些运行参数，及操作动作</li>
-<li>[Install]<br>服务安装的相关设置，一般可设置为多用户的</li>
-</ol>
-<p><u>以下是具体参数</u></p>
-<p><strong>[Unit]</strong></p>
-<table>
-<thead>
-<tr>
-<th>参数</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>Description</td>
-<td>服务描述，作为systemctl status 命令输出的一个介绍</td>
-</tr>
-<tr>
-<td>Documentation</td>
-<td>一个url 定义服务的具体介绍网址</td>
-</tr>
-<tr>
-<td>After</td>
-<td>在什么服务启动之后</td>
-</tr>
-<tr>
-<td>Before</td>
-<td>在什么服务启动之前启动</td>
-</tr>
-<tr>
-<td>Requires</td>
-<td>依赖其他的单元服务， 需要与列出的服务一起激活，若任何服务无法启动，则该单元不会被激活</td>
-</tr>
-<tr>
-<td>Wants</td>
-<td>比Requires依赖性弱，若其他服务没有启动成功，该服务也不受影响，只是表示一种推荐</td>
-</tr>
-</tbody></table>
-<p><strong>[Service]</strong></p>
-<table>
-<thead>
-<tr>
-<th>Type</th>
-<th>1.simple默认参数，进程作为主进程<br/>2.forking是后台运行的形式，主进程退出，os接管子进程</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>User</td>
-<td>设置服务运行的用户</td>
-</tr>
-<tr>
-<td>Group</td>
-<td>设置服务运行的用户组</td>
-</tr>
-<tr>
-<td>PIDFile</td>
-<td>存放PID的文件路径, 对于type设置为<strong>forking</strong>建议使用该项</td>
-</tr>
-<tr>
-<td>ExecStart</td>
-<td>服务的具体运行命令</td>
-</tr>
-<tr>
-<td>ExecStartPre</td>
-<td>指定在ExecStart<strong>前</strong>执行的自定义命令</td>
-</tr>
-<tr>
-<td>ExecStartPost</td>
-<td>指定在ExecStart<strong>后</strong>执行的自定义命令</td>
-</tr>
-<tr>
-<td>ExecReload</td>
-<td>重启命令，重新加载的动作， 重新加载时执行的命令或者脚本</td>
-</tr>
-<tr>
-<td>ExecStop</td>
-<td>停止命令，停止时要执行的命令或脚本</td>
-</tr>
-<tr>
-<td>Restart</td>
-<td>定义何种情况Systemd会自动重启当前服务，值： 包括<strong>always（总是重启）</strong>、<strong>no</strong> 、<strong>on-success</strong>、<strong>on-failure</strong>、<strong>on-abnormal</strong>、<strong>on-abort</strong>、<strong>on-watchdog</strong> 对于守护进程，推荐设为on-failure。对于那些允许发生错误退出的服务，可以设为on-abnormal</td>
-</tr>
-<tr>
-<td>TimeoutStartSec</td>
-<td>等待启动的时间。如果守护进程服务没有在配置的时间内发送启动完成的信号，则该服务将被认为失败， 服务将退出。<br/>以秒为单位， “0”来禁用。默认为， 默认使用DefaultTimeoutStartSec=20，<br/>若使用Type=<strong>oneshot</strong>，则该模式默认情况下超时是禁用的</td>
-</tr>
-<tr>
-<td>TimeoutStopSec</td>
-<td>等待关闭的超时时间</td>
-</tr>
-<tr>
-<td>TimeoutSec</td>
-<td>快速配置TimeoutStartSec和TimeoutStopSec时间</td>
-</tr>
-<tr>
-<td>KillMode</td>
-<td>control-group（默认值）：当前控制组里面的所有子进程，都会被杀掉<br/>process：只杀主进程<br/>mixed：主进程将收到 SIGTERM 信号，子进程收到 SIGKILL 信号<br/>none：没有进程会被杀掉，只是执行服务的 stop 命令。</td>
-</tr>
-<tr>
-<td>Environmen</td>
-<td>指定环境变量</td>
-</tr>
-<tr>
-<td>PrivateTmp=True</td>
-<td>表示给服务分配独立的临时空间</td>
-</tr>
-</tbody></table>
-<p>注意：<strong>[Service]</strong>部分的启动、重启、停止命令必须使用绝对路径，使用相对路径则会报错</p>
-<p><strong>[Install]</strong></p>
-<table>
-<thead>
-<tr>
-<th>RequiredBy</th>
-<th>依赖该服务的服务列表</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>WantedBy</td>
-<td>表示该服务所在的 Target， multi-user.target 可以设置为多用户模式具体参考手册systemd.unit(5)</td>
-</tr>
-</tbody></table>
-<p>参考手册：<a href="http://www.jinbuguo.com/systemd/systemd.index.html" target="_blank" rel="noopener">http://www.jinbuguo.com/systemd/systemd.index.html</a></p>
-<p><strong>服务状态列表：</strong></p>
-<table>
-<thead>
-<tr>
-<th>loaded</th>
-<th>系统服务已经初始化完成，加载过配置</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>actvie(running)</td>
-<td>正常运行</td>
-</tr>
-<tr>
-<td>actvie(exited)</td>
-<td>正常结束的服务</td>
-</tr>
-<tr>
-<td>active(waitting)</td>
-<td>等待其他的事件才继续处理</td>
-</tr>
-<tr>
-<td>inactive</td>
-<td>服务关闭</td>
-</tr>
-<tr>
-<td>enabled</td>
-<td>服务开机启动</td>
-</tr>
-<tr>
-<td>disabled</td>
-<td>服务开机不自启</td>
-</tr>
-<tr>
-<td>static</td>
-<td>服务开机启动项不可被管理</td>
-</tr>
-<tr>
-<td>falied</td>
-<td>系统配置错误</td>
-</tr>
-</tbody></table>
-<p><strong>管理日志：</strong></p>
-<p>Systemd 统一管理所有 Unit 的启动日志。</p>
-<table>
-<thead>
-<tr>
-<th>journalctl</th>
-<th>命令查看所有日志(内核日志和应用日志)</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>journalctl _PID=</td>
-<td>查看对应pid的日志</td>
-</tr>
-</tbody></table>
-<p><strong>unit管理：</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 立即启动一个服务</span></span><br><span class="line">sudo systemctl start apache.service</span><br><span class="line"></span><br><span class="line"><span class="comment"># 立即停止一个服务</span></span><br><span class="line">sudo systemctl stop apache.service</span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置开机启动</span></span><br><span class="line">sudo systemctl <span class="built_in">enable</span> apache.service</span><br><span class="line"></span><br><span class="line"><span class="comment"># 关闭开机启动</span></span><br><span class="line">sudo systemctl <span class="built_in">disable</span> apache.service</span><br><span class="line"></span><br><span class="line"><span class="comment"># 重启一个服务</span></span><br><span class="line">sudo systemctl restart apache.service</span><br><span class="line"></span><br><span class="line"><span class="comment"># 杀死一个服务的所有子进程</span></span><br><span class="line">sudo systemctl <span class="built_in">kill</span> apache.service</span><br><span class="line"></span><br><span class="line"><span class="comment"># 重新加载一个服务的配置文件</span></span><br><span class="line">sudo systemctl reload apache.service</span><br><span class="line"></span><br><span class="line"><span class="comment"># 重载所有修改过的配置文件</span></span><br><span class="line">sudo systemctl daemon-reload</span><br></pre></td></tr></table></figure>
+<p><del>注意：安装之前要先安装zip用来解压软件</del></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">apt-get install zip</span><br></pre></td></tr></table></figure>
 
 ]]></content>
       <tags>
-        <tag>ubuntu</tag>
-        <tag>service</tag>
-        <tag>systemctl</tag>
+        <tag>caddy</tag>
       </tags>
   </entry>
   <entry>
@@ -1497,6 +1187,231 @@
       </tags>
   </entry>
   <entry>
+    <title>Ubuntu安装php指南</title>
+    <url>/2019/01/07/Ubuntu%E5%AE%89%E8%A3%85php%E6%8C%87%E5%8D%97/</url>
+    <content><![CDATA[<h4 id="Ubuntu安装php指南"><a href="#Ubuntu安装php指南" class="headerlink" title="Ubuntu安装php指南"></a>Ubuntu安装php指南</h4><p>由于自带的apt源中不包含php，所以在安装php之前需要给apt添加第三方源</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt-get install software-properties-common</span><br><span class="line">sudo add-apt-repository ppa:ondrej/php</span><br><span class="line"><span class="comment">#sudo add-apt-repository -r ppa:ondrej/php              #删除</span></span><br><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install -y php7.3</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <tags>
+        <tag>Linux运维</tag>
+        <tag>PHP</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>ubuntu服务管理两种方式service和systemctl</title>
+    <url>/2020/03/20/ubuntu%E6%9C%8D%E5%8A%A1%E7%AE%A1%E7%90%86%E4%B8%A4%E7%A7%8D%E6%96%B9%E5%BC%8Fservice%E5%92%8Csystemctl/</url>
+    <content><![CDATA[<p>Linux 服务管理两种方式service和systemctl</p>
+<a id="more"></a>
+
+<h4 id="1-service命令"><a href="#1-service命令" class="headerlink" title="1.service命令"></a>1.service命令</h4><p>service命令其实是去/etc/init.d目录下，去执行相关程序。</p>
+<p>其中脚本需要我们自己编写。</p>
+<h5 id="1-1-基本步骤"><a href="#1-1-基本步骤" class="headerlink" title="1.1 基本步骤"></a>1.1 基本步骤</h5><ol>
+<li>进入 <code>/etc/init.d</code></li>
+<li>简历一个脚本文件，并赋予755权限：<code>chmod 755 文件名</code></li>
+</ol>
+<p>以kms服务脚本为例</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"></span><br><span class="line"><span class="comment">### BEGIN INIT INFO</span></span><br><span class="line"><span class="comment"># Provides:          kms-service</span></span><br><span class="line"><span class="comment"># Required-Start:    $network $local_fs $remote_fs</span></span><br><span class="line"><span class="comment"># Required-Stop:     $network $local_fs $remote_fs</span></span><br><span class="line"><span class="comment"># Default-Start:     2 3 4 5</span></span><br><span class="line"><span class="comment"># Default-Stop:      0 1 6</span></span><br><span class="line"><span class="comment"># Short-Description: Start kms at boot time</span></span><br><span class="line"><span class="comment"># Description:       Start or stop the KMS-service</span></span><br><span class="line"><span class="comment">### END INIT INFO</span></span><br><span class="line"></span><br><span class="line">NAME=<span class="string">"KMS"</span></span><br><span class="line">NAME_BIN=<span class="string">"kms"</span></span><br><span class="line">FILE=<span class="string">"/home/ubuntu"</span></span><br><span class="line">BIN=<span class="string">"<span class="variable">$&#123;FILE&#125;</span>/kms"</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Green_font_prefix=<span class="string">"\033[32m"</span> &amp;&amp; Red_font_prefix=<span class="string">"\033[31m"</span> &amp;&amp; Green_background_prefix=<span class="string">"\033[42;37m"</span> &amp;&amp; Red_background_prefix=<span class="string">"\033[41;37m"</span> &amp;&amp; Font_color_suffix=<span class="string">"\033[0m"</span></span><br><span class="line">Info=<span class="string">"<span class="variable">$&#123;Green_font_prefix&#125;</span>[信息]<span class="variable">$&#123;Font_color_suffix&#125;</span>"</span></span><br><span class="line">Error=<span class="string">"<span class="variable">$&#123;Red_font_prefix&#125;</span>[错误]<span class="variable">$&#123;Font_color_suffix&#125;</span>"</span></span><br><span class="line">RETVAL=0</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="title">check_running</span></span>()&#123;</span><br><span class="line">	PID=$(ps -ef |grep <span class="string">"<span class="variable">$&#123;NAME_BIN&#125;</span>"</span> |grep -v <span class="string">"grep"</span> |grep -v <span class="string">"init.d"</span> |grep -v <span class="string">"service"</span> |awk <span class="string">'&#123;print $2&#125;'</span>)</span><br><span class="line">	<span class="keyword">if</span> [[ ! -z <span class="variable">$&#123;PID&#125;</span> ]]; <span class="keyword">then</span></span><br><span class="line">		<span class="comment">#echo -e "$&#123;Info&#125;$&#123;NAME&#125; 正在运行！"</span></span><br><span class="line">		<span class="built_in">return</span> 0</span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">		<span class="comment">#echo -e "$&#123;Error&#125;$&#123;NAME&#125; 没有运行！"</span></span><br><span class="line">		<span class="built_in">return</span> 1</span><br><span class="line">	<span class="keyword">fi</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="title">start</span></span>()&#123;</span><br><span class="line">	check_running</span><br><span class="line">	<span class="keyword">if</span> [[ $? -eq 0 ]]; <span class="keyword">then</span></span><br><span class="line">		<span class="built_in">echo</span> -e <span class="string">"<span class="variable">$&#123;Info&#125;</span> <span class="variable">$NAME</span> (PID <span class="variable">$&#123;PID&#125;</span>) 正在运行..."</span> &amp;&amp; <span class="built_in">exit</span> 0</span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">		<span class="built_in">cd</span> <span class="variable">$&#123;FILE&#125;</span></span><br><span class="line">		<span class="built_in">echo</span> -e <span class="string">"<span class="variable">$&#123;Info&#125;</span> <span class="variable">$NAME</span> 启动中..."</span></span><br><span class="line">		<span class="built_in">ulimit</span> -n 51200</span><br><span class="line">		./kms </span><br><span class="line">		sleep 1s</span><br><span class="line">		check_running</span><br><span class="line">		<span class="keyword">if</span> [[ $? -eq 0 ]]; <span class="keyword">then</span></span><br><span class="line">			<span class="built_in">echo</span> -e <span class="string">"<span class="variable">$&#123;Info&#125;</span> <span class="variable">$NAME</span> 启动成功 !"</span></span><br><span class="line">		<span class="keyword">else</span></span><br><span class="line">			<span class="built_in">echo</span> -e <span class="string">"<span class="variable">$&#123;Error&#125;</span> <span class="variable">$NAME</span> 启动失败(请运行脚本查看日志错误输出) !"</span></span><br><span class="line">		<span class="keyword">fi</span></span><br><span class="line">	<span class="keyword">fi</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="title">stop</span></span>()&#123;</span><br><span class="line">	check_running</span><br><span class="line">	<span class="keyword">if</span> [[ $? -eq 0 ]]; <span class="keyword">then</span></span><br><span class="line">		<span class="built_in">kill</span> -9 <span class="variable">$&#123;PID&#125;</span></span><br><span class="line">		RETVAL=$?</span><br><span class="line">		<span class="keyword">if</span> [[ <span class="variable">$RETVAL</span> -eq 0 ]]; <span class="keyword">then</span></span><br><span class="line">			<span class="built_in">echo</span> -e <span class="string">"<span class="variable">$&#123;Info&#125;</span> <span class="variable">$NAME</span> 停止成功 !"</span></span><br><span class="line">		<span class="keyword">else</span></span><br><span class="line">			<span class="built_in">echo</span> -e <span class="string">"<span class="variable">$&#123;Error&#125;</span> <span class="variable">$NAME</span> 停止失败 !"</span></span><br><span class="line">		<span class="keyword">fi</span></span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">		<span class="built_in">echo</span> -e <span class="string">"<span class="variable">$&#123;Info&#125;</span> <span class="variable">$NAME</span> 未运行"</span></span><br><span class="line">		RETVAL=1</span><br><span class="line">	<span class="keyword">fi</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="title">status</span></span>()&#123;</span><br><span class="line">	check_running</span><br><span class="line">	<span class="keyword">if</span> [[ $? -eq 0 ]]; <span class="keyword">then</span></span><br><span class="line">		<span class="comment">#View_User</span></span><br><span class="line">		<span class="built_in">echo</span> -e <span class="string">"<span class="variable">$&#123;Info&#125;</span> <span class="variable">$NAME</span> (PID <span class="variable">$&#123;PID&#125;</span>) 正在运行..."</span></span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">		<span class="built_in">echo</span> -e <span class="string">"<span class="variable">$&#123;Info&#125;</span> <span class="variable">$NAME</span> 未运行 !"</span></span><br><span class="line">		RETVAL=1</span><br><span class="line">	<span class="keyword">fi</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="title">restart</span></span>()&#123;</span><br><span class="line">	stop</span><br><span class="line">	sleep 2s</span><br><span class="line">	start</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">case</span> <span class="string">"<span class="variable">$1</span>"</span> <span class="keyword">in</span></span><br><span class="line">	start|stop|restart|status)</span><br><span class="line">	<span class="variable">$1</span></span><br><span class="line">	;;</span><br><span class="line">	*)</span><br><span class="line">	<span class="built_in">echo</span> <span class="string">"使用方法: <span class="variable">$0</span> &#123; start | stop | restart | status &#125;"</span></span><br><span class="line">	RETVAL=1</span><br><span class="line">	;;</span><br><span class="line"><span class="keyword">esac</span></span><br><span class="line"><span class="built_in">exit</span> <span class="variable">$RETVAL</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="1-2-加入到系统启动中"><a href="#1-2-加入到系统启动中" class="headerlink" title="1.2 加入到系统启动中"></a>1.2 加入到系统启动中</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">// 添加到系统启动</span><br><span class="line">update-rc.d kms defaults </span><br><span class="line">// 从系统启动中删除</span><br><span class="line">update-rc.d kms remove</span><br></pre></td></tr></table></figure>
+
+<h5 id="1-3-启动服务"><a href="#1-3-启动服务" class="headerlink" title="1.3 启动服务"></a>1.3 启动服务</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">service kms start</span><br><span class="line">service kms stop</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-systemctl命令"><a href="#2-systemctl命令" class="headerlink" title="2.systemctl命令"></a>2.systemctl命令</h4><p>​    systemd是Linux系统最新的初始化系统(init),作用是提高系统的启动速度，尽可能启动较少的进程，尽可能更多进程并发启动。systemd对应的进程管理命令是<strong>systemctl</strong>。</p>
+<p>还是以kms服务脚本为例</p>
+<p>新建一个<code>kms.service</code>文件，保存在 <code>/etc/systemd/system/kms.service</code>.</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[Unit]</span><br><span class="line">Description=kms-service</span><br><span class="line">After=network.target</span><br><span class="line"></span><br><span class="line">[Service]</span><br><span class="line">Type=simple</span><br><span class="line">ExecStart=/usr/<span class="built_in">local</span>/bin/kms</span><br><span class="line">ExecStop=/bin/<span class="built_in">kill</span> -9 <span class="variable">$MAINPID</span></span><br><span class="line"></span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br></pre></td></tr></table></figure>
+
+<p>可以看到service文件一般由：<strong>[Unit]</strong>、<strong>[Service]</strong>和<strong>[Install]</strong> 三部分组成</p>
+<ol>
+<li>[Unit]<br>主要是对这个服务的说明，内容， 文档介绍以及对一些依赖服务定义</li>
+<li>[Service]<br>服务的主体定义，主要定义服务的一些运行参数，及操作动作</li>
+<li>[Install]<br>服务安装的相关设置，一般可设置为多用户的</li>
+</ol>
+<p><u>以下是具体参数</u></p>
+<p><strong>[Unit]</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Description</td>
+<td>服务描述，作为systemctl status 命令输出的一个介绍</td>
+</tr>
+<tr>
+<td>Documentation</td>
+<td>一个url 定义服务的具体介绍网址</td>
+</tr>
+<tr>
+<td>After</td>
+<td>在什么服务启动之后</td>
+</tr>
+<tr>
+<td>Before</td>
+<td>在什么服务启动之前启动</td>
+</tr>
+<tr>
+<td>Requires</td>
+<td>依赖其他的单元服务， 需要与列出的服务一起激活，若任何服务无法启动，则该单元不会被激活</td>
+</tr>
+<tr>
+<td>Wants</td>
+<td>比Requires依赖性弱，若其他服务没有启动成功，该服务也不受影响，只是表示一种推荐</td>
+</tr>
+</tbody></table>
+<p><strong>[Service]</strong></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>1.simple默认参数，进程作为主进程<br/>2.forking是后台运行的形式，主进程退出，os接管子进程</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>User</td>
+<td>设置服务运行的用户</td>
+</tr>
+<tr>
+<td>Group</td>
+<td>设置服务运行的用户组</td>
+</tr>
+<tr>
+<td>PIDFile</td>
+<td>存放PID的文件路径, 对于type设置为<strong>forking</strong>建议使用该项</td>
+</tr>
+<tr>
+<td>ExecStart</td>
+<td>服务的具体运行命令</td>
+</tr>
+<tr>
+<td>ExecStartPre</td>
+<td>指定在ExecStart<strong>前</strong>执行的自定义命令</td>
+</tr>
+<tr>
+<td>ExecStartPost</td>
+<td>指定在ExecStart<strong>后</strong>执行的自定义命令</td>
+</tr>
+<tr>
+<td>ExecReload</td>
+<td>重启命令，重新加载的动作， 重新加载时执行的命令或者脚本</td>
+</tr>
+<tr>
+<td>ExecStop</td>
+<td>停止命令，停止时要执行的命令或脚本</td>
+</tr>
+<tr>
+<td>Restart</td>
+<td>定义何种情况Systemd会自动重启当前服务，值： 包括<strong>always（总是重启）</strong>、<strong>no</strong> 、<strong>on-success</strong>、<strong>on-failure</strong>、<strong>on-abnormal</strong>、<strong>on-abort</strong>、<strong>on-watchdog</strong> 对于守护进程，推荐设为on-failure。对于那些允许发生错误退出的服务，可以设为on-abnormal</td>
+</tr>
+<tr>
+<td>TimeoutStartSec</td>
+<td>等待启动的时间。如果守护进程服务没有在配置的时间内发送启动完成的信号，则该服务将被认为失败， 服务将退出。<br/>以秒为单位， “0”来禁用。默认为， 默认使用DefaultTimeoutStartSec=20，<br/>若使用Type=<strong>oneshot</strong>，则该模式默认情况下超时是禁用的</td>
+</tr>
+<tr>
+<td>TimeoutStopSec</td>
+<td>等待关闭的超时时间</td>
+</tr>
+<tr>
+<td>TimeoutSec</td>
+<td>快速配置TimeoutStartSec和TimeoutStopSec时间</td>
+</tr>
+<tr>
+<td>KillMode</td>
+<td>control-group（默认值）：当前控制组里面的所有子进程，都会被杀掉<br/>process：只杀主进程<br/>mixed：主进程将收到 SIGTERM 信号，子进程收到 SIGKILL 信号<br/>none：没有进程会被杀掉，只是执行服务的 stop 命令。</td>
+</tr>
+<tr>
+<td>Environmen</td>
+<td>指定环境变量</td>
+</tr>
+<tr>
+<td>PrivateTmp=True</td>
+<td>表示给服务分配独立的临时空间</td>
+</tr>
+</tbody></table>
+<p>注意：<strong>[Service]</strong>部分的启动、重启、停止命令必须使用绝对路径，使用相对路径则会报错</p>
+<p><strong>[Install]</strong></p>
+<table>
+<thead>
+<tr>
+<th>RequiredBy</th>
+<th>依赖该服务的服务列表</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>WantedBy</td>
+<td>表示该服务所在的 Target， multi-user.target 可以设置为多用户模式具体参考手册systemd.unit(5)</td>
+</tr>
+</tbody></table>
+<p>参考手册：<a href="http://www.jinbuguo.com/systemd/systemd.index.html" target="_blank" rel="noopener">http://www.jinbuguo.com/systemd/systemd.index.html</a></p>
+<p><strong>服务状态列表：</strong></p>
+<table>
+<thead>
+<tr>
+<th>loaded</th>
+<th>系统服务已经初始化完成，加载过配置</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>actvie(running)</td>
+<td>正常运行</td>
+</tr>
+<tr>
+<td>actvie(exited)</td>
+<td>正常结束的服务</td>
+</tr>
+<tr>
+<td>active(waitting)</td>
+<td>等待其他的事件才继续处理</td>
+</tr>
+<tr>
+<td>inactive</td>
+<td>服务关闭</td>
+</tr>
+<tr>
+<td>enabled</td>
+<td>服务开机启动</td>
+</tr>
+<tr>
+<td>disabled</td>
+<td>服务开机不自启</td>
+</tr>
+<tr>
+<td>static</td>
+<td>服务开机启动项不可被管理</td>
+</tr>
+<tr>
+<td>falied</td>
+<td>系统配置错误</td>
+</tr>
+</tbody></table>
+<p><strong>管理日志：</strong></p>
+<p>Systemd 统一管理所有 Unit 的启动日志。</p>
+<table>
+<thead>
+<tr>
+<th>journalctl</th>
+<th>命令查看所有日志(内核日志和应用日志)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>journalctl _PID=</td>
+<td>查看对应pid的日志</td>
+</tr>
+</tbody></table>
+<p><strong>unit管理：</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 立即启动一个服务</span></span><br><span class="line">sudo systemctl start apache.service</span><br><span class="line"></span><br><span class="line"><span class="comment"># 立即停止一个服务</span></span><br><span class="line">sudo systemctl stop apache.service</span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置开机启动</span></span><br><span class="line">sudo systemctl <span class="built_in">enable</span> apache.service</span><br><span class="line"></span><br><span class="line"><span class="comment"># 关闭开机启动</span></span><br><span class="line">sudo systemctl <span class="built_in">disable</span> apache.service</span><br><span class="line"></span><br><span class="line"><span class="comment"># 重启一个服务</span></span><br><span class="line">sudo systemctl restart apache.service</span><br><span class="line"></span><br><span class="line"><span class="comment"># 杀死一个服务的所有子进程</span></span><br><span class="line">sudo systemctl <span class="built_in">kill</span> apache.service</span><br><span class="line"></span><br><span class="line"><span class="comment"># 重新加载一个服务的配置文件</span></span><br><span class="line">sudo systemctl reload apache.service</span><br><span class="line"></span><br><span class="line"><span class="comment"># 重载所有修改过的配置文件</span></span><br><span class="line">sudo systemctl daemon-reload</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <tags>
+        <tag>ubuntu</tag>
+        <tag>service</tag>
+        <tag>systemctl</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>使用WSL链接Github仓库以及如何配置ssh权限问题</title>
     <url>/2020/05/31/%E4%BD%BF%E7%94%A8WSL%E9%93%BE%E6%8E%A5Github%E4%BB%93%E5%BA%93/</url>
     <content><![CDATA[<p>话不多说，先上教程。</p>
@@ -1563,27 +1478,6 @@
         <tag>git</tag>
         <tag>SSH</tag>
         <tag>WSL</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>使用jsdelivrCDN加速github文件</title>
-    <url>/2020/06/20/%E4%BD%BF%E7%94%A8jsdelivrCDN%E5%8A%A0%E9%80%9Fgithub%E6%96%87%E4%BB%B6/</url>
-    <content><![CDATA[<p>jsDelivr 是国外的一家优秀的公共 CDN 服务提供商，也是首个「打通中国大陆（网宿公司运营）与海外的免费 CDN 服务」。</p>
-<a id="more"></a>
-
-<h3 id="jsDelivr-配置"><a href="#jsDelivr-配置" class="headerlink" title="jsDelivr 配置"></a>jsDelivr 配置</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">https:&#x2F;&#x2F;cdn.jsdelivr.net&#x2F;gh&#x2F;wf09&#x2F;upload@master&#x2F;1.png</span><br></pre></td></tr></table></figure>
-
-<p>其中：</p>
-<ul>
-<li><code>gh</code> 表示来自 Github 的仓库</li>
-<li><code>wf09/upload</code> 指的是用户名/仓库名</li>
-<li><code>master</code> 仓库的分支</li>
-<li><code>1.png</code>仓库下的具体文件</li>
-</ul>
-]]></content>
-      <tags>
-        <tag>jsdelivrCDN</tag>
-        <tag>github</tag>
       </tags>
   </entry>
   <entry>
@@ -1759,16 +1653,6 @@
       </tags>
   </entry>
   <entry>
-    <title>升级pip</title>
-    <url>/2020/05/27/%E5%8D%87%E7%BA%A7pip/</url>
-    <content><![CDATA[<p>安装pip：<code>apt install python3-pip</code></p>
-<p>升级pip：<code>python -m pip install --upgrade pip</code></p>
-]]></content>
-      <tags>
-        <tag>pip</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>修改Pip镜像源</title>
     <url>/2020/05/11/%E4%BF%AE%E6%94%B9pip%E9%95%9C%E5%83%8F%E6%BA%90/</url>
     <content><![CDATA[<p>修改pip镜像源</p>
@@ -1789,100 +1673,94 @@
       </tags>
   </entry>
   <entry>
-    <title>使用pip离线安装pytorch-gpu</title>
-    <url>/2020/02/17/%E4%BD%BF%E7%94%A8pip%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85pytorch/</url>
-    <content><![CDATA[<p>废话不多说，上教程。</p>
+    <title>初探Tkinter(一)</title>
+    <url>/2020/06/30/%E5%88%9D%E6%8E%A2Tkinter01/</url>
+    <content><![CDATA[<p>基于 Python 的 Tkinter 常用于UI界面开发。</p>
 <a id="more"></a>
 
-<h4 id="1-查看Linux预装的Python3版本"><a href="#1-查看Linux预装的Python3版本" class="headerlink" title="1.查看Linux预装的Python3版本"></a>1.查看Linux预装的Python3版本</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">root@wf09:~<span class="comment"># python3 -V</span></span><br><span class="line">Python 3.6.9</span><br></pre></td></tr></table></figure>
-
-<h4 id="2-下载对应的Pytorch版本"><a href="#2-下载对应的Pytorch版本" class="headerlink" title="2.下载对应的Pytorch版本"></a>2.下载对应的Pytorch版本</h4><p><a href="https://download.pytorch.org/whl/torch_stable.html" target="_blank" rel="noopener">https://download.pytorch.org/whl/torch_stable.html</a></p>
-<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/3.png" alt=""></p>
-<p>Python版本是3.6.9，下载的版本是<code>cpu/torch-1.4.0%2Bcpu-cp36-cp36m-linux_x86_64.whl</code></p>
-<h4 id="3-安装pip3"><a href="#3-安装pip3" class="headerlink" title="3.安装pip3"></a>3.安装pip3</h4><h5 id="3-1-Linux"><a href="#3-1-Linux" class="headerlink" title="3.1 Linux"></a>3.1 Linux</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">apt-get install python3-pip</span><br></pre></td></tr></table></figure>
-
-<p><strong>tips：</strong>由于apt源自带的pip版本过低，可以执行如下命令升级pip。</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">python3 -m pip install --upgrade pip</span><br></pre></td></tr></table></figure>
-
-<p>升级完pip以后，pip就相当于pip3了。</p>
-<h5 id="3-2-Win"><a href="#3-2-Win" class="headerlink" title="3.2 Win"></a>3.2 Win</h5><p>安装完Python后默认安装pip，执行命令升级pip即可</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">python3 -m pip install --upgrade pip</span><br></pre></td></tr></table></figure>
-
-<h4 id="4-离线安装Pytorch"><a href="#4-离线安装Pytorch" class="headerlink" title="4.离线安装Pytorch"></a>4.离线安装Pytorch</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pip install --no-index --find-links=torch-1.4.0+cpu-cp36-cp36m-linux_x86_64.whl torch</span><br></pre></td></tr></table></figure>
-
-<h4 id="5-windows10卸载Pytorch-cpu版本并安装GPU版本"><a href="#5-windows10卸载Pytorch-cpu版本并安装GPU版本" class="headerlink" title="5.windows10卸载Pytorch-cpu版本并安装GPU版本"></a>5.windows10卸载Pytorch-cpu版本并安装GPU版本</h4><h5 id="5-1-卸载cpu版"><a href="#5-1-卸载cpu版" class="headerlink" title="5.1 卸载cpu版"></a>5.1 卸载cpu版</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pip uninstall torch   		<span class="comment">#卸载torch</span></span><br><span class="line">pip uninstall torchvison    <span class="comment">#卸载torchvison</span></span><br></pre></td></tr></table></figure>
-
-<h5 id="5-2-安装CUDA"><a href="#5-2-安装CUDA" class="headerlink" title="5.2 安装CUDA"></a>5.2 安装CUDA</h5><p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200315143756001.png" alt="image-20200315143756001"></p>
-<p><a href="https://developer.nvidia.com/cuda-toolkit-archive" target="_blank" rel="noopener">https://developer.nvidia.com/cuda-toolkit-archive</a></p>
-<p>笔者使用的<code>Win10</code>，附上离线安装版链接：</p>
-<p><del><a href="http://developer.download.nvidia.com/compute/cuda/10.2/Prod/local_installers/cuda_10.2.89_441.22_win10.exe" target="_blank" rel="noopener">http://developer.download.nvidia.com/compute/cuda/10.2/Prod/local_installers/cuda_10.2.89_441.22_win10.exe</a></del></p>
-<h6 id="Tips：最新版本的CUDA-10-2-现在还无法被Pytorch支持，安装10-1版本的即可。"><a href="#Tips：最新版本的CUDA-10-2-现在还无法被Pytorch支持，安装10-1版本的即可。" class="headerlink" title="Tips：最新版本的CUDA(10.2)现在还无法被Pytorch支持，安装10.1版本的即可。"></a>Tips：最新版本的CUDA(10.2)现在还无法被Pytorch支持，安装10.1版本的即可。</h6><p><a href="http://developer.download.nvidia.com/compute/cuda/10.1/Prod/local_installers/cuda_10.1.243_426.00_win10.exe" target="_blank" rel="noopener">http://developer.download.nvidia.com/compute/cuda/10.1/Prod/local_installers/cuda_10.1.243_426.00_win10.exe</a></p>
-<p>下载完毕，双击打开即可。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200315145247036.png" alt="image-20200315145247036"></p>
-<p>点击OK选择下一步。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200315145432177.png" alt="image-20200315145432177"></p>
-<p>等待进度条达到100%，会自动打开安装程序。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200315150124951.png" alt="image-20200315150124951"></p>
-<p>选择自定义，然后全部选中，期间会升级本机的<strong>显卡驱动</strong>。</p>
-<h6 id="Tips：升级显卡驱动是很重要的一步，不升级到最新版本无法正确安装CUDA"><a href="#Tips：升级显卡驱动是很重要的一步，不升级到最新版本无法正确安装CUDA" class="headerlink" title="Tips：升级显卡驱动是很重要的一步，不升级到最新版本无法正确安装CUDA"></a><strong>Tips：</strong>升级显卡驱动是很重要的一步，不升级到最新版本无法正确安装<strong>CUDA</strong></h6><p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200315150240356.png" alt="image-20200315150240356"></p>
-<p>等待安装完毕。</p>
-<h5 id="5-3-安装cuDNN"><a href="#5-3-安装cuDNN" class="headerlink" title="5.3 安装cuDNN"></a>5.3 安装cuDNN</h5><p><strong>相比标准的cuda，它在一些常用的神经网络操作上进行了性能的优化，比如卷积，pooling，归一化，以及激活层等等。</strong></p>
-<p>下载过程中需要注册 <strong>NVIDIA account</strong>。</p>
-<p>下载完毕后执行解压：会生成<code>cuda/include、cuda/lib、cuda/bin</code>三个目录；</p>
-<p>然后分别将<code>cuda/include、cuda/lib、cuda/bin</code>三个目录中的内容拷贝到<code>C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.1</code>对应的<code>include、lib、bin</code>目录下即可。</p>
-<h5 id="5-4安装Pytorch-GPU版本"><a href="#5-4安装Pytorch-GPU版本" class="headerlink" title="5.4安装Pytorch-GPU版本"></a><strong>5.4安装Pytorch-GPU版本</strong></h5><p>下载Pytorch-CUDA版本的whl文件，用于离线安装。</p>
-<p><a href="https://download.pytorch.org/whl/torch_stable.html" target="_blank" rel="noopener">https://download.pytorch.org/whl/torch_stable.html</a></p>
-<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200315151856974.png" alt="image-20200315151856974"></p>
-<p>其中，<strong>cu101</strong>代表CUDA版本是10.1，<strong>cp37</strong>代表CPython version 3.7（指的是C语言实现的Python，就是原汁原味的Python。除了CPython以外，还有用Java实现的Jython，用.NET实现的IronPython，使Python方便地和Java程序、.NET程序集成。另外还有一些实验性的Python解释器比如PyPy），<strong>win</strong>代表Windows操作系统，<strong>amd64</strong>代表64位CPU平台。</p>
-<p>使用<strong>管理员权限</strong>打开<code>Anaconda Prompt (Anaconda3)</code>cmd窗口，输入</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pip install 下载路径\torch-1.4.0-cp37-cp37m-win_amd64.whl</span><br></pre></td></tr></table></figure>
-
-<p>等待安装完毕。</p>
-<p>使用相同的操作安装 <code>torchvision</code>，其中包含流行的数据集。</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pip install 下载路径\torchvision-0.5.0-cp37-cp37m-win_amd64.whl</span><br></pre></td></tr></table></figure>
-
-<p>至此<strong>Pytoch-GPU</strong>版已经全部安装完毕。</p>
-<p><strong>5.5 测试是否安装成功</strong></p>
-<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200315153854134.png" alt="image-20200315153854134"></p>
-<p>打开cmd窗口，输入<strong>python</strong>进入<strong>python环境</strong>。依次输入：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line">torch.cuda.is_available()</span><br><span class="line"><span class="comment"># True</span></span><br></pre></td></tr></table></figure>
-
-<p>输出为<strong>True</strong>，安装完毕。</p>
+<p>以下是Tkinter为验证函数提供的一些额外选项。</p>
+<table>
+<thead>
+<tr>
+<th>选项</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>‘%d’</td>
+<td>操作代码：0表示删除操作；1表示插入操作；2表示获得、失去焦点或者<code>textvariable</code>变量的值被修改</td>
+</tr>
+<tr>
+<td>‘%i’</td>
+<td>当用户尝试插入或者删除操作时，该选项表示插入或者删除的位置(索引号)，如果是由于获得、失去焦点或<code>textvarible</code>变量的值被修改而调用验证函数，那么该值是-1</td>
+</tr>
+<tr>
+<td>‘%P’</td>
+<td>当输入框的值允许改变的时候，该值有效。该值作为输入框的最新文本内容。</td>
+</tr>
+<tr>
+<td>‘%s’</td>
+<td>该值为调用验证函数前输入框的文本内容</td>
+</tr>
+<tr>
+<td>‘%S’</td>
+<td>当插入或者删除操作触发验证函数时，该值有效。该选项表示文本被插入和删除的内容</td>
+</tr>
+<tr>
+<td>‘%v’</td>
+<td>该组件当前validate选项的值</td>
+</tr>
+<tr>
+<td>‘%V’</td>
+<td>调用该验证函数的原因。该值是’focusin’、’focusout’、’key’或’forced’（textvariable选项指定的变量值被修改）中的一个</td>
+</tr>
+<tr>
+<td>‘%W’</td>
+<td>该组件的名字</td>
+</tr>
+</tbody></table>
+<p>启用验证的开关是validate选项，该选项可以设置的值如下表所示</p>
+<table>
+<thead>
+<tr>
+<th>值</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>‘focus’</td>
+<td>当Entry组件获得或者失去焦点时候验证</td>
+</tr>
+<tr>
+<td>‘focusin’</td>
+<td>当Entry组件获得焦点的时候验证</td>
+</tr>
+<tr>
+<td>‘focusont’</td>
+<td>当Entry组件失去焦点的时候验证</td>
+</tr>
+<tr>
+<td>‘key’</td>
+<td>当输入框被编辑的时候验证</td>
+</tr>
+<tr>
+<td>‘all’</td>
+<td>当出现上面任何一种情况时验证</td>
+</tr>
+<tr>
+<td>‘none’</td>
+<td>关闭验证功能，默认设置。注意是字符串的<code>&#39;none&#39;</code>，而非<code>None</code></td>
+</tr>
+</tbody></table>
 ]]></content>
       <tags>
-        <tag>pytorch</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>初探卷积神经网络01</title>
-    <url>/2020/05/29/%E5%88%9D%E6%8E%A2%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C01/</url>
-    <content><![CDATA[<p>使用Pytorch进行MNIST识别</p>
-<a id="more"></a>
-
-<h5 id="数据集部分："><a href="#数据集部分：" class="headerlink" title="数据集部分："></a>数据集部分：</h5><p>下载地址：<a href="http://yann.lecun.com/exdb/mnist/" target="_blank" rel="noopener">http://yann.lecun.com/exdb/mnist/</a></p>
-<p>如果使用<code>torchvision</code>下载速度较慢可以参考：<a href="https://blog.csdn.net/york1996/article/details/81780065" target="_blank" rel="noopener">https://blog.csdn.net/york1996/article/details/81780065</a></p>
-<h5 id="网络定义部分："><a href="#网络定义部分：" class="headerlink" title="网络定义部分："></a>网络定义部分：</h5><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Net</span><span class="params">(nn.Module)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        super(Net, self).__init__()</span><br><span class="line">        self.conv1 = nn.Conv2d(<span class="number">1</span>, <span class="number">32</span>, <span class="number">3</span>, <span class="number">1</span>)         <span class="comment">#输入通道数为1, 输出通道数为32, 卷积核大小为3*3, 步长为1</span></span><br><span class="line">        self.conv2 = nn.Conv2d(<span class="number">32</span>, <span class="number">64</span>, <span class="number">3</span>, <span class="number">1</span>)        </span><br><span class="line">        self.dropout1 = nn.Dropout2d(<span class="number">0.25</span>)          <span class="comment">#随机将输入张量中整个通道设置为0</span></span><br><span class="line">        self.dropout2 = nn.Dropout2d(<span class="number">0.5</span>)</span><br><span class="line">        self.fc1 = nn.Linear(<span class="number">9216</span>, <span class="number">256</span>)             <span class="comment">#全连接层</span></span><br><span class="line">        self.fc2 = nn.Linear(<span class="number">256</span>, <span class="number">10</span>)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">forward</span><span class="params">(self, x)</span>:</span></span><br><span class="line">        x = self.conv1(x)</span><br><span class="line">        x = F.relu(x)</span><br><span class="line">        x = self.conv2(x)</span><br><span class="line">        x = F.relu(x)</span><br><span class="line">        x = F.max_pool2d(x, <span class="number">2</span>)                      <span class="comment">#使用2*2的窗口进行最大值池化</span></span><br><span class="line">        x = self.dropout1(x)</span><br><span class="line">        x = torch.flatten(x, <span class="number">1</span>)                     <span class="comment">#展平一个连续范围的维度</span></span><br><span class="line">        x = self.fc1(x)</span><br><span class="line">        x = F.relu(x)</span><br><span class="line">        x = self.dropout2(x)</span><br><span class="line">        x = self.fc2(x)</span><br><span class="line">        output = F.log_softmax(x, dim=<span class="number">1</span>)</span><br><span class="line">        <span class="keyword">return</span> output</span><br></pre></td></tr></table></figure>
-
-<p>卷积层第一层： <code>nn.Conv2d(1, 32, 3, 1)</code></p>
-<p>输入通道数为1，输出通道数为32，使用大小为3*3的卷积核，步长为1。</p>
-<p>卷积层第二层：<code>nn.Conv2d(32, 64, 3, 1)</code> </p>
-<p>输入通道数为32，输出通道数为64，使用大小为3*3的卷积核，步长为1。</p>
-<p>前向传播中使用池化层：<code>F.max_pool2d(x, 2)</code>   </p>
-<p>最后展平一个连续的维度：<code>torch.flatten(x, 1)</code></p>
-<p><strong>详细描述：</strong></p>
-<p>大小为<strong>1X28X28</strong>的图片，经过第一层卷积层，维度变为<strong>32X26X26</strong>，在经过第二层卷积层，维度变为<strong>64X24X24</strong>，在经过一层最大值池化层处理以后，维度变为<strong>64X12X12</strong>，全部展开以后维度变为<strong>1X9216</strong>。</p>
-<h5 id="卷积计算公式："><a href="#卷积计算公式：" class="headerlink" title="卷积计算公式："></a>卷积计算公式：</h5><p><code>卷积后输出图像宽/高=(图像宽/高 - 卷积核宽/高 + 用零填充的个数) / 步长</code></p>
-<h5 id="池化计算公式："><a href="#池化计算公式：" class="headerlink" title="池化计算公式："></a>池化计算公式：</h5><p><code>池化后图像宽/高=池化前图像宽/高 / 池化窗口宽度</code></p>
-]]></content>
-      <tags>
-        <tag>Pytorch</tag>
-        <tag>CNN</tag>
-        <tag>MNIST</tag>
+        <tag>Python</tag>
+        <tag>Tkinter</tag>
       </tags>
   </entry>
   <entry>
     <title>初探Docker(一)</title>
-    <url>/2020/07/18/%E5%88%9D%E6%8E%A2docker01/</url>
+    <url>/2020/07/17/%E5%88%9D%E6%8E%A2docker01/</url>
     <content><![CDATA[<p><a href="https://www.docker.com/" target="_blank" rel="noopener">Docker</a> 是个划时代的开源项目，它彻底释放了计算虚拟化的威力，极大提高了应用的维护效率，降低了云计算应用开发的成本。使用 Docker，可以让应用的部署、测试和分发都变得前所未有的高效和轻松。</p>
 <p>此次介绍的是Docker的安装及常见命令。</p>
 <a id="more"></a>
@@ -1948,6 +1826,279 @@
       <tags>
         <tag>学习</tag>
         <tag>docker</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>初探Docker(二)</title>
+    <url>/2020/07/18/%E5%88%9D%E6%8E%A2docker02/</url>
+    <content><![CDATA[<p><strong>什么是 Dockerfile？</strong></p>
+<p>Dockerfile 是一个用来构建镜像的文本文件，文本内容包含了一条条构建镜像所需的指令和说明。</p>
+<a id="more"></a>
+
+<h3 id="使用-Dockerfile-定制镜像"><a href="#使用-Dockerfile-定制镜像" class="headerlink" title="使用 Dockerfile 定制镜像"></a>使用 Dockerfile 定制镜像</h3><h4 id="定制一个ubuntu镜像"><a href="#定制一个ubuntu镜像" class="headerlink" title="定制一个ubuntu镜像"></a>定制一个ubuntu镜像</h4><p>在一个空目录下，新建一个名为 Dockerfile 文件，并在文件内添加以下内容：</p>
+<figure class="highlight dockerfile"><table><tr><td class="code"><pre><span class="line"><span class="keyword">FROM</span> ubuntu:<span class="number">18.04</span></span><br><span class="line"><span class="keyword">RUN</span><span class="bash"> <span class="built_in">echo</span> <span class="string">'这是一个本地构建的ubuntu:18.04镜像'</span></span></span><br></pre></td></tr></table></figure>
+
+<h4 id="FROM-和-RUN-指令的作用"><a href="#FROM-和-RUN-指令的作用" class="headerlink" title="FROM 和 RUN 指令的作用"></a>FROM 和 RUN 指令的作用</h4><p><strong>FROM</strong>：定制的镜像都是基于 FROM 的镜像，这里的 <strong>ubuntu:18.04</strong>就是定制需要的基础镜像。后续的操作都是基于 ubuntu。</p>
+<p><strong>RUN</strong>：用于执行后面跟着的命令行命令。有以下两种格式：</p>
+<p>Shell格式</p>
+<figure class="highlight dockerfile"><table><tr><td class="code"><pre><span class="line"><span class="keyword">RUN</span><span class="bash"> &lt;命令行命令&gt;</span></span><br><span class="line"><span class="comment"># &lt;命令行命令&gt; 等同于，在终端操作的 shell 命令。</span></span><br></pre></td></tr></table></figure>
+
+<p>Exec 格式：</p>
+<figure class="highlight dockerfile"><table><tr><td class="code"><pre><span class="line"><span class="keyword">RUN</span><span class="bash"> [<span class="string">"可执行文件"</span>, <span class="string">"参数1"</span>, <span class="string">"参数2"</span>]</span></span><br><span class="line"><span class="comment"># 例如：</span></span><br><span class="line"><span class="comment"># RUN ["./test.php", "dev", "offline"] 等价于 RUN ./test.php dev offline</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>注意</strong>：Dockerfile 的指令每执行一次都会在 docker 上新建一层。所以过多无意义的层，会造成镜像膨胀过大。</p>
+<p>​    例如：    </p>
+<figure class="highlight dockerfile"><table><tr><td class="code"><pre><span class="line"><span class="keyword">FROM</span> centos</span><br><span class="line"><span class="keyword">RUN</span><span class="bash"> yum install wget</span></span><br><span class="line"><span class="keyword">RUN</span><span class="bash"> wget -O redis.tar.gz <span class="string">"http://download.redis.io/releases/redis-5.0.3.tar.gz"</span></span></span><br><span class="line"><span class="keyword">RUN</span><span class="bash"> tar -xvf redis.tar.gz</span></span><br></pre></td></tr></table></figure>
+
+<p>​    以上执行会创建 3 层镜像。可简化为以下格式：</p>
+<figure class="highlight dockerfile"><table><tr><td class="code"><pre><span class="line"><span class="keyword">FROM</span> centos</span><br><span class="line"><span class="keyword">RUN</span><span class="bash"> yum install wget \</span></span><br><span class="line"><span class="bash">    &amp;&amp; wget -O redis.tar.gz <span class="string">"http://download.redis.io/releases/redis-5.0.3.tar.gz"</span> \</span></span><br><span class="line"><span class="bash">    &amp;&amp; tar -xvf redis.tar.gz</span></span><br></pre></td></tr></table></figure>
+
+<p>以 <strong>&amp;&amp;</strong> 符号连接命令，这样执行后，只会创建 1 层镜像。</p>
+<h4 id="开始构建镜像"><a href="#开始构建镜像" class="headerlink" title="开始构建镜像"></a>开始构建镜像</h4><p>切换到<code>Dockerfile</code> 文件的存放目录，执行以下命令，开始构建对象。</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">docker build -t ubuntu:latest .</span><br></pre></td></tr></table></figure>
+
+<p>以上示例，通过目录下的 Dockerfile 构建一个 <code>ubuntu:latest（镜像名称:镜像标签）</code>。</p>
+<p><strong>注：最后的 . 代表本次执行的上下文路径，下一节会介绍。</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200718201119692.png" alt="image-20200718201119692"></p>
+<p>以上说明已经构建成功。</p>
+<h4 id="上下文路径"><a href="#上下文路径" class="headerlink" title="上下文路径"></a>上下文路径</h4><p>上面提到 <strong>.</strong> 是上下文路径，那么什么是上下文路径呢？</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">docker build -t ubuntu:latest .</span><br></pre></td></tr></table></figure>
+
+<p>上下文路径，是指 docker 在构建镜像，有时候想要使用到本机的文件（比如复制），docker build 命令得知这个路径后，会将路径下的所有内容打包。</p>
+<blockquote>
+<p>由于 docker 的运行模式是 C/S。我们本机是 C，docker 引擎是 S。实际的构建过程是在 docker 引擎下完成的，所以这个时候无法用到我们本机的文件。这就需要把我们本机的指定目录下的文件一起打包提供给 docker 引擎使用。</p>
+</blockquote>
+<p>如果未说明最后一个参数，那么默认上下文路径就是 Dockerfile 所在的位置。</p>
+<p><strong>注意：上下文路径下不要放无用的文件，因为会一起打包发送给 docker 引擎，如果文件过多会造成过程缓慢。</strong></p>
+<h3 id="指令详解"><a href="#指令详解" class="headerlink" title="指令详解"></a>指令详解</h3><h4 id="COPY"><a href="#COPY" class="headerlink" title="COPY"></a>COPY</h4><p>复制指令，从上下文目录中复制文件或者目录到容器里指定路径。</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">COPY [--chown=&lt;user&gt;:&lt;group&gt;] &lt;源路径1&gt;...  &lt;目标路径&gt;</span><br><span class="line">COPY [--chown=&lt;user&gt;:&lt;group&gt;] [<span class="string">"&lt;源路径1&gt;"</span>,...  <span class="string">"&lt;目标路径&gt;"</span>]</span><br></pre></td></tr></table></figure>
+
+<p><strong>[–chown=:]</strong>：可选参数，用户改变复制到容器内文件的拥有者和属组。</p>
+<p><strong>&lt;源路径&gt;</strong>：源文件或者源目录，这里可以是通配符表达式，其通配符规则要满足 Go 的 filepath.Match 规则。例如：</p>
+<figure class="highlight dockerfile"><table><tr><td class="code"><pre><span class="line"><span class="keyword">COPY</span><span class="bash"> hom* /mydir/</span></span><br><span class="line"><span class="keyword">COPY</span><span class="bash"> hom?.txt /mydir/</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>&lt;目标路径&gt;</strong>：容器内的指定路径，该路径不用事先建好，路径不存在的话，会自动创建。</p>
+<h4 id="ADD"><a href="#ADD" class="headerlink" title="ADD"></a>ADD</h4><p>ADD 指令和 COPY 的使用格式一致（同样需求下，官方推荐使用 COPY）。功能也类似，不同之处如下：</p>
+<ul>
+<li>ADD 的优点：在执行 <strong>&lt;源文件&gt;</strong> 为 tar 压缩文件的话，压缩格式为 gzip, bzip2 以及 xz 的情况下，会自动复制并解压到 <strong>&lt;目标路径&gt;</strong>。</li>
+<li>ADD 的缺点：在不解压的前提下，无法复制 tar 压缩文件。会令镜像构建缓存失效，从而可能会令镜像构建变得比较缓慢。具体是否使用，可以根据是否需要自动解压来决定。</li>
+</ul>
+<h4 id="CMD"><a href="#CMD" class="headerlink" title="CMD"></a>CMD</h4><p>类似于 RUN 指令，用于运行程序，但二者运行的时间点不同:</p>
+<ul>
+<li>CMD 在docker run 时运行。</li>
+<li>RUN 是在 docker build 时运行。</li>
+</ul>
+<p><strong>作用</strong>：为启动的容器指定默认要运行的程序，程序运行结束，容器也就结束。CMD 指令指定的程序可被 docker run 命令行参数中指定要运行的程序所覆盖。</p>
+<p><strong>注意：如果 Dockerfile 中如果存在多个 CMD 指令，仅最后一个生效。</strong></p>
+<p>格式：</p>
+<figure class="highlight dockerfile"><table><tr><td class="code"><pre><span class="line"><span class="keyword">CMD</span><span class="bash"> &lt;shell 命令&gt; </span></span><br><span class="line"><span class="keyword">CMD</span><span class="bash"> [<span class="string">"&lt;可执行文件或命令&gt;"</span>,<span class="string">"&lt;param1&gt;"</span>,<span class="string">"&lt;param2&gt;"</span>,...] </span></span><br><span class="line"><span class="keyword">CMD</span><span class="bash"> [<span class="string">"&lt;param1&gt;"</span>,<span class="string">"&lt;param2&gt;"</span>,...]  <span class="comment"># 该写法是为 ENTRYPOINT 指令指定的程序提供默认参数</span></span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>推荐使用第二种格式，执行过程比较明确。第一种格式实际上在运行的过程中也会自动转换成第二种格式运行，并且默认可执行文件是 sh。</p>
+</blockquote>
+<h4 id="ENTRYPOINT"><a href="#ENTRYPOINT" class="headerlink" title="ENTRYPOINT"></a>ENTRYPOINT</h4><p>类似于 CMD 指令，但其不会被 <code>docker run</code> 的命令行参数指定的指令所覆盖，而且这些命令行参数会被当作参数送给 ENTRYPOINT 指令指定的程序。</p>
+<p>但是, 如果运行 <code>docker run</code> 时使用了 <code>--entrypoint</code> 选项，此选项的参数可当作要运行的程序覆盖 ENTRYPOINT 指令指定的程序。</p>
+<p><strong>优点</strong>：在执行 <code>docker run</code> 的时候可以指定 ENTRYPOINT 运行所需的参数。</p>
+<p><strong>注意</strong>：如果 Dockerfile 中如果存在多个 ENTRYPOINT 指令，仅最后一个生效。</p>
+<figure class="highlight dockerfile"><table><tr><td class="code"><pre><span class="line"><span class="keyword">ENTRYPOINT</span><span class="bash"> [<span class="string">"&lt;executeable&gt;"</span>,<span class="string">"&lt;param1&gt;"</span>,<span class="string">"&lt;param2&gt;"</span>,...]</span></span><br></pre></td></tr></table></figure>
+
+<p>可以搭配 CMD 命令使用：一般是变参才会使用 CMD ，这里的 CMD 等于是在给 ENTRYPOINT 传参，以下示例会提到。</p>
+<p>示例：</p>
+<p>假设已通过 Dockerfile 构建了 <strong>nginx:test</strong> 镜像：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">FROM nginx</span><br><span class="line"></span><br><span class="line">ENTRYPOINT [&quot;nginx&quot;, &quot;-c&quot;] # 定参</span><br><span class="line">CMD [&quot;&#x2F;etc&#x2F;nginx&#x2F;nginx.conf&quot;] # 变参</span><br></pre></td></tr></table></figure>
+
+<p>1、不传参运行</p>
+<figure class="highlight dockerfile"><table><tr><td class="code"><pre><span class="line">docker <span class="keyword">run</span><span class="bash">  nginx:<span class="built_in">test</span></span></span><br></pre></td></tr></table></figure>
+
+<p>容器内会默认运行以下命令，启动主进程。</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">nginx -c /etc/nginx/nginx.conf</span><br></pre></td></tr></table></figure>
+
+<p>2、传参运行</p>
+<figure class="highlight dockerfile"><table><tr><td class="code"><pre><span class="line">docker <span class="keyword">run</span><span class="bash">  nginx:<span class="built_in">test</span> -c /etc/nginx/new.conf</span></span><br></pre></td></tr></table></figure>
+
+<p>容器内会默认运行以下命令，启动主进程(/etc/nginx/new.conf:假设容器内已有此文件)</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">nginx -c /etc/nginx/new.conf</span><br></pre></td></tr></table></figure>
+
+<h4 id="ENV"><a href="#ENV" class="headerlink" title="ENV"></a>ENV</h4><p>设置环境变量，定义了环境变量，那么在后续的指令中，就可以使用这个环境变量。</p>
+<p>格式：</p>
+<figure class="highlight dockerfile"><table><tr><td class="code"><pre><span class="line"><span class="keyword">ENV</span> &lt;key&gt; &lt;value&gt;</span><br><span class="line"><span class="keyword">ENV</span> &lt;key1&gt;=&lt;value1&gt; &lt;key2&gt;=&lt;value2&gt;...</span><br></pre></td></tr></table></figure>
+
+<p>以下示例设置 NODE_VERSION = 7.2.0 ， 在后续的指令中可以通过 $NODE_VERSION 引用：</p>
+<figure class="highlight dockerfile"><table><tr><td class="code"><pre><span class="line"><span class="keyword">ENV</span> NODE_VERSION <span class="number">7.2</span>.<span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">RUN</span><span class="bash"> curl -SLO <span class="string">"https://nodejs.org/dist/v<span class="variable">$NODE_VERSION</span>/node-v<span class="variable">$NODE_VERSION</span>-linux-x64.tar.xz"</span> \</span></span><br><span class="line"><span class="bash">  &amp;&amp; curl -SLO <span class="string">"https://nodejs.org/dist/v<span class="variable">$NODE_VERSION</span>/SHASUMS256.txt.asc"</span></span></span><br></pre></td></tr></table></figure>
+
+<h4 id="ARG"><a href="#ARG" class="headerlink" title="ARG"></a>ARG</h4><p>构建参数，与 ENV 作用一致。不过作用域不一样。ARG 设置的环境变量仅对 Dockerfile 内有效，也就是说只有 <code>docker build</code> 的过程中有效，构建好的镜像内不存在此环境变量。</p>
+<p>构建命令 <code>docker build</code> 中可以用 <code>--build-arg &lt;参数名&gt;=&lt;值&gt;</code> 来覆盖。</p>
+<p>格式：</p>
+<figure class="highlight dockerfile"><table><tr><td class="code"><pre><span class="line"><span class="keyword">ARG</span> &lt;参数名&gt;[=&lt;默认值&gt;]</span><br></pre></td></tr></table></figure>
+
+<h4 id="VOLUME"><a href="#VOLUME" class="headerlink" title="VOLUME"></a>VOLUME</h4><p>定义匿名数据卷。在启动容器时忘记挂载数据卷，会自动挂载到匿名卷。</p>
+<p>作用：</p>
+<ul>
+<li>避免重要的数据，因容器重启而丢失，这是非常致命的。</li>
+<li>避免容器不断变大。</li>
+</ul>
+<p>格式：</p>
+<figure class="highlight dockerfile"><table><tr><td class="code"><pre><span class="line"><span class="keyword">VOLUME</span><span class="bash"> [<span class="string">"&lt;路径1&gt;"</span>, <span class="string">"&lt;路径2&gt;"</span>...]</span></span><br><span class="line"><span class="keyword">VOLUME</span><span class="bash"> &lt;路径&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>在启动容器 docker run 的时候，我们可以通过 -v 参数修改挂载点。</p>
+<p><strong>注意：</strong></p>
+<ol>
+<li>通过<code>docker run</code>命令的<code>-v</code>标识创建的挂载点只能对创建的容器有效。</li>
+<li>通过 Dockerfile 的 VOLUME 指令可以在镜像中创建挂载点，这样只要通过该镜像创建的容器都有了挂载点。</li>
+<li>通过 VOLUME 指令创建的挂载点，无法指定主机上对应的目录，是自动生成的。</li>
+<li><code>docker run</code>中使用 <code>--volumes-from</code>标记的镜像可以共享<strong>匿名数据卷</strong>。镜像可以是同一个镜像，也可以是不同镜像。</li>
+</ol>
+<h4 id="EXPOSE"><a href="#EXPOSE" class="headerlink" title="EXPOSE"></a>EXPOSE</h4><p>暴露容器的端口。</p>
+<p>作用：</p>
+<ul>
+<li>帮助镜像使用者理解这个镜像服务的守护端口，以方便配置映射。</li>
+<li>在运行时使用随机端口映射时，也就是 docker run -P 时，会自动随机映射 EXPOSE 的端口。</li>
+</ul>
+<p>格式：</p>
+<figure class="highlight dockerfile"><table><tr><td class="code"><pre><span class="line"><span class="keyword">EXPOSE</span> &lt;端口<span class="number">1</span>&gt; [&lt;端口<span class="number">2</span>&gt;...]</span><br></pre></td></tr></table></figure>
+
+<h4 id="WORKDIR"><a href="#WORKDIR" class="headerlink" title="WORKDIR"></a>WORKDIR</h4><p>指定工作目录。用 WORKDIR 指定的工作目录，会在构建镜像的每一层中都存在。（WORKDIR 指定的工作目录，必须是提前创建好的）。</p>
+<p>docker build 构建镜像过程中的，每一个 RUN 命令都是新建的一层。只有通过 WORKDIR 创建的目录才会一直存在。</p>
+<p>格式：</p>
+<figure class="highlight dockerfile"><table><tr><td class="code"><pre><span class="line"><span class="keyword">WORKDIR</span><span class="bash"> &lt;工作目录路径&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="USER"><a href="#USER" class="headerlink" title="USER"></a>USER</h4><p>用于指定执行后续命令的用户和用户组，这边只是切换后续命令执行的用户（用户和用户组必须提前已经存在）。</p>
+<p>格式：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">USER &lt;用户名&gt;[:&lt;用户组&gt;]</span><br></pre></td></tr></table></figure>
+
+<h4 id="HEALTHCHECK"><a href="#HEALTHCHECK" class="headerlink" title="HEALTHCHECK"></a>HEALTHCHECK</h4><p>用于指定某个程序或者指令来监控 docker 容器服务的运行状态。</p>
+<p>格式：</p>
+<figure class="highlight dockerfile"><table><tr><td class="code"><pre><span class="line"><span class="keyword">HEALTHCHECK</span><span class="bash"> [选项] CMD &lt;命令&gt;：设置检查容器健康状况的命令</span></span><br><span class="line"><span class="keyword">HEALTHCHECK</span><span class="bash"> NONE：如果基础镜像有健康检查指令，使用这行可以屏蔽掉其健康检查指令</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">HEALTHCHECK</span><span class="bash"> [选项] CMD &lt;命令&gt; : 这边 CMD 后面跟随的命令使用，可以参考 CMD 的用法。</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="ONBUILD"><a href="#ONBUILD" class="headerlink" title="ONBUILD"></a>ONBUILD</h4><p>用于延迟构建命令的执行。简单的说，就是 Dockerfile 里用 ONBUILD 指定的命令，在本次构建镜像的过程中不会执行（假设镜像为 test-build）。当有新的 Dockerfile 使用了之前构建的镜像 FROM test-build ，这是执行新镜像的 Dockerfile 构建时候，会执行 test-build 的 Dockerfile 里的 ONBUILD 指定的命令。</p>
+<p>格式：</p>
+<figure class="highlight dockerfile"><table><tr><td class="code"><pre><span class="line"><span class="keyword">ONBUILD</span> &lt;其它指令&gt;</span><br></pre></td></tr></table></figure>]]></content>
+      <tags>
+        <tag>学习</tag>
+        <tag>docker</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>使用jsdelivrCDN加速github文件</title>
+    <url>/2020/06/20/%E4%BD%BF%E7%94%A8jsdelivrCDN%E5%8A%A0%E9%80%9Fgithub%E6%96%87%E4%BB%B6/</url>
+    <content><![CDATA[<p>jsDelivr 是国外的一家优秀的公共 CDN 服务提供商，也是首个「打通中国大陆（网宿公司运营）与海外的免费 CDN 服务」。</p>
+<a id="more"></a>
+
+<h3 id="jsDelivr-配置"><a href="#jsDelivr-配置" class="headerlink" title="jsDelivr 配置"></a>jsDelivr 配置</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">https:&#x2F;&#x2F;cdn.jsdelivr.net&#x2F;gh&#x2F;wf09&#x2F;upload@master&#x2F;1.png</span><br></pre></td></tr></table></figure>
+
+<p>其中：</p>
+<ul>
+<li><code>gh</code> 表示来自 Github 的仓库</li>
+<li><code>wf09/upload</code> 指的是用户名/仓库名</li>
+<li><code>master</code> 仓库的分支</li>
+<li><code>1.png</code>仓库下的具体文件</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>jsdelivrCDN</tag>
+        <tag>github</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>升级pip</title>
+    <url>/2020/05/27/%E5%8D%87%E7%BA%A7pip/</url>
+    <content><![CDATA[<p>安装pip：<code>apt install python3-pip</code></p>
+<p>升级pip：<code>python -m pip install --upgrade pip</code></p>
+]]></content>
+      <tags>
+        <tag>pip</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>初探卷积神经网络01</title>
+    <url>/2020/05/29/%E5%88%9D%E6%8E%A2%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C01/</url>
+    <content><![CDATA[<p>使用Pytorch进行MNIST识别</p>
+<a id="more"></a>
+
+<h5 id="数据集部分："><a href="#数据集部分：" class="headerlink" title="数据集部分："></a>数据集部分：</h5><p>下载地址：<a href="http://yann.lecun.com/exdb/mnist/" target="_blank" rel="noopener">http://yann.lecun.com/exdb/mnist/</a></p>
+<p>如果使用<code>torchvision</code>下载速度较慢可以参考：<a href="https://blog.csdn.net/york1996/article/details/81780065" target="_blank" rel="noopener">https://blog.csdn.net/york1996/article/details/81780065</a></p>
+<h5 id="网络定义部分："><a href="#网络定义部分：" class="headerlink" title="网络定义部分："></a>网络定义部分：</h5><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Net</span><span class="params">(nn.Module)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        super(Net, self).__init__()</span><br><span class="line">        self.conv1 = nn.Conv2d(<span class="number">1</span>, <span class="number">32</span>, <span class="number">3</span>, <span class="number">1</span>)         <span class="comment">#输入通道数为1, 输出通道数为32, 卷积核大小为3*3, 步长为1</span></span><br><span class="line">        self.conv2 = nn.Conv2d(<span class="number">32</span>, <span class="number">64</span>, <span class="number">3</span>, <span class="number">1</span>)        </span><br><span class="line">        self.dropout1 = nn.Dropout2d(<span class="number">0.25</span>)          <span class="comment">#随机将输入张量中整个通道设置为0</span></span><br><span class="line">        self.dropout2 = nn.Dropout2d(<span class="number">0.5</span>)</span><br><span class="line">        self.fc1 = nn.Linear(<span class="number">9216</span>, <span class="number">256</span>)             <span class="comment">#全连接层</span></span><br><span class="line">        self.fc2 = nn.Linear(<span class="number">256</span>, <span class="number">10</span>)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">forward</span><span class="params">(self, x)</span>:</span></span><br><span class="line">        x = self.conv1(x)</span><br><span class="line">        x = F.relu(x)</span><br><span class="line">        x = self.conv2(x)</span><br><span class="line">        x = F.relu(x)</span><br><span class="line">        x = F.max_pool2d(x, <span class="number">2</span>)                      <span class="comment">#使用2*2的窗口进行最大值池化</span></span><br><span class="line">        x = self.dropout1(x)</span><br><span class="line">        x = torch.flatten(x, <span class="number">1</span>)                     <span class="comment">#展平一个连续范围的维度</span></span><br><span class="line">        x = self.fc1(x)</span><br><span class="line">        x = F.relu(x)</span><br><span class="line">        x = self.dropout2(x)</span><br><span class="line">        x = self.fc2(x)</span><br><span class="line">        output = F.log_softmax(x, dim=<span class="number">1</span>)</span><br><span class="line">        <span class="keyword">return</span> output</span><br></pre></td></tr></table></figure>
+
+<p>卷积层第一层： <code>nn.Conv2d(1, 32, 3, 1)</code></p>
+<p>输入通道数为1，输出通道数为32，使用大小为3*3的卷积核，步长为1。</p>
+<p>卷积层第二层：<code>nn.Conv2d(32, 64, 3, 1)</code> </p>
+<p>输入通道数为32，输出通道数为64，使用大小为3*3的卷积核，步长为1。</p>
+<p>前向传播中使用池化层：<code>F.max_pool2d(x, 2)</code>   </p>
+<p>最后展平一个连续的维度：<code>torch.flatten(x, 1)</code></p>
+<p><strong>详细描述：</strong></p>
+<p>大小为<strong>1X28X28</strong>的图片，经过第一层卷积层，维度变为<strong>32X26X26</strong>，在经过第二层卷积层，维度变为<strong>64X24X24</strong>，在经过一层最大值池化层处理以后，维度变为<strong>64X12X12</strong>，全部展开以后维度变为<strong>1X9216</strong>。</p>
+<h5 id="卷积计算公式："><a href="#卷积计算公式：" class="headerlink" title="卷积计算公式："></a>卷积计算公式：</h5><p><code>卷积后输出图像宽/高=(图像宽/高 - 卷积核宽/高 + 用零填充的个数) / 步长</code></p>
+<h5 id="池化计算公式："><a href="#池化计算公式：" class="headerlink" title="池化计算公式："></a>池化计算公式：</h5><p><code>池化后图像宽/高=池化前图像宽/高 / 池化窗口宽度</code></p>
+]]></content>
+      <tags>
+        <tag>Pytorch</tag>
+        <tag>CNN</tag>
+        <tag>MNIST</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>使用pip离线安装pytorch-gpu</title>
+    <url>/2020/02/17/%E4%BD%BF%E7%94%A8pip%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85pytorch/</url>
+    <content><![CDATA[<p>废话不多说，上教程。</p>
+<a id="more"></a>
+
+<h4 id="1-查看Linux预装的Python3版本"><a href="#1-查看Linux预装的Python3版本" class="headerlink" title="1.查看Linux预装的Python3版本"></a>1.查看Linux预装的Python3版本</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">root@wf09:~<span class="comment"># python3 -V</span></span><br><span class="line">Python 3.6.9</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-下载对应的Pytorch版本"><a href="#2-下载对应的Pytorch版本" class="headerlink" title="2.下载对应的Pytorch版本"></a>2.下载对应的Pytorch版本</h4><p><a href="https://download.pytorch.org/whl/torch_stable.html" target="_blank" rel="noopener">https://download.pytorch.org/whl/torch_stable.html</a></p>
+<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/3.png" alt=""></p>
+<p>Python版本是3.6.9，下载的版本是<code>cpu/torch-1.4.0%2Bcpu-cp36-cp36m-linux_x86_64.whl</code></p>
+<h4 id="3-安装pip3"><a href="#3-安装pip3" class="headerlink" title="3.安装pip3"></a>3.安装pip3</h4><h5 id="3-1-Linux"><a href="#3-1-Linux" class="headerlink" title="3.1 Linux"></a>3.1 Linux</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">apt-get install python3-pip</span><br></pre></td></tr></table></figure>
+
+<p><strong>tips：</strong>由于apt源自带的pip版本过低，可以执行如下命令升级pip。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">python3 -m pip install --upgrade pip</span><br></pre></td></tr></table></figure>
+
+<p>升级完pip以后，pip就相当于pip3了。</p>
+<h5 id="3-2-Win"><a href="#3-2-Win" class="headerlink" title="3.2 Win"></a>3.2 Win</h5><p>安装完Python后默认安装pip，执行命令升级pip即可</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">python3 -m pip install --upgrade pip</span><br></pre></td></tr></table></figure>
+
+<h4 id="4-离线安装Pytorch"><a href="#4-离线安装Pytorch" class="headerlink" title="4.离线安装Pytorch"></a>4.离线安装Pytorch</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pip install --no-index --find-links=torch-1.4.0+cpu-cp36-cp36m-linux_x86_64.whl torch</span><br></pre></td></tr></table></figure>
+
+<h4 id="5-windows10卸载Pytorch-cpu版本并安装GPU版本"><a href="#5-windows10卸载Pytorch-cpu版本并安装GPU版本" class="headerlink" title="5.windows10卸载Pytorch-cpu版本并安装GPU版本"></a>5.windows10卸载Pytorch-cpu版本并安装GPU版本</h4><h5 id="5-1-卸载cpu版"><a href="#5-1-卸载cpu版" class="headerlink" title="5.1 卸载cpu版"></a>5.1 卸载cpu版</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pip uninstall torch   		<span class="comment">#卸载torch</span></span><br><span class="line">pip uninstall torchvison    <span class="comment">#卸载torchvison</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="5-2-安装CUDA"><a href="#5-2-安装CUDA" class="headerlink" title="5.2 安装CUDA"></a>5.2 安装CUDA</h5><p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200315143756001.png" alt="image-20200315143756001"></p>
+<p><a href="https://developer.nvidia.com/cuda-toolkit-archive" target="_blank" rel="noopener">https://developer.nvidia.com/cuda-toolkit-archive</a></p>
+<p>笔者使用的<code>Win10</code>，附上离线安装版链接：</p>
+<p><del><a href="http://developer.download.nvidia.com/compute/cuda/10.2/Prod/local_installers/cuda_10.2.89_441.22_win10.exe" target="_blank" rel="noopener">http://developer.download.nvidia.com/compute/cuda/10.2/Prod/local_installers/cuda_10.2.89_441.22_win10.exe</a></del></p>
+<h6 id="Tips：最新版本的CUDA-10-2-现在还无法被Pytorch支持，安装10-1版本的即可。"><a href="#Tips：最新版本的CUDA-10-2-现在还无法被Pytorch支持，安装10-1版本的即可。" class="headerlink" title="Tips：最新版本的CUDA(10.2)现在还无法被Pytorch支持，安装10.1版本的即可。"></a>Tips：最新版本的CUDA(10.2)现在还无法被Pytorch支持，安装10.1版本的即可。</h6><p><a href="http://developer.download.nvidia.com/compute/cuda/10.1/Prod/local_installers/cuda_10.1.243_426.00_win10.exe" target="_blank" rel="noopener">http://developer.download.nvidia.com/compute/cuda/10.1/Prod/local_installers/cuda_10.1.243_426.00_win10.exe</a></p>
+<p>下载完毕，双击打开即可。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200315145247036.png" alt="image-20200315145247036"></p>
+<p>点击OK选择下一步。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200315145432177.png" alt="image-20200315145432177"></p>
+<p>等待进度条达到100%，会自动打开安装程序。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200315150124951.png" alt="image-20200315150124951"></p>
+<p>选择自定义，然后全部选中，期间会升级本机的<strong>显卡驱动</strong>。</p>
+<h6 id="Tips：升级显卡驱动是很重要的一步，不升级到最新版本无法正确安装CUDA"><a href="#Tips：升级显卡驱动是很重要的一步，不升级到最新版本无法正确安装CUDA" class="headerlink" title="Tips：升级显卡驱动是很重要的一步，不升级到最新版本无法正确安装CUDA"></a><strong>Tips：</strong>升级显卡驱动是很重要的一步，不升级到最新版本无法正确安装<strong>CUDA</strong></h6><p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200315150240356.png" alt="image-20200315150240356"></p>
+<p>等待安装完毕。</p>
+<h5 id="5-3-安装cuDNN"><a href="#5-3-安装cuDNN" class="headerlink" title="5.3 安装cuDNN"></a>5.3 安装cuDNN</h5><p><strong>相比标准的cuda，它在一些常用的神经网络操作上进行了性能的优化，比如卷积，pooling，归一化，以及激活层等等。</strong></p>
+<p>下载过程中需要注册 <strong>NVIDIA account</strong>。</p>
+<p>下载完毕后执行解压：会生成<code>cuda/include、cuda/lib、cuda/bin</code>三个目录；</p>
+<p>然后分别将<code>cuda/include、cuda/lib、cuda/bin</code>三个目录中的内容拷贝到<code>C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.1</code>对应的<code>include、lib、bin</code>目录下即可。</p>
+<h5 id="5-4安装Pytorch-GPU版本"><a href="#5-4安装Pytorch-GPU版本" class="headerlink" title="5.4安装Pytorch-GPU版本"></a><strong>5.4安装Pytorch-GPU版本</strong></h5><p>下载Pytorch-CUDA版本的whl文件，用于离线安装。</p>
+<p><a href="https://download.pytorch.org/whl/torch_stable.html" target="_blank" rel="noopener">https://download.pytorch.org/whl/torch_stable.html</a></p>
+<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200315151856974.png" alt="image-20200315151856974"></p>
+<p>其中，<strong>cu101</strong>代表CUDA版本是10.1，<strong>cp37</strong>代表CPython version 3.7（指的是C语言实现的Python，就是原汁原味的Python。除了CPython以外，还有用Java实现的Jython，用.NET实现的IronPython，使Python方便地和Java程序、.NET程序集成。另外还有一些实验性的Python解释器比如PyPy），<strong>win</strong>代表Windows操作系统，<strong>amd64</strong>代表64位CPU平台。</p>
+<p>使用<strong>管理员权限</strong>打开<code>Anaconda Prompt (Anaconda3)</code>cmd窗口，输入</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pip install 下载路径\torch-1.4.0-cp37-cp37m-win_amd64.whl</span><br></pre></td></tr></table></figure>
+
+<p>等待安装完毕。</p>
+<p>使用相同的操作安装 <code>torchvision</code>，其中包含流行的数据集。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pip install 下载路径\torchvision-0.5.0-cp37-cp37m-win_amd64.whl</span><br></pre></td></tr></table></figure>
+
+<p>至此<strong>Pytoch-GPU</strong>版已经全部安装完毕。</p>
+<p><strong>5.5 测试是否安装成功</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200315153854134.png" alt="image-20200315153854134"></p>
+<p>打开cmd窗口，输入<strong>python</strong>进入<strong>python环境</strong>。依次输入：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line">torch.cuda.is_available()</span><br><span class="line"><span class="comment"># True</span></span><br></pre></td></tr></table></figure>
+
+<p>输出为<strong>True</strong>，安装完毕。</p>
+]]></content>
+      <tags>
+        <tag>pytorch</tag>
       </tags>
   </entry>
 </search>
