@@ -1662,11 +1662,11 @@
 <p>豆瓣源：<a href="https://pypi.doubanio.com/simple/" target="_blank" rel="noopener">https://pypi.doubanio.com/simple/</a></p>
 <p>使用方法</p>
 <p>临时使用：可以在使用pip的时候加参数-i <a href="https://pypi.tuna.tsinghua.edu.cn/simple" target="_blank" rel="noopener">https://pypi.tuna.tsinghua.edu.cn/simple</a></p>
-<p>例如：pip install -i <a href="https://pypi.tuna.tsinghua.edu.cn/simple" target="_blank" rel="noopener">https://pypi.tuna.tsinghua.edu.cn/simple</a> gevent</p>
+<p>例如：<code>pip install numpy -i https://pypi.tuna.tsinghua.edu.cn/simple</code></p>
 <p>永久修改：linux下，修改 <code>~/.pip/pip.conf</code>，设置为以下内容：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[global]</span><br><span class="line">index-url &#x3D; https:&#x2F;&#x2F;pypi.tuna.tsinghua.edu.cn&#x2F;simple</span><br></pre></td></tr></table></figure>
 
-<p>windows下，直接在user目录中创建一个pip目录，如：C:\Users\wf09.pip，新建文件pip.ini，内容如下</p>
+<p>windows下，直接在user目录中创建一个pip目录，如：C:\Users\wf09\.pip，新建文件pip.ini，内容如下</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[global]</span><br><span class="line">index-url &#x3D; https:&#x2F;&#x2F;pypi.tuna.tsinghua.edu.cn&#x2F;simple</span><br></pre></td></tr></table></figure>]]></content>
       <tags>
         <tag>pip</tag>
@@ -1760,7 +1760,7 @@
       </tags>
   </entry>
   <entry>
-    <title>初探Docker(一)</title>
+    <title>Docker的网络模式</title>
     <url>/2020/07/17/%E5%88%9D%E6%8E%A2docker01/</url>
     <content><![CDATA[<p><a href="https://www.docker.com/" target="_blank" rel="noopener">Docker</a> 是个划时代的开源项目，它彻底释放了计算虚拟化的威力，极大提高了应用的维护效率，降低了云计算应用开发的成本。使用 Docker，可以让应用的部署、测试和分发都变得前所未有的高效和轻松。</p>
 <p>此次介绍的是Docker的安装及常见命令。</p>
@@ -1803,7 +1803,12 @@
 <p>-v ：启用目录挂载。冒号”:”前面的目录是<strong>宿主机目录</strong>，后面的目录是<strong>容器内目录</strong>。</p>
 <p>-p：启用端口映射。</p>
 <p>-d：在后台运行容器并打印容器ID。</p>
+<p>–restart=always：保证每次docker服务重启后容器也自动重启</p>
+<p>–network </p>
 </blockquote>
+<p>​    如果容器已经启动了而又想设置容器自动启动：</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">docker update --restart=always &lt;CONTAINER ID/CONTAINER NAME&gt;</span><br></pre></td></tr></table></figure>
+
 <h4 id="进入容器"><a href="#进入容器" class="headerlink" title="进入容器"></a>进入容器</h4><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">docker <span class="built_in">exec</span> -it $(docker ps| grep fly97/v2fly | awk <span class="string">'&#123;print $1&#125;'</span> /bin/sh</span><br></pre></td></tr></table></figure>
 
 <blockquote>
@@ -2239,6 +2244,29 @@
         <tag>Python</tag>
         <tag>Tkinter</tag>
         <tag>组件</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Docker的网络模式</title>
+    <url>/2020/08/01/Docker%E7%9A%84%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%BC%8F/</url>
+    <content><![CDATA[<p><code>docker</code>目前支持以下5种网络模式：</p>
+<p>使用<code>docker run</code> 创建 <code>Docker</code> 容器时，可以用 <code>--network</code> 选项指定容器的网络模式。</p>
+<a id="more"></a>
+
+<h3 id="host模式"><a href="#host模式" class="headerlink" title="host模式"></a>host模式</h3><p>​    使用 <code>--netrork=host</code> 指定。与宿主机共享网络，此时容器没有使用网络的namespace，宿主机的所有设备，如Dbus会暴露到容器中，因此存在安全隐患。容器将不会虚拟出自己的网卡，配置自己的 IP 等，而是使用宿主机的 IP 和端口。</p>
+<h3 id="container模式"><a href="#container模式" class="headerlink" title="container模式"></a>container模式</h3><p>使用 <code>--network=container:NAME or ID</code> 指定。指定与某个容器实例共享网络。这个模式指定新创建的容器和已经存在的一个容器共享一个 Network Namespace，而不是和宿主机共享。新创建的容器不会创建自己的网卡，配置自己的 IP，而是和一个指定的容器共享 IP、端口范围等。同样，两个容器除了网络方面，其他的如文件系统、进程列表等还是隔离的。两个容器的进程可以通过 lo 网卡设备通信。</p>
+<h3 id="none模式"><a href="#none模式" class="headerlink" title="none模式"></a>none模式</h3><p>使用 <code>--network=none</code> 指定。不设置网络，相当于容器内没有配置网卡，用户可以手动配置。</p>
+<h3 id="bridge模式-（默认设置）"><a href="#bridge模式-（默认设置）" class="headerlink" title="bridge模式 （默认设置）"></a>bridge模式 （默认设置）</h3><p>使用 <code>--network=bridge</code> 指定，默认设置。</p>
+<p>bridge 模式是 Docker 默认的网络设置，此模式会为每一个容器分配 Network Namespace、设置 IP 等，并将一个主机上的 Docker 容器连接到一个虚拟网桥上。</p>
+<p>当 Docker server 启动时，会在主机上创建一个名为 docker0 的虚拟网桥，此主机上启动的 Docker 容器会连接到这个虚拟网桥上。虚拟网桥的工作方式和物理交换机类似，这样主机上的所有容器就通过交换机连在了一个二层网络中。</p>
+<p>接下来就要为容器分配 IP 了，Docker 会从 RFC1918 所定义的私有 IP 网段中，选择一个和宿主机不同的IP地址和子网分配给 docker0，连接到 docker0 的容器就从这个子网中选择一个未占用的 IP 使用。如一般 Docker 会使用 172.17.0.0/16 这个网段，并将 172.17.42.1/16 分配给 docker0 网桥（在主机上使用 ifconfig 命令是可以看到 docker0 的，可以认为它是网桥的管理接口，在宿主机上作为一块虚拟网卡使用）</p>
+<p>当创建一个 Docker 容器的时候，同时会创建了一对 veth pair 接口（当数据包发送到一个接口时，另外一个接口也可以收到相同的数据包）。这对接口一端在容器内，即 eth0；另一端在本地并被挂载到 docker0 网桥，名称以 veth 开头（例如 vethAQI2QT）。通过这种方式，主机可以跟容器通信，容器之间也可以相互通信。Docker 就创建了在主机和所有容器之间一个虚拟共享网络。</p>
+<p><strong>默认是桥接模式，网络地址为172.17.0.0/16，同一主机的容器实例能够通信，但不能跨主机通信。</strong></p>
+<h3 id="自定义模式"><a href="#自定义模式" class="headerlink" title="自定义模式"></a>自定义模式</h3><p>使用自定义网络，可以使用docker network create创建，并且默认支持多种网络驱动，用户可以自由创建桥接网络或者overlay网络。</p>
+]]></content>
+      <tags>
+        <tag>学习</tag>
+        <tag>docker</tag>
       </tags>
   </entry>
 </search>
