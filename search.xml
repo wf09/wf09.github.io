@@ -55,14 +55,18 @@
       </tags>
   </entry>
   <entry>
-    <title>Git常见操作之在本地目录下关联远程仓库和如何取消本地目录下关联的远程库</title>
+    <title>Git常见操作</title>
     <url>/2020/03/07/Git%E5%B8%B8%E8%A7%81%E6%93%8D%E4%BD%9C/</url>
     <content><![CDATA[<p>不说废话，上教程。</p>
 <a id="more"></a>
 
-<h5 id="1-在本地目录下关联远程repository-："><a href="#1-在本地目录下关联远程repository-：" class="headerlink" title="1.在本地目录下关联远程repository ："></a>1.在本地目录下关联远程repository ：</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git remote add origin git@github.com:git_username/repository_name.git</span><br></pre></td></tr></table></figure>
+<h4 id="在本地目录下关联远程repository-："><a href="#在本地目录下关联远程repository-：" class="headerlink" title="在本地目录下关联远程repository ："></a>在本地目录下关联远程repository ：</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git remote add origin git@github.com:git_username/repository_name.git</span><br></pre></td></tr></table></figure>
 
-<h5 id="2-取消本地目录下关联的远程库："><a href="#2-取消本地目录下关联的远程库：" class="headerlink" title="2.取消本地目录下关联的远程库："></a>2.取消本地目录下关联的远程库：</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git remote remove origin</span><br></pre></td></tr></table></figure>
+<h4 id="取消本地目录下关联的远程库："><a href="#取消本地目录下关联的远程库：" class="headerlink" title="取消本地目录下关联的远程库："></a>取消本地目录下关联的远程库：</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git remote remove origin</span><br></pre></td></tr></table></figure>
+
+<h4 id="查看git-commit-历史"><a href="#查看git-commit-历史" class="headerlink" title="查看git commit 历史"></a>查看git commit 历史</h4><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">log</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="回退到某个commit版本"><a href="#回退到某个commit版本" class="headerlink" title="回退到某个commit版本"></a>回退到某个commit版本</h4><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">git reset --hard &lt;COMMIT_ID&gt;</span><br></pre></td></tr></table></figure>
 
 ]]></content>
       <tags>
@@ -412,18 +416,19 @@
       </tags>
   </entry>
   <entry>
-    <title>caddy一键安装管理脚本</title>
+    <title>Caddy web docker镜像</title>
     <url>/2020/06/20/caddy%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97/</url>
-    <content><![CDATA[<p>caddy一键安装管理脚本</p>
+    <content><![CDATA[<p>基于Go语言的web服务器</p>
 <a id="more"></a>
 
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">wget https://fly97.coding.net/p/caddyserver/d/caddyserver/git/raw/master/caddy.sh</span><br><span class="line">chmod +x caddy.sh</span><br><span class="line">./caddy.sh</span><br></pre></td></tr></table></figure>
+<p>拉取镜像</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">docker pull fly97&#x2F;caddy</span><br></pre></td></tr></table></figure>
 
-<p>caddy 相关命令</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">caddy install         <span class="comment">#安装</span></span><br><span class="line">caddy <span class="built_in">help</span>            <span class="comment">#帮助</span></span><br></pre></td></tr></table></figure>
+<p>后台运行容器</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">docker run -d --name caddy \</span><br><span class="line">    -p 443:443 -p 80:80 \</span><br><span class="line">    -v /var/caddywww/:/var/caddywww \</span><br><span class="line">    -v /var/<span class="built_in">log</span>/caddy:/var/<span class="built_in">log</span>/caddy \</span><br><span class="line">    -v /etc/caddy:/etc/caddy \</span><br><span class="line">    --restart=always fly97/caddy</span><br></pre></td></tr></table></figure>
 
-<p><del>注意：安装之前要先安装zip用来解压软件</del></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">apt-get install zip</span><br></pre></td></tr></table></figure>
+<p>配置文件放在以下目录</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">/etc/caddy/Caddyfile</span><br><span class="line">http:///hub.docker.com https:///hub.docker.com * &#123;</span><br><span class="line">        root /var/caddywww/hub.docker.com</span><br><span class="line">        gzip</span><br><span class="line">        tls /var/caddywww/.ssl/hub.docker.com/_hub.docker.com_bundle.pem /var/caddywww/.ssl/hub.docker.com/_hub.docker.com.pem</span><br><span class="line">        <span class="built_in">log</span> /var/<span class="built_in">log</span>/caddy/access.log</span><br><span class="line">        errors /var/<span class="built_in">log</span>/caddy/error.log</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 ]]></content>
       <tags>
