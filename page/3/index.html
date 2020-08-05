@@ -206,6 +206,258 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://fly97.cn/2020/03/16/Python%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E4%B9%8B%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BALSTM/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="fly97">
+      <meta itemprop="description" content="你不是我 怎么可能做到感同身受">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="个人随想">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/03/16/Python%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E4%B9%8B%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BALSTM/" class="post-title-link" itemprop="url">Python深度学习之深入浅出LSTM</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-03-16 21:00:00" itemprop="dateCreated datePublished" datetime="2020-03-16T21:00:00+08:00">2020-03-16</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-05-31 10:15:08" itemprop="dateModified" datetime="2020-05-31T10:15:08+08:00">2020-05-31</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=deflault"></script>
+
+<p>什么是LSTM？</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/03/16/Python%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E4%B9%8B%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BALSTM/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://fly97.cn/2020/03/16/Python%E5%AE%9E%E7%94%A8%E6%95%99%E7%A8%8B%E4%B9%8B__getattr__%E7%AD%89%E6%A0%87%E8%AF%86%E7%AC%A6%E7%9A%84%E7%94%A8%E6%B3%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="fly97">
+      <meta itemprop="description" content="你不是我 怎么可能做到感同身受">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="个人随想">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/03/16/Python%E5%AE%9E%E7%94%A8%E6%95%99%E7%A8%8B%E4%B9%8B__getattr__%E7%AD%89%E6%A0%87%E8%AF%86%E7%AC%A6%E7%9A%84%E7%94%A8%E6%B3%95/" class="post-title-link" itemprop="url">Python实用教程之__getattr__等标识符的用法</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-03-16 11:32:00" itemprop="dateCreated datePublished" datetime="2020-03-16T11:32:00+08:00">2020-03-16</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-03-27 21:29:08" itemprop="dateModified" datetime="2020-03-27T21:29:08+08:00">2020-03-27</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>在使用Python的过程中可能遇到以下几个函数：</p>
+<ul>
+<li><code>getattr</code></li>
+<li><code>__getattr__</code></li>
+<li><code>__getattribute__</code></li>
+<li><code>__get__</code></li>
+</ul>
+<p>如何区别他们，如何在编程中正确使用他们呢？</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/03/16/Python%E5%AE%9E%E7%94%A8%E6%95%99%E7%A8%8B%E4%B9%8B__getattr__%E7%AD%89%E6%A0%87%E8%AF%86%E7%AC%A6%E7%9A%84%E7%94%A8%E6%B3%95/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://fly97.cn/2020/03/16/Python%E5%AE%9E%E7%94%A8%E6%95%99%E7%A8%8B%E4%B9%8B%E4%B8%8B%E5%88%92%E7%BA%BF%E5%91%BD%E5%90%8D%E6%A8%A1%E5%BC%8F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="fly97">
+      <meta itemprop="description" content="你不是我 怎么可能做到感同身受">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="个人随想">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/03/16/Python%E5%AE%9E%E7%94%A8%E6%95%99%E7%A8%8B%E4%B9%8B%E4%B8%8B%E5%88%92%E7%BA%BF%E5%91%BD%E5%90%8D%E6%A8%A1%E5%BC%8F/" class="post-title-link" itemprop="url">Python实用教程之下划线命名模式</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-03-16 10:52:00" itemprop="dateCreated datePublished" datetime="2020-03-16T10:52:00+08:00">2020-03-16</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-03-27 21:29:08" itemprop="dateModified" datetime="2020-03-27T21:29:08+08:00">2020-03-27</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>直接上表格。</p>
+<table>
+<thead>
+<tr>
+<th align="center">命名模式</th>
+<th align="center">举例</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">单前导下划线</td>
+<td align="center">_var</td>
+<td>命名约定，仅供内部使用。通常不会由Python解释器内部执行（通配符导入除外），只作为对程序员的提示。通配符导入时，_var代表的<strong>属性</strong>或者<strong>函数</strong>不会被导入。</td>
+</tr>
+<tr>
+<td align="center">单末尾下划线</td>
+<td align="center">var_</td>
+<td>按照约定使用避免与Python关键字的命名冲突。</td>
+</tr>
+<tr>
+<td align="center">双前导下划线</td>
+<td align="center">__var</td>
+<td>当在类上下文使用时，触发名称修饰，由Python解释器强制执行。<br /><strong>Tips：</strong>可以理解为Python对象的<strong>私有属性</strong>。仅供<strong>Python内部成员函数</strong>使用。</td>
+</tr>
+<tr>
+<td align="center">双前导和双末尾下划线</td>
+<td align="center">_<em>var_</em></td>
+<td>表示Python语言定义的特殊方法，避免在你自己的属性中使用这种特殊方法。</td>
+</tr>
+<tr>
+<td align="center">单下划线</td>
+<td align="center">_</td>
+<td>有时用作临时或者不关心的变量名称，也表示<strong>Python REPL</strong>最近的一个表达式的结果。</td>
+</tr>
+</tbody></table>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://fly97.cn/2020/03/07/Git%E5%B8%B8%E8%A7%81%E6%93%8D%E4%BD%9C/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -694,168 +946,11 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://fly97.cn/2019/01/06/Ubuntu18.04%E6%9B%B4%E6%8D%A2%E4%B8%BA%E5%9B%BD%E5%86%85%E6%BA%90/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="fly97">
-      <meta itemprop="description" content="你不是我 怎么可能做到感同身受">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="个人随想">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/01/06/Ubuntu18.04%E6%9B%B4%E6%8D%A2%E4%B8%BA%E5%9B%BD%E5%86%85%E6%BA%90/" class="post-title-link" itemprop="url">Ubuntu18.04更换镜像源</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-01-06 20:46:25" itemprop="dateCreated datePublished" datetime="2019-01-06T20:46:25+08:00">2019-01-06</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-03-07 13:56:00" itemprop="dateModified" datetime="2020-03-07T13:56:00+08:00">2020-03-07</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h4 id="Ubuntu18-04更换镜像源"><a href="#Ubuntu18-04更换镜像源" class="headerlink" title="Ubuntu18.04更换镜像源"></a>Ubuntu18.04更换镜像源</h4><h5 id="1-备份原有镜像源"><a href="#1-备份原有镜像源" class="headerlink" title="1.备份原有镜像源"></a>1.备份原有镜像源</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo mv /etc/apt/sources.list /etc/apt/sourses.list.bak</span><br></pre></td></tr></table></figure>
-
-<h5 id="2-修改-etc-apt-sources-list文件"><a href="#2-修改-etc-apt-sources-list文件" class="headerlink" title="2.修改/etc/apt/sources.list文件"></a>2.修改/etc/apt/sources.list文件</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/apt/sources.list</span><br><span class="line"><span class="comment">#中科大源</span></span><br><span class="line">deb https://mirrors.ustc.edu.cn/ubuntu/ bionic main restricted universe multiverse</span><br><span class="line">deb https://mirrors.ustc.edu.cn/ubuntu/ bionic-updates main restricted universe multiverse</span><br><span class="line">deb https://mirrors.ustc.edu.cn/ubuntu/ bionic-backports main restricted universe multiverse</span><br><span class="line">deb https://mirrors.ustc.edu.cn/ubuntu/ bionic-security main restricted universe multiverse</span><br><span class="line">deb https://mirrors.ustc.edu.cn/ubuntu/ bionic-proposed main restricted universe multiverse</span><br><span class="line">deb-src https://mirrors.ustc.edu.cn/ubuntu/ bionic main restricted universe multiverse</span><br><span class="line">deb-src https://mirrors.ustc.edu.cn/ubuntu/ bionic-updates main restricted universe multiverse</span><br><span class="line">deb-src https://mirrors.ustc.edu.cn/ubuntu/ bionic-backports main restricted universe multiverse</span><br><span class="line">deb-src https://mirrors.ustc.edu.cn/ubuntu/ bionic-security main restricted universe multiverse</span><br><span class="line">deb-src https://mirrors.ustc.edu.cn/ubuntu/ bionic-proposed main restricted universe multiverse</span><br><span class="line"></span><br><span class="line"><span class="comment">#阿里云源</span></span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ bionic main restricted universe multiverse</span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ bionic-security main restricted universe multiverse</span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ bionic-updates main restricted universe multiverse</span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ bionic-proposed main restricted universe multiverse</span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ bionic-backports main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ bionic main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ bionic-security main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ bionic-updates main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ bionic-proposed main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ bionic-backports main restricted universe multiverse</span><br><span class="line"></span><br><span class="line"><span class="comment">#清华源</span></span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic main restricted universe multiverse</span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-updates main restricted universe multiverse</span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-backports main restricted universe multiverse</span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-security main restricted universe multiverse</span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-proposed main restricted universe multiverse</span><br><span class="line">deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic main restricted universe multiverse</span><br><span class="line">deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-updates main restricted universe multiverse</span><br><span class="line">deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-backports main restricted universe multiverse</span><br><span class="line">deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-security main restricted universe multiverse</span><br><span class="line">deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-proposed main restricted universe multiverse</span><br><span class="line"></span><br><span class="line"><span class="comment">#香港中文科技大学源</span></span><br><span class="line">deb http://ftp.cuhk.edu.hk/pub/Linux/ubuntu/ bionic main restricted universe </span><br><span class="line">deb http://ftp.cuhk.edu.hk/pub/Linux/ubuntu/ bionic-security main restricted universe </span><br><span class="line">deb http://ftp.cuhk.edu.hk/pub/Linux/ubuntu/ bionic-updates main restricted universe </span><br><span class="line">deb http://ftp.cuhk.edu.hk/pub/Linux/ubuntu/ bionic-proposed main restricted universe </span><br><span class="line">deb http://ftp.cuhk.edu.hk/pub/Linux/ubuntu/ bionic-backports main restricted universe </span><br><span class="line">deb-src http://ftp.cuhk.edu.hk/pub/Linux/ubuntu/ bionic main restricted universe multiverse</span><br><span class="line">deb-src http://ftp.cuhk.edu.hk/pub/Linux/ubuntu/ bionic-security main restricted universe </span><br><span class="line">deb-src http://ftp.cuhk.edu.hk/pub/Linux/ubuntu/ bionic-updates main restricted universe </span><br><span class="line">deb-src http://ftp.cuhk.edu.hk/pub/Linux/ubuntu/ bionic-proposed main restricted universe </span><br><span class="line">deb-src http://ftp.cuhk.edu.hk/pub/Linux/ubuntu/ bionic-backports main restricted universe</span><br></pre></td></tr></table></figure>
-
-<h5 id="3-其他相关命令"><a href="#3-其他相关命令" class="headerlink" title="3.其他相关命令"></a>3.其他相关命令</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update  更新源</span><br><span class="line">sudo apt-get install package 安装包</span><br><span class="line">sudo apt-get remove package 删除包</span><br><span class="line">sudo apt-cache search package 搜索软件包</span><br><span class="line">sudo apt-cache show package  获取包的相关信息，如说明、大小、版本等</span><br><span class="line">sudo apt-get install package --reinstall  重新安装包</span><br><span class="line">sudo apt-get -f install  修复安装</span><br><span class="line">sudo apt-get remove package --purge 删除包，包括配置文件等</span><br><span class="line">sudo apt-get build-dep package 安装相关的编译环境</span><br><span class="line">sudo apt-get upgrade 更新已安装的包</span><br><span class="line">sudo apt-get dist-upgrade 升级系统</span><br><span class="line">sudo apt-cache depends package 了解使用该包依赖那些包</span><br><span class="line">sudo apt-cache rdepends package 查看该包被哪些包依赖</span><br><span class="line">sudo apt-get <span class="built_in">source</span> package  下载该包的源代码</span><br><span class="line">sudo apt-get clean &amp;&amp; sudo apt-get autoclean 清理无用的包</span><br><span class="line">sudo apt-get check 检查是否有损坏的依赖</span><br></pre></td></tr></table></figure>
-
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://fly97.cn/2019/01/06/Ubuntu%E5%AE%89%E8%A3%85nodejs/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="fly97">
-      <meta itemprop="description" content="你不是我 怎么可能做到感同身受">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="个人随想">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/01/06/Ubuntu%E5%AE%89%E8%A3%85nodejs/" class="post-title-link" itemprop="url">Ubuntu安装nodejs并更改npm镜像源</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-01-06 20:46:25" itemprop="dateCreated datePublished" datetime="2019-01-06T20:46:25+08:00">2019-01-06</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-01-20 20:10:20" itemprop="dateModified" datetime="2020-01-20T20:10:20+08:00">2020-01-20</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h4 id="Ubuntu安装nodejs并更改npm镜像源"><a href="#Ubuntu安装nodejs并更改npm镜像源" class="headerlink" title="Ubuntu安装nodejs并更改npm镜像源"></a>Ubuntu安装nodejs并更改npm镜像源</h4><p>由于众所周知的原因，在国内使用原有的源安装<code>nodejs</code>速度非常缓慢，故可以采用清华大学的源</p>
-<h5 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -sL https://deb.nodesource.com/setup_12.x | sudo bash</span><br></pre></td></tr></table></figure>
-
-<h5 id="编辑-etc-apt-sources-list-d-nodesource-list"><a href="#编辑-etc-apt-sources-list-d-nodesource-list" class="headerlink" title="编辑 /etc/apt/sources.list.d/nodesource.list"></a>编辑 /etc/apt/sources.list.d/nodesource.list</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">deb https://deb.nodesource.com/node_12.x xenial main</span><br><span class="line">deb-src https://deb.nodesource.com/node_12.x xenial main</span><br></pre></td></tr></table></figure>
-
-<h5 id="更改为："><a href="#更改为：" class="headerlink" title="更改为："></a>更改为：</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/nodesource/deb_12.x xenial main</span><br><span class="line">deb-src https://mirrors.tuna.tsinghua.edu.cn/nodesource/deb_12.x xenial main</span><br></pre></td></tr></table></figure>
-
-<h5 id="更新源"><a href="#更新源" class="headerlink" title="更新源"></a>更新源</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">apt-get clean</span><br><span class="line">apt-get update</span><br></pre></td></tr></table></figure>
-
-<h5 id="安装nodejs"><a href="#安装nodejs" class="headerlink" title="安装nodejs"></a>安装nodejs</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get install nodejs</span><br></pre></td></tr></table></figure>
-
-<h5 id="查看版本"><a href="#查看版本" class="headerlink" title="查看版本"></a>查看版本</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">nodejs -v</span><br><span class="line"></span><br><span class="line">npm -v</span><br></pre></td></tr></table></figure>
-
-<h5 id="更换npm源"><a href="#更换npm源" class="headerlink" title="更换npm源"></a>更换npm源</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm config <span class="built_in">set</span> registry https://registry.npm.taobao.org</span><br></pre></td></tr></table></figure>
-
-<h5 id="验证是否成功"><a href="#验证是否成功" class="headerlink" title="验证是否成功"></a>验证是否成功</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm config get registry</span><br></pre></td></tr></table></figure>
-
-<h5 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-cli -g</span><br></pre></td></tr></table></figure>
-
-<h5 id="初始化Hexo"><a href="#初始化Hexo" class="headerlink" title="初始化Hexo"></a>初始化Hexo</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo init</span><br></pre></td></tr></table></figure>
-
-<h5 id="生成静态网页"><a href="#生成静态网页" class="headerlink" title="生成静态网页"></a>生成静态网页</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo g</span><br></pre></td></tr></table></figure>
-
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span>
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -921,7 +1016,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">29</span>
+          <span class="site-state-item-count">32</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>

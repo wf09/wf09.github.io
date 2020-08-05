@@ -46,31 +46,20 @@
   };
 </script>
 
-  <meta name="description" content="Python是一种面向对象的解释型计算机程序设计语言，其使用，具有跨平台的特点，可以在Linux、macOS以及Windows系统中搭建环境并使用，其编写的代码在不同平台上运行时，几乎不需要做较大的改动，使用者无不受益于它的便捷性。 此外，Python的强大之处在于它的应用领域范围之广，遍及人工智能、科学计算、Web开发、系统运维、大数据及云计算、金融、游戏开发等。实现其强大功能的前提，就是Pyt">
+  <meta name="description" content="PyTorch（1.3.0）主要包括以下16个模块。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="安装Anaconda3(一)">
-<meta property="og:url" content="http://fly97.cn/2020/07/23/Anacoda3%E6%95%99%E7%A8%8B(%E4%B8%80)/index.html">
+<meta property="og:title" content="Pytorch学习(一)">
+<meta property="og:url" content="http://fly97.cn/2020/08/03/Pytorch%E5%AD%A6%E4%B9%A0(%E4%B8%80)/index.html">
 <meta property="og:site_name" content="个人随想">
-<meta property="og:description" content="Python是一种面向对象的解释型计算机程序设计语言，其使用，具有跨平台的特点，可以在Linux、macOS以及Windows系统中搭建环境并使用，其编写的代码在不同平台上运行时，几乎不需要做较大的改动，使用者无不受益于它的便捷性。 此外，Python的强大之处在于它的应用领域范围之广，遍及人工智能、科学计算、Web开发、系统运维、大数据及云计算、金融、游戏开发等。实现其强大功能的前提，就是Pyt">
+<meta property="og:description" content="PyTorch（1.3.0）主要包括以下16个模块。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/wf09/upload/image-20191228165427982.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/wf09/upload/image-20191228170139071.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/wf09/upload/image-20191228170508433.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/wf09/upload/image-20191228170821162.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200723190040460.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200723190154019.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200723190228823.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200723191007101.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200723191158884.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200723191351960.png">
-<meta property="article:published_time" content="2020-07-23T11:05:00.000Z">
-<meta property="article:modified_time" content="2020-07-23T11:18:01.747Z">
+<meta property="article:published_time" content="2020-08-03T12:54:00.000Z">
+<meta property="article:modified_time" content="2020-08-04T08:34:00.147Z">
 <meta property="article:author" content="fly97">
-<meta property="article:tag" content="学习教程">
+<meta property="article:tag" content="Pytorch">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/wf09/upload/image-20191228165427982.png">
 
-<link rel="canonical" href="http://fly97.cn/2020/07/23/Anacoda3%E6%95%99%E7%A8%8B(%E4%B8%80)/">
+<link rel="canonical" href="http://fly97.cn/2020/08/03/Pytorch%E5%AD%A6%E4%B9%A0(%E4%B8%80)/">
 
 
 <script id="page-configurations">
@@ -82,7 +71,7 @@
   };
 </script>
 
-  <title>安装Anaconda3(一) | 个人随想</title>
+  <title>Pytorch学习(一) | 个人随想</title>
   
 
 
@@ -219,7 +208,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://fly97.cn/2020/07/23/Anacoda3%E6%95%99%E7%A8%8B(%E4%B8%80)/">
+    <link itemprop="mainEntityOfPage" href="http://fly97.cn/2020/08/03/Pytorch%E5%AD%A6%E4%B9%A0(%E4%B8%80)/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -232,7 +221,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          安装Anaconda3(一)
+          Pytorch学习(一)
         </h1>
 
         <div class="post-meta">
@@ -241,10 +230,16 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2020-07-23 19:05:00 / 修改时间：19:18:01" itemprop="dateCreated datePublished" datetime="2020-07-23T19:05:00+08:00">2020-07-23</time>
+              <time title="创建时间：2020-08-03 20:54:00" itemprop="dateCreated datePublished" datetime="2020-08-03T20:54:00+08:00">2020-08-03</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-08-04 16:34:00" itemprop="dateModified" datetime="2020-08-04T16:34:00+08:00">2020-08-04</time>
+              </span>
 
           
 
@@ -257,42 +252,33 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>Python是一种面向对象的解释型计算机程序设计语言，其使用，具有跨平台的特点，可以在Linux、macOS以及Windows系统中搭建环境并使用，其编写的代码在不同平台上运行时，几乎不需要做较大的改动，使用者无不受益于它的便捷性。</p>
-<p>此外，Python的强大之处在于它的应用领域范围之广，遍及人工智能、科学计算、Web开发、系统运维、大数据及云计算、金融、游戏开发等。实现其强大功能的前提，就是Python具有数量庞大且功能相对完善的标准库和第三方库。通过对库的引用，能够实现对不同领域业务的开发。然而，正是由于库的数量庞大，对于管理这些库以及对库作及时的维护成为既重要但复杂度又高的事情。</p>
-<p><strong>Anaconda（<a href="https://link.zhihu.com/?target=https%3A//www.anaconda.com/download/%23macos">官方网站</a>）就是可以便捷获取包且对包能够进行管理，同时对环境可以统一管理的发行版本。Anaconda包含了conda、Python在内的超过180个科学包及其依赖项。</strong></p>
+        <p>PyTorch（1.3.0）主要包括以下16个模块。</p>
 <a id="more"></a>
 
-<h3 id="下载Anadoda3安装包"><a href="#下载Anadoda3安装包" class="headerlink" title="下载Anadoda3安装包"></a>下载Anadoda3安装包</h3><ul>
-<li><p>可以选择清华镜像源</p>
-<p><a href="https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/Anaconda3-2019.10-Windows-x86_64.exe" target="_blank" rel="noopener">https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/Anaconda3-2019.10-Windows-x86_64.exe</a></p>
-</li>
-</ul>
-<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20191228165427982.png" alt=""></p>
-<ul>
-<li><p><del>官网下载(网速特别慢)</del></p>
-<p><a href="https://repo.anaconda.com/archive/Anaconda3-2019.10-Windows-x86_64.exe" target="_blank" rel="noopener">https://repo.anaconda.com/archive/Anaconda3-2019.10-Windows-x86_64.exe</a></p>
-<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20191228170139071.png" alt="image-20191228170139071"></p>
-</li>
-</ul>
-<h3 id="双击安装"><a href="#双击安装" class="headerlink" title="双击安装"></a>双击安装</h3><p><em>注意：安装时可以选择将Anaconda注册为默认的Python环境</em></p>
-<p>​    <img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20191228170508433.png" alt="image-20191228170508433" style="zoom:67%;" /></p>
-<p><strong>注意：官方不推荐第一个选项。勾选第二个选项即可。</strong></p>
-<p>等待安装完成。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20191228170821162.png" alt="image-20191228170821162"></p>
-<h3 id="验证安装完成"><a href="#验证安装完成" class="headerlink" title="验证安装完成"></a>验证安装完成</h3><p>点击开始 -&gt; Anaconda3 </p>
-<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200723190040460.png" alt="image-20200723190040460"></p>
-<p>找到<strong>Anaconda Prompt (Anaconda3)</strong></p>
-<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200723190154019.png" alt="image-20200723190154019"></p>
-<p>点击并输入Python，敲回车以后出现以下提示说明安装完成。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200723190228823.png" alt="image-20200723190228823"></p>
-<h3 id="程序编写"><a href="#程序编写" class="headerlink" title="程序编写"></a>程序编写</h3><p>点击<strong>开始 -&gt; Anaconda3 -&gt; Spyder</strong></p>
-<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200723191007101.png" alt="image-20200723191007101"></p>
-<p>也可以点击<strong>开始 -&gt; Anaconda3 -&gt; Jupyter Notebook (Anaconda3)</strong></p>
-<p>等待片刻后会自动打开浏览器</p>
-<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200723191158884.png" alt="image-20200723191158884"></p>
-<p>输入代码以后，按住<strong>shift+回车</strong>，即可运行代码。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200723191351960.png" alt="image-20200723191351960"></p>
-<p>未完待续……</p>
+<h4 id="torch模块"><a href="#torch模块" class="headerlink" title="torch模块"></a>torch模块</h4><p>torch 模块本身包含了Pytorch经常使用的一些激活函数。</p>
+<p>例如<strong>Sigmoid (torch.sigmoid)</strong>、<strong>ReLU(torch.relu)</strong>和<strong>Tanh（torch.tanh)</strong>，以及Pytorch张量的一些操作，比如<strong>矩阵的乘法(torch.mm)</strong>、<strong>张量元素的选择(torch.select)</strong>。需要注意的是，这些操作的对象大多数都是张量，因此传入的参数需要是Pytorch的张量。否则会抛出<strong>类型错误（TypeError)</strong>的异常。</p>
+<p>此外，还有一类函数能够产生一定形状的张量，比如<strong>torch.zeros产生元素全为0的张量</strong>。<strong>torch.randn产生元素服从标准正态分布的张量</strong>等等。</p>
+<h4 id="torch-Tensor模块"><a href="#torch-Tensor模块" class="headerlink" title="torch.Tensor模块"></a>torch.Tensor模块</h4><p>torch.Tensor模块定义了torch中的张量类型，其中的张量有不同的数值类型，例如单精度、双精度浮点型、整数类型等，而且张量有一定的维度和形状。同时，张量的类中也包含一系列的方法，返回新的张量或者更改当前的张量。torch.Storage负责torch.Tensor底层的数据存储，即前面提到的为一个张量分配连续的一维内存地址（用于存储相同类型的一系列元素，数目则为张量的总元素数目）。</p>
+<p><strong>如果张量的某个类方法会返回张量，按照Pytorch的命名规则，如果张量方法后缀带下划线，则该方法会修改张量本身的数据，反之则会返回新的张量。</strong></p>
+<blockquote>
+<p>例如：Tensor.add方法会让当前张量和输入参数张量做加法，返回新的张量。而Tensor.add_方法会改变当前张量的值，新的值为旧的值和输入参数之和。</p>
+</blockquote>
+<h4 id="torch-sparse模块"><a href="#torch-sparse模块" class="headerlink" title="torch.sparse模块"></a>torch.sparse模块</h4><p>torch.sparse模块定义了稀疏张量，其中构造的稀疏张量采用的是COO格式（Coordinate），主要方法是用一个长整型定义非零元素的位置，用浮点数张量定义非零元素的值。稀疏张量之间可以做元素加、减、乘、除运算和矩阵乘法。</p>
+<h4 id="torch-cuda模块"><a href="#torch-cuda模块" class="headerlink" title="torch.cuda模块"></a>torch.cuda模块</h4><p>torch.cuda模块定义了CUDA运算一系列函数，包括但不限于检查系统的CUDA是否可用，当前进程对应的GPU序号，清除GPU上面的缓存，设置GPU的计算流（Stream），同步GPU上执行的所以核函数（Kernel）等。</p>
+<h4 id="torch-nn模块"><a href="#torch-nn模块" class="headerlink" title="torch.nn模块"></a>torch.nn模块</h4><p>torch.nn是一个非常重要的模块，是Pytorch神经网络模块化的核心，这个模块定义了一系列模块，包括<strong>卷积层(nn.ConvNd(N=1，2，3))</strong>和<strong>线性层(nn.Linear)</strong>等。</p>
+<p>当构建深度学习模型的时候，可以通过继承<strong>torch.nn.Module类</strong>重写forward方法来实现一个新的神经网络(后续会提到如何通过组合神经网络模块来构建深度学习模型)。</p>
+<p>另外，torch.nn中也定义了一系列的损失函数，包括<strong>平方损失函数(torch.nn.MSEloss)</strong>、<strong>交叉熵损失函数(torch.nn.CrossEntropyLoss)</strong>等。</p>
+<p>torch.nn里定义的神经网络模块都含有参数，可以对这些参数使用优化器进行训练。</p>
+<h4 id="torch-nn-functional函数模块"><a href="#torch-nn-functional函数模块" class="headerlink" title="torch.nn.functional函数模块"></a>torch.nn.functional函数模块</h4><p><strong>torch.nn.funtional</strong>是Pytorch的函数模块，定义了一些核神经网络相关的函数，包括卷积函数和池化函数等，这些函数也是深度学习模型构建的基础。</p>
+<p>torch.nn中定义的模块一般会调用torch.nn.functional里的函数。例如，nn.ConvNd模块(N=1,2,3)会调用torch.nn.functional.convNd函数(N=1,2,3)。</p>
+<p>torch.nn.functional里面还定义了一些不常用的激活函数，包括<strong>torch.nn.functional.relu6和torch.nn.functional.elu</strong>等。</p>
+<h4 id="torch-nn-init模块"><a href="#torch-nn-init模块" class="headerlink" title="torch.nn.init模块"></a>torch.nn.init模块</h4><p>torch.nn.init模块定义了神经网络权重初始化。</p>
+<p>如果初始化的神经网络取值不合适，就会导致后续的优化过程收敛很慢，甚至不收敛。</p>
+<p>这个模块包含很多初始化方法，包括<strong>均匀初始化torch.nn.init.uniform_</strong>和<strong>正态分布归一化torch.nn.init.normal_</strong>等。这个方法会直接改变传入张量的值，同时会改变返回后的张量。</p>
+<h4 id="torch-optim模块"><a href="#torch-optim模块" class="headerlink" title="torch.optim模块"></a>torch.optim模块</h4><p>torch.optim模块定义了一系列的优化器，如t<strong>orch.optim.SGD(随机梯度下降法)</strong>、<strong>torch.optim.Adagrad(AdaGrad算法)</strong>、<strong>torch.optim.RMSprop(RMSprop算法)</strong>和<strong>torch.optim.Adam(Adam算法)</strong>等。</p>
+<p>这个模块还包含学习率衰减的算法的子模块，即<strong>torch.optim.lr_scheduler</strong>。这个子模块中包含了<strong>torch.optim.lr_scheduker.StepLR(学习率阶梯下降算法)</strong>和<strong>torch.optim.lr_scheduler.CosineAnnealingLR(余弦退火算法)</strong>等学习率衰减算法。</p>
+<h4 id="torch-autograd模块"><a href="#torch-autograd模块" class="headerlink" title="torch.autograd模块"></a>torch.autograd模块</h4><p>torch.autograd模块是Pytorch的自动微分模块，定义了一系列的自动微分函数。<strong>torch.autograd.backward</strong>函数，主要用于在求得损失函数之后进行反向梯度传播。<strong>torch.autograd.grad</strong>函数用于一个标量张量(即只有一个分量的张量)对另一个张量求导，以及在代码中设置不参与求导的部分。</p>
+<p>这个模块还内置了<strong>数值梯度功能</strong>和<strong>检查自动微分引擎是否输出正确结果</strong>的功能。</p>
 
     </div>
 
@@ -302,7 +288,7 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/%E5%AD%A6%E4%B9%A0%E6%95%99%E7%A8%8B/" rel="tag"># 学习教程</a>
+              <a href="/tags/Pytorch/" rel="tag"># Pytorch</a>
           </div>
 
         
@@ -311,13 +297,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2020/07/18/%E5%88%9D%E6%8E%A2docker02/" rel="prev" title="初探Docker(二)">
-      <i class="fa fa-chevron-left"></i> 初探Docker(二)
+    <a href="/2020/08/03/Pytorch%E5%AD%A6%E4%B9%A0(%E4%BA%8C)/" rel="prev" title="Pytorch学习(二)">
+      <i class="fa fa-chevron-left"></i> Pytorch学习(二)
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2020/07/25/%E5%88%9D%E6%8E%A2Tkinter02/" rel="next" title="初探Tkinter(二)">
-      初探Tkinter(二) <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -377,7 +360,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#下载Anadoda3安装包"><span class="nav-number">1.</span> <span class="nav-text">下载Anadoda3安装包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#双击安装"><span class="nav-number">2.</span> <span class="nav-text">双击安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#验证安装完成"><span class="nav-number">3.</span> <span class="nav-text">验证安装完成</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#程序编写"><span class="nav-number">4.</span> <span class="nav-text">程序编写</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#torch模块"><span class="nav-number">1.</span> <span class="nav-text">torch模块</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#torch-Tensor模块"><span class="nav-number">2.</span> <span class="nav-text">torch.Tensor模块</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#torch-sparse模块"><span class="nav-number">3.</span> <span class="nav-text">torch.sparse模块</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#torch-cuda模块"><span class="nav-number">4.</span> <span class="nav-text">torch.cuda模块</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#torch-nn模块"><span class="nav-number">5.</span> <span class="nav-text">torch.nn模块</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#torch-nn-functional函数模块"><span class="nav-number">6.</span> <span class="nav-text">torch.nn.functional函数模块</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#torch-nn-init模块"><span class="nav-number">7.</span> <span class="nav-text">torch.nn.init模块</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#torch-optim模块"><span class="nav-number">8.</span> <span class="nav-text">torch.optim模块</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#torch-autograd模块"><span class="nav-number">9.</span> <span class="nav-text">torch.autograd模块</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
