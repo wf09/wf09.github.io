@@ -2338,7 +2338,7 @@
       </tags>
   </entry>
   <entry>
-    <title>Pytorch学习(二)</title>
+    <title>Pytorch学习(三)</title>
     <url>/2020/08/03/Pytorch%E5%AD%A6%E4%B9%A0(%E4%B8%89)/</url>
     <content><![CDATA[<p>下面介绍Pytorch的辅助工具模块。</p>
 <p>torch.utils提供了一系列的工具来帮助神经网络的训练、测试和结构优化。这个模块主要包含以下6个子模块。</p>
@@ -2356,11 +2356,11 @@
 <p>Dataset代表了包含了所有数据的数据集，通过索引能够得到某一条特定的数据。</p>
 <p>DataLoader通过对数据集的包装，可以通过对数据集的包装，可以对数据集进行随机排列（Shuffle）和采样（Sample），得到一系列打乱数据顺序的迷你批次。</p>
 <h4 id="torch-utils-dlpack"><a href="#torch-utils-dlpack" class="headerlink" title="torch.utils.dlpack"></a><del>torch.utils.dlpack</del></h4><p>torch.utils.dlpack定义了PyTorch张量和DLPack张量存储格式之间的转换，用于不同框架之间张量数据的交换。</p>
-<h4 id="torch-utils-tensorboard模块"><a href="#torch-utils-tensorboard模块" class="headerlink" title="torch.utils.tensorboard模块"></a>torch.utils.tensorboard模块</h4><p>torch.utils.tensorboard是PyTorch对TensorBoard数据可视化工具的支持。</p>
+<h4 id="torch-utils-tensorboard"><a href="#torch-utils-tensorboard" class="headerlink" title="torch.utils.tensorboard"></a>torch.utils.tensorboard</h4><p>torch.utils.tensorboard是PyTorch对TensorBoard数据可视化工具的支持。</p>
 <p>TensorBoard原来是TensorFlow自带的数据可视化工具，能够显示深度学习模型在训练过程中损失函数、张量权重的直方图，以及模型训练过程中输出的文本、图像、和视频等。</p>
 <p>TensorBoard的功能非常强大，而且是基于可交互的动态网页设计的，使用者可以通过预先提供的一系列功能来输出特定的训练过程的细节（如某一神经网络层的权重的直方图，以及训练过程中给某一段时间的损失函数等）。</p>
 <p>PyTorch支持TensorBoard可视化之后，在PyTorch的训练过程中，可以很方便地观察中间输出的张量，也可以方便地调试深度学习模型。</p>
-<p>PS：PyTorch在版本迭代的过程中，一些函数的用法会发生改变。含有<strong>删除线</strong>的函数的用法在最新的版本中已经被删掉了。</p>
+<p><strong>PS：PyTorch在版本迭代的过程中，一些函数的用法会发生改变。含有删除线的函数的用法在最新的版本中已经被删掉了。</strong></p>
 ]]></content>
       <tags>
         <tag>Pytorch</tag>
