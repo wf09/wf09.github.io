@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
 <meta name="generator" content="Hexo 4.2.0">
@@ -46,18 +46,21 @@
   };
 </script>
 
-  <meta name="description" content="你不是我 怎么可能做到感同身受">
-<meta property="og:type" content="website">
-<meta property="og:title" content="个人随想">
-<meta property="og:url" content="http://fly97.cn/tags/%E9%AA%8C%E8%AF%81%E5%87%BD%E6%95%B0/index.html">
+  <meta name="description" content="废话不多说，直接上代码。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python中pickle模块的使用">
+<meta property="og:url" content="http://fly97.cn/2020/03/04/Python%E4%B8%ADpickle%E6%A8%A1%E5%9D%97%E7%9A%84%E4%BD%BF%E7%94%A8/index.html">
 <meta property="og:site_name" content="个人随想">
-<meta property="og:description" content="你不是我 怎么可能做到感同身受">
+<meta property="og:description" content="废话不多说，直接上代码。">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-03-04T05:00:00.000Z">
+<meta property="article:modified_time" content="2020-08-05T14:48:06.937Z">
 <meta property="article:author" content="fly97">
-<meta property="article:tag" content="fly97&#39;s blogs">
+<meta property="article:tag" content="Python">
+<meta property="article:tag" content="pickle">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://fly97.cn/tags/%E9%AA%8C%E8%AF%81%E5%87%BD%E6%95%B0/">
+<link rel="canonical" href="http://fly97.cn/2020/03/04/Python%E4%B8%ADpickle%E6%A8%A1%E5%9D%97%E7%9A%84%E4%BD%BF%E7%94%A8/">
 
 
 <script id="page-configurations">
@@ -65,11 +68,11 @@
   CONFIG.page = {
     sidebar: "",
     isHome: false,
-    isPost: false
+    isPost: true
   };
 </script>
 
-  <title>标签: 验证函数 | 个人随想</title>
+  <title>Python中pickle模块的使用 | 个人随想</title>
   
 
 
@@ -98,12 +101,12 @@
   .use-motion .logo-line-before i { left: initial; }
   .use-motion .logo-line-after i { right: initial; }
   </style>
-</noscript>
+</noscript><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
-  <div class="container use-motion">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container use-motion">
     <div class="headband"></div>
 
     <header class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -201,50 +204,155 @@
           <div class="content">
             
 
+  <div class="posts-expand">
+      
   
   
-  
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        <h1 class="collection-header">验证函数
-          <small>标签</small>
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://fly97.cn/2020/03/04/Python%E4%B8%ADpickle%E6%A8%A1%E5%9D%97%E7%9A%84%E4%BD%BF%E7%94%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="fly97">
+      <meta itemprop="description" content="你不是我 怎么可能做到感同身受">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="个人随想">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Python中pickle模块的使用
         </h1>
-      </div>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-03-04 13:00:00" itemprop="dateCreated datePublished" datetime="2020-03-04T13:00:00+08:00">2020-03-04</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-08-05 22:48:06" itemprop="dateModified" datetime="2020-08-05T22:48:06+08:00">2020-08-05</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    <div class="collection-year">
-      <h1 class="collection-header">2020</h1>
+        <p>废话不多说，直接上代码。</p>
+<a id="more"></a>
+
+<h5 id="把变量写入文件"><a href="#把变量写入文件" class="headerlink" title="把变量写入文件"></a>把变量写入文件</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pickle</span><br><span class="line"></span><br><span class="line">data = <span class="string">"I am a boy."</span></span><br><span class="line">file = open(<span class="string">'data.pkl'</span>, <span class="string">'wb'</span>)</span><br><span class="line">pickle.dump(data, file, [protocol])</span><br><span class="line"><span class="comment">#data----变量名称</span></span><br><span class="line"><span class="comment">#file----文件指针</span></span><br><span class="line"><span class="comment">#protocol----序列化使用的协议。如果该项省略，则默认为0。如果为负值或HIGHEST_PROTOCOL，则使用最高的协议版本</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="从文件中读取变量"><a href="#从文件中读取变量" class="headerlink" title="从文件中读取变量"></a>从文件中读取变量</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pickle</span><br><span class="line"></span><br><span class="line">file = open(<span class="string">'data.pkl'</span>, <span class="string">'rb'</span>)</span><br><span class="line">data = pickle.load(file)</span><br></pre></td></tr></table></figure>
+
+
+
+<h5 id="With-open函数打开文件的各种方式"><a href="#With-open函数打开文件的各种方式" class="headerlink" title="With open函数打开文件的各种方式"></a>With open函数打开文件的各种方式</h5><table>
+<thead>
+<tr>
+<th><strong>type</strong></th>
+<th>info</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>r</td>
+<td>以只读方式打开文件。文件的指针将会放在文件的开头。这是默认模式。</td>
+</tr>
+<tr>
+<td>w</td>
+<td>打开一个文件只用于写入。如果该文件已存在则将其覆盖。如果该文件不存在，创建新文件。</td>
+</tr>
+<tr>
+<td>a</td>
+<td>打开一个文件用于追加。如果该文件已存在，文件指针将会放在文件的结尾。也就是说，新的内容将会被写入到已有内容之后。如果该文件不存在，创建新文件进行写入。</td>
+</tr>
+<tr>
+<td>rb</td>
+<td>以二进制格式打开一个文件用于只读。文件指针将会放在文件的开头。这是默认模式。</td>
+</tr>
+<tr>
+<td>wb</td>
+<td>以二进制格式打开一个文件只用于写入。如果该文件已存在则将其覆盖。如果该文件不存在，创建新文件。</td>
+</tr>
+<tr>
+<td>ab</td>
+<td>以二进制格式打开一个文件用于追加。如果该文件已存在，文件指针将会放在文件的结尾。也就是说，新的内容将会被写入到已有内容之后。如果该文件不存在，创建新文件进行写入。</td>
+</tr>
+<tr>
+<td>r+</td>
+<td>打开一个文件用于读写。文件指针将会放在文件的开头。</td>
+</tr>
+<tr>
+<td>w+</td>
+<td>打开一个文件用于读写。如果该文件已存在则将其覆盖。如果该文件不存在，创建新文件。</td>
+</tr>
+<tr>
+<td>a+</td>
+<td>打开一个文件用于读写。如果该文件已存在，文件指针将会放在文件的结尾。文件打开时会是追加模式。如果该文件不存在，创建新文件用于读写。</td>
+</tr>
+<tr>
+<td>rb+</td>
+<td>以二进制格式打开一个文件用于读写。文件指针将会放在文件的开头。</td>
+</tr>
+<tr>
+<td>wb+</td>
+<td>以二进制格式打开一个文件用于读写。如果该文件已存在则将其覆盖。如果该文件不存在，创建新文件。</td>
+</tr>
+<tr>
+<td>ab+</td>
+<td>以二进制格式打开一个文件用于追加。如果该文件已存在，文件指针将会放在文件的结尾。如果该文件不存在，创建新文件用于读写。</td>
+</tr>
+</tbody></table>
+
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+    
+    
+    
 
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-06-30T13:54:00+08:00"
-              content="2020-06-30">
-          06-30
-        </time>
-      </div>
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Python/" rel="tag"># Python</a>
+              <a href="/tags/pickle/" rel="tag"># pickle</a>
+          </div>
 
-      <h2 class="post-title">
-          <a class="post-title-link" href="/2020/06/30/%E5%88%9D%E6%8E%A2Tkinter01/" itemprop="url">
-            <span itemprop="name">初探Tkinter(一)</span>
-          </a>
-      </h2>
+        
 
-    </header>
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/02/17/%E4%BD%BF%E7%94%A8pip%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85pytorch/" rel="prev" title="使用pip离线安装pytorch-gpu">
+      <i class="fa fa-chevron-left"></i> 使用pip离线安装pytorch-gpu
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/03/05/PyTorch%E4%B8%ADtorch.Tensor%E5%92%8Ctorch.tensor%E7%9A%84%E5%8C%BA%E5%88%AB/" rel="next" title="PyTorch中torch.Tensor和torch.tensor的区别">
+      PyTorch中torch.Tensor和torch.tensor的区别 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
   </article>
+  
+  
+  
 
-    </div>
   </div>
-  
-  
-  
-
-  
-
 
 
           </div>
@@ -295,6 +403,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#把变量写入文件"><span class="nav-number">1.</span> <span class="nav-text">把变量写入文件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#从文件中读取变量"><span class="nav-number">2.</span> <span class="nav-text">从文件中读取变量</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#With-open函数打开文件的各种方式"><span class="nav-number">3.</span> <span class="nav-text">With open函数打开文件的各种方式</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -308,14 +417,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">32</span>
+          <span class="site-state-item-count">33</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">35</span>
+        <span class="site-state-item-count">34</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -394,7 +503,7 @@
 
 
   
-<script src="/js/local-search.js"></script>
+<script src="/js/local-search.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 
 
@@ -407,6 +516,8 @@
 
 
 
+
+  
 
   
 

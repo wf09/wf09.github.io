@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
 <meta name="generator" content="Hexo 4.2.0">
@@ -46,18 +46,20 @@
   };
 </script>
 
-  <meta name="description" content="你不是我 怎么可能做到感同身受">
-<meta property="og:type" content="website">
-<meta property="og:title" content="个人随想">
-<meta property="og:url" content="http://fly97.cn/tags/Python%E6%95%99%E7%A8%8B/index.html">
+  <meta name="description" content="不说废话，直接上教程。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PyTorch中torch.Tensor和torch.tensor的区别">
+<meta property="og:url" content="http://fly97.cn/2020/03/05/PyTorch%E4%B8%ADtorch.Tensor%E5%92%8Ctorch.tensor%E7%9A%84%E5%8C%BA%E5%88%AB/index.html">
 <meta property="og:site_name" content="个人随想">
-<meta property="og:description" content="你不是我 怎么可能做到感同身受">
+<meta property="og:description" content="不说废话，直接上教程。">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-03-05T03:44:00.000Z">
+<meta property="article:modified_time" content="2020-03-07T03:44:00.000Z">
 <meta property="article:author" content="fly97">
-<meta property="article:tag" content="fly97&#39;s blogs">
+<meta property="article:tag" content="PyTorch">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://fly97.cn/tags/Python%E6%95%99%E7%A8%8B/">
+<link rel="canonical" href="http://fly97.cn/2020/03/05/PyTorch%E4%B8%ADtorch.Tensor%E5%92%8Ctorch.tensor%E7%9A%84%E5%8C%BA%E5%88%AB/">
 
 
 <script id="page-configurations">
@@ -65,11 +67,11 @@
   CONFIG.page = {
     sidebar: "",
     isHome: false,
-    isPost: false
+    isPost: true
   };
 </script>
 
-  <title>标签: Python教程 | 个人随想</title>
+  <title>PyTorch中torch.Tensor和torch.tensor的区别 | 个人随想</title>
   
 
 
@@ -98,12 +100,12 @@
   .use-motion .logo-line-before i { left: initial; }
   .use-motion .logo-line-after i { right: initial; }
   </style>
-</noscript>
+</noscript><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
-  <div class="container use-motion">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container use-motion">
     <div class="headband"></div>
 
     <header class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -201,110 +203,106 @@
           <div class="content">
             
 
+  <div class="posts-expand">
+      
   
   
-  
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        <h1 class="collection-header">Python教程
-          <small>标签</small>
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://fly97.cn/2020/03/05/PyTorch%E4%B8%ADtorch.Tensor%E5%92%8Ctorch.tensor%E7%9A%84%E5%8C%BA%E5%88%AB/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="fly97">
+      <meta itemprop="description" content="你不是我 怎么可能做到感同身受">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="个人随想">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          PyTorch中torch.Tensor和torch.tensor的区别
         </h1>
-      </div>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-03-05 11:44:00" itemprop="dateCreated datePublished" datetime="2020-03-05T11:44:00+08:00">2020-03-05</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-03-07 11:44:00" itemprop="dateModified" datetime="2020-03-07T11:44:00+08:00">2020-03-07</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    <div class="collection-year">
-      <h1 class="collection-header">2020</h1>
-    </div>
+        <p>不说废话，直接上教程。</p>
+<a id="more"></a>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+<h4 id="torch-Tensor和torch-tensor有什么区别？"><a href="#torch-Tensor和torch-tensor有什么区别？" class="headerlink" title="torch.Tensor和torch.tensor有什么区别？"></a>torch.Tensor和torch.tensor有什么区别？</h4><h6 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h6><p>​    在PyTorch 中，torch.Tensor是主要的tensor类，所有的tensor都是torch.Tensor的实例。torch.Tensor是torch.FloatTensor的别名。<br>而torch.tensor是一个函数，返回的是一个tensor，在PyTorch官方文档中，描述如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">torch.tensor(data, dtype=<span class="literal">None</span>, device=<span class="literal">None</span>, requires_grad=<span class="literal">False</span>) → Tensor</span><br><span class="line">Constructs a tensor <span class="keyword">with</span> data.</span><br></pre></td></tr></table></figure>
 
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-04-30T21:35:00+08:00"
-              content="2020-04-30">
-          04-30
-        </time>
-      </div>
+<h6 id="区别1"><a href="#区别1" class="headerlink" title="区别1"></a>区别1</h6><p><code>torch.Tensor(data)</code>是将输入的data转化<code>torch.FloatTensor</code></p>
+<p><code>torch.tensor(data)</code>(当你未指定<code>dype</code>的类型时)是将data转化为<code>torch.FloatTensor、torch.LongTensor、torch.DoubleTensor</code>等类型，转化类型依据于<code>data</code>的类型或者<code>dtype</code>的值</p>
+<h5 id="区别2"><a href="#区别2" class="headerlink" title="区别2"></a>区别2</h5><p>使用如下语句：<code>tensor_without_data = torch.Tensor()</code>可以创建一个空的<code>FloatTensor</code>，而当你使用<code>tensor_without_data = torch.tensor()</code>时候则会报错：</p>
+<hr>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">TypeError Traceback (most recent call last)</span><br><span class="line">&lt;ipython-input<span class="number">-12</span>-ebc3ceaa76d2&gt; <span class="keyword">in</span> &lt;module&gt;()</span><br><span class="line">----&gt; 1 torch.tensor()</span><br><span class="line"></span><br><span class="line">TypeError: tensor() missing <span class="number">1</span> required positional arguments: <span class="string">"data"</span></span><br></pre></td></tr></table></figure>
 
-      <h2 class="post-title">
-          <a class="post-title-link" href="/2020/04/30/python%E5%AE%9E%E7%94%A8%E6%95%99%E7%A8%8B%E4%B9%8Bre%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%8C%B9%E9%85%8D/" itemprop="url">
-            <span itemprop="name">python实用教程之re正则表达式匹配</span>
-          </a>
-      </h2>
+<p>当你想要创建一个空的<code>tensor</code>时候，可以使用如下的方法：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">tensor_without_data = torch.Tensor() <span class="comment"># tensor([])</span></span><br><span class="line">tensor_without_data = torch.tensor(()) <span class="comment"># tensor([])</span></span><br><span class="line">tensor_without_data = torch.empty([]) <span class="comment"># tensor(0.)</span></span><br></pre></td></tr></table></figure>
 
-    </header>
-  </article>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-03-16T11:32:00+08:00"
-              content="2020-03-16">
-          03-16
-        </time>
-      </div>
-
-      <h2 class="post-title">
-          <a class="post-title-link" href="/2020/03/16/Python%E5%AE%9E%E7%94%A8%E6%95%99%E7%A8%8B%E4%B9%8B__getattr__%E7%AD%89%E6%A0%87%E8%AF%86%E7%AC%A6%E7%9A%84%E7%94%A8%E6%B3%95/" itemprop="url">
-            <span itemprop="name">Python实用教程之__getattr__等标识符的用法</span>
-          </a>
-      </h2>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-03-16T10:52:00+08:00"
-              content="2020-03-16">
-          03-16
-        </time>
-      </div>
-
-      <h2 class="post-title">
-          <a class="post-title-link" href="/2020/03/16/Python%E5%AE%9E%E7%94%A8%E6%95%99%E7%A8%8B%E4%B9%8B%E4%B8%8B%E5%88%92%E7%BA%BF%E5%91%BD%E5%90%8D%E6%A8%A1%E5%BC%8F/" itemprop="url">
-            <span itemprop="name">Python实用教程之下划线命名模式</span>
-          </a>
-      </h2>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-03-04T13:00:00+08:00"
-              content="2020-03-04">
-          03-04
-        </time>
-      </div>
-
-      <h2 class="post-title">
-          <a class="post-title-link" href="/2020/03/04/Python%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8%E4%B9%8Bpickle%E6%A8%A1%E5%9D%97%E7%9A%84%E4%BD%BF%E7%94%A8/" itemprop="url">
-            <span itemprop="name">Python数据存储之pickle模块的使用</span>
-          </a>
-      </h2>
-
-    </header>
-  </article>
+<p>所以<code>torch.Tensor</code>应该说是同时具有<code>torch.tensor</code>和<code>torch.empty</code>的功能，但是使用<code>torch.Tensor</code>可能会使你的代码出错，所以最好还是使用<code>torch.tensor</code>和<code>torch.empty</code>，而不是<code>torch.Tensor</code>。</p>
 
     </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/PyTorch/" rel="tag"># PyTorch</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/03/04/Python%E4%B8%ADpickle%E6%A8%A1%E5%9D%97%E7%9A%84%E4%BD%BF%E7%94%A8/" rel="prev" title="Python中pickle模块的使用">
+      <i class="fa fa-chevron-left"></i> Python中pickle模块的使用
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/03/07/Git%E5%B8%B8%E8%A7%81%E6%93%8D%E4%BD%9C/" rel="next" title="Git常见操作">
+      Git常见操作 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
   </div>
-  
-  
-  
-
-  
-
 
 
           </div>
@@ -355,6 +353,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#torch-Tensor和torch-tensor有什么区别？"><span class="nav-number">1.</span> <span class="nav-text">torch.Tensor和torch.tensor有什么区别？</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#介绍"><span class="nav-number">1.0.1.</span> <span class="nav-text">介绍</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#区别1"><span class="nav-number">1.0.2.</span> <span class="nav-text">区别1</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#区别2"><span class="nav-number">1.1.</span> <span class="nav-text">区别2</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -368,14 +367,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">32</span>
+          <span class="site-state-item-count">33</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">35</span>
+        <span class="site-state-item-count">34</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -454,7 +453,7 @@
 
 
   
-<script src="/js/local-search.js"></script>
+<script src="/js/local-search.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 
 
@@ -467,6 +466,8 @@
 
 
 
+
+  
 
   
 

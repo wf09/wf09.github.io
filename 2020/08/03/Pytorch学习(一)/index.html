@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
 <meta name="generator" content="Hexo 4.2.0">
@@ -48,18 +48,18 @@
 
   <meta name="description" content="PyTorch（1.3.0）主要包括以下16个模块。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Pytorch学习(一)">
-<meta property="og:url" content="http://fly97.cn/2020/08/03/Pytorch%E5%AD%A6%E4%B9%A0(%E4%B8%80)/index.html">
+<meta property="og:title" content="PyTorch学习(一)">
+<meta property="og:url" content="http://fly97.cn/2020/08/03/PyTorch%E5%AD%A6%E4%B9%A0(%E4%B8%80)/index.html">
 <meta property="og:site_name" content="个人随想">
 <meta property="og:description" content="PyTorch（1.3.0）主要包括以下16个模块。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-08-03T12:54:00.000Z">
-<meta property="article:modified_time" content="2020-08-04T08:34:00.147Z">
+<meta property="article:modified_time" content="2020-08-05T14:29:22.143Z">
 <meta property="article:author" content="fly97">
-<meta property="article:tag" content="Pytorch">
+<meta property="article:tag" content="PyTorch">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://fly97.cn/2020/08/03/Pytorch%E5%AD%A6%E4%B9%A0(%E4%B8%80)/">
+<link rel="canonical" href="http://fly97.cn/2020/08/03/PyTorch%E5%AD%A6%E4%B9%A0(%E4%B8%80)/">
 
 
 <script id="page-configurations">
@@ -71,7 +71,7 @@
   };
 </script>
 
-  <title>Pytorch学习(一) | 个人随想</title>
+  <title>PyTorch学习(一) | 个人随想</title>
   
 
 
@@ -100,12 +100,12 @@
   .use-motion .logo-line-before i { left: initial; }
   .use-motion .logo-line-after i { right: initial; }
   </style>
-</noscript>
+</noscript><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
-  <div class="container use-motion">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container use-motion">
     <div class="headband"></div>
 
     <header class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -208,7 +208,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://fly97.cn/2020/08/03/Pytorch%E5%AD%A6%E4%B9%A0(%E4%B8%80)/">
+    <link itemprop="mainEntityOfPage" href="http://fly97.cn/2020/08/03/PyTorch%E5%AD%A6%E4%B9%A0(%E4%B8%80)/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -221,7 +221,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Pytorch学习(一)
+          PyTorch学习(一)
         </h1>
 
         <div class="post-meta">
@@ -238,7 +238,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-08-04 16:34:00" itemprop="dateModified" datetime="2020-08-04T16:34:00+08:00">2020-08-04</time>
+                <time title="修改时间：2020-08-05 22:29:22" itemprop="dateModified" datetime="2020-08-05T22:29:22+08:00">2020-08-05</time>
               </span>
 
           
@@ -255,21 +255,21 @@
         <p>PyTorch（1.3.0）主要包括以下16个模块。</p>
 <a id="more"></a>
 
-<h4 id="torch模块"><a href="#torch模块" class="headerlink" title="torch模块"></a>torch模块</h4><p>torch 模块本身包含了Pytorch经常使用的一些激活函数。</p>
-<p>例如<strong>Sigmoid (torch.sigmoid)</strong>、<strong>ReLU(torch.relu)</strong>和<strong>Tanh（torch.tanh)</strong>，以及Pytorch张量的一些操作，比如<strong>矩阵的乘法(torch.mm)</strong>、<strong>张量元素的选择(torch.select)</strong>。需要注意的是，这些操作的对象大多数都是张量，因此传入的参数需要是Pytorch的张量。否则会抛出<strong>类型错误（TypeError)</strong>的异常。</p>
+<h4 id="torch模块"><a href="#torch模块" class="headerlink" title="torch模块"></a>torch模块</h4><p>torch 模块本身包含了PyTorch经常使用的一些激活函数。</p>
+<p>例如<strong>Sigmoid (torch.sigmoid)</strong>、<strong>ReLU(torch.relu)</strong>和<strong>Tanh（torch.tanh)</strong>，以及PyTorch张量的一些操作，比如<strong>矩阵的乘法(torch.mm)</strong>、<strong>张量元素的选择(torch.select)</strong>。需要注意的是，这些操作的对象大多数都是张量，因此传入的参数需要是PyTorch的张量。否则会抛出<strong>类型错误（TypeError)</strong>的异常。</p>
 <p>此外，还有一类函数能够产生一定形状的张量，比如<strong>torch.zeros产生元素全为0的张量</strong>。<strong>torch.randn产生元素服从标准正态分布的张量</strong>等等。</p>
 <h4 id="torch-Tensor模块"><a href="#torch-Tensor模块" class="headerlink" title="torch.Tensor模块"></a>torch.Tensor模块</h4><p>torch.Tensor模块定义了torch中的张量类型，其中的张量有不同的数值类型，例如单精度、双精度浮点型、整数类型等，而且张量有一定的维度和形状。同时，张量的类中也包含一系列的方法，返回新的张量或者更改当前的张量。torch.Storage负责torch.Tensor底层的数据存储，即前面提到的为一个张量分配连续的一维内存地址（用于存储相同类型的一系列元素，数目则为张量的总元素数目）。</p>
-<p><strong>如果张量的某个类方法会返回张量，按照Pytorch的命名规则，如果张量方法后缀带下划线，则该方法会修改张量本身的数据，反之则会返回新的张量。</strong></p>
+<p><strong>如果张量的某个类方法会返回张量，按照PyTorch的命名规则，如果张量方法后缀带下划线，则该方法会修改张量本身的数据，反之则会返回新的张量。</strong></p>
 <blockquote>
 <p>例如：Tensor.add方法会让当前张量和输入参数张量做加法，返回新的张量。而Tensor.add_方法会改变当前张量的值，新的值为旧的值和输入参数之和。</p>
 </blockquote>
 <h4 id="torch-sparse模块"><a href="#torch-sparse模块" class="headerlink" title="torch.sparse模块"></a>torch.sparse模块</h4><p>torch.sparse模块定义了稀疏张量，其中构造的稀疏张量采用的是COO格式（Coordinate），主要方法是用一个长整型定义非零元素的位置，用浮点数张量定义非零元素的值。稀疏张量之间可以做元素加、减、乘、除运算和矩阵乘法。</p>
 <h4 id="torch-cuda模块"><a href="#torch-cuda模块" class="headerlink" title="torch.cuda模块"></a>torch.cuda模块</h4><p>torch.cuda模块定义了CUDA运算一系列函数，包括但不限于检查系统的CUDA是否可用，当前进程对应的GPU序号，清除GPU上面的缓存，设置GPU的计算流（Stream），同步GPU上执行的所以核函数（Kernel）等。</p>
-<h4 id="torch-nn模块"><a href="#torch-nn模块" class="headerlink" title="torch.nn模块"></a>torch.nn模块</h4><p>torch.nn是一个非常重要的模块，是Pytorch神经网络模块化的核心，这个模块定义了一系列模块，包括<strong>卷积层(nn.ConvNd(N=1，2，3))</strong>和<strong>线性层(nn.Linear)</strong>等。</p>
+<h4 id="torch-nn模块"><a href="#torch-nn模块" class="headerlink" title="torch.nn模块"></a>torch.nn模块</h4><p>torch.nn是一个非常重要的模块，是PyTorch神经网络模块化的核心，这个模块定义了一系列模块，包括<strong>卷积层(nn.ConvNd(N=1，2，3))</strong>和<strong>线性层(nn.Linear)</strong>等。</p>
 <p>当构建深度学习模型的时候，可以通过继承<strong>torch.nn.Module类</strong>重写forward方法来实现一个新的神经网络(后续会提到如何通过组合神经网络模块来构建深度学习模型)。</p>
 <p>另外，torch.nn中也定义了一系列的损失函数，包括<strong>平方损失函数(torch.nn.MSEloss)</strong>、<strong>交叉熵损失函数(torch.nn.CrossEntropyLoss)</strong>等。</p>
 <p>torch.nn里定义的神经网络模块都含有参数，可以对这些参数使用优化器进行训练。</p>
-<h4 id="torch-nn-functional函数模块"><a href="#torch-nn-functional函数模块" class="headerlink" title="torch.nn.functional函数模块"></a>torch.nn.functional函数模块</h4><p><strong>torch.nn.funtional</strong>是Pytorch的函数模块，定义了一些核神经网络相关的函数，包括卷积函数和池化函数等，这些函数也是深度学习模型构建的基础。</p>
+<h4 id="torch-nn-functional函数模块"><a href="#torch-nn-functional函数模块" class="headerlink" title="torch.nn.functional函数模块"></a>torch.nn.functional函数模块</h4><p><strong>torch.nn.funtional</strong>是PyTorch的函数模块，定义了一些核神经网络相关的函数，包括卷积函数和池化函数等，这些函数也是深度学习模型构建的基础。</p>
 <p>torch.nn中定义的模块一般会调用torch.nn.functional里的函数。例如，nn.ConvNd模块(N=1,2,3)会调用torch.nn.functional.convNd函数(N=1,2,3)。</p>
 <p>torch.nn.functional里面还定义了一些不常用的激活函数，包括<strong>torch.nn.functional.relu6和torch.nn.functional.elu</strong>等。</p>
 <h4 id="torch-nn-init模块"><a href="#torch-nn-init模块" class="headerlink" title="torch.nn.init模块"></a>torch.nn.init模块</h4><p>torch.nn.init模块定义了神经网络权重初始化。</p>
@@ -277,7 +277,7 @@
 <p>这个模块包含很多初始化方法，包括<strong>均匀初始化torch.nn.init.uniform_</strong>和<strong>正态分布归一化torch.nn.init.normal_</strong>等。这个方法会直接改变传入张量的值，同时会改变返回后的张量。</p>
 <h4 id="torch-optim模块"><a href="#torch-optim模块" class="headerlink" title="torch.optim模块"></a>torch.optim模块</h4><p>torch.optim模块定义了一系列的优化器，如t<strong>orch.optim.SGD(随机梯度下降法)</strong>、<strong>torch.optim.Adagrad(AdaGrad算法)</strong>、<strong>torch.optim.RMSprop(RMSprop算法)</strong>和<strong>torch.optim.Adam(Adam算法)</strong>等。</p>
 <p>这个模块还包含学习率衰减的算法的子模块，即<strong>torch.optim.lr_scheduler</strong>。这个子模块中包含了<strong>torch.optim.lr_scheduker.StepLR(学习率阶梯下降算法)</strong>和<strong>torch.optim.lr_scheduler.CosineAnnealingLR(余弦退火算法)</strong>等学习率衰减算法。</p>
-<h4 id="torch-autograd模块"><a href="#torch-autograd模块" class="headerlink" title="torch.autograd模块"></a>torch.autograd模块</h4><p>torch.autograd模块是Pytorch的自动微分模块，定义了一系列的自动微分函数。<strong>torch.autograd.backward</strong>函数，主要用于在求得损失函数之后进行反向梯度传播。<strong>torch.autograd.grad</strong>函数用于一个标量张量(即只有一个分量的张量)对另一个张量求导，以及在代码中设置不参与求导的部分。</p>
+<h4 id="torch-autograd模块"><a href="#torch-autograd模块" class="headerlink" title="torch.autograd模块"></a>torch.autograd模块</h4><p>torch.autograd模块是PyTorch的自动微分模块，定义了一系列的自动微分函数。<strong>torch.autograd.backward</strong>函数，主要用于在求得损失函数之后进行反向梯度传播。<strong>torch.autograd.grad</strong>函数用于一个标量张量(即只有一个分量的张量)对另一个张量求导，以及在代码中设置不参与求导的部分。</p>
 <p>这个模块还内置了<strong>数值梯度功能</strong>和<strong>检查自动微分引擎是否输出正确结果</strong>的功能。</p>
 
     </div>
@@ -288,7 +288,7 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/Pytorch/" rel="tag"># Pytorch</a>
+              <a href="/tags/PyTorch/" rel="tag"># PyTorch</a>
           </div>
 
         
@@ -297,10 +297,13 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2020/08/03/Pytorch%E5%AD%A6%E4%B9%A0(%E4%BA%8C)/" rel="prev" title="Pytorch学习(二)">
-      <i class="fa fa-chevron-left"></i> Pytorch学习(二)
+    <a href="/2020/08/03/PyTorch%E5%AD%A6%E4%B9%A0(%E4%B8%89)/" rel="prev" title="PyTorch学习(三)">
+      <i class="fa fa-chevron-left"></i> PyTorch学习(三)
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/2020/08/05/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/" rel="next" title="机器学习基本概念">
+      机器学习基本概念 <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
@@ -374,14 +377,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">32</span>
+          <span class="site-state-item-count">33</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">35</span>
+        <span class="site-state-item-count">34</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -460,7 +463,7 @@
 
 
   
-<script src="/js/local-search.js"></script>
+<script src="/js/local-search.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 
 
@@ -473,6 +476,8 @@
 
 
 
+
+  
 
   
 
