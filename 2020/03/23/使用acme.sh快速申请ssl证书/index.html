@@ -4,47 +4,26 @@
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 4.2.0">
+<meta name="generator" content="Hexo 5.0.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
   <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta name="google-site-verification" content="8asjqKj8nljgUycZFS4L-H9Ivw5U1DHaXAOrHxxnRUg">
 
 <link rel="stylesheet" href="/css/main.css">
 
 
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/font-awesome@4/css/font-awesome.min.css">
 
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/pace-js@1.0.2/themes/blue/pace-theme-minimal.css">
+  <script src="//cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
 
-<script id="hexo-configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    hostname: new URL('http://fly97.cn').hostname,
-    root: '/',
-    scheme: 'Mist',
-    version: '7.7.0',
-    exturl: false,
-    sidebar: {"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},
-    copycode: {"enable":false,"show_result":false,"style":null},
-    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
-    bookmark: {"enable":false,"color":"#222","save":"auto"},
-    fancybox: false,
-    mediumzoom: false,
-    lazyload: false,
-    pangu: false,
-    comments: {"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},
-    algolia: {
-      appID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    },
-    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
-    path: 'search.xml',
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}
-  };
-</script>
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"fly97.cn","root":"/","scheme":"Mist","version":"8.0.0-rc.5","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
+  </script>
 
   <meta name="description" content="acme.sh 实现了 acme 协议, 可以从 letsencrypt 生成免费的证书. 转载自：https:&#x2F;&#x2F;github.com&#x2F;acmesh-official&#x2F;acme.sh&#x2F;wiki&#x2F;%E8%AF%B4%E6%98%8E">
 <meta property="og:type" content="article">
@@ -54,20 +33,22 @@
 <meta property="og:description" content="acme.sh 实现了 acme 协议, 可以从 letsencrypt 生成免费的证书. 转载自：https:&#x2F;&#x2F;github.com&#x2F;acmesh-official&#x2F;acme.sh&#x2F;wiki&#x2F;%E8%AF%B4%E6%98%8E">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-03-23T06:14:00.000Z">
-<meta property="article:modified_time" content="2020-08-05T14:42:30.686Z">
-<meta property="article:author" content="fly97">
+<meta property="article:modified_time" content="2020-08-16T10:34:56.156Z">
+<meta property="article:author" content="个人随想">
 <meta property="article:tag" content="证书">
 <meta name="twitter:card" content="summary">
+
 
 <link rel="canonical" href="http://fly97.cn/2020/03/23/%E4%BD%BF%E7%94%A8acme.sh%E5%BF%AB%E9%80%9F%E7%94%B3%E8%AF%B7ssl%E8%AF%81%E4%B9%A6/">
 
 
-<script id="page-configurations">
+<script class="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome: false,
-    isPost: true
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
   };
 </script>
 
@@ -75,114 +56,225 @@
   
 
 
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?b6247b5cec5ce45c64bcc9851a8ee960";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
 
 
 
 
   <noscript>
   <style>
-  .use-motion .brand,
+  body { margin-top: 2rem; }
+
   .use-motion .menu-item,
-  .sidebar-inner,
+  .use-motion .sidebar,
   .use-motion .post-block,
   .use-motion .pagination,
   .use-motion .comments,
   .use-motion .post-header,
   .use-motion .post-body,
-  .use-motion .collection-header { opacity: initial; }
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
 
   .use-motion .site-title,
-  .use-motion .site-subtitle {
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
     opacity: initial;
     top: initial;
   }
 
-  .use-motion .logo-line-before i { left: initial; }
-  .use-motion .logo-line-after i { right: initial; }
-  </style>
-</noscript><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
 
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="个人随想" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage">
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container use-motion">
-    <div class="headband"></div>
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="headband"></div>
 
+  <main class="main">
     <header class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-container">
-  <div class="site-meta">
-
-    <div>
-      <a href="/" class="brand" rel="start">
-        <span class="logo-line-before"><i></i></span>
-        <span class="site-title">个人随想</span>
-        <span class="logo-line-after"><i></i></span>
-      </a>
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
     </div>
   </div>
 
-  <div class="site-nav-toggle">
-    <div class="toggle" aria-label="切换导航栏">
-      <span class="toggle-line toggle-line-first"></span>
-      <span class="toggle-line toggle-line-middle"></span>
-      <span class="toggle-line toggle-line-last"></span>
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">个人随想</h1>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
     </div>
   </div>
 </div>
 
 
+
 <nav class="site-nav">
-  
-  <ul id="menu" class="menu">
+  <ul id="menu" class="main-menu menu">
         <li class="menu-item menu-item-home">
 
-    <a href="/" rel="section">首页</a>
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
 
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section">标签</a>
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section">归档</a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
 
   </li>
-        <li class="menu-item menu-item-referral">
+        <li class="menu-item menu-item-sitemap">
 
-    <a href="/referral/" rel="section">推广</a>
+    <a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a>
+
+  </li>
+        <li class="menu-item menu-item-book">
+
+    <a href="/book" rel="section"><i class="fa fa-book fa-fw"></i>书籍</a>
 
   </li>
       <li class="menu-item menu-item-search">
-        <a role="button" class="popup-trigger">搜索
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
         </a>
       </li>
   </ul>
-
 </nav>
-  <div class="site-search">
+
+
+
+  <div class="search-pop-overlay">
     <div class="popup search-popup">
-    <div class="search-header">
+        <div class="search-header">
   <span class="search-icon">
     <i class="fa fa-search"></i>
   </span>
   <div class="search-input-container">
-    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
            placeholder="搜索..." spellcheck="false"
-           type="text" id="search-input">
+           type="search" class="search-input">
   </div>
   <span class="popup-btn-close">
     <i class="fa fa-times-circle"></i>
   </span>
 </div>
-<div id="search-result"></div>
-
-</div>
-<div class="search-pop-overlay"></div>
-
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
   </div>
 </div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <section class="post-toc-wrap sidebar-panel">
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%89%E8%A3%85-acme-sh"><span class="nav-number">1.</span> <span class="nav-text">安装 acme.sh</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%94%9F%E6%88%90%E8%AF%81%E4%B9%A6"><span class="nav-number">2.</span> <span class="nav-text">生成证书</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#http-%E6%96%B9%E5%BC%8F%E9%9C%80%E8%A6%81%E5%9C%A8%E4%BD%A0%E7%9A%84%E7%BD%91%E7%AB%99%E6%A0%B9%E7%9B%AE%E5%BD%95%E4%B8%8B%E6%94%BE%E7%BD%AE%E4%B8%80%E4%B8%AA%E6%96%87%E4%BB%B6-%E6%9D%A5%E9%AA%8C%E8%AF%81%E4%BD%A0%E7%9A%84%E5%9F%9F%E5%90%8D%E6%89%80%E6%9C%89%E6%9D%83-%E5%AE%8C%E6%88%90%E9%AA%8C%E8%AF%81-%E7%84%B6%E5%90%8E%E5%B0%B1%E5%8F%AF%E4%BB%A5%E7%94%9F%E6%88%90%E8%AF%81%E4%B9%A6%E4%BA%86"><span class="nav-number">2.1.</span> <span class="nav-text">http 方式需要在你的网站根目录下放置一个文件, 来验证你的域名所有权,完成验证. 然后就可以生成证书了.</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%89%8B%E5%8A%A8-dns-%E6%96%B9%E5%BC%8F-%E6%89%8B%E5%8A%A8%E5%9C%A8%E5%9F%9F%E5%90%8D%E4%B8%8A%E6%B7%BB%E5%8A%A0%E4%B8%80%E6%9D%A1-txt-%E8%A7%A3%E6%9E%90%E8%AE%B0%E5%BD%95-%E9%AA%8C%E8%AF%81%E5%9F%9F%E5%90%8D%E6%89%80%E6%9C%89%E6%9D%83"><span class="nav-number">2.2.</span> <span class="nav-text">手动 dns 方式, 手动在域名上添加一条 txt 解析记录, 验证域名所有权.</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#copy-%E5%AE%89%E8%A3%85-%E8%AF%81%E4%B9%A6"><span class="nav-number">3.</span> <span class="nav-text">copy&#x2F;安装 证书</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Apache-example"><span class="nav-number">3.1.</span> <span class="nav-text">Apache example:</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Nginx-example"><span class="nav-number">3.2.</span> <span class="nav-text">Nginx example:</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9B%B4%E6%96%B0%E8%AF%81%E4%B9%A6"><span class="nav-number">4.</span> <span class="nav-text">更新证书</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9B%B4%E6%96%B0-acme-sh"><span class="nav-number">5.</span> <span class="nav-text">更新 acme.sh</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%B0%83%E8%AF%95"><span class="nav-number">6.</span> <span class="nav-text">调试</span></a></li></ol></div>
+      </section>
+      <!--/noindex-->
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">个人随想</p>
+  <div class="site-description" itemprop="description">你不是我 怎么可能做到感同身受</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">41</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">33</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/wf09" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;wf09" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:universitypking@gmail.com" title="E-Mail → mailto:universitypking@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll animated">
+    <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://fly97.cn/" title="https:&#x2F;&#x2F;fly97.cn">个人随想</a>
+        </li>
+    </ul>
+  </div>
+
+      </section>
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
     </header>
 
     
@@ -190,35 +282,37 @@
     <i class="fa fa-arrow-up"></i>
     <span>0%</span>
   </div>
-  <div class="reading-progress-bar"></div>
 
   <a href="https://github.com/wf09" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
 
+<noscript>
+  <div id="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
 
-    <main class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          
 
-          <div class="content">
-            
-
-  <div class="posts-expand">
+    <div class="main-inner post posts-expand">
       
+
+      
+
+    
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://fly97.cn/2020/03/23/%E4%BD%BF%E7%94%A8acme.sh%E5%BF%AB%E9%80%9F%E7%94%B3%E8%AF%B7ssl%E8%AF%81%E4%B9%A6/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="fly97">
+      <meta itemprop="name" content="个人随想">
       <meta itemprop="description" content="你不是我 怎么可能做到感同身受">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="个人随想">
     </span>
+
+    
+    
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           使用acme.sh快速申请ssl证书
@@ -227,7 +321,7 @@
         <div class="post-meta">
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
+                <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
 
@@ -235,10 +329,10 @@
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
+                  <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-08-05 22:42:30" itemprop="dateModified" datetime="2020-08-05T22:42:30+08:00">2020-08-05</time>
+                <time title="修改时间：2020-08-16 18:34:56" itemprop="dateModified" datetime="2020-08-16T18:34:56+08:00">2020-08-16</time>
               </span>
 
           
@@ -250,10 +344,8 @@
     
     
     <div class="post-body" itemprop="articleBody">
-
-      
         <p><strong>acme.sh</strong> 实现了 <code>acme</code> 协议, 可以从 letsencrypt 生成免费的证书.</p>
-<p><strong>转载自：<a href="https://github.com/acmesh-official/acme.sh/wiki/说明" target="_blank" rel="noopener">https://github.com/acmesh-official/acme.sh/wiki/%E8%AF%B4%E6%98%8E</a></strong></p>
+<p><strong>转载自：<a target="_blank" rel="noopener" href="https://github.com/acmesh-official/acme.sh/wiki/%E8%AF%B4%E6%98%8E">https://github.com/acmesh-official/acme.sh/wiki/%E8%AF%B4%E6%98%8E</a></strong></p>
 <a id="more"></a>
 
 <p>主要步骤:</p>
@@ -270,11 +362,13 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl  https:&#x2F;&#x2F;get.acme.sh | sh</span><br></pre></td></tr></table></figure>
 
 <p>普通用户和 root 用户都可以安装使用.<br>安装过程进行了以下几步:</p>
-<p>1) 把 acme.sh 安装到你的 <strong>home</strong> 目录下:</p>
+<ol>
+<li>把 acme.sh 安装到你的 <strong>home</strong> 目录下:</li>
+</ol>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">~&#x2F;.acme.sh&#x2F;</span><br></pre></td></tr></table></figure>
 <p>并创建 一个 bash 的 alias, 方便你的使用:  <code>alias acme.sh=~/.acme.sh/acme.sh</code></p>
 <p>2). 自动为你创建 cronjob,  每天 0:00 点自动检测所有的证书, 如果快过期了, 需要更新, 则会自动更新证书.</p>
-<p>更高级的安装选项请参考: <a href="https://github.com/Neilpang/acme.sh/wiki/How-to-install" target="_blank" rel="noopener">https://github.com/Neilpang/acme.sh/wiki/How-to-install</a></p>
+<p>更高级的安装选项请参考: <a target="_blank" rel="noopener" href="https://github.com/Neilpang/acme.sh/wiki/How-to-install">https://github.com/Neilpang/acme.sh/wiki/How-to-install</a></p>
 <p><strong>安装过程不会污染已有的系统任何功能和文件</strong>, 所有的修改都限制在安装目录中: <code>~/.acme.sh/</code></p>
 <h4 id="生成证书"><a href="#生成证书" class="headerlink" title="生成证书"></a>生成证书</h4><p><strong>acme.sh</strong> 实现了 <strong>acme</strong> 协议支持的所有验证协议.<br>一般有两种方式验证: http 和 dns 验证.</p>
 <h5 id="http-方式需要在你的网站根目录下放置一个文件-来验证你的域名所有权-完成验证-然后就可以生成证书了"><a href="#http-方式需要在你的网站根目录下放置一个文件-来验证你的域名所有权-完成验证-然后就可以生成证书了" class="headerlink" title="http 方式需要在你的网站根目录下放置一个文件, 来验证你的域名所有权,完成验证. 然后就可以生成证书了."></a>http 方式需要在你的网站根目录下放置一个文件, 来验证你的域名所有权,完成验证. 然后就可以生成证书了.</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">acme.sh  --issue  -d mydomain.com -d www.mydomain.com  --webroot  &#x2F;home&#x2F;wwwroot&#x2F;mydomain.com&#x2F;</span><br></pre></td></tr></table></figure>
@@ -290,7 +384,7 @@
 <p>如果你还没有运行任何 web 服务, <strong>80</strong> 端口是空闲的, 那么 <strong>acme.sh</strong> 还能假装自己是一个webserver, 临时听在<strong>80</strong> 端口, 完成验证:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">acme.sh  --issue -d mydomain.com   --standalone</span><br></pre></td></tr></table></figure>
 
-<p>更高级的用法请参考: <a href="https://github.com/Neilpang/acme.sh/wiki/How-to-issue-a-cert" target="_blank" rel="noopener">https://github.com/Neilpang/acme.sh/wiki/How-to-issue-a-cert</a></p>
+<p>更高级的用法请参考: <a target="_blank" rel="noopener" href="https://github.com/Neilpang/acme.sh/wiki/How-to-issue-a-cert">https://github.com/Neilpang/acme.sh/wiki/How-to-issue-a-cert</a></p>
 <h5 id="手动-dns-方式-手动在域名上添加一条-txt-解析记录-验证域名所有权"><a href="#手动-dns-方式-手动在域名上添加一条-txt-解析记录-验证域名所有权" class="headerlink" title="手动 dns 方式, 手动在域名上添加一条 txt 解析记录, 验证域名所有权."></a>手动 dns 方式, 手动在域名上添加一条 txt 解析记录, 验证域名所有权.</h5><p>这种方式的好处是, 你不需要任何服务器, 不需要任何公网 ip, 只需要 dns 的解析记录即可完成验证.<br>坏处是，如果不同时配置 Automatic DNS API，使用这种方式 acme.sh 将无法自动更新证书，每次都需要手动再次重新解析验证域名所有权。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">acme.sh  --issue  --dns   -d mydomain.com</span><br></pre></td></tr></table></figure>
 
@@ -301,12 +395,12 @@
 <p>dns 方式的真正强大之处在于可以使用域名解析商提供的 api 自动添加 txt 记录完成验证.</p>
 <p><strong>acme.sh</strong> 目前支持 cloudflare, dnspod, cloudxns, godaddy 以及 ovh 等数十种解析商的自动集成. </p>
 <p>以 dnspod 为例, 你需要先登录到 dnspod 账号, 生成你的 api id 和 api key, 都是免费的.<br>然后:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">export DP_Id&#x3D;&quot;1234&quot;</span><br><span class="line"></span><br><span class="line">export DP_Key&#x3D;&quot;sADDsdasdgdsf&quot;</span><br><span class="line"></span><br><span class="line">acme.sh   --issue   --dns dns_dp   -d aa.com  -d www.aa.com</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">export DP_Id&#x3D;&quot;1234&quot;</span><br><span class="line"></span><br><span class="line">export DP_Key&#x3D;&quot;sADDsdasdgdsf&quot;</span><br><span class="line"></span><br><span class="line">acme.sh   --issue   --dns dns_dp   -d aa.com  -d www.aa.com</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 <p>证书就会自动生成了. 这里给出的 api id 和 api key 会被自动记录下来, 将来你在使用 dnspod api 的时候, 就不需要再次指定了.<br>直接生成就好了:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">acme.sh  --issue   -d  mydomain2.com   --dns  dns_dp</span><br></pre></td></tr></table></figure>
 
-<p>更详细的 api 用法: <a href="https://github.com/Neilpang/acme.sh/blob/master/dnsapi/README.md" target="_blank" rel="noopener">https://github.com/Neilpang/acme.sh/blob/master/dnsapi/README.md</a></p>
+<p>更详细的 api 用法: <a target="_blank" rel="noopener" href="https://github.com/Neilpang/acme.sh/blob/master/dnsapi/README.md">https://github.com/Neilpang/acme.sh/blob/master/dnsapi/README.md</a></p>
 <h4 id="copy-安装-证书"><a href="#copy-安装-证书" class="headerlink" title="copy/安装 证书"></a>copy/安装 证书</h4><p>前面证书生成以后, 接下来需要把证书 copy 到真正需要用它的地方.</p>
 <p>注意, 默认生成的证书都放在安装目录下: <code>~/.acme.sh/</code>,  请不要直接使用此目录下的文件, 例如: 不要直接让 nginx/apache 的配置文件使用这下面的文件. 这里面的文件都是内部使用, 而且目录结构可能会变化.</p>
 <p>正确的使用方法是使用 <code>--installcert</code> 命令,并指定目标位置, 然后证书文件会被copy到相应的位置,<br>例如:</p>
@@ -315,9 +409,9 @@
 <h5 id="Nginx-example"><a href="#Nginx-example" class="headerlink" title="Nginx example:"></a>Nginx example:</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">acme.sh --installcert -d example.com \</span><br><span class="line">--key-file       &#x2F;path&#x2F;to&#x2F;keyfile&#x2F;in&#x2F;nginx&#x2F;key.pem  \</span><br><span class="line">--fullchain-file &#x2F;path&#x2F;to&#x2F;fullchain&#x2F;nginx&#x2F;cert.pem \</span><br><span class="line">--reloadcmd     &quot;service nginx force-reload&quot;</span><br></pre></td></tr></table></figure>
 
 <p>(一个小提醒, 这里用的是 <code>service nginx force-reload</code>, 不是 <code>service nginx reload</code>, 据测试, <code>reload</code> 并不会重新加载证书, 所以用的 <code>force-reload</code>)</p>
-<p>Nginx 的配置 <code>ssl_certificate</code> 使用 <code>/etc/nginx/ssl/fullchain.cer</code> ，而非 <code>/etc/nginx/ssl/&lt;domain&gt;.cer</code> ，否则 <a href="https://www.ssllabs.com/ssltest/" target="_blank" rel="noopener">SSL Labs</a> 的测试会报 <code>Chain issues Incomplete</code> 错误。</p>
+<p>Nginx 的配置 <code>ssl_certificate</code> 使用 <code>/etc/nginx/ssl/fullchain.cer</code> ，而非 <code>/etc/nginx/ssl/&lt;domain&gt;.cer</code> ，否则 <a target="_blank" rel="noopener" href="https://www.ssllabs.com/ssltest/">SSL Labs</a> 的测试会报 <code>Chain issues Incomplete</code> 错误。</p>
 <p><code>--installcert</code>命令可以携带很多参数, 来指定目标文件.  并且可以指定 reloadcmd, 当证书更新以后, reloadcmd会被自动调用,让服务器生效.</p>
-<p>详细参数请参考: <a href="https://github.com/Neilpang/acme.sh#3-install-the-issued-cert-to-apachenginx-etc" target="_blank" rel="noopener">https://github.com/Neilpang/acme.sh#3-install-the-issued-cert-to-apachenginx-etc</a></p>
+<p>详细参数请参考: <a target="_blank" rel="noopener" href="https://github.com/Neilpang/acme.sh#3-install-the-issued-cert-to-apachenginx-etc">https://github.com/Neilpang/acme.sh#3-install-the-issued-cert-to-apachenginx-etc</a></p>
 <p>值得注意的是, 这里指定的所有参数都会被自动记录下来, 并在将来证书自动更新以后, 被再次自动调用.</p>
 <h4 id="更新证书"><a href="#更新证书" class="headerlink" title="更新证书"></a>更新证书</h4><p>目前证书在 60 天以后会自动更新, 你无需任何操作. 今后有可能会缩短这个时间, 不过都是自动的, 你不用关心.</p>
 <h4 id="更新-acme-sh"><a href="#更新-acme-sh" class="headerlink" title="更新 acme.sh"></a>更新 acme.sh</h4><p>目前由于 acme 协议和 letsencrypt CA 都在频繁的更新, 因此 acme.sh 也经常更新以保持同步. </p>
@@ -332,19 +426,38 @@
 
 
 <h4 id="调试"><a href="#调试" class="headerlink" title="调试"></a>调试</h4><p>如果出错, 请添加 debug log：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">acme.sh  --issue  .....  --debug</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">acme.sh  --issue  .....  --debug </span><br></pre></td></tr></table></figure>
 <p>或者：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">acme.sh  --issue  .....  --debug  2</span><br></pre></td></tr></table></figure>
 
-<p>请参考： <a href="https://github.com/Neilpang/acme.sh/wiki/How-to-debug-acme.sh" target="_blank" rel="noopener">https://github.com/Neilpang/acme.sh/wiki/How-to-debug-acme.sh</a></p>
+<p>请参考： <a target="_blank" rel="noopener" href="https://github.com/Neilpang/acme.sh/wiki/How-to-debug-acme.sh">https://github.com/Neilpang/acme.sh/wiki/How-to-debug-acme.sh</a></p>
 <p>最后, 本文并非完全的使用说明, 还有很多高级的功能, 更高级的用法请参看其他 wiki 页面.</p>
-<p><a href="https://github.com/Neilpang/acme.sh/wiki" target="_blank" rel="noopener">https://github.com/Neilpang/acme.sh/wiki</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/Neilpang/acme.sh/wiki">https://github.com/Neilpang/acme.sh/wiki</a></p>
 
     </div>
 
     
     
     
+        
+
+  <div class="followme">
+    <p>欢迎关注我的其它发布渠道</p>
+
+    <div class="social-list">
+
+        <div class="social-item">
+          <a target="_blank" class="social-link" href="/atom.xml">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+
+            <span class="label">RSS</span>
+          </a>
+        </div>
+    </div>
+  </div>
+
 
       <footer class="post-footer">
           <div class="post-tags">
@@ -353,18 +466,18 @@
 
         
 
-
-        
-    <div class="post-nav">
-      <div class="post-nav-item">
-    <a href="/2020/03/20/Ubuntu%E6%9C%8D%E5%8A%A1%E7%AE%A1%E7%90%86/" rel="prev" title="Ubuntu服务管理">
-      <i class="fa fa-chevron-left"></i> Ubuntu服务管理
-    </a></div>
-      <div class="post-nav-item">
-    <a href="/2020/04/24/Linux%E4%B9%8Bcrontab%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/" rel="next" title="Linux之crontab定时任务">
-      Linux之crontab定时任务 <i class="fa fa-chevron-right"></i>
-    </a></div>
-    </div>
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2020/03/20/Ubuntu%E6%9C%8D%E5%8A%A1%E7%AE%A1%E7%90%86/" rel="prev" title="Ubuntu服务管理">
+                  <i class="fa fa-chevron-left"></i> Ubuntu服务管理
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2020/04/24/Linux%E4%B9%8Bcrontab%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/" rel="next" title="Linux之crontab定时任务">
+                  Linux之crontab定时任务 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
       </footer>
     
   </article>
@@ -372,15 +485,13 @@
   
   
 
-  </div>
 
 
-          </div>
-          
+      
 
 <script>
   window.addEventListener('tabs:register', () => {
-    let activeClass = CONFIG.comments.activeClass;
+    let { activeClass } = CONFIG.comments;
     if (CONFIG.comments.storage) {
       activeClass = localStorage.getItem('comments_active') || activeClass;
     }
@@ -400,79 +511,14 @@
   }
 </script>
 
-        </div>
-          
-  
-  <div class="toggle sidebar-toggle">
-    <span class="toggle-line toggle-line-first"></span>
-    <span class="toggle-line toggle-line-middle"></span>
-    <span class="toggle-line toggle-line-last"></span>
-  </div>
-
-  <aside class="sidebar">
-    <div class="sidebar-inner">
-
-      <ul class="sidebar-nav motion-element">
-        <li class="sidebar-nav-toc">
-          文章目录
-        </li>
-        <li class="sidebar-nav-overview">
-          站点概览
-        </li>
-      </ul>
-
-      <!--noindex-->
-      <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#安装-acme-sh"><span class="nav-number">1.</span> <span class="nav-text">安装 acme.sh</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#生成证书"><span class="nav-number">2.</span> <span class="nav-text">生成证书</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#http-方式需要在你的网站根目录下放置一个文件-来验证你的域名所有权-完成验证-然后就可以生成证书了"><span class="nav-number">2.1.</span> <span class="nav-text">http 方式需要在你的网站根目录下放置一个文件, 来验证你的域名所有权,完成验证. 然后就可以生成证书了.</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#手动-dns-方式-手动在域名上添加一条-txt-解析记录-验证域名所有权"><span class="nav-number">2.2.</span> <span class="nav-text">手动 dns 方式, 手动在域名上添加一条 txt 解析记录, 验证域名所有权.</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#copy-安装-证书"><span class="nav-number">3.</span> <span class="nav-text">copy&#x2F;安装 证书</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Apache-example"><span class="nav-number">3.1.</span> <span class="nav-text">Apache example:</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Nginx-example"><span class="nav-number">3.2.</span> <span class="nav-text">Nginx example:</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#更新证书"><span class="nav-number">4.</span> <span class="nav-text">更新证书</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#更新-acme-sh"><span class="nav-number">5.</span> <span class="nav-text">更新 acme.sh</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#调试"><span class="nav-number">6.</span> <span class="nav-text">调试</span></a></li></ol></div>
-      </div>
-      <!--/noindex-->
-
-      <div class="site-overview-wrap sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-  <p class="site-author-name" itemprop="name">fly97</p>
-  <div class="site-description" itemprop="description">你不是我 怎么可能做到感同身受</div>
-</div>
-<div class="site-state-wrap motion-element">
-  <nav class="site-state">
-      <div class="site-state-item site-state-posts">
-          <a href="/archives/">
-        
-          <span class="site-state-item-count">33</span>
-          <span class="site-state-item-name">日志</span>
-        </a>
-      </div>
-      <div class="site-state-item site-state-tags">
-            <a href="/tags/">
-          
-        <span class="site-state-item-count">34</span>
-        <span class="site-state-item-name">标签</span></a>
-      </div>
-  </nav>
-</div>
-  <div class="links-of-author motion-element">
-      <span class="links-of-author-item">
-        <a href="https://github.com/wf09" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;wf09" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
-      </span>
-      <span class="links-of-author-item">
-        <a href="mailto:wf.09@qq.com" title="E-Mail → mailto:wf.09@qq.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
-      </span>
-  </div>
-
-
-
-      </div>
-
     </div>
-  </aside>
-  <div id="sidebar-dimmer"></div>
+  </main>
 
+  <footer class="footer">
+    <div class="footer-inner">
+      
 
-      </div>
-    </main>
-
-    <footer class="footer">
-      <div class="footer-inner">
-        
+      
   <div class="beian"><a href="http://www.beian.miit.gov.cn/" rel="noopener" target="_blank">鲁ICP备19008796号-3 </a>
   </div>
 
@@ -483,10 +529,10 @@
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">fly97</span>
+  <span class="author" itemprop="copyrightHolder">个人随想</span>
 </div>
 
-        
+      
 
 
 
@@ -495,35 +541,19 @@
 
 
 
-      </div>
-    </footer>
-  </div>
+    </div>
+  </footer>
 
   
-  <script src="//cdn.jsdelivr.net/npm/animejs@3.1.0/lib/anime.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/velocity-animate@1/velocity.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/velocity-animate@1/velocity.ui.min.js"></script>
-
-<script src="/js/utils.js"></script>
-
-<script src="/js/motion.js"></script>
-
-
-<script src="/js/schemes/muse.js"></script>
-
-
-<script src="/js/next-boot.js"></script>
-
-
-
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.0/lib/anime.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
 
   
 
 
 
 
-  
-<script src="/js/local-search.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <script src="/js/local-search.js"></script>
 
 
 
@@ -532,7 +562,26 @@
 
 
 
+<script>
+document.querySelectorAll('.pdfobject-container').forEach(element => {
+  let url = element.dataset.target;
+  let pdfOpenParams = {
+    navpanes : 0,
+    toolbar  : 0,
+    statusbar: 0,
+    pagemode : 'thumbs',
+    view     : 'FitH'
+  };
+  let pdfOpenFragment = '#' + Object.entries(pdfOpenParams).map(([key, value]) => `${key}=${encodeURIComponent(value)}`).join('&');
+  let fullURL = `/lib/pdf/web/viewer.html?file=${encodeURIComponent(url)}${pdfOpenFragment}`;
 
+  if (NexT.utils.supportsPDFs()) {
+    element.innerHTML = `<embed class="pdfobject" src="${url + pdfOpenFragment}" type="application/pdf" style="height: ${element.dataset.height};">`;
+  } else {
+    element.innerHTML = `<iframe src="${fullURL}" style="height: ${element.dataset.height};" frameborder="0"></iframe>`;
+  }
+});
+</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 
 
@@ -544,6 +593,8 @@
   
 
 </body>
-<script type="text/javascript" src="//cdn.jsdelivr.net/gh/ygbhf/clicklove/clicklove.js"></script>
-<script data-ad-client="ca-pub-2238291690005827" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <!-- 代码块复制功能 -->
+  <!-- <script type="text/javascript" src="/js/clipboard.min.js"></script>   -->
+  <!-- <script type="text/javascript" src="/js/clipboard-use.js"></script> -->
+  <script type="text/javascript" src="//cdn.jsdelivr.net/gh/ygbhf/clicklove/clicklove.js"></script>
 </html>
